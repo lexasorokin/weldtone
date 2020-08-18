@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+{% 
+  set classes = [
+    'block',
+    'block--type--search-block'
+  ]
+%}
+
+{% set bg_image = content.field_bg_image['0']['#markup'] %}
+{% set bg_position = content.field_bg_image_position['0']['#context'].value %}
+{% set search_id = content.field_search_input_id[0]['#context'].value|trim %}
+{% set search_placeholder = content.field_search_input_placeholder[0]['#context'].value|trim %}
+
+{% import '/themes/civic/templates/macros/additional_styles.twig' as styles %}
+
+<section
+  {{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}
+  style="background-image: url({{ bg_image }}); background-position: {{ bg_position }}"
+>
+  <div class="container">
+    {% block content %}
+      {{ content.body }}
+
+      <form action="/search/node" class="mb-2em">
+        <label for="{{ search_id }}" class="sr-only">
+          {{ search_placeholder }}
+        </label>
+        <input id="{{ search_id }}" name="keys" placeholder="{{ search_placeholder }}" type="text">
+        <button class="search-icon-button" type="submit">
+          <span class="sr-only">Submit</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="search"
+            class="svg-inline--fa fa-search fa-w-16"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path 
+              fill="currentColor"
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    {% endblock %}
+  </div>
+</section>

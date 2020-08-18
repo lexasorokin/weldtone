@@ -1,0 +1,13 @@
+frontend:
+  version: 1.x
+  css:
+    theme:
+      css/frontend.css: {}
+
+backend:
+  version: 1.x
+  css:
+    theme:
+      css/backend.css: {}
+  js:
+    js/civic-theme-docs.js: {}

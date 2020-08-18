@@ -1,0 +1,15 @@
+json_to_node.settings:
+  type: config_object
+  mapping:
+    creation_id:
+      type: integer
+      label: Unique creation id
+    node_id:
+      type: integer
+      label: The id of the created node
+    creation_time:
+      type: string
+      label: The id of the node that was created 
+    last_updated_time:
+      type: string
+      label: The last time the node was updated

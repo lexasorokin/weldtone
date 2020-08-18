@@ -1,0 +1,95 @@
+<?php
+
+use \Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function mod_schedule_pub_cron() {
+  _mod_schedule_pub_publish_nodes();
+  _mod_schedule_pub_unpublish_nodes();
+}
+
+function _mod_schedule_pub_publish_nodes() {
+  $node_stoarge = \Drupal::entityTypeManager()->getStorage('node');
+  $now = new DrupalDateTime('now');
+
+  $query = \Drupal::entityQuery('node')
+    ->exists('publish_on')
+    ->condition('status', 0)
+    ->sort('publish_on')
+    ->sort('nid');
+  $query->accessCheck(FALSE);  
+  $unpublishedNids = $query->execute();
+  $unpublishedNodes = $node_stoarge->loadMultiple($unpublishedNids);
+
+  foreach ($unpublishedNodes as $node) {
+    $publishOn = $node->get('publish_on')->getValue();
+    
+    if ($publishOn) {
+      $publishTime = DrupalDateTime::createFromTimestamp($publishOn[0]['value']);
+      
+      if ($publishTime < $now) {
+        // Make sure the title property is there before logging it
+        if ($node->get('title')->getValue() && $node->get('title')->getValue()[0] && $node->get('title')->getValue()[0]) {
+          $nodeTitle = $node->get('title')->getValue()[0]['value'];
+          \Drupal::logger('Moderated Scheduled Publish')->notice('Published Node ' . $node->id() . ': ' . $nodeTitle . '. ');
+        } else {
+          \Drupal::logger('Moderated Scheduled Publish')->notice('Published Node ' . $node->id() . '. ');
+        }
+
+        $node->set('moderation_state', [[ 'value' => 'published']]);
+        $node->setPublished();
+        $node->set('publish_on', NULL);
+        $node->save();
+      } 
+    }
+  }
+}
+
+function _mod_schedule_pub_unpublish_nodes() {
+  $now = new DrupalDateTime('now');
+  $node_stoarge = \Drupal::entityTypeManager()->getStorage('node');
+  $query = \Drupal::entityQuery('node')
+    ->exists('unpublish_on')
+    ->condition('status', 1)
+    ->sort('unpublish_on')
+    ->sort('nid');
+    
+  $nids = $query->execute();
+  $nodes = $node_stoarge->loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    $unpublishOn = $node->get('unpublish_on')->getValue();
+    
+    if ($unpublishOn) {
+      $unpublishTime = DrupalDateTime::createFromTimestamp($unpublishOn[0]['value']);
+
+      if ($unpublishTime < $now) {
+
+        // Make sure the title property is there before logging it
+        if ($node->get('title')->getValue() && $node->get('title')->getValue()[0] && $node->get('title')->getValue()[0]) {
+          $nodeTitle = $node->get('title')->getValue()[0]['value'];
+          \Drupal::logger('Moderated Scheduled Publish')->notice('Unpublished Node ' . $node->id() . ': ' . $nodeTitle . '. ');
+        } else {
+          \Drupal::logger('Moderated Scheduled Publish')->notice('Unpublished Node ' . $node->id() . '. ');
+        }
+        
+        $node->set('moderation_state', [[ 'value' => 'archived']]);
+        $node->setUnpublished();
+        $node->set('unpublish_on', NULL);
+        $node->save();
+      } 
+    }
+  }
+}
+
+function mod_schedule_pub_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.mod_schedule_pub':
+      $output = '';
+      $output .= '<h2>' . t('Reason For This Module') . '</h2>';
+      $output .= '<p>' . t('There is a conflict between the "Scheduler" module and the "Content Moderation" module. While the scheduler has access to simply publish nodes, it seems it does not permssion to move content from one moderation state to another. This module contains an additional CRON job that looks for any unpublished content that has passed its scheduled publish time and immediately publishes it. This will take something from any modersation state and make it published. Therefore it\'s a good idea to only give scheduler permission to users who also have the permission to publish.') . '</p>';
+      $output .= '<h2>' . t('Configuration') . '</h2>';
+      $output .= '<p>' . t('The only configuration for this module is choosing how often you want the CRON job to run. This can be changed on the Ultimate CRON overview page.') . '</p>';
+      return $output;
+  }
+}

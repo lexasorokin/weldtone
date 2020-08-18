@@ -1,0 +1,6 @@
+name: Civic Mega Menu
+core: 8.x
+type: module
+description: Civic Mega Menu
+package: 360 Custom
+configure: civic_mega_menu.settings

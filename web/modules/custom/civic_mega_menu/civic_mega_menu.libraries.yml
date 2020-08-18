@@ -1,0 +1,46 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/cmm.css: {}
+      css/cmm-grid.css: {}
+      css/cmm-mobile.css: {}
+  js:
+    js/iscroll.js: { weight: -1 }
+    js/civic-mega-menu.js: {}
+
+on_hover:
+  version: 1.x
+  css:
+    theme:
+      css/cmm--on-hover.css: {}
+
+backend:
+  version: 1.x
+  css:
+    theme:
+      css/cmm-backend.css: {}
+
+layout_1:
+  version: 1.x
+  css:
+    theme:
+      css/cmm-layout-1.css: {}
+
+layout_2:
+  version: 1.x
+  css:
+    theme:
+      css/cmm-layout-2.css: {}
+
+layout_3:
+  version: 1.x
+  css:
+    theme:
+      css/cmm-layout-3.css: {}
+
+layout_4:
+  version: 1.x
+  css:
+    theme:
+      css/cmm-layout-4.css: {}

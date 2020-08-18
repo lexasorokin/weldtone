@@ -1,0 +1,4 @@
+administer private_pages:
+  title: Private Pages
+  description: Configure permissions for Private Pages
+  restrict access: TRUE

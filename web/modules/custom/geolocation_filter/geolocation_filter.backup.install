@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ * 
+ * Defines the database tables used by this module.
+ * 
+ * @see hook_schema()
+ * 
+ * @ingroup geolocation_filter
+ */
+function geolocation_filter_schema() {
+  $schema['geolocation_filter'] = array(
+    'description' => 'Stores records of blocked webform submissions',
+    'fields' => array(
+      'sid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique Id'
+      ),
+      'submission_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The time of the submission',
+      ),
+      'ip_address' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The IP Address of the submission',
+      ),
+      'country_code' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The country code of the submission',
+      ),
+      'webform_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The name of the webform receiving the submission.'
+      ),
+    ),
+    'primary key' => array('sid'),
+    'indexes' => array(
+      'submission_time' => array('submission_time'),
+      'ip_address' => array('ip_address'),
+      'country_code' => array('country_code'),
+      'webform_name' => array('webform_name'),
+    ),
+  );
+
+  return $schema;
+}

@@ -1,0 +1,344 @@
+<?php 
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_form_alter()
+ */
+function geolocation_filter_form_alter(&$form, $form_state, $form_id) {
+  // Check if it is a Web Form
+  if (isset($form['#webform_id'])) {
+    $form['actions']['submit']['#validate'][] = 'geolocation_filter_ip_form_validate';
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter()
+ */
+function geolocation_filter_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'geolocation_filter/geolocation_filter';
+}
+
+/**
+ * Implements hook_preprocess_status_messages
+ */
+function geolocation_filter_preprocess_status_messages(&$variables) {
+  if (isset($variables['message_list']['error'])) { 
+
+    $config = \Drupal::config('geolocation_filter.settings');
+    $messageType = $config->get('message_type_on_blocked_submission');
+
+    // If an showing an error message is selected. We can exit the function.
+    // As the error message is already in the variables
+    if ($messageType === 'error') {
+      return;
+    }
+
+    // If "No Message" or "Success Message" is selected, we will remove
+    // the error message from the error array.
+    $errors = $variables['message_list']['error'];
+    $index = 0;
+    foreach ($errors as $error) {
+      if ($error === 'geolocation_blocked_submission_with_no_message') {
+        unset($variables['message_list']['error'][$index]);
+
+        // If "Success Message" has been selected, we will
+        // add it to the message_list array.
+        if ($messageType === 'status') {
+          if (!isset($variables['message_list']['status'])) {
+            $variables['message_list']['status'] = array();
+          }
+
+          $successMessage = $config->get('success_message');
+          array_push($variables['message_list']['status'], $successMessage);
+        }
+      };
+      $index++;
+    }
+
+    // If the error array is now empty, remove it
+    if (count($variables['message_list']['error']) === 0) {
+      unset($variables['message_list']['error']);
+    }
+  } 
+}
+
+/**
+ * Implements hook_ip_form_validate()
+ */
+function geolocation_filter_ip_form_validate(&$form, $form_state) {
+  $config = \Drupal::config('geolocation_filter.settings');
+
+  $ip = $_SERVER['REMOTE_ADDR'];
+
+  $ch = curl_init();
+  // set url
+  curl_setopt($ch, CURLOPT_URL, "http://geoip.maxmind.com/f?l=bx8Q50Nzl0L2&i=" . $ip);
+
+  // return the transfer as a string
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+  // $output contains the output string
+  $output = curl_exec($ch);
+
+  // close curl resource to free up system resources
+  curl_close($ch);
+
+  $output_array = explode(',', $output);
+  $country_code = $output_array[0];
+
+  // Compare the ip address with the blocked addresses
+  // selected in the module settings
+  $blockedIps = $config->get('blocked_ip_addresses');
+  $blockedIps = explode(',', $blockedIps);
+  
+  foreach($blockedIps as $blockedIp) {
+    if (trim($blockedIp) === $ip) {
+      $reason = 'Blacklisted IP Address';
+      return _geolocation_filter_record_blocked_submission($form_state, $ip, $country_code, $reason);
+    }
+  }
+
+  // Compare the country code with the blocked Countries
+  // selected in the module settings
+  $blockedCountryCodes = $config->get('blocked_countries');
+  $blockedCountryCodes = explode(',', $blockedCountryCodes);
+
+  foreach ($blockedCountryCodes as $blockedCountryCode) {
+    if (trim($blockedCountryCode) === $country_code) {
+      $reason = 'Blacklisted Country';
+      return _geolocation_filter_record_blocked_submission($form_state, $ip, $country_code, $reason);
+    }
+  }
+}
+
+function _geolocation_filter_record_blocked_submission($form_state, $ip, $country_code, $reason) {
+  $config = \Drupal::config('geolocation_filter.settings');
+  $database = \Drupal::database();
+
+  $formValues = '';
+  $webform_id = '';
+
+  // Get the field values from the form and save it in a string
+  foreach ($form_state->getValues() as $key => $value) {
+    if ($key === 'form_id') {
+      $webform_id = $value;
+    } elseif ($key !== 'form_build_id' && $key !== 'form_token' && $key !== 'op' && $key !== 'submit') {
+      $formValues .= strtoupper($key) . ": $value, ";
+    }
+  }
+
+  // Set the fields for DB storage
+  $fields = array(
+    'submission_time' => time(),
+    'ip_address' => $ip,
+    'country_code' => $country_code,
+    'webform_name' => $webform_id,
+    'reason_blocked' => $reason,
+    'form_values' => $formValues,
+  );
+  
+  // Insert the Blocked Submission record into the DB
+  $database->insert('geolocation_filter_blocked_submissions')
+    ->fields($fields)
+    ->execute();  
+
+  $messageType = $config->get('message_type_on_blocked_submission');
+
+  $errorMessage = $messageType === 'error'
+    ? $config->get('error_message')
+    : 'geolocation_blocked_submission_with_no_message';
+  
+  $form_state->setErrorByName('', $errorMessage);
+
+  if ($config->get('should_redirect')) {
+    $redirect_url = $config->get('redirect_url');
+
+    if ($messageType === 'no_message') {
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse($redirect_url);
+      $response->send();
+    } else {
+      $message = $messageType === 'error' ? urlencode($config->get('error_message')) : urlencode($config->get('success_message'));
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse($redirect_url . "?submission_message=$message&message_type=$messageType");
+      $response->send();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page()
+ */
+function geolocation_filter_preprocess_page(&$variables) {
+  if (isset($_GET['submission_message']) && isset($_GET['message_type'])) {
+    \Drupal::messenger()->addMessage($_GET['submission_message'], $_GET['message_type']);
+  }
+}
+
+/**
+ * Implements hook_views_data()
+ */
+function geolocation_filter_views_data() {
+  $data = array();
+  $data['geolocation_filter_blocked_submissions'] = array();
+  $data['geolocation_filter_blocked_submissions']['table'] = array();
+  $data['geolocation_filter_blocked_submissions']['table']['group'] = t('Geolocation Filter');
+  $data['geolocation_filter_blocked_submissions']['table']['provider'] = 'geolocation_filter';
+  
+  $data['geolocation_filter_blocked_submissions']['table']['base'] = array(
+    'field' => 'sid',
+    'title' => t('Geolocation Filter Table'),
+    'help' => t('This table contains logs about blocked webform submissions.'),
+    'weight' => -10,
+  );
+
+  $data['geolocation_filter_blocked_submissions']['sid'] = array(
+    'title' => t('Submission ID'),
+    'help' => t('The ID of the submission.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['submission_time'] = array(
+    'title' => t('Submission Time'),
+    'help' => t('This field contains a timestamp of when the submission was received.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['ip_address'] = array(
+    'title' => t('IP Address'),
+    'help' => t('This field contains the IP address the submission was received from.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['country_code'] = array(
+    'title' => t('Country Code'),
+    'help' => t('This field contains the Country Code of IP address the submission was received from.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['webform_name'] = array(
+    'title' => t('Webform Name'),
+    'help' => t('The name of the webform that received this submission.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['reason_blocked'] = array(
+    'title' => t('Reason Blocked'),
+    'help' => t('The reason the submission was blocked.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  $data['geolocation_filter_blocked_submissions']['form_values'] = array(
+    'title' => t('Form Values'),
+    'help' => t('The field values from the submitted webform.'),
+    'field' => array(
+      'id' => 'standard'
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'string',
+    ),
+    'argument' => array(
+      'id' => 'string',
+    ),
+  );
+
+  return $data;
+}
+
+/**
+ * Implements hook_help()
+ */
+function geolocation_filter_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.geolocation_filter':
+      $output = '';
+      $output .= '<h2>' . t('Usage') . '</h2>';
+      $output .= '<p>' . t('This module allows you to block all webform submissions that originate from designated countries. Be aware that a can mask their country of origin by using a VPN, so this will not work 100% of the time.') . '</p>';
+      $output .= '<p>' . t('In the <a href="/:settings">module settings</a>, you can designate which countries you would like blocked by supplying the <a target="_blank" href=":countrycodes">country code</a>. Additionally, you can block specific IP addresses, if you find yourself receiving repeated spam from the same location.', [':settings' => Url::fromRoute('geolocation_filter.settings')->getInternalPath(), ':countrycodes' => 'https://nationsonline.org/oneworld/country_code_list.htm']) . '</p>';
+      $output .= '<p>' . t('There are some additional options for what to do when a submission is blocked. You can redirect the user and choose whether to display a "success" message (so they think the submission went through), an error message, or no message.') . '</p>';
+      $output .= '<br><h2>' . t('Viewing Log of Blocked Submissions') . '</h2>';
+      $output .= '<p>' . t('This module creates a custom database table and <a href=":log">custom view</a> to log all blocked submissions. This can be used as a reference point or a way to track phishing patterns.', [':log' => '/admin/reports/blocked-submissions']) . '</p>';
+      $output .= '<p>' . t('Since this view is displaying information from a custom table, that information needs to processed in a way that the views module knows where to find it and how to read it. All of that specification can be found in <code>geolocation_filter.module</code> inside the <code>geolocation_filter_views_date</code> function.') . '</p>';
+      $output .= '<br><h2>' . t('About Geolocation Filter') . '</h2>';
+      $output .= '<p>' . t('The module’s core functionality can be found in <code>geolocation_filter.module</code>. These are the steps that happen:') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('In the function <code>geolocation_filter_form_alter</code>, an additional validation function is added to all webforms.') . '</li>';
+      $output .= '<li>' . t('The validation function checks the IP address of the submitting user, then gets the country code for that IP by sending a request to geoip.maxmind.com.') . '</li>';
+      $output .= '<li>' . t('The country code is then checked against the ones that are blocked in the <a href="/:settings">module settings</a>.', [':settings' => Url::fromRoute('geolocation_filter.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('If the country code is blocked, the <code>_geolocation_filter_record_blocked_submission</code> function is called.') . '</li>';
+      $output .= '<li>' . t('That function gets all the valuable information from the submission and inserts it into the <code>geolocation_filter_blocked_submissions</code> table of the database.') . '</li>';
+      $output .= '<li>' . t('Then the <a href="/:settings">module settings</a> are checked to see if the user should be redirected and what message to show them.',  [':settings' => Url::fromRoute('geolocation_filter.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('If redirected with a message, the message and message type will be passed in as a query string, which will be parsed in <code>geolocation_filter_preprocess_page</code> to display the error or success message.') . '</li>';
+      $output .= '</ol><br>';
+      return $output;
+  }
+}

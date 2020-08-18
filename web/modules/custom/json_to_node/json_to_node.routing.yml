@@ -1,0 +1,7 @@
+json_to_node.settings:
+  path: '/admin/config/services/json-to-node'
+  defaults:
+    _title: 'JSON To Node Settings'
+    _form: '\Drupal\json_to_node\Form\JSONToNodeConfigForm'
+  requirements:
+    _permission: 'administer json_to_node'

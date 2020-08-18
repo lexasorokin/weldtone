@@ -1,0 +1,6 @@
+name: JSON To Node
+core: 8.x
+type: module
+description: JSON To Node
+package: 360 Custom
+configure: json_to_node.settings

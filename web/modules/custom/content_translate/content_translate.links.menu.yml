@@ -1,0 +1,5 @@
+content_translate.settings:
+  title: Content Translate Settings
+  description: Content Translate description.
+  parent: system.admin_config_regional
+  route_name: content_translate.settings

@@ -1,0 +1,5 @@
+json_to_node.settings:
+  title: JSON To Node Settings
+  description: JSON To Node description.
+  parent: system.admin_config_services
+  route_name: json_to_node.settings

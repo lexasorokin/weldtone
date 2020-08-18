@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Implements hook_schema()
+ * 
+ * Defines the database tables used by this module.
+ */
+function json_to_node_schema() {
+  $schema['json_to_node_created_nodes'] = array(
+    'description' => 'Stores node id for nodes created by the JSON to Node Module.',
+    'fields' => array(
+      'creation_id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique Id',
+      ),
+      'incoming_uuid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The uuid of the incoming item'
+      ),
+      'local_node_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The id of the createded node in this instance',
+      ),
+      'creation_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The time the node was created'
+      ),
+      'last_updated_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The last time the node was updated',
+      ),
+    ),
+    'primary key' => array('creation_id'),
+    'indexes' => array(
+      'incoming_uuid' => array('incoming_uuid'),
+      'local_node_id' => array('local_node_id'),
+      'creation_time' => array('creation_time'),
+      'last_updated_time' => array('last_updated_time'),
+    ),
+  );
+
+  return $schema;
+}

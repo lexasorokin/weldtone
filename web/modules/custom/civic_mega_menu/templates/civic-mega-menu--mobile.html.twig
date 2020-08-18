@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *
+ * @ingroup templates
+ */
+#}
+{% import _self as menus %}
+
+<div id="cmm-mobile-wrapper" class="cmm-mobile-menu-wrapper">
+  <button id="mobile-menu-open" class="mobile-menu-open text-white">
+    <span class="sr-only">Open Mobile Menu</span>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+  </button>
+  <div id="mobile-menu-mask" class="mobile-menu-mask"></div>
+  <div id="civic-mega-menu-mobile" class="civic-mega-menu-mobile">
+    {{ menus.menu_links(items, attributes, 1) }}
+    <button id="mobile-menu-close" class="mobile-menu-close">
+      <span class="sr-only">Close Mobile Menu</span>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+    </button>
+  </div>
+</div>
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {%
+    set classes = [
+      'mobile-menu-item',
+      'mobile-menu-item--level-' ~ menu_level,
+      item.is_expanded ? 'menu-item--expanded',
+      item.is_collapsed ? 'menu-item--collapsed',
+      item.in_active_trail ? 'menu-item--active-trail',
+    ]
+  %}
+  {% if items %}
+    {% if menu_level == 1 %}
+      <ul class="nav navbar-nav menu cmm-mobile-ul cmm-mobile-ul--level-1" role="menu" aria-labelledby="dropdownMenu">
+    {% else %}
+      <ul class="cmm-mobile-ul cmm-mobile-ul--level-{{ menu_level }} menu" role="menu" aria-labelledby="dLabel">
+    {% endif %}
+    {% for item in items %}
+      {% if not item.hide_item %}
+        <li class="cmm-mobile-li cmm-mobile-li--level-{{ menu_level }}">
+          {% if item.below %}
+            <span class="dropdown-toggle-container position-relative">
+          {% endif %}
+
+          {% if item.url %}
+            <a href="{{ item.url }}" {{ item.attributes.addClass(classes) }}>
+              {{ item.title }}
+            </a>
+          {% else %}
+            <span {{ item.attributes.addClass(classes) }}>
+              {{ item.title }}
+            </span>
+          {% endif %}
+          {% if item.below %}
+              <button aria-label="Toggle Submenu" class="toggle-submenu">
+                <span class="line-1"></span>
+                <span class="line-2"></span>
+              </button>
+            </span>
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

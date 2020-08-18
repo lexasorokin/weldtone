@@ -1,0 +1,95 @@
+header {
+  &.header-relative {
+    position: relative;
+  }
+
+  &.header-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &.header-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: background-color .2s;
+
+    &.is-fixed {
+      position: fixed;
+
+      &.scrolled-bg {
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+        a,
+        svg,
+        .menu-item--level-1 {
+          color: black;
+        }
+
+        .header-search-form {
+          input[type="search"] {
+            color: black;
+            border-color: black;
+          }
+        }
+      }
+    }
+  }
+
+  .header-content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    position: relative;
+
+    a,
+    .menu-item--level-1 {
+      color: white;
+    }
+  }
+
+  .region--header-left {
+    display: flex;
+    align-items: center;
+
+    & > div:not(:last-child) {
+      margin-right: 12px;
+    }
+
+    @media screen and (max-width: $md - 1) {
+      position: absolute;
+
+      #block-headerlogo {
+        display: none;
+      }
+    }
+  }
+
+  .region--header-right {
+    display: flex;
+    align-items: center;
+
+    & > div:not(:first-child) {
+      margin-left: 12px;
+    }
+  }
+
+  #block-civic-main-menu {
+    position: static;
+    flex: 1;
+  }
+
+  .dropdown-menu a,
+  .cmm-ul--level-2 a {
+    color: black;
+  }
+
+  .translate-button {
+    width: 28px; 
+  }
+}

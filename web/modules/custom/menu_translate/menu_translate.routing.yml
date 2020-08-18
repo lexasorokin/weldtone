@@ -1,0 +1,7 @@
+menu_translate.settings:
+  path: '/admin/config/regional/menu-translate'
+  defaults:
+    _title: 'Menu Item Translations'
+    _form: '\Drupal\menu_translate\Form\MenuTranslateConfigForm'
+  requirements:
+    _permission: 'administer menu_translate'

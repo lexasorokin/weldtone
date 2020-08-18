@@ -1,0 +1,28 @@
+{# 
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see https://twig.symfony.com/doc/1.x/tags/macro.html
+#}
+{# {{ menus.menu_links(items, attributes, 0) }} #}
+
+{% macro dropdown(options, attributes) %}
+  <div class="select-element">
+    <select{{ attributes }}>
+      {% for option in options %}
+        <option value="{{ option.tid }}">{{ option.name }}</option>
+      {% endfor %}
+    </select>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        - Select -
+      </button>
+      <div class="dropdown-menu" aria-labelledby="">
+        {% for option in options %}
+          <span class="dropdown-item">{{ option.name }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endmacro %}

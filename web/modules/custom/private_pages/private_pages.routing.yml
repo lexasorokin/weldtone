@@ -1,0 +1,7 @@
+private_pages.settings:
+  path: '/admin/config/user-interface/private-pages'
+  defaults:
+    _title: 'Private Pages Settings'
+    _form: '\Drupal\private_pages\Form\PrivatePagesConfigForm'
+  requirements:
+    _permission: 'administer private_pages'

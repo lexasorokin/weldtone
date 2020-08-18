@@ -1,0 +1,4 @@
+administer content_translate:
+  title: Content Translate
+  description: Configure permissions for Content Translate
+  restrict access: TRUE

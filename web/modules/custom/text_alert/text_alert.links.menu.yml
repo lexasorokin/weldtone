@@ -1,0 +1,5 @@
+text_alert.settings:
+  title: Text Alerts Settings
+  description: Edit settings for Text Alerts.
+  parent: system.admin_config_development
+  route_name: text_alert.settings

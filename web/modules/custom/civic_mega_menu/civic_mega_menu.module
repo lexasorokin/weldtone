@@ -1,0 +1,234 @@
+<?php
+
+use \Drupal\block\Entity\Block;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function civic_mega_menu_page_attachments_alter(array &$page) {
+  $config = Drupal::config('civic_mega_menu.settings');
+  $enabled = $config->get('use_mega_menu');
+  
+  if ($enabled) {
+    $layout_num = $config->get('layout');
+
+    $page['#attached']['library'][] = 'civic_mega_menu/assets';
+    $page['#attached']['library'][] = 'civic_mega_menu/layout_' . $layout_num;
+
+    $hover_or_click = $config->get('hover_or_click');
+
+    if ($hover_or_click === 'hover') {
+      $page['#attached']['library'][] = 'civic_mega_menu/on_hover';
+      $page['#attached']['drupalSettings']['cmm']['expandOnClick'] = false;
+    } else {
+      $page['#attached']['drupalSettings']['cmm']['expandOnClick'] = true;
+    }
+  }
+}
+
+/**
+ * Implements MODULE_form_alter()
+ */
+function civic_mega_menu_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'civic_mega_menu_config_form') {
+    $form['#attached']['library'][] = 'civic_mega_menu/backend';
+  }
+}
+
+/**
+ * Implements MODULE_theme_registry_alter()
+ */
+function civic_mega_menu_theme_registry_alter(&$theme_registry) {
+  $preprocess_functions = $theme_registry['menu__main']['preprocess functions'];
+
+  $theme_registry['civic_mega_menu__mobile'] = array(
+    'path' => drupal_get_path('module', 'civic_mega_menu') . '/templates',
+    'menu_name' => NULL,
+    'items' => array(),
+    'attributes' => array(),
+    'base hook' => 'menu',
+    'template' => 'civic-mega-menu--mobile',
+    'preprocess functions' => $preprocess_functions,
+  );
+
+  $preprocess_functions[] = 'civic_mega_menu_preprocess_mega_menu';
+  
+  for ($i = 1; $i <= 4; $i++) {
+    $theme_registry['civic_mega_menu__layout_' . $i] = array(
+      'path' => drupal_get_path('module', 'civic_mega_menu') . '/templates',
+      'menu_name' => NULL,
+      'items' => array(),
+      'attributes' => array(),
+      'base hook' => 'menu',
+      'template' => 'civic-mega-menu--layout-' . $i,
+      'preprocess functions' => $preprocess_functions,
+    );
+  }
+}
+
+/**
+ * Implements MODULE_theme_suggestions_menu_alter()
+ */
+function civic_mega_menu_theme_suggestions_menu_alter(&$suggestions, &$vars) {
+  $config = Drupal::config('civic_mega_menu.settings');
+  $menu_layout = $config->get('layout');
+
+  if ($vars['theme_hook_original'] === 'menu__main' && isset($menu_layout)) {
+    $suggestions[] = 'civic_mega_menu__layout_' . $menu_layout;
+  }
+}
+
+/**
+ * Implements MODULE_preprocess_HOOK()
+ * 
+ * This preprocess function is declared in MODULE_theme_registry_alter()
+ */
+function civic_mega_menu_preprocess_mega_menu(&$variables) {
+  $config = Drupal::config('civic_mega_menu.settings');
+  $variables['include_level2_title'] = $config->get('include_level2_title');
+  $variables['civic_mega_menu_path'] = '/' . drupal_get_path('module', 'civic_mega_menu');
+
+  $module_handler = \Drupal::service('module_handler');
+
+  $hidePrivatePages = FALSE;
+
+  if ($module_handler->moduleExists('private_pages') && $config->get('hide_private_page_links')) {
+    $hidePrivatePages = _should_hide_private_pages();
+  }
+  
+  _civic_mega_menu_walk_tree($variables['items'], $hidePrivatePages);
+}
+
+function _civic_mega_menu_walk_tree(&$tree, $hidePrivatePages) {
+  $config = Drupal::config('civic_mega_menu.settings');
+
+  foreach ($tree as $branchId => &$branch) {
+    
+    $branchBlock1 = $config->get($branchId . '_block_1');
+    $branchBlock2 = $config->get($branchId . '_block_2');
+
+    if ($hidePrivatePages && _linked_page_is_private_page($branch)) {
+      $branch['#cache']['max-age'] = 0;
+      $branch['hide_item'] = TRUE;
+    }
+
+    if (!$branch['url']->isExternal() && $branch['url']->isRouted() && $branch['url']->getRouteName() === '<none>') {
+      $branch['empty_link'] = TRUE;
+    }
+    
+    if (count($branch['original_link']->getOptions()) > 0) {
+      $branch['options'] = $branch['original_link']->getOptions();
+    }
+    
+    if ($branchBlock1 != NULL && $branchBlock1 != '0') {
+      $block1Content = _civic_mega_menu_load_block_from_name($branchBlock1);
+      $branch['cmm_block_1'] = $block1Content;
+    }
+    
+    if ($branchBlock2 != NULL && $branchBlock2 != '0') {
+      $block2Content = _civic_mega_menu_load_block_from_name($branchBlock2);
+      $branch['cmm_block_2'] = $block2Content;
+    }
+
+    if (isset($branch['below'])) {
+      _civic_mega_menu_walk_tree($branch['below'], $hidePrivatePages);
+    }
+  }
+}
+
+/**
+ * {@return bool $privateViewAccess}
+ * 
+ * Check if the current user role has private view access 
+ */
+function _should_hide_private_pages() {
+  // Initialize the private view access to false
+  $hidePrivatePages = TRUE;
+
+  // Check which user roles have access to view the private page
+  $config = Drupal::config('private_pages.settings');
+  $allowedUsers = $config->get('included_roles');
+  $allowedUserArr = explode(",", $allowedUsers);
+
+  // Get the current user role
+  $user = \Drupal::currentUser();
+  $userRoles = $user->getRoles();
+
+  // Check if the current user role is one of the roles
+  // who has access to view the page
+  foreach ($allowedUserArr as $user) {
+    $result = array_search(trim($user), $userRoles);
+    if ($result) {
+      $hidePrivatePages = FALSE;
+    }
+  }
+
+  return $hidePrivatePages;
+}
+
+/**
+ * {@var object $branch}
+ * {@return bool $isPrivatePage}
+ * 
+ * Check if the link is pointing to a node marked as a private page
+ */
+function _linked_page_is_private_page($link) {
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  if (!$link['url']->isExternal() && $link['url']->isRouted() && $link['url']->getRouteName() === 'entity.node.canonical') { 
+    $params = $link['url']->getRouteParameters();
+
+    if ($nid = $params['node']) {
+      $node = $node_storage->load($nid);
+
+      // Check if the node has been checked as a 'Private Page'
+      if ($node->hasField('field_private_page') && $node->get('field_private_page')->getValue()) {
+        $isPrivatePage = $node->get('field_private_page')->getValue()[0]['value'] == "1";
+    
+        return $isPrivatePage;
+      }
+    }
+  }
+
+  return FALSE;
+}
+
+function _civic_mega_menu_load_block_from_name($block_name) {
+  $block = Block::load($block_name);
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+  
+  return $block_content;
+}
+
+/**
+ * Implements hook_help()
+ */
+function civic_mega_menu_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.civic_mega_menu':
+      $output .= '<h2>' . t('The Reason For This Module') . '</h2>';
+      $output .= '<p>' . t('There are a few contributed MegaMenu modules in existence, but we often ran into problems while using them. Most MegaMenu modules have very opinionated styles and structure. They are easy to use and look great if you keep the styles and functionality that they\ve programmed. It quickly becomes very difficult to override styles or target styles of menu items at specific levels in the menu tree.') . '<p>';
+      $output .= '<p>' . t('Civic MegaMenu is developed to not look great out of the box. Rather it tries to implement the most basic CSS with the intention of being customized for the needs of each individual site.') . '</p>';
+      $output .= '<br><h2>' . t('Key Features') . '</h2>';
+      $output .= '<ol>';
+      $output .= '<li><strong>' . t('Low specificity selectors in CSS:') . '</strong>' . t(' All default styles are easily overridable.') . '</li>';
+      $output .= '<li><strong>' . t('Level specific classes:') . '</strong>' . t(' All menu elements have a general class for what element they are (i.e. ') . '<code>cmm-li</code>' . t(') and also have a class for the level in the menu that element is located (i.e. ') . '<code>cmm-li--level-2</code>' . t('). This makes it easy to target a specific without deeply nested selectors.');
+      $output .= '<li><strong>' . t('Embed blocks in menu:') . '</strong>' . t(' Blocks can be added into your menu with certain templates. When doing this, add the block to the "No Location" region, and then select it from the dropdown menu in the settings.') . '</li>';
+      $output .= '<li><strong>' . t('Multiple layouts:') . '</strong>' . t(' Choose a starting template that best reflects the structure of MegaMenu you want. These four layouts are based on MegaMenus we\'ve build for other sites:');
+      $output .= '<ol>';
+      $output .= '<li>' . t('Layout 1 is based on the menu used for <a target="_blank" href=":link">Huntsville City Schools</a>.', [':link' => 'https://www.huntsvillecityschools.org/']); 
+      $output .= '<li>' . t('Layout 2 is based on the menu used for <a target="_blank" href=":link">San Diego</a>.', [':link' => 'https://www.sandiego.gov/']); 
+      $output .= '<li>' . t('Layout 3 is based on the menu used for the <a target="_blank" href=":link">County of Riverside</a>.', [':link' => 'https://riverside.360-biz.com/']); 
+      $output .= '<li>' . t('Layout 4 is based on the menu used for the <a target="_blank" href=":link">City of Santa Ana</a>.', [':link' => 'https://www.santa-ana.org/']); 
+      $output .= '</ol></li>';
+      $output .= '<li><strong>' . t('Included Mobile Menu:') . '</strong>' . t(' A mobile menu template is included to solve several of the most common mobile menu problems. The most notable feature is locking the body beneath the menu while having a smooth scroll through a large number of menu items.') . '</li>';
+      $output.= '</ol>';
+      $output .= '<br><h2>' . t('INCOMPLETE -- Add Developer Notes') . '</h2>';
+      $output .= '<br>';
+      return $output;
+  }
+}

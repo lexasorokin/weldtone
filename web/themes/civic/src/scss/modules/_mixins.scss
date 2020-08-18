@@ -1,0 +1,106 @@
+@mixin bgCover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin bgContain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin transformTransition($speed) {
+  @if $speed {
+    transition: transform #{$speed}s;
+    transform-style: preserve-3d;
+  } @else {
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+  }
+}
+
+@mixin flexColumn($align, $justify) {
+  display: flex;
+  flex-direction: column;
+
+  @if $align {
+    align-items: #{$align};
+  }
+
+  @if $justify {
+    justify-content: #{$justify};
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin posAbsolute($top, $right, $bottom, $left) {
+  position: absolute;
+  @if $top {
+    top: #{$top};
+  }
+  @if $right {
+    right: #{$right};
+  }
+  @if $bottom {
+    bottom: #{$bottom};
+  }
+  @if $left {
+    left: #{$left};
+  }
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  @if $top {
+    padding-top: #{$top};
+  }
+  @if $right {
+    padding-right: #{$right};
+  }
+  @if $bottom {
+    padding-bottom: #{$bottom};
+  }
+  @if $left {
+    padding-left: #{$left};
+  }
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  @if $top {
+    margin-top: #{$top};
+  }
+  @if $right {
+    margin-right: #{$right};
+  }
+  @if $bottom {
+    margin-bottom: #{$bottom};
+  }
+  @if $left {
+    margin-left: #{$left};
+  }
+}
+
+@mixin overlay($color) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #{$color};
+
+  }
+  
+  & > div {
+    position: relative;
+    z-index: 1;
+  }
+}

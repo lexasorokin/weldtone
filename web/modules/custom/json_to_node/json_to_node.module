@@ -1,0 +1,350 @@
+<?php
+
+// use DateTimeZone;
+use Drupal\node\Entity\Node;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use \Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\json_to_node\Controller\JsonToNodeController;
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function json_to_node_page_attachments_alter(array &$page) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  
+  if (isset($route_name) && $route_name == 'json_to_node.settings') {
+    $page['#attached']['library'][] = 'json_to_node/settings';
+  }
+}
+
+/**
+ * Implements MODULE_cron()
+ */
+function json_to_node_cron() {
+  // JsonToNodeController::processJsonFeed();
+  // processJsonFeed();
+}
+
+
+/**
+ * Implements MODULE_preprocess_page()
+ */
+function json_to_node_preprocess_page(&$vars) {
+  // processJsonFeed();
+}
+
+/**
+ * Implements MODULE_node_delete()
+ * 
+ * Removes node from custom table when node is deleted
+ */
+function json_to_node_node_delete($node) {
+  db_delete('json_to_node_created_nodes')
+    ->condition('local_node_id', $node->id())
+    ->execute();
+}
+
+/**
+ * Kicks off the process by making a cURL request to the
+ * JSON feed url defined in the module settings. 
+ * Then passes that response to self::loopThroughFeedItems
+ */
+function processJsonFeed() {
+  $config = \Drupal::config('json_to_node.settings');
+
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $config->get('json_feed_url') . '?_format=json');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+  $json = curl_exec($ch);
+  curl_close($ch);
+
+  $response = json_decode($json, TRUE);
+  
+  loopThroughFeedItems($response);
+}
+
+/**
+ * @param object $database - Reference to the Druapl Database
+ * @param array $item - The node to search for in the database
+ * 
+ * @return object $existing_node_ref - The Node object if one was found.
+ * Returns null if nothing was found.
+ */
+function getExistingNode($item) {
+  $database = \Drupal::database();
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  $existing_nodes = $database->select('json_to_node_created_nodes', 'j')
+    ->condition('j.incoming_uuid', $item['uuid'][0]['value'])
+    ->fields('j', ['local_node_id'])
+    ->execute()
+    ->fetchAll();
+
+  $existing_node_ref = reset($existing_nodes);
+
+  if ($existing_node_ref) {
+    $existing_node = $node_storage->load($existing_node_ref->local_node_id);  
+    return $existing_node;
+  }
+
+  return NULL;
+}
+
+/**
+ * @param array $items - An array of associative arrays
+ */
+function loopThroughFeedItems($items) {
+  $config = \Drupal::config('json_to_node.settings');
+  $database = \Drupal::database();
+
+  foreach ($items as $item) {
+    $incoming_type = $item['type'][0]['target_id'];
+
+    if ($map_to_type = $config->get($incoming_type . '_content_type_mapping')) {
+      $existing_node = getExistingNode($item);
+
+      // If the node exists and settings say ignore existing nodes, skip to next iteration
+      if (isset($existing_node) && $config->get('handle_existing_nodes') == 'ignore') {
+        continue;
+      }
+
+      $node_data = array(
+        'type' => array(
+          array(
+            'target_id' => $map_to_type['map_field_to'],
+          ),
+        ),
+        'title' => $item['title'],
+        'langcode' => $item['langcode'],
+        'moderation_state' => $item['moderation_state'],
+      );
+      
+      $field_mapping = $config->get($incoming_type . '_field_mapping');
+      $taxonomy_mapping = $config->get('taxonomy_mapping');
+      $update_all = $config->get('handle_existing_nodes') == 'update_all';
+
+      kint($config->get('handle_existing_nodes'));
+      kint($item['nid'][0]['value']);
+
+      foreach ($field_mapping as $field) {
+        if (isset($item[$field['map_field_from']])) {
+
+          $incoming_field = $item[$field['map_field_from']];
+          $target_type = $incoming_field[0]['target_type'];
+
+          // Additional handling is needed if the incoming field is an image or file field
+          if (isset($target_type) && $target_type == 'file' && $update_all) {
+            $node_data[$field['map_field_to']] = checkCreateNewFile($field, $incoming_field, $existing_node);
+          }
+          // Get mapped taxonomy term
+          else if (isset($target_type) && $target_type == 'taxonomy_term' && $update_all) {
+            $incoming_tid = $incoming_field[0]['target_id'];
+
+            if (isset($taxonomy_mapping[$incoming_tid])) {
+              $node_data[$field['map_field_to']] = array(
+                array(
+                  'target_id' => strval($taxonomy_mapping[$incoming_tid]['map_field_to']),
+                )
+              );
+            }
+          }
+          // Special formatting needs to be done to map a recurring date field to another recurring date field
+          else if (isset($incoming_field[0]['timezone']) && $update_all) {
+            $start_date = new DrupalDateTime($incoming_field[0]['value'], new DateTimeZone($incoming_field[0]['timezone']));
+            $start_date->setTimezone(new DateTimeZone('UTC'));
+
+            $end_date = new DrupalDateTime($incoming_field[0]['end_value'], new DateTimeZone($incoming_field[0]['timezone']));
+            $end_date->setTimezone(new DateTimeZone('UTC'));
+
+            $node_data[$field['map_field_to']] = array(
+              array(
+                'value' => $start_date->format('Y-m-d\TH:i:s'),
+                'end_value' => $end_date->format('Y-m-d\TH:i:s'),
+                'rrule' => $incoming_field[0]['rrule'],
+                'timezone' => $incoming_field[0]['timezone'],
+                'infinite' => $incoming_field[0]['infinite'],
+              )
+            );
+          }
+          // Otherwise, the exact data is copied over from the incoming feed
+          else {
+            $node_data[$field['map_field_to']] = $item[$field['map_field_from']];
+          }
+        }
+      }
+
+      if ($existing_node) {
+        updateExistingNode($existing_node, $node_data);
+      } else {
+        createNewNode($node_data, $item);
+      }
+    }
+  }
+}
+
+/**
+ * 
+ * @return array - Newly created file field value or current file field value
+ */
+function checkCreateNewFile($field, $incoming_field, $existing_node) {
+  if (!isset($existing_node)) {
+    return createNewFile($incoming_field);
+  } else {
+    $current_field = $existing_node->get($field['map_field_to'])->getValue();
+
+    // TODO: Find a better way to implement this. This method is not a great way of checking for an existing value.
+    // TODO: Build this out to ensure it also works with PDF
+    if ($incoming_field[0]['alt'] != $current_field[0]['alt'] 
+      || $incoming_field[0]['title'] != $current_field[0]['title'] 
+      || $incoming_field[0]['width'] != $current_field[0]['width']
+      || $incoming_field[0]['height'] != $current_field[0]['height']) {
+      return createNewFile($incoming_field);
+    }
+
+    return $current_field;
+  }
+}
+
+/**
+ * Checks if the incoming data is different from the existing node data
+ * If it is differnt, update the node and log that the node was updated
+ * 
+ * @param object $existing_node - The current version of the node
+ * @param array $node_data - The incoming data from the feed
+ */
+function updateExistingNode($existing_node, $node_data) {
+  $database = \Drupal::database();
+  $changes_made = FALSE;
+
+  foreach($node_data as $incoming_field_name => $incoming_field_value) {
+    $current_value = $existing_node->get($incoming_field_name)->getValue();  
+    
+    // There are several properties that should be ignored when checking for equality
+    // Those properties are unset on a copy of that array just used for comparing
+    $incoming_value_to_compare = $incoming_field_value;
+    unset($incoming_value_to_compare[0]['processed']);
+    unset($current_value[0]['processed']);
+    unset($incoming_value_to_compare[0]['_accessCacheability']);
+    unset($current_value[0]['_accessCacheability']);
+    unset($incoming_value_to_compare[0]['_attributes']);
+    unset($current_value[0]['_attributes']);
+    unset($incoming_value_to_compare[0]['_loaded']);
+    unset($current_value[0]['_loaded']);
+
+    if ($current_value != $incoming_value_to_compare) {
+      kint($incoming_field_name . ' Updated');
+      $changes_made = TRUE;
+      $existing_node->set($incoming_field_name, $incoming_field_value);
+    }
+  }
+
+  // If a change was made, save the updated node.
+  if ($changes_made) {
+    // TODO: I'm still getting false positives of this being updated. Especially the image field.
+    kint('Updated', $node_data);
+    $existing_node->save();
+    $database->update('json_to_node_created_nodes')
+      ->fields(array(
+        'last_updated_time' => time(),
+      ))
+      ->condition('local_node_id', $existing_node->id())
+      ->execute();
+  }
+}
+
+/**
+ * Create a new file in the server filesystem.
+ * If the file already exists, append numbers to the filename untiil a unique filename is found.
+ * 
+ * @param string $file_path - The absolute system path to the new file
+ * @param string $incoming_file_url - The original file that will be copied locally
+ * @param number $number - An incrementing number for saving multiple files with the same name
+ */
+function createNewFileInFileSystem($file_path, $incoming_file_url, $number = 0) {
+  preg_match('/\.[^\/]+/', $file_path, $matches);
+  $file_extension = reset($matches);
+
+  $proposed_path = $number > 0 ? str_replace($file_extension, '-' . $number . $file_extension, $file_path) : $file_path;
+  
+  if (!file_exists($proposed_path)) {
+    file_put_contents($proposed_path, file_get_contents($incoming_file_url));
+  } else {
+    createNewFileInFileSystem($file_path, $incoming_file_url, $number + 1);
+  }
+}
+
+/**
+ * @param object $incoming_filed
+ * @return array - New image field value
+ */
+function createNewFile($incoming_field) {
+  $config = \Drupal::config('json_to_node.settings');
+  $filesystem = \Drupal::service('file_system');
+  $public_path = $filesystem->realpath('public://') . '/';
+  $file_save_location = $config->get('file_save_location');
+
+  $incoming_file_url = $incoming_field[0]['url'];
+  $incoming_file_name = getFileNameFromUrl($incoming_file_url);
+
+  createNewFileInFileSystem($public_path . $file_save_location . $incoming_file_name,   $incoming_file_url);
+
+  // Create Drupal "File" from the new image
+  // TODO: Make sure this works with non-image files, like PDF
+
+  $image = File::create();
+  $image->setFileUri('public://' . $file_save_location . $incoming_file_name);
+  $image->setOwnerId($config->get('file_save_author'));
+  $image->setMimeType(mime_content_type($public_path . $file_save_location . $incoming_file_name));
+  $image->setFileName($incoming_file_name);
+  $image->setPermanent();
+  $image->save();
+
+  // Pass the newly created image into our node_data along with the incoming information
+  return array(
+    array(
+      'target_id' => $image->id(),
+      'target_type' => 'file',
+      'alt' => $incoming_field[0]['alt'],
+      'title' => $incoming_field[0]['title'],
+      'width' => $incoming_field[0]['width'],
+      'height' => $incoming_field[0]['height'],
+    ),
+  );
+}
+
+/**
+ * Gets the filename and extension from a full url
+ * 
+ * @param string $file_url
+ * @return string $file_name
+ */
+function getFileNameFromUrl($file_url) {
+  preg_match('/[^\/]+\.[^\/]+$/', $file_url, $matches);
+  $file_name = reset($matches);
+  return $file_name;
+}
+
+/**
+ * Create a new node from the supplied data
+ * Then insert data into a custom table to log that the 
+ * node was created from this module.
+ * 
+ * @param array $node_data - An associative array with all the node fields
+ * @param array $incoming_item - The corresponding item from the incoming feed
+ */
+function createNewNode($node_data, $incoming_item) {
+  $database = \Drupal::database();
+  $node = Node::create($node_data);
+  $node->save();
+
+  $database->insert('json_to_node_created_nodes')
+    ->fields(array(
+      'incoming_uuid' => $incoming_item['uuid'][0]['value'],
+      'local_node_id' => $node->id(),
+      'creation_time' => time(),
+      'last_updated_time' => time(),
+    ))
+    ->execute();
+}

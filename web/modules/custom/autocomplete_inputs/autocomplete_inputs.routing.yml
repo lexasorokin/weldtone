@@ -1,0 +1,7 @@
+autocomplete_inputs.settings:
+  path: '/admin/config/user-interface/autocomplete-inputs'
+  defaults:
+    _title: 'Autocomplete Inputs Settings'
+    _form: '\Drupal\autocomplete_inputs\Form\AutocompleteInputsSettingsForm'
+  requirements:
+    _permission: 'administer autocomplete inputs'

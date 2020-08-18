@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * Implements MODULE_preprocess_page()
+ */
+function facebook_feed_preprocess_page(&$variables) {
+  $config = \Drupal::config('facebook_feed.settings');
+  if ($config->get('preprocess_hook') === 'page') {
+    _facebook_feed_get_feed($variables, $config);
+  }
+}
+
+/**
+ * Implements MODULE_preprocess_page()
+ */
+function facebook_feed_preprocess_block(&$variables) {
+  $config = \Drupal::config('facebook_feed.settings');
+  $variables['#cache']['max-age'] = 6 * 60;
+  if ($config->get('preprocess_hook') === 'block' && $variables['elements']['#id'] == $config->get('element_id')) {
+    _facebook_feed_get_feed($variables, $config);
+  }
+}
+
+/**
+ * Implements MODULE_preprocess_paragraph()
+ */
+function facebook_feed_preprocess_paragraph(&$variables) {
+  $config = \Drupal::config('facebook_feed.settings');
+
+  if ($config->get('preprocess_hook') !== 'paragraph') {
+    return;
+  }
+
+  if (!$variables['elements']['#paragraph']->hasField('field_social_media_selector')) {
+    return;
+  }
+
+  $fieldSocialMediaSelector = $variables['elements']['#paragraph']->get('field_social_media_selector')->getValue();
+
+  if (isset($fieldSocialMediaSelector[0]) && $fieldSocialMediaSelector[0]['value'] === 'facebook') {
+    _facebook_feed_get_feed($variables, $config);
+  }
+}
+
+function _facebook_feed_get_feed(&$variables, $config) {
+  $profileName = $config->get('profile_name');
+  $numOfPostToDisplay = $config->get('num_of_posts');
+  $accessToken = $config->get('access_token');
+  $maxCacheAge = 5 * 60;
+  
+  $cached_fb_json_feed = \Drupal::cache()->get('cached_fb_json_feed');
+
+  if ($cached_fb_json_feed && $cached_fb_json_feed->expire > time()) {
+    $fb_feed = json_decode($cached_fb_json_feed->data);
+
+  } else {
+    // React out to the Facebook Graph API with our access token to get the feed.
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/' . $profileName . '?&fields=feed.limit(' . $numOfPostToDisplay . '){id,created_time,message,story,attachments,admin_creator}&access_token=' . $accessToken);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    
+    $fb_json_feed = curl_exec($ch);
+    curl_close($ch);
+
+    
+    \Drupal::cache()->set('cached_fb_json_feed', $fb_json_feed, time() + $maxCacheAge);
+
+    $fb_feed = json_decode($fb_json_feed);
+  }
+
+  // The response is a JSON string. We will parse the string and
+  // then check for specific values in the object.
+  $posts = array();
+
+  foreach ($fb_feed->feed->data as $post) {
+    $imgSrc = null;
+    $targetUrl = null;
+
+    // Attachments will contain a posted photo and the url to the post
+    // Even if there are multiple, we're only displaying the first one
+
+    if (isset($post->attachments) && isset($post->attachments->data[0])) {
+      $data0 = $post->attachments->data[0];
+      if (isset($data0->media) && isset($data0->media->image)) {
+        $img = $data0->media->image;
+        $imgSrc = $img->src;
+
+        if (isset($data0->target) && isset($data0->target->url)) {
+          $targetUrl = $data0->target->url;
+        }
+      // When PVSchools shares something from another page
+      // The image from and to that post will be a subattachment
+      // Even if there are multiple, we're only displaying the first one
+      } elseif (isset($data0->subattachments) && isset($data0->subattachments->data[0])) {
+        $subData0 = $data0->subattachments->data[0];
+        if (isset($subData0->media) && isset($subData0->media->image)) {
+          $imgSrc = $subData0->media->image->src;
+          if (isset($subData0->target) && isset($subData0->target->url)) {
+            $targetUrl = $subData0->target->url;
+          }
+        }
+      }
+    }
+
+    $createdDate = new DateTime($post->created_time);
+
+    $postData = array(
+      'createdDate' => $createdDate->format('M d Y'),
+    );
+
+    if (isset($post->message)) {
+      $postData['message'] = $post->message;
+    } elseif (isset($post->attachments) && isset($post->attachments->data[0]) && isset($post->attachments->data[0]->description)) {
+      $postData['message'] = $post->attachments->data[0]->description;
+    }
+
+    if (isset($imgSrc)) {
+      $postData['imgSrc'] = $imgSrc;
+    }
+
+    if (isset($targetUrl)) {
+      $postData['targetUrl'] = $targetUrl;
+    }
+
+    array_push($posts, $postData);
+  }
+
+  $variables['facebookFeed'] = $posts;
+}

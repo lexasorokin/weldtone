@@ -1,0 +1,7 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/drag_view.css: {}
+  js:
+    js/drag_view.js: {}

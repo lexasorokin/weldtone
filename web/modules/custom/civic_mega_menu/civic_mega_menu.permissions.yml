@@ -1,0 +1,4 @@
+administer civic_mega_menu:
+  title: Civic Mega Menu
+  description: Configure permissions for Civic Mega Menu
+  restrict access: TRUE

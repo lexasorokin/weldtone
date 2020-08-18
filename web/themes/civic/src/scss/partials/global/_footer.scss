@@ -1,0 +1,16 @@
+footer {
+  background-color: $charcoal;
+  padding: 3rem 0;
+
+  nav ul {
+    display: flex;
+  }
+
+  nav li {
+    padding: 0 7.5px;
+  }
+
+  a {
+    color: white;
+  }
+}

@@ -1,0 +1,6 @@
+name: Instagram Feed
+core: 8.x
+type: module
+description: Instagram Feed
+package: Custom
+configure: instagram_feed.settings

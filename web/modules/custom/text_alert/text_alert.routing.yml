@@ -1,0 +1,7 @@
+text_alert.settings:
+  path: '/admin/config/development/text-alerts'
+  defaults:
+    _title: 'Text Alert Settings'
+    _form: '\Drupal\text_alert\Form\TextAlertConfigForm'
+  requirements:
+    _permission: 'administer text_alert'

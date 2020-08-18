@@ -1,0 +1,4 @@
+administer geolocation filter:
+  title: Geolocation Filter Settings
+  description: Settings for blocking webform submissions from specific countries or IP addresses
+  restrict access: TRUE

@@ -1,0 +1,61 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements MODULE_preprocess_HOOK()
+ */
+function menu_translate_preprocess_menu__main(&$vars) {
+  _menu_translate_menu_translate($vars);
+}
+
+function _menu_translate_menu_translate(&$vars) {
+  $config = Drupal::config('menu_translate.settings');
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  
+  $menu_translations = $config->get('menu_translations');
+
+  foreach ($vars['items'] as &$menu_item) {
+    if (isset($menu_translations[$langcode]) && isset($menu_translations[$langcode][$menu_item['title']])) {
+      $menu_item['title'] = $menu_translations[$langcode][$menu_item['title']];
+      $menu_item['attributes']->addClass('notranslate');
+    }
+  }
+}
+
+/**
+ * Implements hook_help()
+ */
+function menu_translate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.menu_translate':
+      $output = '';
+      $output .= '<h2>' . t('Reason For This Module') . '</h2>';
+      $output .= '<p>' . t('Drupal has some great options for adding professionally translated versions of nodes or blocks. However, there is not an easy option for adding professionally translated menu items. Thus the menu is usually at the mercy of Google Translate and does not always receive the desired translation for items.') . '</p>';
+      $output .= '<br><h2>' . t('Usage') . '</h2>';
+      $output .= '<p>' . t('This module mixes the best of Google Translate and Professional Translations by doing the following:') . '</p>'; 
+      $output .= '<ol>';
+      $output .= '<li>' . t('By default all menu items will be translated with Google Translate.') . '</li>';
+      $output .= '<li>' . t('If you see a menu item for a specific language that has an undersiable translation, head over to the <a href="/:settings">moudle settings</a> page.', [':settings' => Url::fromRoute('menu_translate.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('In the settings select which language you want. Then write out the English menu item, add a "^", and then write what that item should translate to.');
+      $output .= '</ol>';
+      $output .= '<br><h2>' . t('How It Works') . '</h2>';
+      $output .= '<p>' . t('The core functionality happens in <code>menu_translate.module</code> inside the <code>_menu_translate_menu_translate</code> function. It follows these steps:') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Recieves the variables passed to it by a menu preprocess function.') . '</li>';
+      $output .= '<li>' . t('Gets the language code for the currently selected lanaguage.') . '</li>';
+      $output .= '<li>' . t('From the received variables it loops through the <code>items</code>, which will be all the menu items inside that menu.') . '</li>';
+      $output .= '<li>' . t('For each menu item, it checks if that menu item title for the selected language is set in our menu translations configuration (received from the <a href="/:settings">module settings</a>).', [':settings' => Url::fromRoute('menu_translate.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('If it is set, the we change the title of that menu item to be the desired translation then a <code>notranslate</code> class to the item, so Google does not try to translate it.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br><h2>' . t('Extending the Functionality') . '</h2>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('By default, this is only set up to translate items only in the Main Menu.') . '</li>';
+      $output .= '<li>' . t('You can see this by looking in <code>menu_translate.module</code>, that the translate function is only called in the <code>menu__main</code> preprocess.') . '</li>';
+      $output .= '<li>' . t('To add this to another menu, just add a new preprocess function with the menu hook and then call <code>_menu_translate_menu_translate($vars)</code> from that function.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br>';
+      return $output;
+  }
+}

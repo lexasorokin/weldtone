@@ -1,0 +1,5 @@
+facebook_feed.settings:
+  title: Facebook Feed Settings
+  description: Configure your Facebook Feed
+  parent: system.admin_config_development
+  route_name: facebook_feed.settings

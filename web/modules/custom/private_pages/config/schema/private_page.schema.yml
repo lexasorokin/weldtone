@@ -1,0 +1,6 @@
+private_page.settings:
+  type: config_object
+  mapping:
+    private_page:
+      type: bool
+      label: Toggle if page is private

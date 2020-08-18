@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function instagram_feed_page_attachments_alter(array &$page) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  
+  if (isset($route_name) && $route_name == 'instagram_feed.settings') {
+    $config = Drupal::config('instagram_feed.settings');
+    $page['#attached']['library'][] = 'instagram_feed/assets';
+  }
+}
+
+/**
+ * Implements MODULE_cron()
+ */
+function instagram_feed_cron() {
+  $config = \Drupal::service('config.factory')->getEditable('instagram_feed.settings');
+
+  $fields = 'id,media_type,media_url,username,timestamp,permalink,thumbnail_url';
+  $access_token = $config->get('access_token');
+  
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, 'https://graph.instagram.com/me/media?fields=' . $fields . '&access_token=' . $access_token);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  $json = curl_exec($ch);
+  curl_close($ch);
+  $response = json_decode($json, TRUE);
+
+  $config->set('fetched_feed_data', $response);
+  $config->save();
+}
+
+function instagram_feed_preprocess_page() {
+  $config = Drupal::config('instagram_feed.settings');
+  // kint($config->get('fetched_feed_data'));
+}
+
+

@@ -1,0 +1,17 @@
+ul {
+  padding-left: 0;
+}
+
+.form-radios {
+  display: flex;
+}
+
+.form-radios .form-type-radio {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+img.menu-layout-option {
+  width: 100px;
+}

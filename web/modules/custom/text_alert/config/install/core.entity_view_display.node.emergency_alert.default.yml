@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.emergency_alert.body
+    - field.field.node.emergency_alert.field_alert_type
+    - field.field.node.emergency_alert.field_email_received_date
+    - node.type.emergency_alert
+  module:
+    - user
+id: node.emergency_alert.default
+targetEntityType: node
+bundle: emergency_alert
+mode: default
+content:
+  field_alert_type:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_email_received_date: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_private_page
+    - node.type.page
+id: node.page.field_private_page
+field_name: field_private_page
+entity_type: node
+bundle: page
+label: 'Private Page'
+description: 'When selected, only authorized roles will be able to view this node. The list of authorized roles can be configured in <a href="/admin/config/user-interface/private-pages">Private Page Settings</a>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

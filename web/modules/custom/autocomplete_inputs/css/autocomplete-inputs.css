@@ -1,0 +1,40 @@
+.autocomplete-input-options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 100%;
+  left: 0;
+}
+
+.autocomplete-input-options-container .autocomplete-input-option {
+  color: white;
+  padding: 10px 20px;
+  text-align: left;
+  position: relative;
+}
+
+.autocomplete-input-options-container .autocomplete-input-option span {
+  position: relative;
+  z-index: 1;
+}
+
+.autocomplete-input-options-container .autocomplete-input-option::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color .2s;
+}
+
+.autocomplete-input-options-container .autocomplete-input-option:focus {
+  outline: none;
+}
+
+.autocomplete-input-options-container .autocomplete-input-option:hover::after,
+.autocomplete-input-options-container .autocomplete-input-option:focus::after {
+  background-color: rgba(0, 0, 0, 0.5);
+}

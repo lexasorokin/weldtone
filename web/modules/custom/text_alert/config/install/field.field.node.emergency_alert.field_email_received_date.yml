@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email_received_date
+    - node.type.emergency_alert
+id: node.emergency_alert.field_email_received_date
+field_name: field_email_received_date
+entity_type: node
+bundle: emergency_alert
+label: 'Email Received Date'
+description: 'The date the alert was received. This field should not be manually changed and is used to prevent creating duplicate nodes.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

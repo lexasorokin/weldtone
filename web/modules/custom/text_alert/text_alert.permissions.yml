@@ -1,0 +1,4 @@
+administer text_alert:
+  title: Text Alerts
+  description: Configure permissions for Text Alerts
+  restrict access: TRUE

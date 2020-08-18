@@ -1,0 +1,45 @@
+{% macro create_anchor_or_span(item, menu_level) %}
+
+  {%
+    set menuItemClasses = [
+      'menu-item',
+      'menu-item--level-' ~ menu_level,
+      item.in_active_trail ? 'menu-item--active-trail'
+    ]
+  %}
+
+  {% if item.title == '<Empty>' %}
+    <span {{ item.attributes.addClass(menuItemClasses, 'empty-menu-item') }}>
+    </span>
+  {% else %}
+    {% if item.empty_link %}
+      <span tabindex="0" {{ item.attributes.addClass(menuItemClasses) }}>
+    {% else %}
+      <a href="{{ item.url }}" {{ item.attributes.addClass(menuItemClasses) }}>
+    {% endif %}
+
+    {% if item.options.fa_icon %}
+      {% if item.options.fa_icon_appearance == 'before' %}
+        <span class="menu-item-value menu-item-value--level-{{ menu_level }}">
+          <i class="{{ item.options.fa_icon_prefix }} {{ item.options.fa_icon }}"></i> {{ item.title|striptags }}
+        </span>
+      {% elseif item.options.fa_icon_appearance == 'after' %}
+        <span class="menu-item-value menu-item-value--level-{{ menu_level }}">
+          {{ item.title|striptags }} <i class="{{ item.options.fa_icon_prefix }} {{ item.options.fa_icon }}"></i>
+        </span>
+      {% else %}
+        <span class="menu-item-value menu-item-value--level-{{ menu_level }}">
+          <i class="{{ item.options.fa_icon_prefix }} {{ item.options.fa_icon }}"></i>
+        </span>
+      {% endif %}
+    {% else %}
+      <span class="menu-item-value menu-item-value--level-{{ menu_level }}">{{ item.title|raw }}</span>
+    {% endif %}
+
+    {% if item.empty_link %}
+      </span>
+    {% else %}
+      </a>
+    {% endif %}
+  {% endif %}
+{% endmacro %}

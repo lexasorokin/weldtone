@@ -1,0 +1,24 @@
+main .ckeditor-accordion-container {
+
+  & > dl {
+    border: 1px solid $primary-color;
+
+    dt {
+
+      & > a {
+        background-color: $primary-color;
+        border-bottom: 1px solid $primary-color;
+        text-decoration: none;
+      }
+
+      &.active > a,
+      & > a:hover {
+        background-color: darken($primary-color, 7%);
+      }
+    }
+
+    dd {
+      padding: 10px 15px;
+    }
+  }
+}

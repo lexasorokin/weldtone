@@ -1,0 +1,105 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\Core\Menu\DefaultMenuLinkTreeManipulators;
+
+/**
+ * Implements MODULE_preprocess_node()
+ */
+function private_pages_preprocess_node(&$variables) {
+  if (isset($variables['node']) && isset($variables['page']) && _private_page_is_private_page($variables['node'])) {
+    $variables['#cache']['max-age'] = 0;
+
+    // Check if the current user has access to view private pages
+    $userHasPrivateViewAccess = _private_pages_current_user_has_private_view_access();
+    
+    // If the the page is private and the user does not have access to view it,
+    // redirect the user to the home page.
+    if (!$userHasPrivateViewAccess) {
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse('/');
+      $response->send();
+    }
+  }
+}
+
+/**
+ * {@return bool $privateViewAccess}
+ * 
+ * Check if the current user role has private view access 
+ */
+function _private_pages_current_user_has_private_view_access() {
+  // Initialize the private view access to false
+  $privateViewAccess = FALSE;
+
+  // Check which user roles have access to view the private page
+  $config = Drupal::config('private_pages.settings');
+  $allowedUsers = $config->get('included_roles');
+  $allowedUserArr = explode(",", $allowedUsers);
+
+  // Get the current user role
+  $user = \Drupal::currentUser();
+  $userRoles = $user->getRoles();
+
+  // Check if the current user role is one of the roles
+  // who has access to view the page
+  foreach ($allowedUserArr as $user) {
+    $result = array_search(trim($user), $userRoles);
+    if ($result) {
+      $privateViewAccess = TRUE;
+    }
+  }
+
+  return $privateViewAccess;
+}
+
+/**
+ * {@var object $node}
+ * {@return bool $isPrivatePage}
+ * 
+ * Check if the $node is marked as a private page
+ */
+function _private_page_is_private_page($node) {
+  // Check if the node has been checked as a 'Private Page'
+  if ($node->hasField('field_private_page') && $node->get('field_private_page')->getValue()) {
+    $isPrivatePage = $node->get('field_private_page')->getValue()[0]['value'] == "1";
+
+    return $isPrivatePage;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_help()
+ */
+function private_pages_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.private_pages':
+      $output = '';
+      $output .= '<h2>' . t('Usage') . '</h2>';
+      $output .= '<p>' . t('The private page module adds a "Private Page" field the can be added to nodes. By default, it will be added to the "Basic Page" content type. The field will show up as a checkbox, which can be selected to make the page and links to the page only visible to users with roles specified in the <a href="/:settings">module settings.</a>', [':settings' => Url::fromRoute('private_pages.settings')->getInternalPath()]) . '</p>';
+      $output .= '<br><h2>' . t('A Few Notes and Possible Concerns') . '</h2>';
+      $output .= '<p>' . t('In order to ensure that private pages and menus containing private pages are updated based on the roles of the user viewing the page, the caching of private nodes and the main menu is removed. This will adversely affect the load time of these items.') . '</p>';
+      $output .= '<p>' . t('Possible next steps would be to find better options for caching based on user roles.') . '</p>';
+      $output .= '<br><h2>' . t('How It Works') . '</h2>';
+      $output .= '<p>' . t('The core functionality for this module is in <code>private_pages.module</code>:') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Every time a node is loaded, the <code>private_pages_preprocess_node</code> function looks if that node has the "Private Page" field and if that field is checked.') . '</li>';
+      $output .= '<li>' . t('If the page is private, caching for that page is disabled. Without disabling the cache, the cached page will be served to all users without checking if they have view access or not.') . '</li>';
+      $output .= '<li>' . t('Then the module gets the current user’s included roles, then checks those roles against the allowed user roles set in the <a href="/:settings">module settings</a>.', [':settings' => Url::fromRoute('private_pages.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('If the none of the user’s included roles match those allowed to see private pages, they will be redirected to the homepage.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<p>' . t('There is additional functionality to remove links to private pages from the main menu for users who don’t have permission to view those pages:') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('The process starts in <code>private_pages_preprocess_menu</code>.') . '</li>';
+      $output .= '<li>' . t('The module checks if the menu is the main menu.') . '</li>';
+      $output .= '<li>' . t('NOTE: If you want to add this functionality for other menus, those should be added here.') . '</li>';
+      $output .= '<li>' . t('If it is, it removes the caching of this menu, so that a different menu will be served to different users.') . '</li>';
+      $output .= '<li>' . t('Then the menu tree is traversed and each link is checked to see if it’s to a private page and if the current user has access to view that page.') . '</li>';
+      $output .= '<li>' . t('If it is private and the user does not have access, then a variable <code>is_private</code> is added to the menu item.') . '</li>';
+      $output .= '<li>' . t('That variable must then be read inside of the menu’s TWIG template to hide that link before render.') . '</li>';
+      $output .= '</ol><br>';
+      return $output;
+  }
+}

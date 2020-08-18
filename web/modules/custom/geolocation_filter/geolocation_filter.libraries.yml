@@ -1,0 +1,4 @@
+geolocation_filter:
+  version: 1.x
+  js:
+    js/geolocation-filter.js: {}

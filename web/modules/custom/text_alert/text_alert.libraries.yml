@@ -1,0 +1,7 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/text-alert.css: {}
+  js:
+    js/text-alert.js: {}

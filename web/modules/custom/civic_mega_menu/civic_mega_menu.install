@@ -1,0 +1,50 @@
+<?php
+
+/**
+* Implements hook_schema()
+* 
+* Defines the database tables used by this module
+*/
+function civic_mega_menu_schema() {
+  $schema['civic_mega_menu'] = array(
+    'description' => 'Custom Table for the Civic Mega Menu Module',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Id'
+      ),
+      'parent_link' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Parent Link'
+      ),
+      'menu_block' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Menu Block'
+      ),
+      'weight' => array(
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Weight'
+      ),
+      
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'id' => array('id'),
+      'parent_link' => array('parent_link'),
+      'menu_block' => array('menu_block'),
+      'weight' => array('weight'),
+    ),
+  );
+
+  return $schema;
+}

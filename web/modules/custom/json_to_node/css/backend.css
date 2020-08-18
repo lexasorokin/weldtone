@@ -1,0 +1,46 @@
+.fw-400 {
+  font-weight: 400;
+}
+
+.form-item-file-save-location {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.form-item-file-save-location input {
+  margin-bottom: -2px;
+  margin-left: 1px;
+  width: 300px;
+}
+
+.form-item-file-save-location .description {
+  width: 100%;
+}
+
+#edit-map-taxonomy .form-type-number {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+}
+
+#edit-map-taxonomy input[type="number"] {
+  margin-left: 10px;
+  width: 70px;
+}
+
+@media (min-width: 992px) {
+  input.form-text {
+    width: 425px;
+  }
+
+  .form-item-event-map-content-type + fieldset .form-type-checkbox:not(:first-of-type) {
+    position: absolute;
+    top: auto;
+    transform: translateY(-44px);
+    left: 443px;
+    width: calc(100% - 443px);
+    padding: 0 18px;
+    box-sizing: border-box;
+  }
+}

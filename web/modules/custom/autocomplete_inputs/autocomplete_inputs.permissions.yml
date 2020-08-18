@@ -1,0 +1,4 @@
+administer autocomplete inputs:
+  title: Autocomple Inputs
+  description: Manage options for autocomplete inputs
+  restrict access: TRUE

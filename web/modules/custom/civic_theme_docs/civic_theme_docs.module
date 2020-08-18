@@ -1,0 +1,24 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function civic_theme_docs_page_attachments_alter(array &$page) {
+  $isAdminPage = \Drupal::service('router.admin_context')->isAdminRoute();
+  
+  if ($isAdminPage) {
+    $page['#attached']['library'][] = 'civic_theme_docs/backend';
+  } else {
+    $page['#attached']['library'][] = 'civic_theme_docs/frontend';
+  }
+}
+
+function civic_theme_docs_help($route_name, RouteMatchInterface $route_match) {
+  switch($route_name) {
+    case 'help.page.civic_theme_docs':
+      $output = '';
+      $output .= '<h2>' . t('Civic Starter Documentation') . '</h2>';
+      $output .= '<p>' . t('This module provides <a href="/:link">documentation</a> for Civic Starter, particularly the Civic theme. A link to the <a href="/:link">documentation landing page</a> can also be found in the far right of the main admin toolbar. This module has no affect on the site functionality.', [':link' => Url::fromRoute('civic_theme_docs.overview')->getInternalPath()]) . '</p>';
+      return $output;
+  }
+}

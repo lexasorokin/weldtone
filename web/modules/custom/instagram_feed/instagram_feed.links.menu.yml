@@ -1,0 +1,5 @@
+instagram_feed.settings:
+  title: Instagram Feed Settings
+  description: Instagram Feed description.
+  parent: system.admin_config_media
+  route_name: instagram_feed.settings

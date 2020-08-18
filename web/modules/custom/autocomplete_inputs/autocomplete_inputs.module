@@ -1,0 +1,125 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements MODULE_cron()
+ * 
+ * The CRON process reindexes all of the nodes currently on the site to add 
+ * to the autocomplete inputs. This probably only needs to run once or twice a day.
+ */
+function autocomplete_inputs_cron() {
+  $config = \Drupal::service('config.factory')->getEditable('autocomplete_inputs.settings');
+
+  $dbOptionsArr = array();
+
+  if ($config->get('include_all_nodes')) {
+    $database = \Drupal::database();
+    $selectedLangCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    $queryVars = array();
+
+    // Get all the nodes to exclude, which will be added to our query.
+    $nodesToExclude = $config->get('nodes_to_exclude');
+    $nodesToExclude = explode("\n", $nodesToExclude);
+    $titleIsNotString = '';
+    $index = 1;
+    foreach ($nodesToExclude as $nodeToExcludeTitle) {
+      $titleIsNotString .= "AND NOT nfd.title = :node_$index ";
+      $queryVars[':node_' . $index] = trim($nodeToExcludeTitle);
+      $index++;
+    }
+  
+    $all_nodes = $database
+      ->query(
+        "SELECT nfd.nid, nfd.title, nfpp.field_private_page_value, nfd.langcode
+        FROM {node_field_data} AS nfd
+        LEFT JOIN {node__field_private_page} AS nfpp
+        ON nfd.nid = nfpp.entity_id
+        WHERE status = 1 
+          $titleIsNotString
+          -- AND nfd.langcode = :langcode
+          AND (nfpp.field_private_page_value = '0' OR nfpp.field_private_page_value is NULL)",
+          $queryVars
+        )
+      ->fetchAll();
+  
+    foreach ($all_nodes as $node) {
+      if (!isset($dbOptionsArr[$node->langcode])) {
+        $dbOptionsArr[$node->langcode] = array();
+      }
+
+      array_push($dbOptionsArr[$node->langcode], array(
+        'link' => "/node/$node->nid",
+        'text' => $node->title,
+      ));
+    }
+  }
+  
+  $config->set('db_options_processed', $dbOptionsArr);
+  $config->save();
+}
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function autocomplete_inputs_page_attachments_alter(array &$page) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!isset($node) || $node->bundle() !== 'modular_page') {
+    return;
+  }
+
+  $config = \Drupal::config('autocomplete_inputs.settings');
+  $page['#attached']['library'][] = 'autocomplete_inputs/assets';
+
+  // This array will be populated with information that will be passed
+  // to the module's JavaScript file.
+  $optionsArr = $config->get('autocomplete_options_processed');
+
+  if ($config->get('include_all_nodes')) {
+    $dbOptionsArr = $config->get('db_options_processed');
+    $selectedLangCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    $optionsArr = array_merge($optionsArr, $dbOptionsArr[$selectedLangCode]);
+  }
+
+  $item = array(
+    'selector' => $config->get('selector'),
+    'autocompleteOptions' => $optionsArr,
+    'bgColors' => array(
+      'odd' => $config->get('bg_color_odd'),
+      'even' => $config->get('bg_color_even'),
+    ),
+  );
+
+  $inputsArr = array();
+  array_push($inputsArr, $item);
+
+  // This variable location can be read inside the JavaScript file
+  $page['#attached']['drupalSettings']['autocompleteInputs'] = $inputsArr;
+}
+
+function autocomplete_inputs_help($route_name, RouteMatchInterface $route_match) {
+  switch($route_name) {
+    case 'help.page.autocomplete_inputs':
+      $output = '';
+      $output .= '<div data-iframe-append-src="https://www.youtube.com/embed/WWrq_8ta3M0"></div>';
+      $output .= '<h2>' . t('Usage') . '</h2>';
+      $output .= '<p>' . t('Autocomplete Inputs allows you to target a specific input element and add suggestions that will dynamically update as a user types. There is also the option to add every page in the database to the autocomplete options. You can get started by heading to the <a href="/:link">module settings</a> page.', [':link' => Url::fromRoute('autocomplete_inputs.settings')->getInternalPath()]) . '</p>';
+      $output .= '<br><h2>' . t('How It Works') . '</h2>';
+      $output .= '<p>The functionality for this module lie in the settings form, module file, and JavaScript file.' . '</p>';
+      $output .= '<code class="code-block">
+        src/Form/AutocompleteInputsSettingsForm.php<br>
+        autocomplete_inputs.module<br>
+        js/autocomplete-inputs.js
+      </code>';
+      $output .= '<br><h3>' . t('Settings Form') . '</h3>';
+      $output .= '<p>' . t('In the settings form, we ask the content editor to add the options they would like to autopopulate. If they just put text, then selecting that string from the available options will not do anything except fill the input field. If they would like selecting that option to link to a specific page, they may input the page they wish to link inside square brackets after the text.') . '</p>';
+      $output .= '<br><h3>' . t('Module File') . '</h3>';
+      $output .= '<p>' . t('The module file first grabs all the values from the settings form. The autocomplete options textarea is split into an array, by exploding the string at every new line. Then we loop through each option and start building an <code>$optionsArr</code> variable which will eventually be passed to the module\'s JavaScript. For each option, we look to see if a link was provided inside of the square brackets, if so we push the link and the text into <code>$optionsArr</code>, otherwise we just push the text.') . '</p>';
+      
+      return $output;
+  }
+}

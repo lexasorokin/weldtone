@@ -1,0 +1,8 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/autocomplete-inputs.css: {}
+  js:
+    js/autocomplete-inputs.js: {}
+  

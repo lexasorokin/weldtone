@@ -1,0 +1,4 @@
+administer instagram_feed:
+  title: Instagram Feed
+  description: Configure permissions for Instagram Feed
+  restrict access: TRUE

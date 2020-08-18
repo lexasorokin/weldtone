@@ -1,0 +1,6 @@
+civic_theme_docs.overview:
+  title: Civic Theme Docs
+  description: Basic documentation for the Civic theme.
+  parent: system.admin
+  route_name: civic_theme_docs.overview
+  weight: 20

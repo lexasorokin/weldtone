@@ -1,0 +1,4 @@
+civic_mega_menu_configure:
+  title: 'Configure Mega Menu'
+  route_name: 'civic_mega_menu.settings'
+  group: 'menu'

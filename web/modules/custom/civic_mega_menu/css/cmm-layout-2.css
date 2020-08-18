@@ -1,0 +1,7 @@
+.cmm-li--level-1.active .cmm-ul {
+  display: flex;
+}
+
+.cmm-ul--level-2 {
+  width: 200%;
+}

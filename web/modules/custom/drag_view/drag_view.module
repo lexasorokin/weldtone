@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function drag_view_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'drag_view/assets';
+}
+
+
+
+function drag_view_preprocess_node_edit_form(&$vars) {
+  kint($vars);
+}

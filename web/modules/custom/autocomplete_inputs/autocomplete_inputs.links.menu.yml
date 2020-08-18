@@ -1,0 +1,5 @@
+autocomplete_inputs.settings:
+  title: Autocomplete Inputs Settings
+  description: Add custom autocomplete options for specific text inputs.
+  parent: system.admin_config_ui
+  route_name: autocomplete_inputs.settings

@@ -1,0 +1,22 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help()
+ */
+function ckeditor_bootstrap_grid_extended_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ckeditor_bootstrap_grid_extended':
+      $output = '<h2>' . t('Reason for This Module'). '</h2>';
+      $output .= '<p>' . t('This module is basically a copy of the <a target="_blank" href=":module">CKEditor Bootstrap Grid</a> module.', [':module' => 'https://www.drupal.org/project/ckeditor_bootstrap_grid']) . '</p>';
+      $output .= '<p>' . t('The main problem with this contributed module is that it\'s not compatible with Bootstrap 4. This is because it adds classes to every column which were not classes utilized by Bootstrap 3, but are in Bootstrap 4. Bootstrap 4 is typically a better choice because it uses Flexbox instead of Float, and does not have the unexpected bugs that are common in Bootstrap 3. So in order to use this module with Bootstrap 4, those classes have been updated in this copy.') . '</p>';
+      $output .= '<br><h2>' . t('What Was Changed?') . '</h2>';
+      $output .= '<p>' . t('The changed code is inside of <code>js/plugins/widgetbootstrap/plugin.js</code> and <code>js/plugins/widgetbootstrap/plugin.es6.js</code>. Instead of adding the classes to each column of <code>col-1</code> and <code>col-2</code>, it now adds <code>col-num-1</code> and <code>col-num-2</code>.') . '</p>';
+      $output .= '<p>' . t('While making those changes, the option to add in a 4 column view was added as well.') . '</p>';
+      $output .= '<br><h2>' . t('Possible Next Stpes') . '</h2>';
+      $output .= '<p>' . t('It could possibly be a better approach to use the contributed module and then apply a patch to include the changes found here.');
+      return $output;
+  }
+}

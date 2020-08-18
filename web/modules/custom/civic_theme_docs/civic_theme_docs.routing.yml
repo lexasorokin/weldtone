@@ -1,0 +1,88 @@
+civic_theme_docs.overview:
+  path: '/admin/civic-theme-docs'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::overview'
+    _title: 'Civic Theme Documentation'
+  requirements:
+    _role: 'administrator'
+
+
+civic_theme_docs.assets:
+  path: '/admin/civic-theme-docs/assets'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::assetsOverview'
+    _title: 'Assets Overview'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.webpack_scss_and_js:
+  path: '/admin/civic-theme-docs/assets/webpack-scss-and-js'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::webpackScssAndJs'
+    _title: 'Compiling SCSS and JS with NPM and Webpack'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.scss_structure:
+  path: '/admin/civic-theme-docs/assets/scss-structure'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::scssStructure'
+    _title: 'SCSS Structure'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.js_structure:
+  path: '/admin/civic-theme-docs/assets/js-structure'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::jsStructure'
+    _title: 'JavaScript Structure'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.components:
+  path: '/admin/civic-theme-docs/components'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::themeComponentsOverview'
+    _title: 'Theme Componenets'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.theme_file:
+  path: '/admin/civic-theme-docs/components/theme-file'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::themeFile'
+    _title: 'The "civic.theme" File'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.translations:
+  path: '/admin/civic-theme-docs/components/translations'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::translations'
+    _title: 'Translations'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.recurring_events:
+  path: '/admin/civic-theme-docs/components/recurring-events'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::recurringEvents'
+    _title: 'Recurring Events'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.modular_pages:
+  path: '/admin/civic-theme-docs/components/modular-pages'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::modularPages'
+    _title: 'Modular Pages'
+  requirements:
+    _role: 'administrator'
+
+civic_theme_docs.additional_styles:
+  path: '/admin/civic-theme-docs/components/additional-styles'
+  defaults:
+    _controller: '\Drupal\civic_theme_docs\Controller\CivicThemeDocsController::additionalStyles'
+    _title: 'Additional Styles'
+  requirements:
+    _role: 'administrator'

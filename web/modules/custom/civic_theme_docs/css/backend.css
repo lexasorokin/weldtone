@@ -1,0 +1,52 @@
+.toolbar-icon-civic-theme-docs-overview::before {
+  background-image: url('/core/themes/stable/images/core/icons/787878/questionmark-disc.svg');
+}
+
+.docs-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5em;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+}
+
+.docs-nav-wrapper > div:last-child:not(:first-child) {
+  text-align: right;
+}
+
+.docs-nav-wrapper h3 {
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: .25em;
+}
+
+.docs-nav-wrapper p {
+  margin: 0;
+}
+
+code.code-block {
+  background-color: #3a3a3a;
+  color: white;
+  padding: .5em 1em;
+  display: block;
+}
+
+.code-class {
+  color: deepskyblue;
+}
+
+.code-function {
+  color: yellow;
+}
+
+.code-comment {
+  color: #aaa;
+}
+
+.code-keyword {
+  color: plum;
+}
+
+code:not(.code-block) {
+  color: purple;
+}

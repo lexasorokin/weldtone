@@ -1,0 +1,11 @@
+.cmm-li.active .cmm-ul {
+  display: flex;
+}
+
+.cmm-ul--level-2 {
+  width: 200%;
+}
+
+.cmm-ul--level-3 {
+  border-top: 1px solid #ddd;
+}

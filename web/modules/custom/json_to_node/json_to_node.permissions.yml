@@ -1,0 +1,4 @@
+administer json_to_node:
+  title: JSON To Node
+  description: Configure permissions for JSON To Node
+  restrict access: TRUE

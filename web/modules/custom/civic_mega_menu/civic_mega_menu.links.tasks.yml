@@ -1,0 +1,4 @@
+civic_mega_menu.settings:
+  route_name: civic_mega_menu.settings
+  base_route: entity.node.canonical
+  title: 'Configure Mega Menu Settings'

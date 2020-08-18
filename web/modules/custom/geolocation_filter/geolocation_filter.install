@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ * 
+ * Defines the database tables used by this module.
+ */
+function geolocation_filter_schema() {
+  $schema['geolocation_filter_blocked_submissions'] = array(
+    'description' => 'Stores records of blocked webform submissions',
+    'fields' => array(
+      'sid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique Id'
+      ),
+      'submission_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The time of the submission',
+      ),
+      'ip_address' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The IP Address of the submission',
+      ),
+      'country_code' => array(
+        'type' => 'varchar',
+        'length' => 5,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The country code of the submission',
+      ),
+      'reason_blocked' => array(
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Reason for blocked submission',
+      ),
+      'webform_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The name of the webform receiving the submission'
+      ),
+      'form_values' => array(
+        'type' => 'varchar',
+        'length' => 5000,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The field values of the webform submission'
+      ),
+    ),
+    'primary key' => array('sid'),
+    'indexes' => array(
+      'submission_time' => array('submission_time'),
+      'ip_address' => array('ip_address'),
+      'country_code' => array('country_code'),
+      'webform_name' => array('webform_name'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ * 
+ * Perform initialization when the module is installs
+ */
+function geolocation_filter_install() {
+  $config = \Drupal::service('config.factory')->getEditable('geolocation_filter.settings');
+
+  $config->set('blocked_countries', 'CN, KP, MX, RU');
+  $config->set('blocked_ip_addresses', '');
+  $config->set('message_type_on_blocked_submission', 'status');
+  $config->set('error_message', t('There was a problem with your submission. Please try again later.'));
+  $config->set('success_message', t('Your message has been sent.'));
+
+  $config->save();
+}

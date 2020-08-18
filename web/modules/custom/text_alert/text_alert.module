@@ -1,0 +1,81 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\text_alert\Imap;
+use \Drupal\node\Entity\Node;
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\text_alert\Controller\TextAlertController;
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function text_alert_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'text_alert/assets';
+}
+
+/**
+ * Implements MODULE_cron()
+ */
+function text_alert_cron() {
+  TextAlertController::readEmails();
+}
+
+function text_alert_preprocess_page() {
+  // TextAlertController::readEmails();
+}
+
+/**
+ * Implements hook_help().
+ */
+function text_alert_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.text_alert':
+      $output = '';
+      $output .= '<h2>' . t('Usage') . '</h2>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Send a text message to the specified number (ask administrator for this number') . '</li>';
+      $output .= '<li>' . t('The text message should be formatted as "<alrt-type>: <message>". ') . '<em>' . t('Example: Severe Weather: Flash Flood Warnings throughout Downtown') . '</em></li>';
+      $output .= '<li>' . t('The default alert types are "Active Shooter", "Earthquake", "Alert", "Fire", "Severe Weather"') . '</li>';
+      $output .= '<li>' . t('Shortly after your text is sent, you should see the banner throughout the site.') . '</li>';
+      $output .= '<li>' . t('To clear the banner, send a text to the same number with that says "CLEARALERT".') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br><h2>' . t('About Text To Emails') . '</h2>';
+      $output .= '<p>' . t('Before the module can be used, the following items happen independently.') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('A text is sent to a designated number') . '</li>';
+      $output .= '<li>' . t('A 3rd party service takes that text and creates an email from its content.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br><h3>' . t('About Text Alert CRON Job') . '</h3>';
+      $output .= '<p>' . t('When the module\'s CRON job is run, the following steps take place (All of this can be found in <code>src/Controller/TextAlertController.php</code>):') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('The designated email inbox is opened and looped through. The designated email configuration is within <code>src/Imap.php</code>') . '</li>';
+      $output .= '<li>' . t('For each email, the module checks if the email came from a text and what number sent that text. That information is inside the email\'s "fromaddress" field.') . '</li>';
+      $output .= '<li>' . t('The module checks if that number is among the allowed phone numbers declared in the module <a href="/:settings">settings</a>.', [':settings' => Url::fromRoute('text_alert.settings')->getInternalPath()]) . '</li>';
+      $output .= '<li>' . t('If the number is allowed, the module checks if that particular text alert is present in the database. It does this by comparing the receive date.') . '</li>';
+      $output .= '<li>' . t('If no duplicate is found, the module then parses the body of the email. The module is expecting the body to be formatted as "<category> : <message>"') . '</li>';
+      $output .= '<li>' . t('The body text will be split on the colon ( : ).') . '</li>';
+      $output .= '<li>' . t('It then checks what\'s before the colon (the category) against the available "Alert Type" taxonomy terms.') . '</li>';
+      $output .= '<li>' . t('What comes after the colon will be set as the "message".') . '</li>';
+      $output .= '<li>' . t('A new "Emergency Alert" node is created with the alert type category and the message set as the title.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<p>' . t('Also, while this is happening. The module is also looking for specific texts to remove the banner messages.');
+      $output .= '<ol>';
+      $output .= '<li>' . t('Each message is checked for the keyword "CLEARALERT".') . '</li>';
+      $output .= '<li>' . t('If that message is found, the module checks a custom table in the database (text_alert_clear_messages) to see if this clear has already been applied') . '</li>';
+      $output .= '<li>' . t('If the clear hasn\'t yet been applied, then a new entry is created in the custom table (so it won\'t be applied again later) and then a flag is set to unpublish all banners.') . '</li>';
+      $output .= '<li>' . t('After the inbox has been looped through and any nodes have been created, if the clear flag is on, then all published "Emergency Alerts" will be unpublished.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br><h3>' . t('About the View') . '</h3>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('The "Text Alert Banners" view shows the most recent published "Emergency Alert". When no alerts are published, nothing will be shown.') . '</li>';
+      $output .= '<li>' . t('This view will typically be placed at the top of the website content and/or right below the header.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<br><h2>' . t('Other Notes') . '</h2>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('For the module to work correctly, it should not use Content Moderation. It is possible to turn off moderation for specific content types. This should be done for "Emergency Alerts"') . '</li>';
+      $output .= '<li>' . t('When a banner is rendered, a CSS class for the alert type is added to the wrapper for customizing styles. The class name will be the category in lowercase with spaces replaced by dashes ( - )') . '</li>';
+      $output .= '</ul>';
+      $output .= '<br>';
+      return $output;
+  }
+}

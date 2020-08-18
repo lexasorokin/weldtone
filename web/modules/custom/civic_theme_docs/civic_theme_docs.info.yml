@@ -1,0 +1,6 @@
+name: Civic Theme Documentation
+core: 8.x
+type: module
+description: Contains basic documentation for the civic theme.
+package: 360 Custom
+

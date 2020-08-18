@@ -1,0 +1,7 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/instagram_feed.css: {}
+  js:
+    js/instagram_feed.js: {}

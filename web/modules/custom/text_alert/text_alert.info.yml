@@ -1,0 +1,6 @@
+name: Text Alert
+core: 8.x
+type: module
+description: Text Alert
+package: 360 Custom
+configure: text_alert.settings

@@ -1,0 +1,27 @@
+name: Civic Theme
+type: theme
+core: 8.x
+base theme: stable
+
+regions:
+  admin_content: 'Admin Content'
+  banner: 'Banner'
+  header_left: 'Header (Left)'
+  header_center: 'Header (Center)'
+  header_right: 'Header (Right)'
+  hero: 'Hero'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  content: 'Content'
+  related_content: 'Related Content'
+  left_sidebar: 'Left Sidebar'
+  right_sidebar: 'Right Sidebar'
+  footer_left: 'Footer (Left)'
+  footer_center: 'Footer (Center)'
+  footer_right: 'Footer (Right)'
+  no_location: 'No Location'
+  hidden: 'Hidden'
+  disabled: 'Disabled'
+
+libraries:
+  - civic/assets

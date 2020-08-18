@@ -1,0 +1,6 @@
+name: Drag View
+core: 8.x
+type: module
+description: Drag View
+package: 360 Custom
+configure: drag_view.settings

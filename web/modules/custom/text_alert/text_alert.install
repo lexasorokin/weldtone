@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_schema()
+ * 
+ * Defines the custom database tables used by this module
+ */
+function text_alert_schema() {
+  $schema['text_alert_clear_messages'] = array(
+    'description' => 'Custom table to store "CLEARALERT" messages',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'description' => 'Primary Key: Id',
+        'not null' => TRUE,
+      ),
+      'email_received_date' => array(
+        'type' => 'varchar',
+        'description' => 'The date the "CLEARTALERT" message was received.',
+        'not null' => TRUE,
+        'length' => 255,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'id' => array('id'),
+      'email_received_date' => array('email_received_date'),
+    ),
+  );
+
+  return $schema;
+}

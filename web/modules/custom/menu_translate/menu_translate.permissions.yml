@@ -1,0 +1,4 @@
+administer menu_translate:
+  title: Menu Translate
+  description: Configure permissions for Menu Translate
+  restrict access: TRUE

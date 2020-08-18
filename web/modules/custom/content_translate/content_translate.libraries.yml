@@ -1,0 +1,7 @@
+assets:
+  version: 1.x
+  css:
+    theme:
+      css/content_translate.css: {}
+  js:
+    js/content_translate.js: {}

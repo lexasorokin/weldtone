@@ -1,0 +1,16 @@
+{% macro get_styles(additional_styles_field) %}
+  {% set style_classes = '' %}
+  {% set num_of_styles = additional_styles_field['#items'].getValue()|length %}
+  {% for i in 0..num_of_styles %}
+    {% set style = additional_styles_field[loop.index0] %}
+    {% if style and style['#taxonomy_term'].hasField('field_classes') %}
+      {% set field_classes = style['#taxonomy_term'].get('field_classes').getValue() %}
+      {% set style_classes = style_classes ~ field_classes[0].value ~ ' ' %}
+
+      {% if style['#taxonomy_term'].bundle() == 'programmed_styles_featured_img' %}
+        {% set layout = field_classes[0].value %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {{ style_classes }}
+{% endmacro %}

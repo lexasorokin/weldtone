@@ -1,0 +1,5 @@
+private_pages.settings:
+  title: Private Pages Settings
+  description: Private Pages description.
+  parent: system.admin_config_ui
+  route_name: private_pages.settings

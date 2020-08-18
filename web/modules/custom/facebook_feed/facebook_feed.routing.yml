@@ -1,0 +1,7 @@
+facebook_feed.settings:
+  path: '/admin/config/development/facebook-feed'
+  defaults:
+    _title: 'Facebook Feeds Settings'
+    _form: '\Drupal\facebook_feed\Form\FacebookFeedSettingsForm'
+  requirements:
+    _permission: 'administer facebook feed'

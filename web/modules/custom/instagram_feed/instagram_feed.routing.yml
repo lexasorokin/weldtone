@@ -1,0 +1,23 @@
+instagram_feed.settings:
+  path: '/admin/config/media/instagram-feed'
+  defaults:
+    _title: 'Instagram Feed Settings'
+    _form: '\Drupal\instagram_feed\Form\InstagramFeedConfigForm'
+  requirements:
+    _permission: 'administer instagram_feed'
+
+instagram_feed.authorize:
+  path: '/admin/instagram-authorize'
+  defaults:
+    _controller: '\Drupal\instagram_feed\Controller\InstagramFeedController::authorize'
+    _title: 'Instagram Feed Authorize'
+  requirements:
+    _role: 'administrator'
+
+instagram_feed.deauthorize:
+  path: '/admin/instagram-deauthorize'
+  defaults:
+    _controller: '\Drupal\instagram_feed\Controller\InstagramFeedController::deauthorize'
+    _title: 'Instagram Feed Deauthorize'
+  requirements:
+    _role: 'administrator'

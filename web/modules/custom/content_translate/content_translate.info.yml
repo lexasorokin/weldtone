@@ -1,0 +1,6 @@
+name: Content Translate
+core: 8.x
+type: module
+description: Content Translate
+package: 360 Custom
+configure: content_translate.settings

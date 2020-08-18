@@ -1,0 +1,5 @@
+civic_mega_menu.settings:
+  title: Mega Menu Settings
+  description: Configure Civic Mega Menu settings.
+  parent: system.admin_structure
+  route_name: civic_mega_menu.settings

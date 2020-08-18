@@ -1,0 +1,33 @@
+{% if page.header_left and page.header_center and page.header_right %}
+  {% set column_classes = 'col-lg-4' %}
+{% elseif page.header_center and not page.header_left and not page.header_right  %}
+  {% set column_classes = 'col-12' %}
+{% elseif page.header_right and not page.header_left and not page.header_center %}
+  {% set column_classes = 'col-md-6 offset-md-6' %}
+{% else %}
+  {% set column_classes = 'col-md-6' %}
+{% endif %}
+
+<header class="{{ header_position_class }} {{ header_bg_class }}">
+  <div class="header-content {{ header_width_class }}">
+    <div class="row">
+      {% if page.header_left %}
+        <div class="{{ column_classes }}">
+          {{ page.header_left }}
+        </div>
+      {% endif %}
+    
+      {% if page.header_center %}
+        <div class="{{ column_classes }} d-flex justify-content-center">
+          {{ page.header_center }}
+        </div>
+      {% endif %}
+
+      {% if page.header_right %}
+        <div class="{{ column_classes }} d-flex justify-content-end">
+          {{ page.header_right }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</header>

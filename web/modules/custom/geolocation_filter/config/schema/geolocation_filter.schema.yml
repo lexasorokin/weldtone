@@ -1,0 +1,24 @@
+geolocation_filter_blocked_submissions.settings:
+  type: config_object
+  mapping:
+    sid:
+      type: integer
+      label: Unique submission id
+    submission_time:
+      type: string
+      label: Submission time
+    ip_address:
+      type: string
+      label: Submission IP address
+    webform_name:
+      type: string
+      label: Name of webform receiving submission
+    country_code:
+      type: string
+      label: Submission country code
+    reason_blocked:
+      type: string
+      label: Reason blocked
+    form_values:
+      type: string
+      label: Submitted form values

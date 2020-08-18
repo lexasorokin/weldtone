@@ -1,0 +1,94 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'modular-section',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set bg_image = content.field_bg_image['0']['#markup'] %}
+{% set bg_position = content.field_bg_image_position['0']['#context'].value %}
+{% set search_id = content.field_search_input_id[0]['#context'].value|trim %}
+{% set search_placeholder = content.field_search_input_placeholder[0]['#context'].value|trim %}
+
+{% import '/themes/civic/templates/macros/additional_styles.twig' as styles %}
+
+{% block paragraph %}
+  <section
+    {{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}
+    style="background-image: url({{ bg_image }}); background-position: {{ bg_position }}"
+  >
+    <div class="container">
+      {% block content %}
+        {{ content.field_content }}
+
+        <form action="/search/node" class="mb-2em">
+        <label for="{{ search_id }}" class="sr-only">
+          {{ search_placeholder }}
+        </label>
+        <input id="{{ search_id }}" name="keys" placeholder="{{ search_placeholder }}" type="text">
+        <button class="search-icon-button" type="submit">
+          <span class="sr-only">Submit</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="search"
+            class="svg-inline--fa fa-search fa-w-16"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path 
+              fill="currentColor"
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+      {% endblock %}
+    </div>
+  </section>
+{% endblock paragraph %}

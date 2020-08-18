@@ -1,0 +1,7 @@
+civic_mega_menu.settings:
+  path: '/admin/structure/civic-mega-menu'
+  defaults:
+    _title: 'Civic Mega Menu Settings'
+    _form: '\Drupal\civic_mega_menu\Form\CivicMegaMenuConfigForm'
+  requirements:
+    _permission: 'administer civic_mega_menu'

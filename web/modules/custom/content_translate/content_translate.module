@@ -1,0 +1,36 @@
+<?php
+
+use Google\Cloud\Storage\StorageClient;
+use Google\Cloud\Translate\V2\TranslateClient;
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function content_translate_page_attachments_alter(array &$page) {
+  $config = Drupal::config('content_translate.settings');
+
+  $defaultLangCode = \Drupal::languageManager()->getDefaultLanguage()->getId();
+  $selectedLangCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  if ($defaultLangCode !== $selectedLangCode) {
+    $page['#attached']['drupalSettings']['contentTranslate']['apiKey'] = $config->get('api_key');
+    $page['#attached']['library'][] = 'content_translate/assets';
+  }
+}
+
+function content_translate_preprocess_node_edit_form(&$vars) {
+  $pathToJson = drupal_get_path('module', 'content_translate') . '/Cloud Translation-d14c93ceb601.json';
+  
+  if ($defaultLangCode !== $selectedLangCode || !isset($_GET['translatecontent']) || $_GET['translatecontent'] !== 'true') {
+    return;
+  }
+
+  $_ENV['GOOGLE_APPLICATION_CREDENTIALS'] =  fopen($pathToJson, 'r');
+  
+  $selectedLangCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $translate = new TranslateClient();
+  
+  $result = $translate->translate('Civic starter test translation.', [
+    'target' => $selectedLangCode
+  ]);
+}
