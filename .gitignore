@@ -19,6 +19,13 @@
 
 # Ignore Drupal's file directory
 /web/sites/default/files
+/private/*
+!/private/.htaccess
+/tmp/*
+!/tmp/.htaccess
+
+# Ignore Twig Debugging
+/web/sites/default/services.yml
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
