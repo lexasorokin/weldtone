@@ -1,0 +1,6 @@
+name: Startup Popup
+core: 8.x
+type: module
+description: Startup Popup
+package: 360 Custom
+configure: startup_popup.settings

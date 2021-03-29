@@ -1,0 +1,56 @@
+<?php
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements MODULE_page_attachments_alter()
+ */
+function startup_popup_page_attachments_alter(array &$page) {
+  // Don't cache adding the styles and javascript to the page
+  $page['#cache']['max-age'] = 0;
+
+  $config = Drupal::config('startup_popup.settings');
+
+  // Check if the current route is an Admin route
+  $route = \Drupal::routeMatch()->getRouteObject();
+  $is_admin = \Drupal::service('router.admin_context')->isAdminRoute($route);
+
+  // If it is an admin route, return before doing anything
+  if ($is_admin) {
+    return;
+  }
+
+  // Check if the current user is authenticated
+  $user = \Drupal::currentUser();
+  $userRoles = $user->getRoles();
+  $result = array_search('authenticated', $userRoles);
+  
+  if ($result !== FALSE) {
+    // The current user is authenticated
+    $frequency = $config->get('frequency_auth');
+    $dismissable = $config->get('dismissable_auth') === 1;
+    $use_redirect = $config->get('use_redirect_auth') === 1;
+    $routes_to_ignore = $config->get('routes_to_ignore_auth');
+  } else {
+    // The current user is anonymus
+    $frequency = $config->get('frequency_anon');
+    $dismissable = $config->get('dismissable_anon') === 1;
+    $use_redirect = $config->get('use_redirect_anon') === 1;
+    $routes_to_ignore = $config->get('routes_to_ignore_anon');
+  }
+
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  // Check if the functionality is enabled and if we are on a page that should be ignored
+  if ($config->get('popup_enabled') && strpos($routes_to_ignore, $current_path) === FALSE) {
+    if ($use_redirect) {
+      $response = new RedirectResponse($config->get('redirect_url'));
+      $response->send();
+    } else if ($config->get('use_redirect_anon') === 0 && $frequency !== 'never') {
+      $page['#attached']['drupalSettings']['startupPopup']['popupBody'] = $config->get('popup_body');
+      $page['#attached']['drupalSettings']['startupPopup']['frequency'] = $frequency;
+      $page['#attached']['drupalSettings']['startupPopup']['dismissable'] = $dismissable;
+      $page['#attached']['library'][] = 'startup_popup/assets';
+    }
+  }
+}

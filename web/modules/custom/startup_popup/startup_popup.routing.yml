@@ -1,0 +1,8 @@
+startup_popup.settings:
+  path: '/admin/config/user-interface/startup-popup'
+  defaults:
+
+    _form: '\Drupal\startup_popup\Form\StartupPopupConfigForm'
+
+  requirements:
+    _permission: 'administer startup_popup'

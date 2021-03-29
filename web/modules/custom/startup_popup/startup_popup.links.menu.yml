@@ -1,0 +1,5 @@
+startup_popup.settings:
+  title: Startup Popup Settings
+  description: Startup Popup description.
+  parent: system.admin_config_ui
+  route_name: startup_popup.settings
