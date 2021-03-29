@@ -65,7 +65,7 @@
 
       {% for item in items %}
         {% if not item.hide_item %}
-          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }}">
+          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }} {{ item.below ? 'has-children':'' }}">
 
             {{ macros.create_anchor_or_span(item, menu_level) }}
 

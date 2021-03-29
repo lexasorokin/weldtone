@@ -56,7 +56,7 @@
             <div class="cmm-column cmm-column--level-2">
           {% endif %}
 
-          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }}">
+          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }}  {{ item.below ? 'has-children':'' }}">
 
             {{ macros.create_anchor_or_span(item, menu_level) }}
 
