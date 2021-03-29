@@ -1,0 +1,59 @@
+.bg-wave{
+  .swirls{
+    padding-bottom: 6rem;
+    background: #FBFBFB;
+  }
+}
+.bg-wave::after{
+  background: #FBFBFB;
+  content: ""; // ::before and ::after both require content
+
+}
+.paragraph--type--basic-section{
+  //padding-bottom: 0;
+  h1,h2,h3,h4{
+    font-weight: normal;
+    color: $primary-color;
+  }
+  p{
+    strong{
+      color: $primary-color;
+      font-size: 17px;
+    }
+
+  }
+  p,li{
+    font-size: 14px;
+    line-height: 25px;
+  }
+  a{
+    color: $primary-color;
+
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  a.btn{
+    text-decoration: none;
+    color: inherit;
+  }
+  ul{
+    margin-bottom: 1rem;
+  }
+  img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  @media screen and (min-width: 1024px) {
+    .col-md-8{
+      padding: 0;
+    }
+  }
+
+}
+
+
+h3 {
+    font-size: 1.7rem;
+}

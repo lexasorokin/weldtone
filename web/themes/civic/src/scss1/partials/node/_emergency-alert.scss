@@ -1,0 +1,19 @@
+body.page-node-type-emergency-alert {
+  header {
+    position: relative !important;
+    z-index: 20 !important;
+    
+    a,
+    svg,
+    .menu-item--level-1 {
+      color: black !important;
+    }
+
+    .header-search-form {
+      input[type="search"] {
+        color: black;
+        border-color: black;
+      }
+    }
+  }
+}

@@ -1,16 +1,16 @@
 /* COLORS */
-$gray: #aeaeae;
+$gray: #565659;
 $grey: $gray;
-$light-gray: #e5e7e7;
+$light-gray: #F1F1F1;
 $light-grey: $light-gray;
 $charcoal: #505050;
 
-$primary-color: #04bfbf;
-$secondary-color: #04bf7b;
+$primary-color: #004A87;
+$secondary-color: #0fb2e2; 
 
 /* BOOTSTRAP BUTTON COLORS
- * 
- * The default bootstrap color will be used, 
+ *
+ * The default bootstrap color will be used,
  * unless you overwrite by setting a variable below.
  * This check and overwriting happens in _button.scss
  */
@@ -24,9 +24,9 @@ $btn-secondary: $secondary-color;
 // $btn-light: #f8f9fa;
 
 /* BREAKPOINTS
- * 
+ *
  * It's best not to change these, as they match
- * the breakpoints in the Bootstrap Grid. 
+ * the breakpoints in the Bootstrap Grid.
  */
 $sm: 576px;
 $md: 768px;

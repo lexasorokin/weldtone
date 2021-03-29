@@ -1,0 +1,66 @@
+#civic-mega-menu {
+
+  .cmm-ul--level-2 {
+
+
+    .cmm-column--level-2 {
+
+
+      .cmm-li--level-2 {
+        position: relative;
+        padding: 5px 20px;
+        &:hover {
+          background-color: #004A87;
+          //background: url(/themes/civic/images/angle-down-white.png) no-repeat 125px center #004A87;
+          
+          &.has-children {
+            background-image: url(/themes/civic/images/angle-down-white.png);
+            background-repeat: no-repeat;
+          }
+          background-position: right 10px center;
+          color: #fff;
+          &>a {
+            color: #fff;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .cmm-ul--level-3 {
+          position: absolute;
+
+          .cmm-li--level-3 {
+            padding: 5px 20px;
+            &>a {
+              font-size: 18px; 
+            }
+            &:hover {
+              background-color: #0bb3e2;
+              &>a {
+                color: #fff;
+                font-size: 18px;
+
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+}
+
+.menu-title--level-2 {
+  position: relative;
+  font-size: 32px;
+  margin-top: 0;
+  color: #004a87;
+  border-bottom: 2px solid #004a87;
+  display: inline-block;
+  margin-left: 10px;
+}

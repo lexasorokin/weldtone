@@ -1,0 +1,78 @@
+.layout-container {
+  position: relative;
+  overflow: hidden;
+}
+
+body.no-hero:not(.path-node):not(.path-frontpage) .layout-container {
+  padding-top: 70px;
+
+  .header-content {
+    a,
+    svg {
+      color: black;
+    }
+  
+    input {
+      color: black;
+      border-color: black;
+    }
+  }
+}
+
+main ol {
+  padding-left: 16px;
+  li {
+    list-style: decimal;
+    padding-left: 4px;
+  }
+}
+main ul {
+  padding-left: 20px;
+  li {
+    list-style: disc;
+  }
+}
+ol.breadcrumb {
+  li {
+    list-style: none;
+  }
+}
+
+caption {
+  caption-side: top;
+  text-align: center;
+}
+
+/* This all ensures that the footer is at the boottom of small pages */
+body {
+  display: flex;
+  flex-direction: column;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+}
+
+.dialog-off-canvas-main-canvas {
+  flex: 1 0 0%;
+  display: flex;
+  flex-direction: column;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0%;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+
+  & > main {
+    flex: 1 0 0%;
+  }
+}

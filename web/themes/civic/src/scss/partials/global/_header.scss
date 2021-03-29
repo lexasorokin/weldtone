@@ -1,8 +1,164 @@
+header.header-fixed.is-fixed{
+  top: 0;
+  animation-delay: 2s;
+}
+.top-bar{
+  background: $light-gray 0% 0% no-repeat padding-box;
+  .container-fluid{
+    @media screen and (min-width: 1024px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+  .region--top-bar{
+    width: 100%;
+  }
+  #block-languageswitcher{
+    float: left;
+    img {
+      width: 26px;
+      margin-top: 5px;
+    }
+  }
+  #block-search{
+    float: right;
+    svg{
+      color: #004A87;
+      font-size: 18px;
+      margin-top: 8px;
+    }
+  }
+  .header-top-bar {
+    position: relative;
+  }
+  #block-civic-search{
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 32px;
+    background: $light-gray none repeat scroll 0% 0%;
+    padding: 12px;
+    z-index: 999;
+  }
+  #block-topmenu-2 , #block-topmenu-3{
+    width: 94%;
+    float: left;
+    margin-top: 3px;
+    a,span.nolink, span{
+      font-size: 12px;
+      color: $gray ;
+      padding: 8px 20px;
+    }
+  }
+  ul#superfish-top-menu , #block-topmenu-3 ul{
+    li:first-child {
+      float: left;
+    }
+    li{
+      float: right;
+      position: relative;
+      span{
+        cursor: pointer;
+        background: url("/themes/civic/images/angle-down.png") no-repeat 90px 15px !important;
+        background-size: 7px 5px !important;
+          }
+      ul{
+        display: none;
+        width: 100px;
+        position: absolute;
+        background: $light-gray;
+        z-index: 11;
+        li{
+          float: inherit !important;
+          text-align: center;
+          a{
+            padding: 5px 12px;
+          }
+        }
+      }
+    }
+  }
+}
+.region--header-center{
+  padding-top: 24px;
+  .cmm-ul--level-1{
+    .menu-item--level-1{
+
+      padding-left: 22px;
+      padding-right: 22px;
+      @media screen and (max-width: 1100px) {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    span.menu-item-value--level-1{
+      font-size: 15px;
+      background: url("/themes/civic/images/angle-down.png") no-repeat right 9px !important;
+      padding-right: 22px;
+      background-size: 7px 5px !important;
+      @media screen and (max-width: 1200px) {
+        font-size: 14px;
+      }
+    }
+  }
+  .cmm-ul--level-2{
+    max-width: 75vw;
+  }
+  .cmm-li{
+    margin-right: 0;
+  }
+
+}
+
+#block-paymybill{
+  @media screen and (max-width: 650px) {
+    width: 100px !important;
+  }
+  h2{
+    a{
+      background: url("/themes/civic/images/angle-down-white.png") no-repeat 125px center #004A87 !important;
+      color: #fff;
+      //font-family: 'Bebas Neue';
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      padding: 10px 39px;
+      border-radius: 30px;
+      background-size: 8px 13px !important;
+      display: block;
+      font-weight: normal;
+      line-height: 27px;
+      @media screen and (max-width: 1200px) {
+        padding: 10px 33px;
+        background-position: 100px center !important;
+        font-size: 17px;
+      }
+      @media screen and (max-width: 1000px) {
+        padding: 5px 20px;
+        background-position: 100px center !important;
+        font-size: 15px;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 10px 25px;
+        background-position: 95px center !important;
+      }
+      @media screen and (max-width: 650px) {
+        padding: 5px 12px !important;
+        background-position: 75px center !important;
+        font-size: 14px;
+      }
+
+    }
+
+  }
+}
 header {
   &.header-relative {
     position: relative;
   }
-
   &.header-absolute {
     position: absolute;
     top: 0;
@@ -12,8 +168,8 @@ header {
   }
 
   &.header-fixed {
-    position: absolute;
-    top: 0;
+  //  position: absolute;
+  //  top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
@@ -23,13 +179,13 @@ header {
       position: fixed;
 
       &.scrolled-bg {
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.94);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 
         a,
         svg,
         .menu-item--level-1 {
-          color: black;
+          color: $gray;
         }
 
         .header-search-form {
@@ -42,14 +198,23 @@ header {
     }
   }
 
+
   .header-content {
     padding-top: 16px;
     padding-bottom: 16px;
     position: relative;
-
+    &.container-fluid{
+      @media screen and (min-width: 1024px) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+    .justify-content-end{
+      padding: 0;
+    }
     a,
     .menu-item--level-1 {
-      color: white;
+      color: $gray;
     }
   }
 
@@ -86,10 +251,243 @@ header {
 
   .dropdown-menu a,
   .cmm-ul--level-2 a {
-    color: black;
+    color: $gray;
   }
 
   .translate-button {
-    width: 28px; 
+    width: 28px;
   }
+}
+@media screen and (max-width: 1200px) {
+
+}
+@media screen and (min-width: 1000px) {
+  .region--header-left{
+    #block-secondarymobilemenuopenbutton{
+      display: none;
+    }
+    #block-mainnavigation{
+      display: none !important;
+    }
+  }
+  .region--header-center{
+    #block-headerlogo-2{
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .region--header-left{
+    #block-headerlogo{
+      display: none;
+    }
+  }
+  .region--header-center{
+    .mobile-menu-open svg{
+      color: $primary-color;
+    }
+  }
+  .region-left{
+    display: none;
+  }
+  .col-md-2.justify-content-end{
+    max-width: 30.667%;
+  }
+  header .region--header-right{
+    display: block;
+  }
+  .cmm-mobile-menu-wrapper {
+    width: 12%;
+    top: 25px;
+  }
+  #block-headerlogo-2{
+    margin-top: -26px;
+    margin-right: 70px;
+  }
+  #block-paymybill{
+    margin-top: 20px;
+
+    width: 125px;
+    h2 a {
+      padding: 10px 25px;
+    }
+  }
+}
+header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg{
+  color: #fff !important;
+}
+.cmm-mobile-ul--level-1{
+  margin-top: 120px;
+  padding-top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: block;
+  height: 553px;
+  a{
+    font-size: 17px !important;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  header {
+    .header-content {
+      max-width: 100% !important;
+    }
+    .justify-content-end{
+      justify-content: inherit !important;
+    }
+    .col-md-2.justify-content-end{
+      max-width: 100%;
+      display: block !important;
+    }
+    #block-paymybill{
+      float: right;
+      margin-right: 16px;
+    }
+
+    #block-headerlogo-2{
+      margin-right: 0;
+      display: block;
+      float: right;
+    }
+    .region--header-center{
+      width: 100%;
+    }
+  }
+
+}
+@media screen and (max-width: 1000px) {//570px
+  header .header-content {
+      max-width: 100% !important;
+  }
+  .col-md-8.justify-content-end{
+    width: 55%;
+    flex: inherit;
+  }
+  header .col-md-2.justify-content-end{
+    width: 45%;
+    flex: inherit;
+  }
+  .img-w-100 img {
+    width: auto;
+      height: 50px !important;
+      float: right;
+  }
+  #block-headerlogo-2{
+    margin-top: -13px;
+  }
+  header .img-w-100.img-h-100{
+    width: 100% !important;
+    height: 100% !important;
+  }
+  header .header-content {
+      padding-top: 0;
+      padding-bottom: 5px;
+  }
+}
+
+.civic-mega-menu-mobile{
+  background: $primary-color;
+}
+
+.cmm-mobile-li--level-1 {
+    border-bottom: 1px solid #0A599A;
+    padding: 15px 0;
+    a{
+      color: #fff !important;
+      font-size: 20px;
+    }
+}
+#dynamic_select{
+  height: 45px;
+  margin-top: 80px;
+  width: 80% !important;
+  position: absolute;
+  left: 25px;
+}
+.mobile-search{
+  display: block;
+  width: 80%;
+  clear: both;
+  margin-top: 21px;
+  margin-left: 20px;
+  form{
+    ::placeholder {
+      color: #CFDFEC;
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color: #CFDFEC;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+     color: #CFDFEC;
+    }
+    input{
+      background: #3C82BC 0% 0% no-repeat padding-box;
+      border-radius: 20px;
+    }
+    button{
+      position: absolute;
+      right: 25px;
+      top: 5px;
+      color: #fff;
+      svg{
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+li{
+  .position-relative{
+    position: inherit !important;
+
+  }
+  button.toggle-submenu{
+    left: inherit;
+    right: 15px;
+    top: 30px;
+  }
+  li{
+    button.toggle-submenu{
+      left: calc(100% + 10px);
+      right: inherit;
+      top: 50%;
+    }
+    .position-relative{
+      position: relative !important;
+    }
+  }
+
+}
+#civic-mega-menu-mobile{
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 400px) {
+  header .col-md-2.justify-content-end{
+    width: 47%;
+  }
+  .col-md-8.justify-content-end{
+    width: 53%;
+
+  }
+}
+.region--header-center .cmm-ul--level-1{
+  &>.menu-item--active-trail{
+    color: $primary-color !important;
+    span{
+      background: url("/themes/civic/images/output-onlinepngtools.png") no-repeat right !important;
+      background-size: 7px 5px !important;
+      background-size: 7px 5px !important;
+      border-bottom: 2px solid #00B3E3;
+      padding-bottom: 8px;
+        }
+  }
+
 }

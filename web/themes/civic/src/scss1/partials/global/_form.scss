@@ -1,0 +1,119 @@
+$border-color: $primary-color;
+$border-width: 3px;
+$padding-y: .375rem;
+$padding-x: .5rem;
+$boder-radius: .25rem;
+
+select,
+.select2-container {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+input[type="text"], 
+input[type="email"],
+input[type="phone"],
+input[type="password"],
+input[type="search"],
+input[type="submit"],
+textarea,
+select {
+  border-radius: $boder-radius;
+  border: $border-width solid $border-color; 
+  padding: $padding-y $padding-x;
+  line-height: 1.25em;
+  width: 100%;
+  display: block;
+  transition: border-color .2s;
+
+  &:active,
+  &:focus {
+    border-color: darken($primary-color, 10%);
+  }
+}
+
+input[type="submit"] {
+  background-color: $primary-color;
+  border: 3px solid transparent;
+  transition: background-color .2s;
+  color: white;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.form-item,
+.form-actions {
+  margin-bottom: 24px;
+}
+
+.js-form-type-radio {
+  margin-bottom: 0;
+}
+
+.header-search-form {
+  position: relative;
+  width: 200px;
+
+  input[type="search"] {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 2px 30px 2px 7px;
+    color: white;
+    border-radius: 20px;
+  }
+
+  .search-icon-button {
+    width: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 5px 1px 5px;
+
+    svg {
+      width: 14px;
+      color: white;
+    }
+  }
+
+  &.icon-only {
+    width: 36px;
+    height: 28px;
+
+    input[type="search"] {
+      padding: 2px 7px;
+      border-color: rgba(255, 255, 255, 0);
+    }
+
+    .search-icon-button svg {
+      transform: scale(1.8);
+    }
+  }
+}
+
+span.select2-container {
+  .select2-selection--single {
+    height: auto;
+    border: $border-width solid $border-color;
+    border-radius: $boder-radius;
+    
+    .select2-selection__rendered {
+      padding: $padding-y 30px $padding-y $padding-x;
+      line-height: 1.25em;
+    }
+
+    .select2-selection__arrow {
+      height: 100%;
+      width: 40px;
+    }
+  }
+}

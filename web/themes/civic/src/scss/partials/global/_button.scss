@@ -2,10 +2,10 @@
   @if $color {
     background-color: #{$color};
     border-color: #{$color};
-  
+
     &.focus,
     &:focus,
-    &:hover {
+      &:hover {
       background-color: #{$darkendColor};
       border-color: #{$darkendColor};
     }
@@ -14,13 +14,13 @@
 
 @mixin setOutlineButtonColor($color) {
   @if $color {
-    color: #{$color};
+    color: #{$color} !important;
     border-color: #{$color};
-  
+
     &.focus,
     &:focus,
-    &:hover {
-      color: white;
+      &:hover {
+      color: white !important;
       background-color: #{$color};
       border-color: #{$color};
     }
@@ -88,4 +88,13 @@
   .btn-outline-dark {
     @include setOutlineButtonColor($btn-dark);
   }
+}
+
+
+.btn-success, .btn-info, .btn-dark {
+  color: #fff !important;
+}
+
+.btn-outline-secondary {
+  color: #565659 !important;
 }

@@ -5,7 +5,7 @@ assets:
       https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css: {type: external}
       https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css: {type: external}
   js:
-    dist/bundle.js: {}
+    dist/bundle_direct.js: {}
     https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js: {type: external}
     https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js: {type: external}
     https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js: {type: external}

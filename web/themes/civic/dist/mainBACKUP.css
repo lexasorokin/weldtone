@@ -1,0 +1,489 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap);
+/* COLORS */
+/* BOOTSTRAP BUTTON COLORS
+ * 
+ * The default bootstrap color will be used, 
+ * unless you overwrite by setting a variable below.
+ * This check and overwriting happens in _button.scss
+ */
+/* BREAKPOINTS
+ * 
+ * It's best not to change these, as they match
+ * the breakpoints in the Bootstrap Grid. 
+ */
+.img-w-100 img {
+  width: 100%; }
+
+.img-h-100 img {
+  height: 100%; }
+
+.img-w-auto img {
+  width: auto; }
+
+.img-h-auto img {
+  height: auto; }
+
+main .ckeditor-accordion-container > dl {
+  border: 1px solid #04bfbf; }
+  main .ckeditor-accordion-container > dl dt > a {
+    background-color: #04bfbf;
+    border-bottom: 1px solid #04bfbf;
+    text-decoration: none; }
+  main .ckeditor-accordion-container > dl dt.active > a,
+  main .ckeditor-accordion-container > dl dt > a:hover {
+    background-color: #039c9c; }
+  main .ckeditor-accordion-container > dl dd {
+    padding: 10px 15px; }
+
+.region--admin-content {
+  background-color: #0f0f0f; }
+  .region--admin-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0; }
+    .region--admin-content ul li a {
+      padding: 10px 20px;
+      color: white;
+      display: inline-block; }
+      .region--admin-content ul li a.is-active {
+        background-color: #555555; }
+  .region--admin-content .alert {
+    margin-bottom: 0;
+    border-radius: 0; }
+
+.btn-primary {
+  background-color: #04bfbf;
+  border-color: #04bfbf; }
+  .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    background-color: #038d8d;
+    border-color: #038d8d; }
+
+.btn-outline-primary {
+  color: #04bfbf;
+  border-color: #04bfbf; }
+  .btn-outline-primary.focus, .btn-outline-primary:focus, .btn-outline-primary:hover {
+    color: white;
+    background-color: #04bfbf;
+    border-color: #04bfbf; }
+
+.btn-secondary {
+  background-color: #04bf7b;
+  border-color: #04bf7b; }
+  .btn-secondary.focus, .btn-secondary:focus, .btn-secondary:hover {
+    background-color: #038d5b;
+    border-color: #038d5b; }
+
+.btn-outline-secondary {
+  color: #04bf7b;
+  border-color: #04bf7b; }
+  .btn-outline-secondary.focus, .btn-outline-secondary:focus, .btn-outline-secondary:hover {
+    color: white;
+    background-color: #04bf7b;
+    border-color: #04bf7b; }
+
+.field-type--text-long figure,
+.field-type--text-with-summary figure {
+  display: inline-block; }
+  .field-type--text-long figure.align-left,
+  .field-type--text-with-summary figure.align-left {
+    padding-right: 16px;
+    display: block; }
+  .field-type--text-long figure.align-right,
+  .field-type--text-with-summary figure.align-right {
+    padding-left: 16px;
+    display: block; }
+  .field-type--text-long figure.align-center,
+  .field-type--text-with-summary figure.align-center {
+    text-align: center;
+    display: block; }
+  .field-type--text-long figure figcaption,
+  .field-type--text-with-summary figure figcaption {
+    text-align: center;
+    font-style: italic; }
+
+footer {
+  background-color: #505050;
+  padding: 3rem 0; }
+  footer nav ul {
+    display: flex; }
+  footer nav li {
+    padding: 0 7.5px; }
+  footer a {
+    color: white; }
+
+select,
+.select2-container {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important; }
+
+label {
+  margin-bottom: 0; }
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="password"],
+input[type="search"],
+input[type="submit"],
+textarea,
+select {
+  border-radius: 0.25rem;
+  border: 3px solid #04bfbf;
+  padding: 0.375rem 0.5rem;
+  line-height: 1.25em;
+  width: 100%;
+  display: block;
+  transition: border-color .2s; }
+  input[type="text"]:active, input[type="text"]:focus,
+  input[type="email"]:active,
+  input[type="email"]:focus,
+  input[type="phone"]:active,
+  input[type="phone"]:focus,
+  input[type="password"]:active,
+  input[type="password"]:focus,
+  input[type="search"]:active,
+  input[type="search"]:focus,
+  input[type="submit"]:active,
+  input[type="submit"]:focus,
+  textarea:active,
+  textarea:focus,
+  select:active,
+  select:focus {
+    border-color: #038d8d; }
+
+input[type="submit"] {
+  background-color: #04bfbf;
+  border: 3px solid transparent;
+  transition: background-color .2s;
+  color: white; }
+  input[type="submit"]:hover {
+    background-color: #038d8d; }
+
+.form-item,
+.form-actions {
+  margin-bottom: 24px; }
+
+.js-form-type-radio {
+  margin-bottom: 0; }
+
+.header-search-form {
+  position: relative;
+  width: 200px; }
+  .header-search-form input[type="search"] {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 2px 30px 2px 7px;
+    color: white;
+    border-radius: 20px; }
+  .header-search-form .search-icon-button {
+    width: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 5px 1px 5px; }
+    .header-search-form .search-icon-button svg {
+      width: 14px;
+      color: white; }
+  .header-search-form.icon-only {
+    width: 36px;
+    height: 28px; }
+    .header-search-form.icon-only input[type="search"] {
+      padding: 2px 7px;
+      border-color: rgba(255, 255, 255, 0); }
+    .header-search-form.icon-only .search-icon-button svg {
+      transform: scale(1.8); }
+
+span.select2-container .select2-selection--single {
+  height: auto;
+  border: 3px solid #04bfbf;
+  border-radius: 0.25rem; }
+  span.select2-container .select2-selection--single .select2-selection__rendered {
+    padding: 0.375rem 30px 0.375rem 0.5rem;
+    line-height: 1.25em; }
+  span.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    width: 40px; }
+
+header.header-relative {
+  position: relative; }
+
+header.header-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; }
+
+header.header-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: background-color .2s; }
+  header.header-fixed.is-fixed {
+    position: fixed; }
+    header.header-fixed.is-fixed.scrolled-bg {
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); }
+      header.header-fixed.is-fixed.scrolled-bg a,
+      header.header-fixed.is-fixed.scrolled-bg svg,
+      header.header-fixed.is-fixed.scrolled-bg .menu-item--level-1 {
+        color: black; }
+      header.header-fixed.is-fixed.scrolled-bg .header-search-form input[type="search"] {
+        color: black;
+        border-color: black; }
+
+header .header-content {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  position: relative; }
+  header .header-content a,
+  header .header-content .menu-item--level-1 {
+    color: white; }
+
+header .region--header-left {
+  display: flex;
+  align-items: center; }
+  header .region--header-left > div:not(:last-child) {
+    margin-right: 12px; }
+  @media screen and (max-width: 767px) {
+    header .region--header-left {
+      position: absolute; }
+      header .region--header-left #block-headerlogo {
+        display: none; } }
+
+header .region--header-right {
+  display: flex;
+  align-items: center; }
+  header .region--header-right > div:not(:first-child) {
+    margin-left: 12px; }
+
+header #block-civic-main-menu {
+  position: static;
+  flex: 1; }
+
+header .dropdown-menu a,
+header .cmm-ul--level-2 a {
+  color: black; }
+
+header .translate-button {
+  width: 28px; }
+
+.layout-container {
+  position: relative;
+  overflow: hidden; }
+
+body.no-hero:not(.path-node):not(.path-frontpage) .layout-container {
+  padding-top: 70px; }
+  body.no-hero:not(.path-node):not(.path-frontpage) .layout-container .header-content a,
+  body.no-hero:not(.path-node):not(.path-frontpage) .layout-container .header-content svg {
+    color: black; }
+  body.no-hero:not(.path-node):not(.path-frontpage) .layout-container .header-content input {
+    color: black;
+    border-color: black; }
+
+main ol {
+  padding-left: 16px; }
+  main ol li {
+    list-style: decimal;
+    padding-left: 4px; }
+
+main ul {
+  padding-left: 20px; }
+  main ul li {
+    list-style: disc; }
+
+ol.breadcrumb li {
+  list-style: none; }
+
+caption {
+  caption-side: top;
+  text-align: center; }
+
+/* This all ensures that the footer is at the boottom of small pages */
+body {
+  display: flex;
+  flex-direction: column; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    body {
+      display: block; } }
+
+.dialog-off-canvas-main-canvas {
+  flex: 1 0 0%;
+  display: flex;
+  flex-direction: column; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .dialog-off-canvas-main-canvas {
+      display: block; } }
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0%; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .layout-container {
+      display: block; } }
+  .layout-container > main {
+    flex: 1 0 0%; }
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0; }
+
+html,
+body {
+  font-family: 'Raleway', sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif; }
+
+blockquote {
+  padding: .75em 0 .75em .75em;
+  border-left: 2px solid #ddd;
+  font-size: 1.75rem;
+  font-style: italic; }
+  blockquote p {
+    margin-bottom: 0; }
+
+.node--type-page .basic-page-header {
+  height: 30rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+  .node--type-page .basic-page-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .node--type-page .basic-page-header > div {
+    position: relative;
+    z-index: 1; }
+
+.node--type-page .node__content {
+  padding-top: 3rem; }
+
+body.page-node-type-emergency-alert header {
+  position: relative !important;
+  z-index: 20 !important; }
+  body.page-node-type-emergency-alert header a,
+  body.page-node-type-emergency-alert header svg,
+  body.page-node-type-emergency-alert header .menu-item--level-1 {
+    color: black !important; }
+  body.page-node-type-emergency-alert header .header-search-form input[type="search"] {
+    color: black;
+    border-color: black; }
+
+.node-hero-image {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.modular-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem; }
+
+.paragraph--type--map {
+  padding-top: 6rem; }
+  .paragraph--type--map .map {
+    background-color: grey;
+    height: 635px;
+    width: 100%; }
+  .paragraph--type--map .map-icons-container img {
+    height: 39px;
+    width: auto; }
+
+.paragraph--type--search-section {
+  position: relative;
+  padding: 6rem 0;
+  text-align: center;
+  min-height: 65vh;
+  display: flex;
+  align-items: center; }
+  .paragraph--type--search-section form {
+    position: relative;
+    max-width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .paragraph--type--search-section .search-icon-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 10px; }
+    .paragraph--type--search-section .search-icon-button svg {
+      width: 24px; }
+
+.dark-overlay {
+  position: relative; }
+  .dark-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .dark-overlay > div {
+    position: relative;
+    z-index: 1; }
+
+.light-overlay {
+  position: relative; }
+  .light-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); }
+  .light-overlay > div {
+    position: relative;
+    z-index: 1; }
+
+.bg-charcoal {
+  background-color: #505050; }
+
+.bg-primary-color {
+  background-color: #04bfbf; }
+
+.bg-secondary-color {
+  background-color: #04bf7b; }
+
+
+/*# sourceMappingURL=main.css.map*/
