@@ -54,10 +54,12 @@
 {% import '/themes/civic/templates/macros/additional_styles.twig' as styles %}
 
 {% block paragraph %}
-  <section
+  <section 
     {{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}
     style="background-image: url({{ bg_image }}); background-position: {{ bg_position }}"
   >
+  <div class='small-screen'><img src={{ content.field_bg_image['0']['#markup'] }} /></div>
+
     <div class="container">
       {% block content %}
         {{ content|without('field_additional_styles', 'field_bg_image', 'field_bg_image_position') }}

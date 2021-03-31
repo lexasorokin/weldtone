@@ -81,7 +81,7 @@
   ]
 %}
 {%
-  set bg_image = content.field_page_bg_image['0'] ? content.field_page_bg_image['0']['#markup'] : default_basic_page_image
+  set bg_image = content.field_page_bg_image['0']['#markup'] 
 %}
 
 {{ attach_library('classy/node') }}
@@ -91,7 +91,7 @@
       <h1 class="text-white text-align-center">{{ label }}</h1>
     </div>
   </div>
-  <div{{ content_attributes.addClass('node__content', 'container') }}>
+
     {{ content|without('field_page_bg_image') }}
-  </div>
+
 </article>

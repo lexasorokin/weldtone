@@ -41,12 +41,12 @@
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-{% 
+{%
   set wrapper_classes = [
     'field',
     'field-type--' ~ field_type|replace({'_': '-'}),
     'field-name--' ~ field_name|replace({'_': '-'})
-  ] 
+  ]
 %}
 
 {% if label_hidden %}
@@ -65,10 +65,10 @@
   <div{{ attributes.addClass(wrapper_classes) }}>
     <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% if multiple %}
-      <div>
+      <div class='field__items'>
     {% endif %}
     {% for item in items %}
-      <div{{ item.attributes }}>{{ item.content }}</div>
+      <div{{ item.attributes }} >{{ item.content }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

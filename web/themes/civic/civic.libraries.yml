@@ -3,7 +3,7 @@ assets:
     theme:
       dist/main.css: {weight: 1}
       https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css: {type: external}
-      https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css: {type: external}
+      #https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css: {type: external}
   js:
     dist/bundle_direct.js: {}
     https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js: {type: external}
