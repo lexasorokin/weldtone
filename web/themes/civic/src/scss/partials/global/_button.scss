@@ -5,7 +5,7 @@
 
     &.focus,
     &:focus,
-    &:hover {
+      &:hover {
       background-color: #{$darkendColor};
       border-color: #{$darkendColor};
     }
@@ -19,7 +19,7 @@
 
     &.focus,
     &:focus,
-    &:hover {
+      &:hover {
       color: white !important;
       background-color: #{$color};
       border-color: #{$color};
@@ -88,4 +88,13 @@
   .btn-outline-dark {
     @include setOutlineButtonColor($btn-dark);
   }
+}
+
+
+.btn-success, .btn-info, .btn-dark {
+  color: #fff !important;
+}
+
+.btn-outline-secondary {
+  color: #565659 !important;
 }

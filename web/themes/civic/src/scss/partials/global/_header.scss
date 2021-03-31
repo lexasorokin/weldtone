@@ -479,7 +479,7 @@ li{
   }
 }
 .region--header-center .cmm-ul--level-1{
-  .menu-item--active-trail{
+  &>.menu-item--active-trail{
     color: $primary-color !important;
     span{
       background: url("/themes/civic/images/output-onlinepngtools.png") no-repeat right !important;

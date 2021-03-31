@@ -1,4 +1,9 @@
 .paragraph--type--text-w-menu{
+<<<<<<< HEAD
+  padding-top: 3rem;
+  
+=======
+>>>>>>> dev
   h1,h2,h3,h4{
     font-weight: normal;
     color: $primary-color;
@@ -12,8 +17,13 @@
 
   }
   p,li{
+<<<<<<< HEAD
+    font-size: 16px;
+    line-height: 27px;
+=======
     font-size: 14px;
     line-height: 25px;
+>>>>>>> dev
   }
   a{
     color: $primary-color;
@@ -26,7 +36,11 @@
     text-decoration: none;
     color: inherit;
   }
+<<<<<<< HEAD
+  ul, ol{
+=======
   ul{
+>>>>>>> dev
     margin-bottom: 1rem;
   }
   .paragraph--type--menu{
@@ -59,4 +73,11 @@
       }
     }
   }
+<<<<<<< HEAD
+  
+  img {
+    border-radius: 12px;
+  }
+=======
+>>>>>>> dev
 }

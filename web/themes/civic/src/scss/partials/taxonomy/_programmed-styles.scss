@@ -33,7 +33,7 @@
     box-shadow: -700px 0px 130px #fff inset;
   }
   @media screen and (max-width: 768px) {
-  box-shadow: 0 -343px 35px #fff inset;
+    box-shadow: 0 -343px 35px #fff inset;
   }
   @media screen and (max-width: 600px) {
     //box-shadow: 0 -343px 35px #fff inset;
@@ -58,7 +58,7 @@
     box-shadow: 700px 0px 130px #fff inset;
   }
   @media screen and (max-width: 768px) {
-  box-shadow: 0 -343px 35px #fff inset;
+    box-shadow: 0 -343px 35px #fff inset;
   }
   @media screen and (max-width: 600px) {
     //box-shadow: 0 -343px 35px #fff inset;
@@ -115,6 +115,8 @@
 }
 .bg-light-blue {
   background-image: url("/themes/civic/images/middle_wave.png") !important;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 .bg-big-light-blue{
   background-image: url("/themes/civic/images/big_middle_wave.png") !important;

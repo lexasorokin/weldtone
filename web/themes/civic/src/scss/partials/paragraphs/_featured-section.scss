@@ -51,12 +51,20 @@
         line-height: 25px;
         padding: 0px 20px 10px 20px;
         @media screen and (max-width: 1200px) {
+<<<<<<< HEAD
+          font-size: 16px;
+=======
           font-size: 14px;
+>>>>>>> dev
           height: 125px;
           line-height: 18px;
         }
         @media screen and (max-width: 1000px) {
+<<<<<<< HEAD
+          font-size: 16px;
+=======
           font-size: 14px;
+>>>>>>> dev
           height: 140px;
           line-height: 15px;
         }
@@ -130,6 +138,16 @@ h2.section-title{
         line-height: 25px;
         padding: 0px 20px 10px 20px;
         @media screen and (max-width: 1200px) {
+<<<<<<< HEAD
+          font-size: 16px;
+          height: 125px;
+          line-height: 20px;
+        }
+        @media screen and (max-width: 1000px) {
+          font-size: 16px;
+          height: 140px;
+          line-height: 17px;
+=======
           font-size: 14px;
           height: 125px;
           line-height: 18px;
@@ -138,6 +156,7 @@ h2.section-title{
           font-size: 14px;
           height: 140px;
           line-height: 15px;
+>>>>>>> dev
         }
       }
     }

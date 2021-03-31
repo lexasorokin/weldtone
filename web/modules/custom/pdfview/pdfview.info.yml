@@ -1,0 +1,8 @@
+name: PDF view in browser
+description: Allows to view PDF links in browser
+# core: 8.x
+type: module
+
+# Information added by Drupal.org packaging script on 2016-08-18
+version: '8.x-1.0'
+core: '8.x'

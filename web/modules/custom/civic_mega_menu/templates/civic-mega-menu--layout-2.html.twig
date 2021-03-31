@@ -62,7 +62,7 @@
 
       {% for item in items %}
         {% if not item.hide_item %}
-          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }}">
+          <li class="cmm-li cmm-li--level-{{ menu_level}} {{ item.in_active_trail ? 'cmm-li--active-trail' }} {{ item.below ? 'has-children':'' }}">
 
             {% if menu_level == 2 %}
               <div class="cmm-row cmm-row--level-3">
