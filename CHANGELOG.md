@@ -44,17 +44,8 @@ with machine name report_section
 10) Create Report content type (machine name 'report')
 with the following fields
 Description	body	Text (formatted, long, with summary)	
-Edit
-List additional actions
 File	field_report_file	File	
-Edit
-List additional actions
 Preview image	field_report_preview_image	Image	
-Edit
-List additional actions
-Preview image from PDF	field_report_preview_image_pdf	Image	
-Edit
-List additional actions
 Section	field_report_section	Entity reference
 
 11) Import view:
@@ -66,7 +57,6 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_report_file
     - field.storage.node.field_report_preview_image
-    - field.storage.node.field_report_preview_image_pdf
     - field.storage.node.field_report_section
     - image.style.report_preview
     - node.type.report
@@ -139,74 +129,6 @@ display:
           id: field_report_preview_image
           table: node__field_report_preview_image
           field: field_report_preview_image
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: report_preview
-            image_link: ''
-            svg_render_as_image: true
-            svg_attributes:
-              width: null
-              height: null
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_report_preview_image_pdf:
-          id: field_report_preview_image_pdf
-          table: node__field_report_preview_image_pdf
-          field: field_report_preview_image_pdf
           relationship: none
           group_type: group
           admin_label: ''
@@ -576,7 +498,7 @@ display:
           condition: '6'
           equalto: ''
           then: '{{ field_report_preview_image }}'
-          or: '{{ field_report_preview_image_pdf }}'
+          or: '{{ field_report_preview_image }}'
           strip_tags: 0
           plugin_id: views_conditional_field
         body:
@@ -775,7 +697,6 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_report_file'
         - 'config:field.storage.node.field_report_preview_image'
-        - 'config:field.storage.node.field_report_preview_image_pdf'
         - 'config:field.storage.node.field_report_section'
   page:
     display_plugin: page
@@ -796,6 +717,6 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_report_file'
         - 'config:field.storage.node.field_report_preview_image'
-        - 'config:field.storage.node.field_report_preview_image_pdf'
         - 'config:field.storage.node.field_report_section'
+
 
