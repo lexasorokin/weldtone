@@ -22,11 +22,11 @@
     <div class="footer-content {{ footer_width_class }}">
       <div class="row">
         {% if page.footer_left %}
-          <div class="{{ column_classes }}">
+          <div class="col-md-6 footer-left">
             {{ page.footer_left }}
           </div>
         {% endif %}
-      
+
         {% if page.footer_center %}
           <div class="{{ column_classes }} d-flex justify-content-center">
             {{ page.footer_center }}
@@ -40,5 +40,14 @@
         {% endif %}
       </div>
     </div>
+    {% if page.footer_bottom %}
+    <div class="container">
+      <div class="col-md-10 justify-content-center">
+        <p class='copyright'>© {{  "now"|date('Y') }} Mesa Water District. All Rights Reserved.</p>
+         {{ page.footer_bottom }}
+      </div>
+    </div>
+    {% endif %}
+
   </footer>
 {% endif %}

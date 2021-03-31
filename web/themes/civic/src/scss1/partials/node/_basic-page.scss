@@ -1,0 +1,16 @@
+.node--type-page {
+
+  .basic-page-header {
+    height: 30rem;
+    @include bgCover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    @include overlay(rgba(0, 0, 0, 0.5));
+  }
+
+  .node__content {
+    padding-top: 3rem;
+  }
+}

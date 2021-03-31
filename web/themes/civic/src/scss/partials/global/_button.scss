@@ -2,7 +2,7 @@
   @if $color {
     background-color: #{$color};
     border-color: #{$color};
-  
+
     &.focus,
     &:focus,
     &:hover {
@@ -14,13 +14,13 @@
 
 @mixin setOutlineButtonColor($color) {
   @if $color {
-    color: #{$color};
+    color: #{$color} !important;
     border-color: #{$color};
-  
+
     &.focus,
     &:focus,
     &:hover {
-      color: white;
+      color: white !important;
       background-color: #{$color};
       border-color: #{$color};
     }

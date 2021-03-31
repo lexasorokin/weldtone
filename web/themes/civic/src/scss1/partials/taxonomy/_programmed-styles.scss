@@ -1,0 +1,19 @@
+.dark-overlay {
+  @include overlay(rgba(0, 0, 0, 0.5));
+}
+
+.light-overlay {
+  @include overlay(rgba(255, 255, 255, 0.6));
+}
+
+.bg-charcoal {
+  background-color: $charcoal;
+}
+
+.bg-primary-color {
+  background-color: $primary-color;
+}
+
+.bg-secondary-color {
+  background-color: $secondary-color;
+}

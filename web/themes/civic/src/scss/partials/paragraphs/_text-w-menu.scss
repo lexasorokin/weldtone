@@ -1,0 +1,62 @@
+.paragraph--type--text-w-menu{
+  h1,h2,h3,h4{
+    font-weight: normal;
+    color: $primary-color;
+
+  }
+  p{
+    strong{
+      color: $primary-color;
+      font-size: 17px;
+    }
+
+  }
+  p,li{
+    font-size: 14px;
+    line-height: 25px;
+  }
+  a{
+    color: $primary-color;
+
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  a.btn{
+    text-decoration: none;
+    color: inherit;
+  }
+  ul{
+    margin-bottom: 1rem;
+  }
+  .paragraph--type--menu{
+    background: #F8F8F8;
+    border-radius: 33px;
+    box-shadow: 0 0 12px #ccc;
+    padding: 24px 0;
+    .field-name--field-latitude{
+      color: $primary-color;
+      font-family: 'Oswald', sans-serif;
+      font-size: 25px;
+      padding: 0 25px;
+      letter-spacing: 1px;
+    }
+    .field-type--link {
+      div{
+        padding: 7px 25px;
+        a{
+          color: $gray;
+          text-decoration: none;
+          font-size: 15px;
+        }
+      }
+      div:hover{
+        background: $primary-color;
+        a{
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

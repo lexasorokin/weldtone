@@ -1,0 +1,4 @@
+administer startup_popup:
+  title: Startup Popup
+  description: Configure permissions for Startup Popup
+  restrict access: TRUE

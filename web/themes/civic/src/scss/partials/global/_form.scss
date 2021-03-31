@@ -15,7 +15,7 @@ label {
   margin-bottom: 0;
 }
 
-input[type="text"], 
+input[type="text"],
 input[type="email"],
 input[type="phone"],
 input[type="password"],
@@ -24,7 +24,7 @@ input[type="submit"],
 textarea,
 select {
   border-radius: $boder-radius;
-  border: $border-width solid $border-color; 
+  border: $border-width solid $border-color;
   padding: $padding-y $padding-x;
   line-height: 1.25em;
   width: 100%;
@@ -63,7 +63,7 @@ input[type="submit"] {
 
   input[type="search"] {
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid $primary-color;
     padding: 2px 30px 2px 7px;
     color: white;
     border-radius: 20px;
@@ -81,7 +81,7 @@ input[type="submit"] {
 
     svg {
       width: 14px;
-      color: white;
+      color: $primary-color;
     }
   }
 
@@ -105,7 +105,7 @@ span.select2-container {
     height: auto;
     border: $border-width solid $border-color;
     border-radius: $boder-radius;
-    
+
     .select2-selection__rendered {
       padding: $padding-y 30px $padding-y $padding-x;
       line-height: 1.25em;
@@ -116,4 +116,8 @@ span.select2-container {
       width: 40px;
     }
   }
+}
+#user-login-form{
+  width: 60%;
+  margin: 40px auto;
 }

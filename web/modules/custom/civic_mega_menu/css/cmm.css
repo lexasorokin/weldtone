@@ -6,7 +6,7 @@
   .cmm-mobile-menu-wrapper {
     display: none;
   }
-  
+
   .civic-mega-menu {
     display: block;
   }
@@ -60,7 +60,7 @@
   position: relative;
   font-size: 32px;
   margin-top: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #565659;
 }
 
 .menu-item-value--level-2 {

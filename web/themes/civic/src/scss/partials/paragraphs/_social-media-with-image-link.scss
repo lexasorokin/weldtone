@@ -1,0 +1,118 @@
+.paragraph--type--social-media-with-image-link-sec{
+  clear: both;
+  overflow: hidden;
+  padding: 0;
+  @media screen and (max-width: 1000px) {
+    padding-bottom: 120px;
+  }
+  .image-link{
+    display: block;
+    float: right;
+    width: 65%;
+    position: relative;
+    right: -12px;
+    @media screen and (max-width: 1220px) {
+      width: 66%;
+    }
+    @media screen and (max-width: 1000px) {
+      float: inherit;
+      width: 100%;
+      position: inherit;
+      right: inherit;
+    }
+    .field__item{
+      width: 33%;
+      float: left;
+      padding: 2px;
+      @media screen and (max-width: 1000px) {
+        width: 33%;
+      }
+      @media screen and (max-width: 480px) {
+        width: 50%;
+      }
+    }
+    img{
+        height: 300px;
+        @media screen and (max-width: 1200px) {
+          height: 260px;
+        }
+        @media screen and (max-width: 1200px) {
+          width: auto;
+        }
+        @media screen and (max-width: 1000px) {
+          height: 330px;
+        }
+        @media screen and (max-width: 570px) {
+          height: 180px;
+        }
+        @media screen and (max-width: 480px) {
+          height: 200px;
+        }
+    }
+  }
+  .content-menu{
+    float: left;
+    padding-left: 35px;
+    padding-top: 150px;
+    @media screen and (max-width: 1000px) {
+      float: inherit;
+      margin: 50px auto;
+      display: block;
+      width: 50%;
+      text-align: center;
+      padding: 0;
+    }
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
+  }
+  .field-type--text-long{
+    color:#fff;
+    h2{
+      font-size: 35px;
+      margin-bottom: 0;
+      font-weight: normal;
+      @media screen and (max-width: 1200px) {
+        font-size: 33px;
+      }
+      @media screen and (max-width: 570px) {
+        font-size: 25px;
+      }
+    }
+    p{
+      font-size: 14px;
+      @media screen and (max-width: 1200px) {
+        font-size: 12px;
+      }
+    }
+  }
+  #block-social{
+    ul{
+      padding-left: 0;
+      li{
+        list-style: none;
+        display: inline-block;
+        padding-right: 22px;
+        @media screen and (max-width: 1200px) {
+          padding-right: 15px;
+        }
+        a{
+          color: #fff;
+          font-size: 45px;
+          @media screen and (max-width: 1200px) {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .paragraph--type--social-media-with-image-link-sec{
+    .wrap{
+      width: 1320px;
+      float: right;
+    }
+  }
+}

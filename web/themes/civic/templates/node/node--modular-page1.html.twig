@@ -81,17 +81,29 @@
   ]
 %}
 {%
-  set bg_image = content.field_page_bg_image['0'] ? content.field_page_bg_image['0']['#markup'] : default_basic_page_image
+  set bg_image = content.field_page_bg_image['0']['#markup']
+
+%}
+{%
+  set body = content.body
+
 %}
 
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
+
+{% if content.body is not empty %}
   <div class="basic-page-header" style="background-image: url({{ bg_image }})">
     <div class="container">
       <h1 class="text-white text-align-center">{{ label }}</h1>
     </div>
   </div>
   <div{{ content_attributes.addClass('node__content', 'container') }}>
-    {{ content|without('field_page_bg_image') }}
+    {{ body }}
+  </div>
+{% endif %}
+
+  <div class='content-area'>
+    {{ content|without('field_page_bg_image' , 'body' , 'label') }}
   </div>
 </article>

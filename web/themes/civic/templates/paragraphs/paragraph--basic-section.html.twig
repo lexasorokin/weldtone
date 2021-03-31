@@ -52,10 +52,12 @@
 
 {% block paragraph %}
   <section{{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}>
+  <div class="swirls">
     <div class="container">
       {% block content %}
         {{ content|without('field_additional_styles') }}
       {% endblock %}
     </div>
+  </div>
   </section>
 {% endblock paragraph %}

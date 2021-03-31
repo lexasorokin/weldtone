@@ -1,0 +1,139 @@
+.startup-popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.startup-popup-mask .startup-popup {
+  width: 600px;
+  max-width: 95%;
+  position: absolute;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 40px 60px;
+}
+
+.startup-popup-close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.startup-popup-close-button .x-line {
+  height: 3px;
+  width: 100%;
+  background-color: #666;
+  position: absolute;
+  left: 0;
+}
+
+.startup-popup-close-button .x-line-1 {
+  transform: rotate(45deg);
+}
+
+.startup-popup-close-button .x-line-2 {
+  transform: rotate(-45deg);
+}
+
+.startup-popup h1,
+.startup-popup h2,
+.startup-popup h3,
+.startup-popup h4,
+.startup-popup h5,
+.startup-popup h6 {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.startup-popup h1 {
+  font-size: 3rem;
+  color: #e2001a;
+}
+
+.startup-popup h2 {
+  font-size: 1.4em;
+  color: #e2001a;
+}
+
+.startup-popup h3 {
+  font-size: 1.2em;
+  color: #e2001a;
+}
+
+.startup-popup h4 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+
+.startup-popup h5 {
+  font-size: 1em;
+}
+
+.startup-popup h6 {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.startup-popup p {
+	line-height: 1.6rem;
+	margin: 13px 0;
+}
+
+.startup-popup a {
+  color: #e2001a;
+  transition: color .2s;
+}
+
+.startup-popup a:hover,
+.startup-popup a:active {
+  color: #333;
+}
+
+.startup-popup .small_text,
+.startup-popup small,
+.startup-popup .description {
+	font-size: .6em;
+	color: #999;
+}
+
+
+.startup-popup-mask .startup-popup h2 {
+  color: #e2001a;
+}
+
+.startup-popup-mask .startup-popup p {
+  color: #222;
+}
+
+@media screen and (max-width: 400px) {
+  .startup-popup-mask .startup-popup {
+    padding: 30px 25px;
+  }
+}
+
+.startup-popup a.btn {
+  margin-top: 16px;
+  color: white;
+  background-color: #e2001a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3856;
+  padding: 8px 16px;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+}

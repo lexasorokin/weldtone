@@ -162,7 +162,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   padding-top: .75em;
-  transform: translateX(-100vw);
+  transform: translateX(2vw);
 }
 
 .cmm-mobile-ul:not(.cmm-mobile-ul--level-1) {
@@ -182,7 +182,7 @@
 .cmm-mobile-li--level-3 {
   font-size: 1rem;
   font-weight: 400;
-}  
+}
 
 .cmm-mobile-ul--level-2 {
   padding: 35px 15px 5px 15px;

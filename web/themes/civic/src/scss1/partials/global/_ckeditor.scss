@@ -1,0 +1,25 @@
+.field-type--text-long,
+.field-type--text-with-summary {
+
+  figure {
+    display: inline-block;
+
+    &.align-left {
+      padding-right: 16px;
+      display: block;
+    }
+    &.align-right {
+      padding-left: 16px;
+      display: block;
+    }
+    &.align-center {
+      text-align: center;
+      display: block;
+    }
+
+    figcaption {
+      text-align: center;
+      font-style: italic;
+    }
+  }
+}
