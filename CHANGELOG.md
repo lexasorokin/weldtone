@@ -48,7 +48,9 @@ File	field_report_file	File
 Preview image	field_report_preview_image	Image	
 Section	field_report_section	Entity reference
 
-11) Import view:
+11) Create image style 'Report preview' with machine name report_preview
+
+12) Import view:
 uuid: 63c07298-a411-4583-8b0a-263de88db466
 langcode: en
 status: true
