@@ -38,12 +38,17 @@ main .ckeditor-accordion-container {
   left: 98%;
 }
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-    right: -3px;
+    right: -10px;
+    
+    
+    @media screen and (max-width: 1200px) {
+      right: -13px;
+    }
     @media screen and (max-width: 1024px) {
-      right: -7px;
+      right: -12px;
     }
     @media screen and (max-width: 990px) {
-      right: -11px;
+      right: -16px;
     }
     @media screen and (max-width: 760px) {
       right: -15px;

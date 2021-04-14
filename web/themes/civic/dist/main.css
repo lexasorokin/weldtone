@@ -53,13 +53,16 @@ main .ckeditor-accordion-container > dl {
   left: 98%; }
 
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-  right: -3px; }
+  right: -10px; }
+  @media screen and (max-width: 1200px) {
+    .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
+      right: -13px; } }
   @media screen and (max-width: 1024px) {
     .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-      right: -7px; } }
+      right: -12px; } }
   @media screen and (max-width: 990px) {
     .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-      right: -11px; } }
+      right: -16px; } }
   @media screen and (max-width: 760px) {
     .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
       right: -15px; } }
@@ -1039,6 +1042,9 @@ blockquote {
     position: relative;
     z-index: 1; }
 
+.node--type-page .node__content {
+  padding-bottom: 3rem; }
+
 body.page-node-type-emergency-alert header {
   position: relative !important;
   z-index: 20 !important; }
@@ -1074,8 +1080,8 @@ body.page-node-type-emergency-alert header {
     margin-bottom: 0.5rem; }
 
 .modular-section {
-  padding-top: 6rem;
-  padding-bottom: 6rem; }
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
 
 .main-image {
   position: relative;
