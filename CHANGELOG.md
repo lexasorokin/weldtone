@@ -722,3 +722,9 @@ display:
         - 'config:field.storage.node.field_report_section'
 
 
+13) configure appropriate text format, for example
+/admin/config/content/formats/manage/basic_html
+Check "Enable image uploads" checkbox in Image section in CKEditor plugin settings
+Add "Insert images using Imce File Manager " to toolbar
+Remove "Image" button from toolbar (optional)
+Enable Align images filter
