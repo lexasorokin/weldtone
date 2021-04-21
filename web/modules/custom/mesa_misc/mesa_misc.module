@@ -1,0 +1,42 @@
+<?php
+
+function mesa_misc_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getEntityTypeId();
+
+  if ($type == 'node' && $entity->hasField('field_sections')) {
+    $sections_ids = $entity->get('field_sections')->getValue();
+
+    foreach ($sections_ids as $sections_ids_item) {
+      $section_paragraph_id = $sections_ids_item['target_id'];
+
+      $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->load($section_paragraph_id);
+
+      if ($paragraph) {
+        $par_bundle = $paragraph->bundle();
+
+        //ksm($par_bundle);
+
+        if ($par_bundle == 'text_w_menu') {
+         
+          $field_menu = $paragraph->get('field_menu')->getValue();
+
+          if (!empty($field_menu[0]['target_id'])) {
+
+            $menu_paragraph_id = $field_menu[0]['target_id'];
+
+            $menu_paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->load($menu_paragraph_id);
+
+            if ($menu_paragraph) {
+              $old_title = $menu_paragraph->get('field_latitude')->getValue();
+
+              if ($old_title) {
+                $menu_paragraph->set('field_menu_title', $old_title);
+                $menu_paragraph->save();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
