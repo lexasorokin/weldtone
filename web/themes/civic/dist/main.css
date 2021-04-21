@@ -1981,6 +1981,12 @@ h2.section-title {
       font-size: 25px;
       padding: 0 25px;
       letter-spacing: 1px; }
+    .paragraph--type--text-w-menu .paragraph--type--menu .field-name--field-menu-title {
+      color: #004A87;
+      font-family: 'Oswald', sans-serif;
+      font-size: 25px;
+      padding: 0 25px;
+      letter-spacing: 1px; }
     .paragraph--type--text-w-menu .paragraph--type--menu .field-type--link div {
       padding: 7px 25px; }
       .paragraph--type--text-w-menu .paragraph--type--menu .field-type--link div a {
@@ -2015,7 +2021,8 @@ h2.section-title {
 
 .paragraph--type--basic-section h1, .paragraph--type--basic-section h2, .paragraph--type--basic-section h3, .paragraph--type--basic-section h4 {
   font-weight: normal;
-  color: #004A87; }
+  color: #004A87;
+  margin-bottom: 0.5rem; }
 
 .paragraph--type--basic-section p strong {
   color: #004A87;
@@ -2049,6 +2056,9 @@ h2.section-title {
 
 h3 {
   font-size: 1.7rem; }
+
+.field-name--field-menu-items {
+  font-weight: bold; }
 
 .paragraph--type--search-section {
   position: relative;
