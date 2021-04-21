@@ -1987,6 +1987,17 @@ h2.section-title {
     color: inherit; }
   .paragraph--type--text-w-menu ul, .paragraph--type--text-w-menu ol {
     margin-bottom: 1rem; }
+  .paragraph--type--text-w-menu .field-name--field-menu-items a {
+    font: normal normal normal 16px/29px Verdana;
+    color: #565659; }
+  .paragraph--type--text-w-menu .field-name--field-menu-items a:hover {
+    text-decoration: none;
+    color: #fff; }
+  .paragraph--type--text-w-menu .field-name--field-menu-items > div:hover {
+    background-color: #004A87;
+    cursor: pointer; }
+    .paragraph--type--text-w-menu .field-name--field-menu-items > div:hover a {
+      color: #fff; }
   .paragraph--type--text-w-menu .paragraph--type--menu {
     background: #F8F8F8;
     border-radius: 33px;
@@ -2003,7 +2014,9 @@ h2.section-title {
       font-family: 'Oswald', sans-serif;
       font-size: 25px;
       padding: 0 25px;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      font: normal normal bold 28px/35px 'Bebas Neue';
+      letter-spacing: 0.8px; }
     .paragraph--type--text-w-menu .paragraph--type--menu .field-type--link div {
       padding: 7px 25px; }
       .paragraph--type--text-w-menu .paragraph--type--menu .field-type--link div a {
