@@ -1464,3 +1464,5 @@ choose "Save content" action and apply to selected items
 
 then go to /admin/structure/paragraphs_type/menu/fields
 and delete old Menu title field (field_latitude)
+
+the changes also may require flushing all caches or even truncate all cache tables in database
