@@ -14,6 +14,7 @@
   h1,h2,h3,h4{
     font-weight: normal;
     color: $primary-color;
+    margin-bottom: 0.5rem;
   }
   p{
     strong{
@@ -23,13 +24,8 @@
 
   }
   p,li{
-<<<<<<< HEAD
     font-size: 16px;
     line-height: 27px;
-=======
-    font-size: 14px;
-    line-height: 25px;
->>>>>>> dev
   }
   a{
     color: $primary-color;
@@ -57,11 +53,11 @@
   }
 
 }
-<<<<<<< HEAD
-
 
 h3 {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
-=======
->>>>>>> dev
+
+.field-name--field-menu-items {
+  font-weight: bold;
+}

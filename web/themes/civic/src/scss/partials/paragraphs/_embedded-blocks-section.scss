@@ -73,10 +73,11 @@
     }
 
     .news{
+      width: 100%;
       .news-items{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
 
       }
       @media screen and (max-width: 1000px) {
@@ -97,6 +98,11 @@
     }
     .views-row{
       width: 32%;
+      margin-right: 2%;
+      
+      &:nth-child(3n+3), &:last-child {
+        margin-right: 0;
+      }
       @media screen and (max-width: 1000px) {
         width: 320px;
       }

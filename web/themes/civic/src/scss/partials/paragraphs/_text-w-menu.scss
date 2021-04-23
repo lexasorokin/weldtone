@@ -1,9 +1,6 @@
 .paragraph--type--text-w-menu{
-<<<<<<< HEAD
   padding-top: 3rem;
-  
-=======
->>>>>>> dev
+
   h1,h2,h3,h4{
     font-weight: normal;
     color: $primary-color;
@@ -17,13 +14,8 @@
 
   }
   p,li{
-<<<<<<< HEAD
     font-size: 16px;
     line-height: 27px;
-=======
-    font-size: 14px;
-    line-height: 25px;
->>>>>>> dev
   }
   a{
     color: $primary-color;
@@ -31,17 +23,40 @@
   }
   a:hover{
     text-decoration: underline;
+
   }
   a.btn{
     text-decoration: none;
     color: inherit;
   }
-<<<<<<< HEAD
+
   ul, ol{
-=======
-  ul{
->>>>>>> dev
     margin-bottom: 1rem;
+  }
+
+  .field-name--field-menu-items {
+    a{
+
+      font: normal normal normal 16px/29px Verdana;
+      color: #565659;
+
+    }
+    a:hover{
+
+      text-decoration: none;
+      color: #fff;
+
+    }
+
+    &>div {
+      &:hover {
+        background-color: #004A87;
+        cursor: pointer;
+        a {
+          color: #fff;
+        }
+      }
+    }
   }
   .paragraph--type--menu{
     background: #F8F8F8;
@@ -54,6 +69,18 @@
       font-size: 25px;
       padding: 0 25px;
       letter-spacing: 1px;
+    }
+
+    .field-name--field-menu-title{
+      color: $primary-color;
+      font-family: 'Oswald', sans-serif;
+      font-size: 25px;
+      padding: 0 25px;
+      letter-spacing: 1px; 
+
+      font: normal normal bold 28px/35px 'Bebas Neue';
+      letter-spacing: 0.8px;
+
     }
     .field-type--link {
       div{
@@ -73,11 +100,8 @@
       }
     }
   }
-<<<<<<< HEAD
-  
+
   img {
     border-radius: 12px;
   }
-=======
->>>>>>> dev
 }
