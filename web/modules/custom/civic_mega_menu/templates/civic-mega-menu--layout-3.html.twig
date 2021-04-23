@@ -34,7 +34,7 @@
 {% macro menu_links(items, attributes, menu_level, include_level2_title, title, block_1, block_2) %}
   {% import _self as menus %}
   {% import '@civic_mega_menu/macros.twig' as macros %}
-  
+
   {% if items %}
     {% if menu_level == 1 %}
       <ul{{ attributes.addClass('menu', 'cmm-ul', 'cmm-ul--level-1') }}>
@@ -73,9 +73,9 @@
               {% if include_level2_title and menu_level == 1 %}
                 {% set submenu_title = item.title|trim %}
               {% endif %}
-              
+
               {{ menus.menu_links(item.below, attributes, menu_level + 1, include_level2_title, submenu_title, item.cmm_block_1, item.cmm_block_2) }}
-              
+
             {% endif %}
           </li>
         {% endif %}
@@ -83,4 +83,3 @@
     </ul>
   {% endif %}
 {% endmacro %}
-

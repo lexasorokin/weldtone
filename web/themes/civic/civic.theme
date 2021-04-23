@@ -1,4 +1,5 @@
 <?php
+use \Drupal\block\Entity\Block;
 
 use Drupal\civic\Blocks;
 use Drupal\civic\Events;
@@ -7,7 +8,8 @@ use Drupal\civic\ThemeSettings;
 use Drupal\civic\Translations;
 use Drupal\civic\Views;
 use Drupal\Core\Form\FormStateInterface;
-
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements THEME_form_system_theme_settings_alter()
  */
@@ -34,8 +36,69 @@ function civic_page_attachments_alter(array &$page) {
  */
 function civic_preprocess_paragraph(&$vars) {
   Map::getFilterOptions($vars);
+  //Load breadcrumb block and set to a variable to be accessed in the Twig template
+  $breadcrumb_block = Block::load('breadcrumbs');
+  $breadcrumb_block_content = \Drupal::entityTypeManager()
+     ->getViewBuilder('block')
+     ->view($breadcrumb_block);
+  $vars['breadcrumbsTheme'] =  $breadcrumb_block_content;
+
 }
 
+/**
+ * Implements hook__preprocess_HOOK().
+ */
+function civic_preprocess_breadcrumb(&$variables) {
+
+  // Removing last element of breadcrumb
+  if ($variables['breadcrumb']) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    // Get the real path even if it has an alias.
+    $real_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $key = 'article';
+    if (strpos($real_path, $key)) {
+      // Remove the last element.
+      array_pop($variables['breadcrumb']);
+    }
+  }
+}
+// /**
+//  * Implements THEME_preprocess_breadcrumb()
+//  */
+// function civic_preprocess_breadcrumb(&$vars) {
+//
+//
+//  //  $request = \Drupal::request();
+//  // $route_match = \Drupal::routeMatch();
+//  // var_dump($request);
+//  // $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+//  //
+//  // $variables['#cache']['contexts'][] = 'url';
+//  // if (count($variables['breadcrumb']) <= 1) {
+//  //   $variables['breadcrumb'] = [];
+//  // }
+//  // else {
+//  //   $breadcrumb_title = theme_get_setting('breadcrumb_title');
+//  //   if ($breadcrumb_title) {
+//  //     $variables['breadcrumb'][] = array(
+//  //       'text' => $page_title
+//  //     );
+//  //   }
+//  // }
+//
+//
+//   // $path = \Drupal::request()->getpathInfo();
+//   // $arg  = explode('/',$path);
+//   // if(is_numeric($arg[2])){
+//   // $node = \Drupal::routeMatch()->getParameter('node');
+//   // $vars['nodTitle']= $node->getTitle();
+//   // var_dump();
+//   // exit($vars);
+//   // $vars['breadcrumb'][] = array(
+//   //   'text2' => $node->getTitle()
+//   // );
+//   //}
+// }
 /**
  * Implements THEME_preprocess_HOOK()
  */

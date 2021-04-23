@@ -8,23 +8,35 @@
   {% set column_classes = 'col-md-6' %}
 {% endif %}
 
+
+<div class="top-bar">
+  <div class="header-top-bar container-fluid">
+    <div class="row">
+      {% if page.top_bar %}
+          {{ page.top_bar }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
 <header class="{{ header_position_class }} {{ header_bg_class }}">
-  <div class="header-content {{ header_width_class }}">
+
+  <div class="header-content container-fluid">
     <div class="row">
       {% if page.header_left %}
-        <div class="{{ column_classes }}">
+        <div class="col-md-2 region-left">
           {{ page.header_left }}
         </div>
       {% endif %}
-    
+
       {% if page.header_center %}
-        <div class="{{ column_classes }} d-flex justify-content-center">
+        <div class="col-md-8 col-sm-7 d-flex justify-content-end">
           {{ page.header_center }}
         </div>
       {% endif %}
 
       {% if page.header_right %}
-        <div class="{{ column_classes }} d-flex justify-content-end">
+        <div class="col-md-2 col-sm-5 d-flex justify-content-end">
           {{ page.header_right }}
         </div>
       {% endif %}
