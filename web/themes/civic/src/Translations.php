@@ -35,7 +35,7 @@ class Translations {
       $vars['#attached']['drupalSettings']['defaultLangCode'] = $defaultLangCode;
       $vars['#attached']['drupalSettings']['selectedLangCode'] = $selectedLangCode;
 
-      if ($vars['node'] && $vars['node'] instanceof \Drupal\node\Entity\Node) {
+      if (!empty($vars['node']) && $vars['node'] instanceof \Drupal\node\Entity\Node) {
         // Check for a professionally translated version of node for the selected language
         $proTranslationAvailable = $vars['node']->hasTranslation($selectedLangCode);
         $vars['#attached']['drupalSettings']['proTranslationAvailable'] = $proTranslationAvailable;
