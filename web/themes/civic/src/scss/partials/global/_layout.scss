@@ -54,18 +54,18 @@ main ul {
   }
 }
 main .field-type--text-long{
-    ul {
-      padding-left: 0px;
+  ul {
+    padding-left: 0px;
 
-      li {
-        list-style: none;
-      }
-      li{
-        background: url("/themes/civic/images/waterdrop.png") no-repeat 20px 8px;
-        padding-left: 40px;
-
-      }
+    li {
+      list-style: none;
     }
+    li{
+      background: url("/themes/civic/images/waterdrop.png") no-repeat 20px 8px;
+      padding-left: 40px;
+
+    }
+  }
 }
 ol.breadcrumb {
   li {
@@ -115,5 +115,19 @@ body {
   min-height: 400px;
 }
 .btn-primary {
-    color: #fff !important;
+  color: #fff !important;
+}
+
+
+.field-name--field-sections {
+  &>div {
+
+    &:last-child {
+
+      &>section {
+        padding-bottom: 75px;
+      }
+
+    }
   }
+}

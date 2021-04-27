@@ -6,6 +6,7 @@ footer {
   position: relative; 
   margin-top: -75px;
   background-size: 100% 100%;
+  z-index: 10;
   @media screen and (max-width: 1000px) {
     margin-top: -90px;
     background-size: 100% 100%;
@@ -160,7 +161,7 @@ footer {
         background-color: #004A87;
         border-radius: 30px;
         font-size: 18px ;
-      //  font-family: 'Bebas Neue';
+        //  font-family: 'Bebas Neue';
         font-family: 'Oswald', sans-serif;
         text-transform: uppercase;
         color: #FFFFFF;
@@ -305,9 +306,9 @@ footer {
 
 .user-logged-in{
   footer {
-  .webform-message{
-    display: none;
-  }
+    .webform-message{
+      display: none;
+    }
   }
 }
 .user-logged-in.path-frontpage{
