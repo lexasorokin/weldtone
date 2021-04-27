@@ -87,6 +87,7 @@
       }
       @media screen and (max-width: 1000px) {
 
+<<<<<<< HEAD
         overflow-x: scroll;
         .news-items{
          // width: 1086px;
@@ -177,6 +178,86 @@
     .views-row:nth-child(2){
       //margin: 0 15px;
     }
+=======
+         overflow-x: scroll;
+         .news-items{
+           width: 1086px;
+         }
+       }
+    }
+   .views-row{
+     width: 32%;
+     @media screen and (max-width: 1000px) {
+       width: 320px;
+     }
+     float: left;
+     background: #fff;
+     border-radius: 30px 30px 30px 30px;
+     .views-field-created{
+       font-size: 12px ;
+       letter-spacing: 0px;
+       color: #757575;
+       padding: 20px 0 10px 20px;
+     }
+     .views-field-title{
+       font-size: 16px ;
+       font-weight: bold;
+       height: 60px;
+       line-height: 20px;
+       @media screen and (max-width: 1200px) {
+         font-size: 15px ;
+       }
+       @media screen and (max-width: 1000px) {
+         font-size: 14px ;
+       }
+       a{
+         color: $primary-color;
+         padding: 0px 20px;
+         line-height: 20px;
+         display: block;
+       }
+     }
+     .views-field-body{
+       color: $gray;
+       padding: 5px 20px 0 20px;
+       font-size: 14px;
+       min-height: 70px;
+       p{
+         margin-bottom: 10px;
+         line-height: 20px;
+         @media screen and (max-width: 1000px) {
+           font-size: 12px ;
+           line-height: 15px;
+         }
+       }
+     }
+     .views-field-view-node{
+       border: 1px solid $primary-color;
+       border-radius: 30px;
+       display: block;
+       width: 121px;
+       height: 30px;
+       text-align: center;
+       margin: 0 0 20px 20px;
+       a{
+         text-align: center;
+         font-size: 15px ;
+         font-family: 'Oswald', sans-serif;
+         color: $primary-color;
+         padding: 2px 12px;
+         display: block;
+       }
+     }
+     .views-field-field-news-image, .views-field-field-page-bg-image{
+       img{
+         border-radius: 30px 30px 0px 0px;
+       }
+     }
+   }
+   .views-row:nth-child(2){
+     margin: 0 15px;
+   }
+>>>>>>> dev
 
   }
   #block-views-block-news-news-block-6items , #block-views-block-featured-content-block-1{
@@ -188,6 +269,7 @@
       }
     }
     .views-row:nth-child(2){
+<<<<<<< HEAD
       //margin: 0 ;
 
     }
@@ -197,6 +279,17 @@
     .news {
       //height: 420px;
       .news-items {
+=======
+      margin: 0 ;
+
+    }
+    .views-row:nth-child(2),.views-row:nth-child(5){
+      margin: 0 15px;
+    }
+    .news {
+    //height: 420px;
+    .news-items {
+>>>>>>> dev
         @media screen and (max-width: 1000px) {
           //width: 2050px;
           height: 410px;
@@ -209,10 +302,17 @@
 
   #block-views-block-featured-content-block-1{
     .news-items {
+<<<<<<< HEAD
       @media screen and (max-width: 1000px) {
         height: 285px !important;
       }
     }
+=======
+        @media screen and (max-width: 1000px) {
+          height: 285px !important;
+        }
+      }
+>>>>>>> dev
     .views-row {
       margin-bottom: 40px;
       box-shadow: 0px 0px 7px #ccc;
@@ -226,8 +326,13 @@
         }
       }
       .views-field-body.views-field-body{
+<<<<<<< HEAD
         padding-bottom: 16px;
         font-size: 16px;
+=======
+        padding-bottom: 14px;
+        font-size: 14px;
+>>>>>>> dev
       }
     }
   }
@@ -299,7 +404,11 @@
       margin: 12px;
       box-shadow: 10px 15px 25px #00000005;
       @media screen and (max-width: 766px) {
+<<<<<<< HEAD
         width: 45px;
+=======
+          width: 45px;
+>>>>>>> dev
       }
       span.mb-0{
         background: $primary-color 0% 0% no-repeat padding-box;
@@ -310,7 +419,11 @@
         padding: 5px 12px 0 12px;
         display: block;
         @media screen and (max-width: 766px) {
+<<<<<<< HEAD
           border-radius: 13px 13px 0px 0px;
+=======
+            border-radius: 13px 13px 0px 0px;
+>>>>>>> dev
         }
       }
       h4{
@@ -335,7 +448,11 @@
       font-size: 14px;
       padding: 12px 12px 6px 12px;
       @media screen and (max-width: 766px) {
+<<<<<<< HEAD
         font-size: 10px;
+=======
+          font-size: 10px;
+>>>>>>> dev
       }
       ul{
         padding-left: 0;
@@ -395,9 +512,15 @@
     margin-right: 0;
   }
   @media screen and (max-width: 766px) {
+<<<<<<< HEAD
     .views-row:nth-child(3){
       margin-right: 0;
     }
+=======
+      .views-row:nth-child(3){
+       margin-right: 0;
+     }
+>>>>>>> dev
   }
   .more-link{
     clear: both;
