@@ -1,5 +1,5 @@
 pdfview.output:
-  path: '/pdfview'
+  path: '/pdfdownload'
   defaults:
     _controller: '\Drupal\pdfview\Controller\PDFViewOutput::data'
     _title: 'Export events'
@@ -7,7 +7,7 @@ pdfview.output:
     _permission: 'access content'
 
 pdfview.output_args:
-  path: '/pdfview/%'
+  path: '/pdfdownload/%'
   defaults:
     _controller: '\Drupal\pdfview\Controller\PDFViewOutput::data'
     _title: 'Export events'

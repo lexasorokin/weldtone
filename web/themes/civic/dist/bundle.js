@@ -546,6 +546,17 @@ var CivicThemeIndex = /*#__PURE__*/function () {
           index.initOnWindowLoad();
         });
       }
+
+      console.log(333333333);
+
+      if ($(window).width() <= 1000) {
+        var item_width = $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').width();
+        var items_count = 0;
+        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').each(function () {
+          items_count++;
+        });
+        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items').width(item_width * items_count);
+      }
     }
   };
 })(jQuery, Drupal);

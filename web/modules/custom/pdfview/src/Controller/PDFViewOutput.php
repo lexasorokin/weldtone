@@ -47,7 +47,7 @@ class PDFViewOutput extends ControllerBase {
 
               $response->headers->set('Content-Type', 'application/pdf');
               $response->headers->set('Content-Disposition',
-                  'inline; filename="' . $filename . '"');
+                  'attachment; filename="' . $filename . '"');
               $response->headers->set('Content-Transfer-Encoding', 'binary');
               $response->headers->set('Accept-Ranges', 'bytes');
 

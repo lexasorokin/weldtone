@@ -165,7 +165,8 @@ footer {
   padding: 3rem 0;
   position: relative;
   margin-top: -75px;
-  background-size: 100% 100%; }
+  background-size: 100% 100%;
+  z-index: 10; }
   @media screen and (max-width: 1000px) {
     footer {
       margin-top: -90px;
@@ -948,6 +949,9 @@ body {
 .btn-primary {
   color: #fff !important; }
 
+.field-name--field-sections > div:last-child > section {
+  padding-bottom: 75px; }
+
 #civic-mega-menu .cmm-ul--level-2 .cmm-column--level-2 .cmm-li--level-2 {
   position: relative;
   padding: 5px 20px; }
@@ -1080,8 +1084,8 @@ body.page-node-type-emergency-alert header {
     margin-bottom: 0.5rem; }
 
 .modular-section {
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem; }
 
 .main-image {
   position: relative;
@@ -1395,19 +1399,20 @@ body.page-node-type-emergency-alert header {
         display: flex;
         flex-wrap: wrap;
         justify-content: center; }
+        @media screen and (max-width: 1000px) {
+          .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-block-1 .news .news-items, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items .news .news-items,
+          .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news .news-items,
+          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-block-1 .news .news-items,
+          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-news-block-6items .news .news-items,
+          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items {
+            justify-content: left; } }
       @media screen and (max-width: 1000px) {
         .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-block-1 .news, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items .news,
         .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news,
         .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-block-1 .news,
         .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-news-block-6items .news,
         .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news {
-          overflow-x: scroll; }
-          .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-block-1 .news .news-items, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items .news .news-items,
-          .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news .news-items,
-          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-block-1 .news .news-items,
-          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-news-block-6items .news .news-items,
-          .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items {
-            width: 1086px; } }
+          overflow-x: scroll; } }
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-block-1 > div > div, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items > div > div,
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 > div > div,
     .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-block-1 > div > div,
@@ -1554,7 +1559,6 @@ body.page-node-type-emergency-alert header {
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items .news .news-items, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news .news-items,
     .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-news-news-block-6items .news .news-items,
     .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items {
-      width: 2050px;
       height: 410px;
       overflow-y: hidden; } }
   @media screen and (max-width: 1000px) {

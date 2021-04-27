@@ -78,6 +78,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        
+        
+        @media screen and (max-width: 1000px) {
+         justify-content: left;
+        }
 
       }
       @media screen and (max-width: 1000px) {
@@ -85,7 +90,7 @@
 <<<<<<< HEAD
         overflow-x: scroll;
         .news-items{
-          width: 1086px;
+         // width: 1086px;
         }
       }
     }
@@ -286,7 +291,7 @@
     .news-items {
 >>>>>>> dev
         @media screen and (max-width: 1000px) {
-          width: 2050px;
+          //width: 2050px;
           height: 410px;
           overflow-y: hidden;
         }
