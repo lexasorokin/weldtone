@@ -51,6 +51,7 @@
         "drupal/smtp": "^1.0",
         "drupal/svg_image": "^1.13",
         "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/views_bulk_operations": "^3.12",
         "drupal/views_conditional": "^1.2",
         "drupal/viewsreference": "^1.4",
         "drupal/webform": "^5.19",
