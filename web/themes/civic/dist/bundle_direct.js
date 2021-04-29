@@ -506,6 +506,29 @@ var CivicThemeIndex = /*#__PURE__*/function () {
 
 
 (function ($, Drupal) {
+  
+  function screen_resize_events() {
+      if ($(window).width() <= 1000) {
+
+         var total_width = 0;
+        var item_width = $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').outerWidth(true);
+        var items_count = 0;
+        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').each(function () {
+          total_width+=$(this).outerWidth(true);
+        });
+        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items').width(total_width);
+      }
+      else {
+        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items').css('width', 'auto');
+      }
+  }
+  
+  $(window).on('resize', function() {
+      console.log('resize');
+    screen_resize_events();
+  });
+  
+  
   var index = null;
   Drupal.behaviors.civicTheme = {
     attach: function attach(context) {
@@ -548,16 +571,7 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       }
       
       
-       if ($(window).width() <= 1000) {
-
-         var total_width = 0;
-        var item_width = $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').outerWidth(true);
-        var items_count = 0;
-        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').each(function () {
-          total_width+=$(this).outerWidth(true);
-        });
-        $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items').width(total_width);
-      }
+     screen_resize_events();
       
     }
   };
