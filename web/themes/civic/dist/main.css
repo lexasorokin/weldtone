@@ -951,6 +951,12 @@ body {
 
 .field-name--field-sections > div:last-child > section {
   padding-bottom: 75px; }
+  @media (max-width: 1024px) {
+    .field-name--field-sections > div:last-child > section {
+      padding-bottom: 100px; } }
+  @media (max-width: 768px) {
+    .field-name--field-sections > div:last-child > section {
+      padding-bottom: 145px; } }
 
 #civic-mega-menu .cmm-ul--level-2 .cmm-column--level-2 .cmm-li--level-2 {
   position: relative;
@@ -1224,7 +1230,7 @@ body.page-node-type-emergency-alert header {
 
 .paragraph--type--bg-image-section {
   background-repeat: no-repeat;
-  background-size: 50% 100%;
+  background-size: contain;
   overflow: hidden;
   clear: both; }
   .paragraph--type--bg-image-section h1,
@@ -1300,7 +1306,7 @@ body.page-node-type-emergency-alert header {
     .paragraph--type--bg-image-section .field-type--text-long .btn.btn-primary:hover {
       text-decoration: underline; }
   .paragraph--type--bg-image-section.shadow-text {
-    margin-top: -92px; }
+    margin-top: -20px; }
     @media screen and (max-width: 750px) {
       .paragraph--type--bg-image-section.shadow-text {
         margin-top: -52px; } }
@@ -2080,8 +2086,6 @@ h2.section-title {
   margin-bottom: 1rem; }
 
 .paragraph--type--basic-section img {
-  width: 100%;
-  height: auto;
   border-radius: 20px; }
 
 @media screen and (min-width: 1024px) {
