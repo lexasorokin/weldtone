@@ -1,7 +1,7 @@
 
 .paragraph--type--bg-image-section{
   background-repeat: no-repeat;
-  background-size: 50% 100%;
+  background-size: contain;
   overflow: hidden;
   clear: both;
   h1,
@@ -69,15 +69,9 @@
     }
     p{
       color: $gray;
-<<<<<<< HEAD
       font-size: 16px;
       @media screen and (max-width: 1024px) {
         font-size: 16px;
-=======
-      font-size: 14px;
-      @media screen and (max-width: 1024px) {
-        font-size: 14px;
->>>>>>> dev
       }
       @media screen and (max-width: 768px) {
         a{
@@ -104,7 +98,7 @@
     @media screen and (max-width: 750px) {
       margin-top: -52px;
     }
-    margin-top: -92px;
+    margin-top: -20px;
   }
 }
 .paragraph--type--bg-image-section.bg-shadow-left{
