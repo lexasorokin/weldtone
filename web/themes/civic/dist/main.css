@@ -1570,7 +1570,7 @@ body.page-node-type-emergency-alert header {
   @media screen and (max-width: 1000px) {
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news-items,
     .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news-items {
-      height: 285px !important; } }
+      height: 306px !important; } }
   .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .views-row,
   .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .views-row {
     margin-bottom: 40px;
