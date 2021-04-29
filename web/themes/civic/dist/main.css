@@ -1106,7 +1106,8 @@ body.page-node-type-emergency-alert header {
   background-repeat: no-repeat;
   position: relative;
   z-index: 9;
-  padding-bottom: 110px; }
+  padding-bottom: 110px;
+  padding-top: 6rem; }
   @media screen and (max-width: 1000px) {
     .paragraph--type--image-with-icon-and-link {
       padding-bottom: 0px;

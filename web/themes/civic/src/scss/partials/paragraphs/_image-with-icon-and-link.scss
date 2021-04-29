@@ -13,6 +13,8 @@
   position: relative;
   z-index: 9;
   padding-bottom: 110px;
+  padding-top: 6rem;
+  
   @media screen and (max-width: 1000px) {
     padding-bottom: 0px;
     padding-top: 50px;
