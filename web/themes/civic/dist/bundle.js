@@ -425,8 +425,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
- //import HeaderSearch from './classes/HeaderSearch';
-// Without this import, 'dist/main.css' will not be generated on build.
+ // Without this import, 'dist/main.css' will not be generated on build.
 
 
 
@@ -443,12 +442,12 @@ var CivicThemeIndex = /*#__PURE__*/function () {
      * the document is  ready.
      */
     value: function initOnDocumentLoad() {
-      this.instantiateClasses(_classes_FixedHeader__WEBPACK_IMPORTED_MODULE_2__["default"], 'header.header-fixed'); //this.instatiateClasses(HeaderSearch, '#header-search-container');
+      this.instantiateClasses(_classes_FixedHeader__WEBPACK_IMPORTED_MODULE_2__["default"], 'header.header-fixed');
     }
     /**
      * Functions here will be called when the
      * window is fully loaded. This is the final
-     * step in the render process and ensures that
+     * step in the render process and ensures that 
      * all elements are now in the DOM.
      */
 
@@ -459,12 +458,12 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       this.instantiateClasses(_classes_Translations__WEBPACK_IMPORTED_MODULE_1__["default"], '#block-languageswitcher');
     }
     /**
-     *
+     * 
      * @param {Object} ClassName - Class constructor
      * @param {string} selector - The query selector associated with this class
-     *
+     * 
      * This function instantiates classes and calls their init method.
-     *
+     * 
      * If a selector is provided, the class will be instantiated once
      * for every element found in the DOM. If no elements are found,
      * then no classes will be instantiated. This helps prevent
@@ -497,9 +496,9 @@ var CivicThemeIndex = /*#__PURE__*/function () {
   if (typeof NodeList.prototype.forEach === "function") return false;
   NodeList.prototype.forEach = Array.prototype.forEach;
 })();
-/**
+/** 
  * Instatiate the CivicThemeIndex Class
- *
+ * 
  * This is the recommended format to add JavaScript in Drupal.
  * https://www.drupal.org/docs/8/api/javascript-api/javascript-api-overview
  */
@@ -510,36 +509,11 @@ var CivicThemeIndex = /*#__PURE__*/function () {
   Drupal.behaviors.civicTheme = {
     attach: function attach(context) {
       // console.log('[Context]', context);
-      // $('.layout-container select').select2({
-      //   dropdownParent: $('.layout-container'),
-      // });
+      $('.layout-container select').select2({
+        dropdownParent: $('.layout-container')
+      });
+
       if (context === document) {
-        $('#block-views-block-news-block-1 header').parent().addClass('news-items');
-        $("#block-views-block-news-block-1 .views-row, #block-views-block-news-news-block-6items .views-row , #block-views-block-featured-content-block-1 .views-row").wrapAll("<div class='news'><div class='news-items'></div></div>");
-        $("#header-search-button").click(function () {
-          $("#block-civic-search").slideToggle("slow");
-        });
-        $("#block-topmenu-3 li span").click(function () {
-          $("#block-topmenu-3 li ul").slideToggle("slow");
-        });
-
-        if ($('.content-top .elements-wrapper .field-name--field-icon-with-link').length) // use this if you are using id to check
-          {
-            $('.paragraph--type--image-with-icon-and-link').removeClass('no-links');
-          } else {
-          $('.paragraph--type--image-with-icon-and-link').addClass('no-links');
-        }
-
-        $('.js-form-wrapper .paragraphs-badge').hide();
-        $('#dynamic_select').on('change', function () {
-          var url = $(this).val(); // get selected value
-
-          if (url) {
-            // require a URL
-            window.location = url; // redirect
-          }
-        }); //$('.paragraph--type--bg-image-section').addClass('shadow-text');
-
         index = new CivicThemeIndex();
         index.initOnDocumentLoad();
         $(window).on('load', function () {

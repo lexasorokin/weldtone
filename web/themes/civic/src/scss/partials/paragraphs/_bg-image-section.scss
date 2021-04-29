@@ -69,15 +69,9 @@
     }
     p{
       color: $gray;
-<<<<<<< HEAD
       font-size: 16px;
       @media screen and (max-width: 1024px) {
         font-size: 16px;
-=======
-      font-size: 14px;
-      @media screen and (max-width: 1024px) {
-        font-size: 14px;
->>>>>>> dev
       }
       @media screen and (max-width: 768px) {
         a{
