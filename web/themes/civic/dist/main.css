@@ -1234,6 +1234,53 @@ body.page-node-type-emergency-alert header {
   background-size: contain;
   overflow: hidden;
   clear: both; }
+  .paragraph--type--bg-image-section > .container {
+    display: flex;
+    flex-wrap: wrap; }
+    .paragraph--type--bg-image-section > .container .bg-mage-section-image {
+      width: 50%;
+      position: relative; }
+      @media screen and (max-width: 768px) {
+        .paragraph--type--bg-image-section > .container .bg-mage-section-image {
+          width: 100%;
+          display: none; } }
+      .paragraph--type--bg-image-section > .container .bg-mage-section-image:after, .paragraph--type--bg-image-section > .container .bg-mage-section-image:before {
+        width: 200px; }
+      .paragraph--type--bg-image-section > .container .bg-mage-section-image:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, white 0%, rgba(255, 255, 255, 0) 100%); }
+      .paragraph--type--bg-image-section > .container .bg-mage-section-image:before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 100%); }
+  .paragraph--type--bg-image-section.bg-shadow-left .bg-mage-section-image {
+    order: 1; }
+  .paragraph--type--bg-image-section.bg-shadow-left .field-name--field-content {
+    order: 2; }
+    @media screen and (min-width: 769px) {
+      .paragraph--type--bg-image-section.bg-shadow-left .field-name--field-content {
+        padding-left: 30px;
+        padding-right: 0; } }
+  .paragraph--type--bg-image-section .field-name--field-content {
+    padding-top: 75px;
+    padding-bottom: 75px; }
+    @media screen and (min-width: 769px) {
+      .paragraph--type--bg-image-section .field-name--field-content {
+        padding-left: 0;
+        padding-right: 30px; } }
+    @media screen and (max-width: 768px) {
+      .paragraph--type--bg-image-section .field-name--field-content {
+        order: 3;
+        width: 100%; } }
   .paragraph--type--bg-image-section h1,
   .paragraph--type--bg-image-section h2,
   .paragraph--type--bg-image-section h3,
@@ -1265,8 +1312,7 @@ body.page-node-type-emergency-alert header {
     .paragraph--type--bg-image-section .container {
       margin-top: 0; } }
   .paragraph--type--bg-image-section .field-type--text-long {
-    width: 50%;
-    padding: 75px 0; }
+    width: 50%; }
     @media screen and (max-width: 1024px) {
       .paragraph--type--bg-image-section .field-type--text-long {
         padding: 0px 0 25px 0; } }
