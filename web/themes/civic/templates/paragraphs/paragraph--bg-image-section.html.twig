@@ -56,7 +56,7 @@
 {% block paragraph %}
   <section 
     {{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}
-    style="background-image: url({{ bg_image }}); background-position: {{ bg_position }}"
+    style=""
   >
   <div class='small-screen'><img src={{ content.field_bg_image['0']['#markup'] }} /></div>
 
@@ -64,6 +64,7 @@
       {% block content %}
         {{ content|without('field_additional_styles', 'field_bg_image', 'field_bg_image_position') }}
       {% endblock %}
+      <div class="bg-mage-section-image"><img src={{ content.field_bg_image['0']['#markup'] }} /></div>
     </div>
   </section>
 {% endblock paragraph %}
