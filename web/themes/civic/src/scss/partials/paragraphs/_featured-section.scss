@@ -1,5 +1,7 @@
 .paragraph--type--embedded-blocks-section{
   clear: both;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   #block-views-block-featured-content-featured-content-block{
     h2{
       font-size: 2rem ;
@@ -67,8 +69,8 @@
       }
     }
     .views-row:nth-child(1), .views-row:nth-child(3){
-        margin-right:30px;
-      }
+      margin-right:30px;
+    }
 
 
 
@@ -76,15 +78,15 @@
 }
 .user-logged-in{
   .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(2),
-  .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(4)
+    .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(4)
     {
-      margin-right:30px;
-    }
+    margin-right:30px;
+  }
   .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(1),
-  .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(3)
+    .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block .views-row:nth-child(3)
     {
-      margin-right:0px;
-    }
+    margin-right:0px;
+  }
 }
 
 
@@ -119,7 +121,7 @@ h2.section-title{
           padding: 20px 20px 0px 20px;
         }
         a{
-        font-family: 'Oswald', sans-serif;
+          font-family: 'Oswald', sans-serif;
           color: $primary-color;
           font-size: 25px;
           @media screen and (max-width: 1000px) {
