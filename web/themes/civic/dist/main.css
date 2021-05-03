@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
+@charset "UTF-8";
 /* COLORS */
 /* BOOTSTRAP BUTTON COLORS
  *
@@ -1447,7 +1448,7 @@ body.page-node-type-emergency-alert header {
         font-size: 14px;
         color: #004A87;
         border-bottom: 1px dashed;
-        padding-bottom: 5px;
+        Ж: 5px;
         margin-right: 32px; }
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-block-1 .news, .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-news-news-block-6items .news,
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .news,
@@ -1644,7 +1645,7 @@ body.page-node-type-emergency-alert header {
         font-weight: 500; }
     .paragraph--type--embedded-blocks-section.bg-light-blue #block-views-block-featured-content-block-1 .views-row .views-field-body.views-field-body,
     .paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .views-row .views-field-body.views-field-body {
-      padding-bottom: 16px;
+      padding-bottom: 23px;
       font-size: 16px; }
 
 .paragraph--type--embedded-blocks-section.bg-big-light-blue {
@@ -1813,7 +1814,9 @@ body.page-node-type-emergency-alert header {
   margin-right: 30px; }
 
 .paragraph--type--embedded-blocks-section {
-  clear: both; }
+  clear: both;
+  padding-top: 6rem;
+  padding-bottom: 6rem; }
   .paragraph--type--embedded-blocks-section #block-views-block-featured-content-featured-content-block h2 {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -2287,7 +2290,7 @@ h3 {
   margin-top: -75px; }
   @media screen and (min-width: 1900px) {
     .bg-wave {
-      margin-top: -100px;
+      margin-top: -105px;
       padding-top: 150px; } }
   @media screen and (max-width: 800px) {
     .bg-wave {
