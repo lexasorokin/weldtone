@@ -1,8 +1,25 @@
 .main-image{
   //background-size: 100% 100%;
   position: relative;
-      background-size: cover;
-    background-position: center;
+  background-size: cover;
+  background-position: center;
+
+  .path-frontpage & {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    @media screen and (max-width: 1000px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .paragraph--type--image-with-icon-and-link{
+      //padding-bottom: 0;
+
+
+    }
+  }
+
 }
 .wav-top{
   background: url("/themes/civic/images/first.png") left 6px no-repeat;
@@ -14,7 +31,7 @@
   z-index: 9;
   padding-bottom: 110px;
   padding-top: 6rem;
-  
+
   @media screen and (max-width: 1000px) {
     padding-bottom: 0px;
     padding-top: 50px;
@@ -134,15 +151,15 @@
     }
   }
   div:nth-child(5){
-      .link{
-        border-right: 0 !important;
-      }
+    .link{
+      border-right: 0 !important;
+    }
 
   }
 
 }
 .paragraph--type--image-with-icon-and-link div:nth-child(5) .elements-wrapper .link {
-    border-right: 0;
+  border-right: 0;
 }
 .breadcrumbs{
   display: none;

@@ -1,9 +1,22 @@
 
+
+.paragraph--type--bg-image-section.bg-shadow-left{
+  &>.container {
+    justify-content: flex-end;
+  }
+}
+
 .paragraph--type--bg-image-section{
 
   &>.container {
     display: flex;
     flex-wrap: wrap;
+
+
+    .bg-shadow-left & {
+      justify-content: flex-end;
+    }
+
 
     .bg-mage-section-image {
       width: 50%;
@@ -170,7 +183,7 @@
     @media screen and (max-width: 750px) {
       margin-top: -52px;
     }
-    margin-top: -20px;
+    margin-top: -6rem;
   }
 }
 .paragraph--type--bg-image-section.bg-shadow-left{
