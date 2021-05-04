@@ -27,7 +27,7 @@
     box-shadow: -1185px 90px 290px #fff inset;
   }
   @media screen and (min-width: 1900px) {
-    box-shadow: -1300px 90px 190px #fff inset;
+    box-shadow: -60vw 90px 190px #fff inset;
   }
   @media screen and (max-width: 1024px) {
     box-shadow: -700px 0px 130px #fff inset;
@@ -49,10 +49,10 @@
     box-shadow: 985px 90px 290px #fff inset;
   }
   @media screen and (min-width: 1600px) {
-    box-shadow: 1185px 90px 290px #fff inset;
+    box-shadow: 60vw 90px 290px #fff inset;
   }
   @media screen and (min-width: 1900px) {
-    box-shadow: 1300px 90px 190px #fff inset;
+    box-shadow: 1185px 90px 190px #fff inset;
   }
   @media screen and (max-width: 1024px) {
     box-shadow: 700px 0px 130px #fff inset;
@@ -95,10 +95,11 @@
 .bg-wave{
   background: url("/themes/civic/images/bottom-wave-with-section.png") 0 0 no-repeat;
   background-size: 100%;
-  margin-top: -75px;
+  //margin-top: -75px;
+  margin-top: -6rem;
   @media screen and (min-width: 1900px) {
-    margin-top: -105px;
-    padding-top: 150px;
+   // margin-top: -105px;
+   // padding-top: 150px;
   }
   @media screen and (max-width: 800px) {
     margin-top: 0;
