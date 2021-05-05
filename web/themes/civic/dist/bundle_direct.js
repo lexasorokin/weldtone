@@ -507,6 +507,8 @@ var CivicThemeIndex = /*#__PURE__*/function () {
 
 (function ($, Drupal) {
   
+  
+  //$('img.align-left').removeClass('align-left').addClass('align-left-ex').wrap('<div class="align-left clearfix">');
   function screen_resize_events() {
       if ($(window).width() <= 1000) {
       
