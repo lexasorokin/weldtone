@@ -952,13 +952,14 @@ body {
   color: #fff !important; }
 
 .field-name--field-sections > div:last-child > section {
-  padding-bottom: 75px; }
-  @media (max-width: 1024px) {
-    .field-name--field-sections > div:last-child > section {
-      padding-bottom: 100px; } }
-  @media (max-width: 768px) {
-    .field-name--field-sections > div:last-child > section {
-      padding-bottom: 145px; } }
+  /*   padding-bottom: 75px;
+        @media (max-width: 1024px) {
+          padding-bottom: 100px;
+        }
+
+        @media (max-width: 768px) {
+          padding-bottom: 145px;
+        }*/ }
 
 .align-center video {
   margin-left: auto;
