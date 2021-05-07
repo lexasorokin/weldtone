@@ -162,3 +162,13 @@ div.align-left.align-img-wrapper {
 div.align-right.align-img-wrapper {
   margin-left: 15px;
 }
+
+
+
+.user-account-wrapper {
+  display: flex;
+  
+  .user-account-column {
+   width: 50%; 
+  }
+}

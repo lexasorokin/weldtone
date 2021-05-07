@@ -1,0 +1,83 @@
+<?php
+
+function mesa_moderation_views_pre_render($view) {
+
+  if ($view->id() == 'moderation_notifications') {
+    //ksm($view->result); 
+
+    $results_filtered = [];
+
+    foreach ($view->result as $item) {
+      if (empty($results_filtered[$item->vid])) {
+        $results_filtered[$item->vid] = $item;
+      }
+    }
+
+    $results_filtered = array_values($results_filtered);
+
+    $view->result = array_values($results_filtered);
+  }
+}
+
+function mesa_moderation_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'views_exposed_form') {
+
+    if (strpos($form['#id'], 'views-exposed-form-moderation-notifications') === 0) {
+      $form['#attached']['library'][] = 'mesa_moderation/mesa_moderation_events_form';
+    }
+  }
+}
+
+function mesa_moderation_preprocess_user(&$variables) {
+
+  // ksm($variables);
+
+
+  /*
+    $customblock = \Drupal::service('plugin.manager.block')->createInstance('views_block__moderation_notifications_block_1',
+    []);
+
+    ksm($customblock);
+   */
+
+  $block_manager = \Drupal::service('plugin.manager.block');
+
+  $notifications_block = $block_manager->createInstance('views_block:moderation_notifications-block_1',
+      []);
+
+  //ksm($block_manager->getDefinitions());
+  //ksm($notifications_block);
+
+  if ($notifications_block) {
+    $variables['content']['moderation_notifications'] = [
+      '#type'           => 'container',
+      '#attributes'     => [
+        'class' => ["moderation_notifications_view_wrapper"],
+      ],
+      /*  '#attached'       =>
+        [
+        'library' => ['demomodule/bootstrap4'],
+        ], */
+      "element-content" => $notifications_block->build(),
+      '#weight'         => 0,
+    ];
+  }
+  /*
+    if (!$customblock) {
+    return [];
+    }
+    return [
+    '#type'           => 'container',
+    '#attributes'     => [
+    'class' => ["Myclass"],
+    ],
+    '#attached'       =>
+    [
+    'library' => ['demomodule/bootstrap4'],
+    ],
+    "element-content" => $customblock->build(),
+    '#weight'         => 0,
+    ];
+   */
+}

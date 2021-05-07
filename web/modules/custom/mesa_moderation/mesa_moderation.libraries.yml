@@ -1,0 +1,10 @@
+mesa_moderation_events_form:
+  version: 1.x
+  css:
+    theme:
+      css/mesa_moderation_events_form.css: {}
+  js:
+    js/mesa_moderation_events_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings    

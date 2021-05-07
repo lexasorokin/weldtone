@@ -978,6 +978,11 @@ div.align-left.align-img-wrapper {
 div.align-right.align-img-wrapper {
   margin-left: 15px; }
 
+.user-account-wrapper {
+  display: flex; }
+  .user-account-wrapper .user-account-column {
+    width: 50%; }
+
 #civic-mega-menu .cmm-ul--level-2 .cmm-column--level-2 .cmm-li--level-2 {
   position: relative;
   padding: 5px 20px; }
