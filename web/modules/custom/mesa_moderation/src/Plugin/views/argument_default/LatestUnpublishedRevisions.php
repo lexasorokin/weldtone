@@ -35,8 +35,6 @@ class LatestUnpublishedRevisions extends ArgumentDefaultPluginBase
 
     $current_uid = \Drupal::currentUser()->id();
 
-    $current_uid = 59;
-
     $result = \Drupal::database()->query("SELECT vid FROM node_field_revision WHERE vid IN (SELECT MAX(revision_id) as maxrev FROM node_revision__field_user WHERE field_user_target_id=$current_uid GROUP BY entity_id) AND status=0");
 
     $result = $result->fetchAll();
@@ -46,7 +44,9 @@ class LatestUnpublishedRevisions extends ArgumentDefaultPluginBase
     foreach ($result as $item) {
       $vids[] = $item->vid;
     }
-
+    if (!$vids) {
+      return 0;
+    }
     return implode('+', $vids);
   }
 
