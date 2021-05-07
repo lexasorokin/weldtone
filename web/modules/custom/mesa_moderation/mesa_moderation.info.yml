@@ -1,0 +1,6 @@
+name: Mesa moderation
+description: Mesa moderation
+package: MesaWater
+type: module
+core_version_requirement: ^8.8 || ^9
+version: '8.x-1.0'

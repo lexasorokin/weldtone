@@ -1,0 +1,8 @@
+.form-item-revision-timestamp-min, .form-item-revision-timestamp-max {
+  display: none !important; 
+}
+
+[data-drupal-selector="views-exposed-form-moderation-notifications-block-1"] {
+  display: flex;
+  margin-bottom: 30px;
+}
