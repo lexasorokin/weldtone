@@ -3,19 +3,26 @@
 function mesa_moderation_views_pre_render($view) {
 
   if ($view->id() == 'moderation_notifications') {
-    //ksm($view->result); 
 
-    $results_filtered = [];
+    $users_present = [];
 
     foreach ($view->result as $item) {
-      if (empty($results_filtered[$item->vid])) {
-        $results_filtered[$item->vid] = $item;
+      $node = $item->_entity;
+
+      if ($node->hasField('field_user')) {
+        $users_value = $node->get('field_user')->getValue();
+
+        if ($users_value) {
+          foreach ($users_value as $user_item) {
+            $users_present[$user_item['target_id']] = $user_item['target_id'];
+          }
+        }
       }
     }
 
-    $results_filtered = array_values($results_filtered);
+    $users_loaded = \Drupal\user\Entity\User::loadMultiple(array_values($users_present));
 
-    $view->result = array_values($results_filtered);
+    $view->users_loaded = $users_loaded;
   }
 }
 
@@ -31,23 +38,10 @@ function mesa_moderation_form_alter(&$form, &$form_state, $form_id) {
 
 function mesa_moderation_preprocess_user(&$variables) {
 
-  // ksm($variables);
-
-
-  /*
-    $customblock = \Drupal::service('plugin.manager.block')->createInstance('views_block__moderation_notifications_block_1',
-    []);
-
-    ksm($customblock);
-   */
-
   $block_manager = \Drupal::service('plugin.manager.block');
 
   $notifications_block = $block_manager->createInstance('views_block:moderation_notifications-block_1',
       []);
-
-  //ksm($block_manager->getDefinitions());
-  //ksm($notifications_block);
 
   if ($notifications_block) {
     $variables['content']['moderation_notifications'] = [
@@ -55,29 +49,24 @@ function mesa_moderation_preprocess_user(&$variables) {
       '#attributes'     => [
         'class' => ["moderation_notifications_view_wrapper"],
       ],
-      /*  '#attached'       =>
-        [
-        'library' => ['demomodule/bootstrap4'],
-        ], */
       "element-content" => $notifications_block->build(),
       '#weight'         => 0,
     ];
   }
-  /*
-    if (!$customblock) {
-    return [];
-    }
-    return [
-    '#type'           => 'container',
-    '#attributes'     => [
-    'class' => ["Myclass"],
-    ],
-    '#attached'       =>
-    [
-    'library' => ['demomodule/bootstrap4'],
-    ],
-    "element-content" => $customblock->build(),
-    '#weight'         => 0,
-    ];
-   */
+
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function mesa_moderation_views_data_alter(array &$data) {
+ 
+  $data['node_revision']['related_users'] = array(
+    'title' => t('Related users'),
+    'field' => array(
+      'title' => t('Related users'),
+      'help'  => t('Related users.'),
+      'id'    => 'related_users',
+    ),
+  );
 }
