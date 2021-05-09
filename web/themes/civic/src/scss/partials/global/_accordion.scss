@@ -30,34 +30,34 @@ main .ckeditor-accordion-container {
 }
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle{
   @media screen and (max-width: 570px) {
-    width: 94%;
+   // width: 94%;
   }
-  width: 98%;
+ // width: 98%;
 }
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::before {
   left: 98%;
 }
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-    right: -10px;
+    right: -25px;
     
     
     @media screen and (max-width: 1200px) {
-      right: -13px;
+     // right: -13px;
     }
     @media screen and (max-width: 1024px) {
-      right: -12px;
+    //  right: -12px;
     }
     @media screen and (max-width: 990px) {
-      right: -16px;
+    //  right: -16px;
     }
     @media screen and (max-width: 760px) {
-      right: -15px;
+    //  right: -15px;
     }
     @media screen and (max-width: 500px) {
-      right: -17px;
+    //  right: -17px;
     }
     @media screen and (max-width: 375px) {
-      right: -19px;
+     // right: -19px;
     }
 }
 
@@ -75,4 +75,18 @@ main .ckeditor-accordion-container {
 }
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after{
   transform: rotate(-90deg);
+}
+
+
+.ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle {
+    display: inline-block;
+    position: absolute;
+    padding: 0 10px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    top: calc(50% - 1px);
+    left: auto;
+    box-sizing: border-box;
+    right: 30px;
 }
