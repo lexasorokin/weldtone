@@ -36,7 +36,8 @@ main .ckeditor-accordion-container > dl {
       color: #004A87;
       border: 0 solid #565659;
       text-decoration: none;
-      padding-left: 0; }
+      padding-left: 0;
+      padding-right: 35px; }
     main .ckeditor-accordion-container > dl dt.active > a,
     main .ckeditor-accordion-container > dl dt > a:hover {
       background-color: transparent !important; }
