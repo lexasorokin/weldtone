@@ -506,10 +506,31 @@ var CivicThemeIndex = /*#__PURE__*/function () {
 
 
 (function ($, Drupal) {
-  
+  $(document).ready(function () {
+         setTimeout(function() {
+           var base = $('.owl-carousel').data('owlCarousel');
+        if(base) {
+            //owl.calculateWidth();
+            //owl.appendItemsSizes();
+            base.updateItems();
+            base.calculateAll();
+            //base.buildControls();
+            base.updateControls();
+            base.response();
+            //base.moveEvents();
+            //base.stopOnHover();
+            //base.owlStatus();
+            }
+           
+         }, 300);
+    
+  });
   
   //$('img.align-left').removeClass('align-left').addClass('align-left-ex').wrap('<div class="align-left clearfix">');
   function screen_resize_events() {
+    
+    
+    
       if ($(window).width() <= 1000) {
       
          var total_width = 0;
@@ -526,9 +547,17 @@ var CivicThemeIndex = /*#__PURE__*/function () {
         $('.paragraph--type--embedded-blocks-section  .news .news-items').css('width', 'auto');
       }
   }
+  function news_filters_process() {
+      $('.view-id-news .views-exposed-form .form-actions').hide();
+      $('.view-id-news .views-exposed-form [data-drupal-selector="edit-created"]').attr('type', 'date');
+      $('.view-id-news .views-exposed-form').not('.autosubmit-processed').addClass('autosubmit-processed').find('input[type="text"], input[type="date"]').on('change', function() {
+        $(this).closest('form').find('input[type="submit"]').trigger('click');
+           
+      });
+  }
   
   $(window).on('resize', function() {
-      console.log('resize');
+      
     screen_resize_events();
   });
   
@@ -540,6 +569,7 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       // $('.layout-container select').select2({
       //   dropdownParent: $('.layout-container'),
       // });
+      news_filters_process();
       if (context === document) {
         $('#block-views-block-news-block-1 header').parent().addClass('news-items');
         $("#block-views-block-news-block-1 .views-row, #block-views-block-news-news-block-6items .views-row , #block-views-block-featured-content-block-1 .views-row").wrapAll("<div class='news'><div class='news-items'></div></div>");

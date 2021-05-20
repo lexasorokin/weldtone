@@ -1086,6 +1086,59 @@ body.page-node-type-emergency-alert header {
   background-position: center;
   background-repeat: no-repeat; }
 
+.news-article-wave {
+  width: 100%;
+  height: 100%; }
+
+#block-civic-breadcrumbs a {
+  color: #004179; }
+
+.page-node-type-news-article .layout-content .field-name--body {
+  min-height: 0; }
+
+.page-node-type-news-article h1 span {
+  color: #195386; }
+
+.view-id-news header h2 {
+  color: #195386; }
+
+.view-id-news .owl-wrapper {
+  display: flex !important; }
+
+.view-id-news .owl-item {
+  padding-right: 15px;
+  padding-left: 15px; }
+  .view-id-news .owl-item > .col-12 {
+    border: 1px solid #707070;
+    border-radius: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 60px; }
+    .view-id-news .owl-item > .col-12 .views-field-created {
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-left: 10px;
+      font-size: 13px; }
+    .view-id-news .owl-item > .col-12 .views-field-title {
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-left: 10px; }
+      .view-id-news .owl-item > .col-12 .views-field-title a {
+        color: #004179;
+        line-height: 1.1;
+        font-weight: bold;
+        display: block; }
+    .view-id-news .owl-item > .col-12 .views-field-nothing {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      bottom: 15px; }
+
+.region--related-content {
+  padding-bottom: 6rem; }
+
 .view-financial-services {
   margin-bottom: 4rem; }
   .view-financial-services .views-rows-group-wrapper {
