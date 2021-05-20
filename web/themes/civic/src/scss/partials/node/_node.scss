@@ -36,12 +36,63 @@
     }
   }
 
+  .pager__items {
+    display: flex;
+    justify-content: center;
+    li {
+      list-style-type: none;
+      padding-left: 5px;
+      padding-right: 5px;
+      a {
+        color: #004179;
+        font-weight: bold;
+      }
+    }
+  }
 
   .owl-wrapper {
     display: flex !important;
   }
 
+  .views-row-wrapper {
+    padding-right: 15px;
+    padding-left: 15px;
+    .views-row {
+      border: 1px solid #707070;
+      border-radius: 15px;
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 60px;
+      height: 100%;
+      .views-field-created {
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 13px;
+      }
 
+      .views-field-title {
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        a {
+          color: #004179;
+          line-height: 1.1;
+          font-weight: bold;
+          display: block;
+        }
+      }
+
+      .views-field-nothing {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 15px;
+      }
+    }
+  }
   .owl-item {
     padding-right: 15px;
     padding-left: 15px;
@@ -84,4 +135,19 @@
 
 .region--related-content {
   padding-bottom: 6rem;
+}
+
+form[data-drupal-selector="views-exposed-form-news-block-page-embed"] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  input[type="date"] {
+    height: 37px;
+  }
+  &>.form-item {
+    width: 33%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
