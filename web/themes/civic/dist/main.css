@@ -1185,13 +1185,13 @@ body.page-node-type-emergency-alert header {
 .region--related-content {
   padding-bottom: 6rem; }
 
-form[data-drupal-selector="views-exposed-form-news-block-page-embed"] {
+form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
-  form[data-drupal-selector="views-exposed-form-news-block-page-embed"] input[type="date"] {
+  form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] input[type="date"] {
     height: 37px; }
-  form[data-drupal-selector="views-exposed-form-news-block-page-embed"] > .form-item {
+  form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] > .form-item {
     width: 33%;
     padding-left: 15px;
     padding-right: 15px; }

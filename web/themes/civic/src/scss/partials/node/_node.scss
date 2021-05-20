@@ -137,7 +137,7 @@
   padding-bottom: 6rem;
 }
 
-form[data-drupal-selector="views-exposed-form-news-block-page-embed"] {
+form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
