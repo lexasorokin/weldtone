@@ -521,7 +521,7 @@ var CivicThemeIndex = /*#__PURE__*/function () {
         });
       }
 
-      console.log(333333333);
+      console.log(444);
 
       if ($(window).width() <= 1000) {
         var item_width = $('.paragraph--type--embedded-blocks-section.bg-big-light-blue #block-views-block-featured-content-block-1 .news .news-items .views-row').width();

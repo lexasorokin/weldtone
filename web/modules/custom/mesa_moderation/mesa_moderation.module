@@ -53,20 +53,28 @@ function mesa_moderation_preprocess_user(&$variables) {
       '#weight'         => 0,
     ];
   }
-
 }
 
 /**
  * Implements hook_views_data_alter().
  */
 function mesa_moderation_views_data_alter(array &$data) {
- 
+
   $data['node_revision']['related_users'] = array(
     'title' => t('Related users'),
     'field' => array(
       'title' => t('Related users'),
       'help'  => t('Related users.'),
       'id'    => 'related_users',
+    ),
+  );
+
+  $data['node']['news_category_from_current_node'] = array(
+    'title' => t('News category from current node'),
+    'field' => array(
+      'title' => t('News category from current node'),
+      'help'  => t('News category from current node.'),
+      'id'    => 'news_category_from_current_node',
     ),
   );
 }

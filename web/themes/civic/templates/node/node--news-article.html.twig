@@ -102,16 +102,18 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    <div class="node-hero-image news-hero-image" style="background-image: url({{ content.field_news_image['0']['#markup'] }})"></div>
+    <div class="node-hero-image news-hero-image" style="background-image: url({{ content.field_news_image['0']['#markup'] }})">
+    <div class="bg-basic-page-wave paragraph--type--image-with-icon-and-link news-article-wave"></div>
+    </div>
 
     <div class="container mt-4">
       {{ breadcrumbs }}
       <h1>{{ label }}</h1>
       <p>
-        <strong>{{ node.getCreatedTime()|date('l, F j') }}</strong>
+        Posted: <span>{{ node.getCreatedTime()|date('l, F j, Y') }}</span>
       </p>
 
-      {{ content|without('field_news_image') }}
+      {{ content|without('field_news_image', 'field_news_category') }}
     </div>
   </div>
 

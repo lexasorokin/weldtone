@@ -79,7 +79,7 @@ class CivicThemeIndex {
         });
       }
 
-      console.log(333333333);
+      console.log(444);
 
       if ($(window).width() <= 1000) {
 
