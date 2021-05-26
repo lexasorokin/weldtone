@@ -58,7 +58,7 @@ function civic_preprocess_breadcrumb(&$variables) {
     $key = 'article';
     if (strpos($real_path, $key)) {
       // Remove the last element.
-      array_pop($variables['breadcrumb']);
+      //array_pop($variables['breadcrumb']);
     }
   }
 }

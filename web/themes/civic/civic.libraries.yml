@@ -9,3 +9,8 @@ assets:
     https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js: {type: external}
     https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js: {type: external}
     https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js: {type: external}
+  dependencies:
+    - core/drupal
+    - core/modernizr
+    - core/jquery.once
+    - core/jquery.ui.datepicker
