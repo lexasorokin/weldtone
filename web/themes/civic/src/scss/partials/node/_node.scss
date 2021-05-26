@@ -149,5 +149,15 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
     width: 33%;
     padding-left: 15px;
     padding-right: 15px;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;   
+    }
   }
+}
+
+#ui-datepicker-div {
+  z-index: 500 !important;
 }
