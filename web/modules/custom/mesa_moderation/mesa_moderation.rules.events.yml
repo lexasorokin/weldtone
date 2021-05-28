@@ -1,0 +1,20 @@
+node_notification_is_being_evaluated_event:
+  label: 'After unpublish notification is triggered'
+  category: 'Scheduler'
+  context_definitions:
+    node:
+      type: 'entity:node'
+      label: 'Node'
+      description: 'The node object'
+    timestamp:
+      type: 'string'
+      label: 'Timestamp'
+      description: 'Timestamp of the event'
+    days:
+      type: 'string'
+      label: 'Days'
+      description: 'How many days left till unpublish action'
+    days_word:
+      type: 'string'
+      label: 'Days word'
+      description: 'Plural word "day/days"'
