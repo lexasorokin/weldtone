@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\mesa_moderation\Event\NodeNotificationIsBeingEvaluated;
+
 function mesa_moderation_views_pre_render($view) {
 
   if ($view->id() == 'moderation_notifications') {
@@ -27,7 +30,6 @@ function mesa_moderation_views_pre_render($view) {
 }
 
 function mesa_moderation_form_alter(&$form, &$form_state, $form_id) {
-
 
   if ($form_id == 'rules_expression_edit') {
     $fields_needed = [
@@ -101,4 +103,108 @@ function mesa_moderation_views_data_alter(array &$data) {
       'id'    => 'news_category_from_current_node',
     ),
   );
+}
+
+function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getEntityTypeId();
+
+  if ($type == 'node' && $entity->hasField('field_pending_exp_notify') && $entity->hasField('unpublish_on')) {
+    $unpub_timestamp = reset($entity->get('unpublish_on')->getValue());
+    $unpub_timestamp_orig = reset($entity->original->get('unpublish_on')->getValue());
+
+    if ($unpub_timestamp && $unpub_timestamp != $unpub_timestamp_orig) {
+
+      $unpub_timestamp = reset($unpub_timestamp);
+      $notify_days = [30, 15, 5, 1];
+
+      $pending_notifies = [];
+
+      $current_timestamp = time();
+
+      foreach ($notify_days as $days_num) {
+
+        $add_seconds = $days_num * 3600 * 24;
+
+        $notify_timestamp = $unpub_timestamp - $add_seconds;
+
+        if ($notify_timestamp > $current_timestamp) {
+          $pending_notifies[] = $notify_timestamp;
+        }
+      }
+
+      $entity->set('field_pending_exp_notify', $pending_notifies);
+    }
+    else if (!$unpub_timestamp) {
+      $entity->set('field_pending_exp_notify', []);
+    }
+  }
+}
+
+function mesa_moderation_select_pending_notifications() {
+  $current_timestamp = time();
+
+  $limit_timestamp = $current_timestamp + 3600 * 24;
+
+  $query = \Drupal::database()->select('node__field_pending_exp_notify', 'f');
+  $query->condition('field_pending_exp_notify_value', $limit_timestamp, '<');
+  $query->fields('f', ['field_pending_exp_notify_value', 'entity_id']);
+  $result = $query->execute();
+  $result = $result->fetchAll();
+
+  foreach ($result as $item) {
+    mesa_moderation_evaluate_notification($item->entity_id,
+        $item->field_pending_exp_notify_value);
+  }
+}
+
+function mesa_moderation_evaluate_notification($node, $timestamp) {
+  if (is_numeric($node)) {
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($node);
+  }
+
+  if ($node) {
+    $unpub_timestamp = $node->get('unpublish_on')->getValue();
+    $unpub_timestamp = reset($unpub_timestamp);
+    $pending_notifications = $node->get('field_pending_exp_notify')->getValue();
+
+    if ($unpub_timestamp) {
+      $unpub_timestamp = reset($unpub_timestamp);
+    }
+
+    $seconds_diff = $unpub_timestamp - $timestamp;
+
+    $days_diff = $seconds_diff / (3600 * 24);
+
+    $new_notifications = [];
+
+    foreach ($pending_notifications as $pending_notification) {
+      if ($pending_notification['value'] != $timestamp) {
+        $new_notifications[] = $pending_notification['value'];
+      }
+    }
+
+
+    $node->set('field_pending_exp_notify', $new_notifications);
+    $node->save();
+
+    $event_dispatcher = \Drupal::service('event_dispatcher');
+
+    $days_word = t('days');
+
+    if ($days_diff < 2) {
+      $days_word = t('day');
+    }
+
+    $event = new NodeNotificationIsBeingEvaluated($node, $timestamp, $days_diff,
+        $days_word);
+    $event_dispatcher->dispatch(NodeNotificationIsBeingEvaluated::EVENT_NAME,
+        $event);
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mesa_moderation_cron() {
+  mesa_moderation_select_pending_notifications();
 }

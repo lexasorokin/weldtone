@@ -23,15 +23,6 @@ class LatestUnpublishedRevisions extends ArgumentDefaultPluginBase
    * {@inheritdoc}
    */
   public function getArgument() {
-    //return \Drupal::currentUser()->id();
-    /*
-      $query = \Drupal::database()->select('commerce_order__order_items', 'c');
-      $query->fields('c',
-      ['order_items_target_id', 'entity_id', 'revision_id', 'delta']);
-      $query->condition('entity_id', $order_ids, 'IN');
-      $result = $query->execute();
-      $result = $result->fetchAll();
-     */
 
     $current_uid = \Drupal::currentUser()->id();
 
