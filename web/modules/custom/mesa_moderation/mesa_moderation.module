@@ -109,8 +109,14 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
   $type = $entity->getEntityTypeId();
 
   if ($type == 'node' && $entity->hasField('field_pending_exp_notify') && $entity->hasField('unpublish_on')) {
-    $unpub_timestamp = reset($entity->get('unpublish_on')->getValue());
-    $unpub_timestamp_orig = reset($entity->original->get('unpublish_on')->getValue());
+    $unpub_timestamp = $entity->get('unpublish_on')->getValue();
+    $unpub_timestamp = reset($unpub_timestamp);
+
+    $unpub_timestamp_orig = FALSE;
+    if (!empty($entity->original)) {
+      $unpub_timestamp_orig = $entity->original->get('unpublish_on')->getValue();
+      $unpub_timestamp_orig = reset($unpub_timestamp_orig);
+    }
 
     if ($unpub_timestamp && $unpub_timestamp != $unpub_timestamp_orig) {
 
