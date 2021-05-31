@@ -594,7 +594,7 @@ header.header-fixed.is-fixed {
     width: 100px !important; } }
 
 #block-paymybill h2 a {
-  background: url("/themes/civic/images/angle-down-white.png") no-repeat 125px center #004A87 !important;
+  background: url("/themes/civic/images/angle-down-white.png") no-repeat 125px center #004A87;
   color: #fff;
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
@@ -603,7 +603,8 @@ header.header-fixed.is-fixed {
   background-size: 8px 13px !important;
   display: block;
   font-weight: normal;
-  line-height: 27px; }
+  line-height: 27px;
+  background-position: right 25px center; }
   @media screen and (max-width: 1200px) {
     #block-paymybill h2 a {
       padding: 10px 33px;
@@ -1203,6 +1204,20 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
 
 #ui-datepicker-div {
   z-index: 500 !important; }
+
+#block-breadcrumbs .breadcrumb-item {
+  padding-left: 0; }
+  #block-breadcrumbs .breadcrumb-item:before {
+    content: "";
+    background-image: url("/themes/civic/images/angle-right-solid.svg");
+    display: inline-block;
+    height: 12px;
+    width: 6px;
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    background-size: 6px 12px; }
+  #block-breadcrumbs .breadcrumb-item:first-child:before {
+    display: none; }
 
 .view-financial-services {
   margin-bottom: 4rem; }

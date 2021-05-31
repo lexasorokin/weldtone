@@ -22,7 +22,9 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
     "rellax": "^1.10.0",
-    "smoothscroll": "^0.4.0"
+    "smoothscroll": "^0.4.0",
+    "url-loader": "^4.1.1"
   }
 }
