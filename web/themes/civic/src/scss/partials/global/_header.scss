@@ -120,7 +120,7 @@ header.header-fixed.is-fixed{
   }
   h2{
     a{
-      background: url("/themes/civic/images/angle-down-white.png") no-repeat 125px center #004A87 !important;
+      background: url("/themes/civic/images/angle-down-white.png") no-repeat 125px center #004A87;
       color: #fff;
       //font-family: 'Bebas Neue';
       font-family: 'Oswald', sans-serif;
@@ -131,6 +131,8 @@ header.header-fixed.is-fixed{
       display: block;
       font-weight: normal;
       line-height: 27px;
+      background-position: right 25px center;
+      
       @media screen and (max-width: 1200px) {
         padding: 10px 33px;
         background-position: 100px center !important;
