@@ -374,7 +374,17 @@ var Translations = /*#__PURE__*/function () {
           this.toggleTranslateStatus('html', true);
 
           if (drupalSettings.proTranslationAvailable) {
-            this.toggleTranslateStatus('.region--content', false);
+            
+            if(jQuery('.main-image .breadcrumbs').length>=1) {
+                            
+              this.toggleTranslateStatus('.main-image .content-top', false);
+                            
+              jQuery('.field-name--field-sections>div').not(":first-child").addClass('notranslate');
+            }
+            else {
+              this.toggleTranslateStatus('.region--content', false);
+            }
+            
           }
 
           try {
