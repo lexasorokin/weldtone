@@ -35,11 +35,18 @@
   }
 
   .field-name--field-menu-items {
+
+
     a{
 
       font: normal normal normal 16px/29px Verdana;
       color: #565659;
 
+
+    }
+
+    .side-menu-item-bold a {
+      font-weight: bold;
     }
     a:hover{
 
@@ -105,3 +112,6 @@
     border-radius: 12px;
   }
 }
+
+
+

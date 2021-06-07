@@ -2184,6 +2184,8 @@ h2.section-title {
   .paragraph--type--text-w-menu .field-name--field-menu-items a {
     font: normal normal normal 16px/29px Verdana;
     color: #565659; }
+  .paragraph--type--text-w-menu .field-name--field-menu-items .side-menu-item-bold a {
+    font-weight: bold; }
   .paragraph--type--text-w-menu .field-name--field-menu-items a:hover {
     text-decoration: none;
     color: #fff; }
