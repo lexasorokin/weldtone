@@ -52,7 +52,7 @@
 {% import '/themes/civic/templates/macros/additional_styles.twig' as styles %}
 
 {% block paragraph %}
-  <section>
+  <section class="side-menu-item {% if content.field_menu_item_bold['0']['#markup'] == 'true' %}side-menu-item-bold{% endif %}">
     <div class="container">
       {% block content %}
 
