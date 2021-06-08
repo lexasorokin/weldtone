@@ -163,25 +163,34 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
 }
 
 #block-breadcrumbs {
-  .breadcrumb-item {
-    padding-left: 0;
-    &:before {
-      content: ""; 
-      background-image: url('/themes/civic/images/angle-right-solid.svg'); 
-      display: inline-block;
-      height: 12px;
-      width: 6px;
-      background-repeat: no-repeat;
-      background-position: 0 2px;
-      background-size: 6px 12px;
 
-    }
+  .breadcrumbs-list {
+    padding-left:  0;
+    li {
 
-    &:first-child {
+      padding-left: 0;
+      list-style-type: none;
+      display: inline;
       &:before {
-        display: none;
-      }
-    }
+        content: ""; 
+        background-image: url('/themes/civic/images/angle-right-solid.svg'); 
+        display: inline-block;
+        height: 12px;
+        width: 6px;
+        background-repeat: no-repeat;
+        background-position: 0 2px;
+        background-size: 6px 12px;
 
+      }
+
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+
+
+    }
   }
+
 }

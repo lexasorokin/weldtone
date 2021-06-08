@@ -8,11 +8,18 @@
  */
 #}
 {% if breadcrumb %}
-  {% for item in breadcrumb %}
-    {% if item.url %}
-      <a class="breadcrumb-item" href="{{ item.url }}">{{ item.text }}</a> 
-    {% else %}
-      <span class="breadcrumb-item">{{ item.text }}</span>
+  {% set bnum = 0 %}
+  <ul class="breadcrumbs-list">
+    {% for item in breadcrumb %}
+      {%  set bnum = bnum+1 %}
+      <li>
+        {% if item.url %}
+
+          <a data-bnum="{{ bnum }}" class="breadcrumb-item" href="{{ item.url }}">{{ item.text }}</a> 
+        {% else %}
+          <span data-bnum="{{ bnum }}" class="breadcrumb-item breadcrumb-item-last breadcrumb-item-nolink">{{ item.text }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+    <ul>
     {% endif %}
-  {% endfor %}
-{% endif %}
