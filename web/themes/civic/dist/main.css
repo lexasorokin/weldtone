@@ -1205,19 +1205,23 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
 #ui-datepicker-div {
   z-index: 500 !important; }
 
-#block-breadcrumbs .breadcrumb-item {
+#block-breadcrumbs .breadcrumbs-list {
   padding-left: 0; }
-  #block-breadcrumbs .breadcrumb-item:before {
-    content: "";
-    background-image: url("/themes/civic/images/angle-right-solid.svg");
-    display: inline-block;
-    height: 12px;
-    width: 6px;
-    background-repeat: no-repeat;
-    background-position: 0 2px;
-    background-size: 6px 12px; }
-  #block-breadcrumbs .breadcrumb-item:first-child:before {
-    display: none; }
+  #block-breadcrumbs .breadcrumbs-list li {
+    padding-left: 0;
+    list-style-type: none;
+    display: inline; }
+    #block-breadcrumbs .breadcrumbs-list li:before {
+      content: "";
+      background-image: url("/themes/civic/images/angle-right-solid.svg");
+      display: inline-block;
+      height: 12px;
+      width: 6px;
+      background-repeat: no-repeat;
+      background-position: 0 2px;
+      background-size: 6px 12px; }
+    #block-breadcrumbs .breadcrumbs-list li:first-child:before {
+      display: none; }
 
 .view-financial-services {
   margin-bottom: 4rem; }
