@@ -42,11 +42,20 @@
       font: normal normal normal 16px/29px Verdana;
       color: #565659;
 
-
+ 
     }
 
     .side-menu-item-bold a {
       font-weight: bold;
+    }
+
+    .side-menu-item {
+      &>.container {
+        padding-left: 25px;
+      }
+    }
+    .side-menu-item-bold {
+
     }
     a:hover{
 
