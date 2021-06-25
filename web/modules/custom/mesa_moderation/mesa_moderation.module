@@ -3,6 +3,33 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\mesa_moderation\Event\NodeNotificationIsBeingEvaluated;
 
+function mesa_moderation_views_query_alter($view, $query) {
+
+  if ($view->id() == 'newsletters') {
+
+    $current_year = date('Y', time());
+
+    $current_year_begin_date = strtotime($current_year . '-01-01 00:00:00');
+
+    //ksm($current_year_begin_date);
+    //$view->current_display);
+
+    foreach ($query->where as $whkey => $whelem) {
+
+      if (!empty($whelem['conditions'])) {
+        foreach ($whelem['conditions'] as $condkey => $condition) {
+          if (isset($condition['field']) && is_numeric(strpos($condition['field'],
+                      '31605071'))) {
+
+            $query->where[$whkey]['conditions'][$condkey]['field'] = str_replace('31605071',
+                $current_year_begin_date, $condition['field']);
+          }
+        }
+      }
+    }
+  }
+}
+
 function mesa_moderation_views_pre_render($view) {
 
   if ($view->id() == 'moderation_notifications') {
@@ -101,6 +128,15 @@ function mesa_moderation_views_data_alter(array &$data) {
       'title' => t('News category from current node'),
       'help'  => t('News category from current node.'),
       'id'    => 'news_category_from_current_node',
+    ),
+  );
+
+  $data['node']['current_year_date'] = array(
+    'title' => t('Current year date'),
+    'field' => array(
+      'title' => t('Current year date'),
+      'help'  => t('Current year date.'),
+      'id'    => 'current_year_date',
     ),
   );
 }
