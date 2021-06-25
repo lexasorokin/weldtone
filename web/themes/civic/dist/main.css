@@ -2233,6 +2233,57 @@ h2.section-title {
   .paragraph--type--text-w-menu img {
     border-radius: 12px; }
 
+.paragraph--type--views-embed {
+  padding-bottom: 6rem;
+  padding-top: 3rem; }
+  .paragraph--type--views-embed.one-column > .field > div {
+    width: 100%; }
+  .paragraph--type--views-embed.two-columns > .field {
+    display: flex;
+    flex-wrap: wrap; }
+    .paragraph--type--views-embed.two-columns > .field > div {
+      width: 48%;
+      margin-right: 4%; }
+      .paragraph--type--views-embed.two-columns > .field > div:nth-child(2n+2) {
+        margin-right: 0; }
+      @media (max-width: 768px) {
+        .paragraph--type--views-embed.two-columns > .field > div {
+          width: 100%;
+          margin-right: 0; } }
+  .paragraph--type--views-embed .view-display-id-newsletters_current .views-row {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px; }
+    .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing .row {
+      margin-left: 0;
+      margin-right: 0; }
+    .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing h3 {
+      color: #000;
+      font-weight: normal; }
+    .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing .newsletter-body {
+      margin-bottom: 1rem;
+      color: #000; }
+    .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing .newsletter-file {
+      margin-bottom: 1rem; }
+  .paragraph--type--views-embed .view-display-id-newsletters_thisyear .views-field-title a, .paragraph--type--views-embed .view-display-id-newsletters_past .views-field-title a {
+    color: #000;
+    text-decoration: underline; }
+  .paragraph--type--views-embed .view-display-id-newsletters_thisyear .views-row, .paragraph--type--views-embed .view-display-id-newsletters_past .views-row {
+    margin-bottom: 2rem;
+    position: relative; }
+    .paragraph--type--views-embed .view-display-id-newsletters_thisyear .views-row:after, .paragraph--type--views-embed .view-display-id-newsletters_past .views-row:after {
+      position: absolute;
+      width: 300px;
+      height: 1px;
+      left: calc(50% - 150px);
+      background: #f1f1f1;
+      content: "";
+      bottom: -1rem; }
+    .paragraph--type--views-embed .view-display-id-newsletters_thisyear .views-row:last-child, .paragraph--type--views-embed .view-display-id-newsletters_past .views-row:last-child {
+      margin-bottom: 1rem; }
+      .paragraph--type--views-embed .view-display-id-newsletters_thisyear .views-row:last-child:after, .paragraph--type--views-embed .view-display-id-newsletters_past .views-row:last-child:after {
+        display: none; }
+
 .paragraph--type--map {
   padding-top: 6rem; }
   .paragraph--type--map .map {
