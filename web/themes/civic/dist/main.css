@@ -2257,6 +2257,8 @@ h2.section-title {
     .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing .row {
       margin-left: 0;
       margin-right: 0; }
+      .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing .row.row-current-issue-title {
+        margin-bottom: 0.5rem; }
     .paragraph--type--views-embed .view-display-id-newsletters_current .views-row .views-field-nothing h3 {
       color: #000;
       font-weight: normal; }
