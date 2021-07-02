@@ -42,6 +42,11 @@ function civic_preprocess_paragraph(&$vars) {
      ->getViewBuilder('block')
      ->view($breadcrumb_block);
   $vars['breadcrumbsTheme'] =  $breadcrumb_block_content;
+  
+  if($vars['paragraph']->bundle()=='interactive_map') {
+    //ksm($vars);
+    $vars['#attached']['library'][] =  'civic/mesa_interactive_map';
+  }
 
 }
 
