@@ -39,7 +39,7 @@
  */
 #}
 
-{#
+
 {%
   set classes = [
     'paragraph',
@@ -51,72 +51,69 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content }}
+
+      <div class="marquee-wrapper">
+        <div id="zservicearea-module">
+          <div class="zservicearea-search-bar">
+
+            <div class="container">
+
+              <div class="row">
+
+                <div class="col-sm-8">
+                  <div class="form-inline">
+                    <div class="form-group">
+                      <label for="zservicearea_search">Find out which Division you're in</label>
+                      <input type="text" name="zservicearea_search" id="zservicearea_search" placeholder="Full location address" class="form-control" onkeypress="geocodeAddress(event, 'input')">
+                      <button type="button" class="btn btn-primary input-group-addon" onclick="geocodeAddress(event, 'button')">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 hidden-xs">
+
+
+                  <a href="https://www.mesawater.org/component/zdocs/document/download/1123" title="Downloadable version" class="zdoc-icon zicon-pdf icon-sm icon-reversed pull-right"><span>Downloadable version</span></a>
+
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="zservicearea-map-wrapper">
+
+            <div id="zmap_2064583368" class="zservicearea-map" style="width: 100%; height: 620px; position: relative; overflow: hidden;">
+
+
+
+            </div>
+
+            <div id="zservicearea-map-notification" class="zservicearea-map-notification" style="display: none;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12" style="display:table;height:620px">
+                    <div class="zservice-map-notification-inner">
+                      <div id="zservice-notification" class="zservice-notification"><p><strong>Sorry. It looks like you are not in the Mesa Water service area.</strong></p>If you believe this is incorrect, please <a href="/contact-us">contact us</a>.</div>
+                      <button type="button" id="zservice-notification-close" class="btn btn-primary">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     {% endblock %}
   </div>
 {% endblock paragraph %}
-#}
-
-
-<div class="marquee-wrapper">
-  <div id="zservicearea-module">
-    <div class="zservicearea-search-bar">
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-sm-8">
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="zservicearea_search">Find out which Division you're in</label>
-                <input type="text" name="zservicearea_search" id="zservicearea_search" placeholder="Full location address" class="form-control" onkeypress="geocodeAddress(event, 'input')">
-                <button type="button" class="btn btn-primary input-group-addon" onclick="geocodeAddress(event, 'button')">
-                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 hidden-xs">
-
-
-            <a href="https://www.mesawater.org/component/zdocs/document/download/1123" title="Downloadable version" class="zdoc-icon zicon-pdf icon-sm icon-reversed pull-right"><span>Downloadable version</span></a>
-
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="zservicearea-map-wrapper">
-
-      <div id="zmap_2064583368" class="zservicearea-map" style="width: 100%; height: 620px; position: relative; overflow: hidden;">
-
-
-
-      </div>
-
-      <div id="zservicearea-map-notification" class="zservicearea-map-notification" style="display: none;">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12" style="display:table;height:620px">
-              <div class="zservice-map-notification-inner">
-                <div id="zservice-notification" class="zservice-notification"><p><strong>Sorry. It looks like you are not in the Mesa Water service area.</strong></p>If you believe this is incorrect, please <a href="/contact-us">contact us</a>.</div>
-                <button type="button" id="zservice-notification-close" class="btn btn-primary">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-

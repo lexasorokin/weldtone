@@ -3088,6 +3088,9 @@ h2.section-title {
 .glyphicon-menu-up:before {
   content: "\e260"; }
 
+.paragraph--type--interactive-map {
+  padding-top: 3rem; }
+
 .form-group label {
   max-width: 100%;
   margin-bottom: 5px;
