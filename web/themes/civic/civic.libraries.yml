@@ -14,3 +14,22 @@ assets:
     - core/modernizr
     - core/jquery.once
     - core/jquery.ui.datepicker
+mesa_interactive_map:
+  version: 1.x
+  js:
+    dist/map_files/common.js: {}
+    dist/map_files/util.js: {}
+    dist/map_files/map.js: {}
+    dist/map_files/geometry.js: {}
+    dist/map_files/poly.js: {}
+    dist/map_files/overlay.js: {}
+    dist/map_files/stats.js: {}
+    dist/map_files/onion.js: {}
+    dist/map_files/controls.js: {}
+    dist/map_files/geocoder.js: {}
+    dist/map_files/js.js: {}
+    dist/map_files/zservicearea.js: {}
+    dist/map_files/mapinit.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings 
