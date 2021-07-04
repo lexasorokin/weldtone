@@ -17,6 +17,7 @@ assets:
 mesa_interactive_map:
   version: 1.x
   js:
+    https://maps.googleapis.com/maps/api/js?key=AIzaSyCvq4IDAcEzM543tCa1VuHLxmBgNKzLJbI: {}
     dist/map_files/common.js: {}
     dist/map_files/util.js: {}
     dist/map_files/map.js: {}
@@ -27,7 +28,6 @@ mesa_interactive_map:
     dist/map_files/onion.js: {}
     dist/map_files/controls.js: {}
     dist/map_files/geocoder.js: {}
-    dist/map_files/js.js: {}
     dist/map_files/zservicearea.js: {}
     dist/map_files/mapinit.js: {}
   dependencies:

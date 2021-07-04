@@ -38,8 +38,6 @@
  * @ingroup themeable
  */
 #}
-
-
 {%
   set classes = [
     'paragraph',
@@ -48,74 +46,12 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+{#
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-
-      <div class="marquee-wrapper">
-        <div id="zservicearea-module">
-          <div class="zservicearea-search-bar">
-
-            <div class="container">
-
-              <div class="row">
-
-                <div class="col-sm-8">
-                  <div class="form-inline">
-                    <div class="form-group">
-                      <label for="zservicearea_search">{{ 'Find out which Division you\'re in'|t }}</label>
-                      <input type="text" name="zservicearea_search" id="zservicearea_search" placeholder="{{ 'Full location address'|t }}" class="form-control" onkeypress="geocodeAddress(event, 'input')">
-                      <button type="button" class="btn btn-primary input-group-addon" onclick="geocodeAddress(event, 'button')">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-4 hidden-xs">
-
-
-                  <a href="/pdfdownload?f={{ downloadable_url }}" title="Downloadable version" class="zdoc-icon zicon-pdf icon-sm icon-reversed pull-right"><span>{{ 'Downloadable version'|t }}</span></a>
-
-
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="zservicearea-map-wrapper">
-
-            <div id="zmap_2064583368" class="zservicearea-map" style="width: 100%; height: 620px; position: relative; overflow: hidden;">
-
-
-
-            </div>
-
-            <div id="zservicearea-map-notification" class="zservicearea-map-notification" style="display: none;">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12" style="display:table;height:620px">
-                    <div class="zservice-map-notification-inner">
-                      <div id="zservice-notification" class="zservice-notification"></div>
-                      <button type="button" id="zservice-notification-close" class="btn btn-primary">{{ 'Close'|t }}</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
+      {{ content }}
     {% endblock %}
   </div>
 {% endblock paragraph %}
-
-{{ content | without('field_im_fail_message', 'field_im_success_message','field_im_file') }}
+#}
