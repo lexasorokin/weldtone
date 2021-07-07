@@ -376,7 +376,7 @@ function geocodeAddress(event, method) {
       } else {
 
         jQuery('#zservice-notification').empty();
-        jQuery('#zservice-notification').append(drupalSettings.interactive_map.success_message);
+        jQuery('#zservice-notification').append(drupalSettings.interactive_map.fail_message);
 
         jQuery('#zservicearea-map-notification').fadeIn();
 
