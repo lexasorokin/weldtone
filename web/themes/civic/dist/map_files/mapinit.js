@@ -213,6 +213,33 @@ function initServiceMap() {
   });
 
 
+  var bl = new google.maps.LatLng(33.60575349847726, -118.0308134268725);
+  var tr = new google.maps.LatLng(33.70506096355189, -117.78791258744177);
+
+  var gcbounds = new google.maps.LatLngBounds(bl, tr);
+
+  var ac_input = document.getElementById("zservicearea_search");
+
+  var ac_options = {
+    componentRestrictions: {country: "us"},
+    fields: ["formatted_address", "geometry", "name"],
+    origin: map_zmap_2064583368.getCenter(),
+    strictBounds: false,
+    //types: ["establishment"],
+  };
+
+  var autocomplete = new google.maps.places.Autocomplete(ac_input, ac_options);
+
+  autocomplete.setBounds(gcbounds);
+
+  autocomplete.bindTo("bounds", map_zmap_2064583368);
+
+
+  autocomplete.addListener("place_changed", () => {
+
+    jQuery('#zmap-search-button').trigger('click');
+
+  });
 
 
   window.areas = [];
@@ -322,8 +349,8 @@ function geocodeAddress(event, method) {
 
 
 
-  var bl = new google.maps.LatLng(33.61637252120485, -118.02042514682375);
-  var tr = new google.maps.LatLng(33.707996151391356, -117.7874006395674);
+  var bl = new google.maps.LatLng(33.60575349847726, -118.0308134268725);
+  var tr = new google.maps.LatLng(33.70506096355189, -117.78791258744177);
 
   var gcbounds = new google.maps.LatLngBounds(bl, tr);
 

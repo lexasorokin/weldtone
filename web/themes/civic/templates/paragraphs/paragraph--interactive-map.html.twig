@@ -65,7 +65,7 @@
                     <div class="form-group">
                       <label for="zservicearea_search">{{ 'Find out which Division you\'re in'|t }}</label>
                       <input type="text" name="zservicearea_search" id="zservicearea_search" placeholder="{{ 'Full location address'|t }}" class="form-control" onkeypress="geocodeAddress(event, 'input')">
-                      <button type="button" class="btn btn-primary input-group-addon" onclick="geocodeAddress(event, 'button')">
+                      <button id="zmap-search-button" type="button" class="btn btn-primary input-group-addon" onclick="geocodeAddress(event, 'button')">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                       </button>
                     </div>
