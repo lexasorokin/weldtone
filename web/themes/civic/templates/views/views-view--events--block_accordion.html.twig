@@ -45,18 +45,16 @@
   {{ title_suffix }}
 
   {% if header %}
-    <header>
-      {{ header }}
-    </header>
+    {{ header }}
   {% endif %}
 
   {{ exposed }}
   {{ attachment_before }}
 
   {% if rows -%}
-   
-      {{ rows }}
-    
+    <dl class="ckeditor-accordion">
+    {{ rows }}
+    </dl>
   {% elseif empty -%}
     {{ empty }}
   {% endif %}

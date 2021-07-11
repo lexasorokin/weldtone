@@ -29,6 +29,29 @@ function civic_preprocess_html(&$vars) {
 /**
  * Implements THEME_preprocess_HOOK()
  */
+function civic_preprocess_views_view_grouping(&$vars) {
+  if (is_string($vars['title'])) {
+    $title = trim(strip_tags($vars['title']));
+  }
+  else if (is_object($vars['title'])) {
+    $title = trim(strip_tags($vars['title']->__toString()));
+  }
+
+  $curyear = date('Y', time());
+
+  if ($title == $curyear) {
+    $vars['title_add'] = ' class="active" ';
+    $vars['content_add'] = ' class="active" style="display:block;" ';
+  }
+  else {
+    $vars['title_add'] = '';
+    $vars['content_add'] = '';
+  }
+}
+
+/**
+ * Implements THEME_preprocess_HOOK()
+ */
 function civic_page_attachments_alter(array &$page) {
   Map::getMapLocations($page);
 }
@@ -165,6 +188,25 @@ function civic_preprocess_node(&$vars) {
   Blocks::loadBreadcrumbBlock($vars);
   Events::parseDateQueryToVars($vars);
   ThemeSettings::setDefaultImageVars($vars);
+
+  $vars['location_link'] = '';
+  if ($vars['node']->bundle() == 'event' && !empty($vars['content']['field_event_location'][0])) {
+
+    $location_val = $vars['node']->get('field_event_location')->getValue();
+
+    if ($location_val) {
+      $location_val = $location_val[0]['target_id'];
+
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($location_val);
+
+      if ($term) {
+        $lat = civic_reset_m($term->get('field_eloc_lattitude')->getValue());
+        $lon = civic_reset_m($term->get('field_eloc_longitude')->getValue());
+
+        $vars['location_link'] = 'https://www.google.com/maps/place/' . urlencode($vars['content']['field_event_location'][0]['#plain_text']) . '/@' . $lat . ',' . $lon;
+      }
+    }
+  }
 }
 
 /**
@@ -208,4 +250,21 @@ function civic_theme_suggestions_pager_alter(array &$suggestions,
       $suggestions[] = $suggestion;
     }
   }
+}
+
+/**
+ * Helper function that resets arrays of any deepness and accepts 
+ * not only variables as an argument.
+ */
+function civic_reset_m($var, $num = 99) {
+  for ($i = 0; $i < $num; $i++) {
+
+    if (is_array($var)) {
+      $var = reset($var);
+    }
+    else {
+      return $var;
+    }
+  }
+  return $var;
 }

@@ -1,0 +1,10 @@
+mesa_events_notification_form:
+  version: 1.x
+  css:
+    theme:
+      css/mesa_events_notification_form.css: {}
+  js:
+    js/mesa_events_notification_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings    

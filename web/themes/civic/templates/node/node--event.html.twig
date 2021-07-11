@@ -107,25 +107,46 @@
     <div class="container mt-4">
       {{ breadcrumbs }}
       <h1>{{ label }}</h1>
-      <p>
-        <strong>
-          <span class="event-start-date">{{ date_query.start|date('l, F j') }} </span>
-          {% if date_query.start|date('H:i') != '00:00' %}
-            <span class="event-start-time">{{ date_query.start|date('g:ia') }} </span>
-          {% endif %}
-          {% if date_query.start|date('Y-m-d') != date_query.end|date('Y-m-d') %}
-            <span class="event-end-date">- {{ date_query.end|date('l, F j') }} </span>
-          {% endif %}
-          {% if date_query.end|date('H:i') != '23:59' %}
-            {% if date_query.start|date('Y-m-d') == date_query.end|date('Y-m-d') %}
-              <span>- </span>
-            {% endif %}
-            <span class="event-end-time">{{ date_query.end|date('g:ia') }} </span>
-          {% endif %}
-        </strong>
-      </p>
+      {# <p>
+         
+         
+         <strong>
+           <span class="event-start-date">{{ date_query.start|date('l, F j') }} </span>
+           {% if date_query.start|date('H:i') != '00:00' %}
+             <span class="event-start-time">{{ date_query.start|date('g:ia') }} </span>
+           {% endif %}
+           {% if date_query.start|date('Y-m-d') != date_query.end|date('Y-m-d') %}
+             <span class="event-end-date">- {{ date_query.end|date('l, F j') }} </span>
+           {% endif %}
+           {% if date_query.end|date('H:i') != '23:59' %}
+             {% if date_query.start|date('Y-m-d') == date_query.end|date('Y-m-d') %}
+               <span>- </span>
+             {% endif %}
+             <span class="event-end-time">{{ date_query.end|date('g:ia') }} </span>
+           {% endif %}
+         </strong> 
+         
+         
+       </p>#}
 
-      {{ content|without('field_event_image', 'field_event_date', 'field_date_specific_content') }}
+      <div class="event-date">
+        Date: {{ date_query.start|date('F d, Y') }} Time: {{ date_query.start|date('g:ia') }}
+      </div>
+      <div class="event-location">
+        Location: <a href="{{ location_link }}" target="_blank">{{ content.field_event_location }}</a>
+      </div>
+
+      <div class="event-category">
+        Category: {{ content.field_event_category }}
+      </div>
+
+      <div class="event-documents">
+        <h3>Documents</h3>
+
+        {{ content.field_event_files }}
+      </div>
+
+      {{ content|without('field_event_image', 'field_event_date', 'field_date_specific_content', 'field_event_location', 'field_event_files', 'field_event_category') }}
 
       {% if date_query.date_specific_content is not empty %}
         {{ date_query.date_specific_content|raw }}
