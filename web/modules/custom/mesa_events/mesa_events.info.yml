@@ -1,0 +1,6 @@
+name: Mesa Events
+description: Functionality for Events, Board Meetings and Packets
+package: MesaWater
+type: module
+core_version_requirement: ^8.8 || ^9
+version: '8.x-1.0'

@@ -194,3 +194,78 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
   }
 
 }
+
+
+#block-civic-breadcrumbs {
+
+  .breadcrumbs-list {
+    padding-left:  0;
+    li {
+
+      padding-left: 0;
+      list-style-type: none;
+      display: inline;
+      &:before {
+        content: ""; 
+        background-image: url('/themes/civic/images/angle-right-solid.svg'); 
+        display: inline-block;
+        height: 12px;
+        width: 6px;
+        background-repeat: no-repeat;
+        background-position: 0 2px;
+        background-size: 6px 12px;
+
+      }
+
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+
+
+    }
+  }
+
+}
+
+.page-node-type-event {
+  h1 {
+    color: #195386;
+    font-family: tahoma;
+    font-weight: bold;
+  }
+  .event-location, .event-category {
+    div.field {
+      display: inline-block;
+    }
+    a {
+      color: #195386;
+    }
+  }
+
+  .event-documents {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    h3 {
+      font-family: tahoma;
+      color: #195386;
+      font-weight: bold;
+    }
+    
+    .field-name--field-event-files {
+      display: flex;
+      &>div {
+        padding-right: 5px;
+        margin-right: 5px;
+        border-right: 1px solid #666;
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
