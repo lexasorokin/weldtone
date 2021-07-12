@@ -5563,21 +5563,25 @@ dl.contact-address {
   color: #666666;
   font-size: 85%; }
 
-.pager li > a,
-.pager li > span {
-  font-size: 18px;
-  padding: 6px 30px;
-  border-radius: 0 8px 0 8px;
-  -webkit-border-radius: 0 8px 0 8px;
-  -moz-border-radius: 0 8px 0 8px;
-  background-color: #008AC5;
-  color: #FFF;
-  border: none; }
+/*
+.pager li>a,
+.pager li>span{
+  font-size:18px;
+  padding:6px 30px;
+  border-radius:0 8px 0 8px;
+  -webkit-border-radius:0 8px 0 8px;
+  -moz-border-radius:0 8px 0 8px;
+  background-color:#008AC5;
+  color:#FFF;
 
-.pager li > a:focus,
-.pager li > a:hover {
-  background-color: #004A87; }
+  border:none;
+}
 
+.pager li>a:focus,
+.pager li>a:hover{
+  background-color:#004A87;
+}
+*/
 .alert {
   border-radius: 0 8px 0 8px;
   -webkit-border-radius: 0 8px 0 8px;
