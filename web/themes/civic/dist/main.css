@@ -1100,6 +1100,17 @@ body.page-node-type-emergency-alert header {
 .page-node-type-news-article h1 span {
   color: #195386; }
 
+.view-id-events .pager__items {
+  display: flex;
+  justify-content: center; }
+  .view-id-events .pager__items li {
+    list-style-type: none;
+    padding-left: 5px;
+    padding-right: 5px; }
+    .view-id-events .pager__items li a {
+      color: #004179;
+      font-weight: bold; }
+
 .view-id-news header h2 {
   color: #195386; }
 

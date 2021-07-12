@@ -569,6 +569,14 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       });
   }
   
+    function events_filters_process() {
+    
+      $('.view-id-events .views-exposed-form [data-drupal-selector="edit-field-event-date-value"]').not('.form-date').addClass('form-date').datepicker({
+          dateFormat: 'mm/dd/yy',
+        });
+       
+  }
+  
   $(window).on('resize', function() {
       
     screen_resize_events();
@@ -583,6 +591,8 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       //   dropdownParent: $('.layout-container'),
       // });
       news_filters_process();
+      events_filters_process();
+       
       if (context === document) {
         $('#block-views-block-news-block-1 header').parent().addClass('news-items');
         $("#block-views-block-news-block-1 .views-row, #block-views-block-news-news-block-6items .views-row , #block-views-block-featured-content-block-1 .views-row").wrapAll("<div class='news'><div class='news-items'></div></div>");
