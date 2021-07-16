@@ -103,7 +103,7 @@ function civic_page_attachments_alter(array &$page) {
  */
 function civic_preprocess_paragraph(&$vars) {
   Map::getFilterOptions($vars);
-  //Load breadcrumb block and set to a variable to be accessed in the Twig template
+//Load breadcrumb block and set to a variable to be accessed in the Twig template
   $breadcrumb_block = Block::load('breadcrumbs');
   $breadcrumb_block_content = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
@@ -165,15 +165,15 @@ function civic_preprocess_paragraph(&$vars) {
  */
 function civic_preprocess_breadcrumb(&$variables) {
 
-  // Removing last element of breadcrumb
+// Removing last element of breadcrumb
   if ($variables['breadcrumb']) {
     $current_path = \Drupal::service('path.current')->getPath();
-    // Get the real path even if it has an alias.
+// Get the real path even if it has an alias.
     $real_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
     $key = 'article';
     if (strpos($real_path, $key)) {
-      // Remove the last element.
-      //array_pop($variables['breadcrumb']);
+// Remove the last element.
+//array_pop($variables['breadcrumb']);
     }
   }
 }
@@ -239,6 +239,28 @@ function civic_preprocess_node(&$vars) {
       $vars['has_docs'] = TRUE;
     }
 
+    $vars['reg_form'] = '';
+    if ($vars['node']->hasField('field_event_registration_enable')) {
+
+      $reg_enable = me_reset_m($vars['node']->get('field_event_registration_enable')->getValue());
+
+      if ($reg_enable) {
+
+        $reg_form = \Drupal::entityTypeManager()->getStorage('webform')->load('event_registration');
+
+        $values = [
+          'data' =>
+          [
+            'event_nid'   => $vars['node']->id(),
+            'event_title' => me_reset_m($vars['node']->get('title')->getValue()),
+          ]
+        ];
+
+        $reg_form = $reg_form->getSubmissionForm($values);
+
+        $vars['reg_form'] = $reg_form;
+      }
+    }
 
     $vars['location_link'] = '';
     if (!empty($vars['content']['field_event_location'][0])) {
@@ -292,9 +314,9 @@ function civic_theme_suggestions_page_alter(array &$suggestions,
 
 function civic_theme_suggestions_pager_alter(array &$suggestions,
     array $variables, $hook) {
-  //ksm($suggestions);
-  //ksm($variables);
-  //ksm($hook);
+//ksm($suggestions);
+//ksm($variables);
+//ksm($hook);
   if (!empty($variables['pager']['#theme'])) {
     $suggestions = [];
 
