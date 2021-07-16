@@ -13,6 +13,15 @@ select,
 
 label {
   margin-bottom: 0;
+  //position: relative;
+
+  &.form-required {
+    &:after {
+      content: "*";
+      color: red;
+      //position: absolute;
+    }
+  }
 }
 
 input[type="text"],
@@ -22,6 +31,7 @@ input[type="password"],
 input[type="search"],
 input[type="submit"],
 input[type="date"],
+input[type="tel"],
 textarea,
 select {
   border-radius: $boder-radius;
@@ -33,7 +43,7 @@ select {
   transition: border-color .2s;
 
   &:active,
-  &:focus {
+    &:focus {
     border-color: darken($primary-color, 10%);
   }
 }
@@ -121,4 +131,8 @@ span.select2-container {
 #user-login-form{
   width: 60%;
   margin: 40px auto;
+}
+
+.form-text {
+  margin-top: initial;
 }
