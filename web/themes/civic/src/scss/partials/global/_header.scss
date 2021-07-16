@@ -57,6 +57,16 @@ header.header-fixed.is-fixed{
     li:first-child {
       float: left;
     }
+
+    &>li {
+
+      &:hover {
+        ul {
+          display: block;
+        }
+      }
+    }
+
     li{
       float: right;
       position: relative;
@@ -64,7 +74,7 @@ header.header-fixed.is-fixed{
         cursor: pointer;
         background: url("/themes/civic/images/angle-down.png") no-repeat 90px 15px !important;
         background-size: 7px 5px !important;
-          }
+      }
       ul{
         display: none;
         width: 100px;
@@ -132,7 +142,7 @@ header.header-fixed.is-fixed{
       font-weight: normal;
       line-height: 27px;
       background-position: right 25px center;
-      
+
       @media screen and (max-width: 1200px) {
         padding: 10px 33px;
         background-position: 100px center !important;
@@ -170,8 +180,8 @@ header {
   }
 
   &.header-fixed {
-  //  position: absolute;
-  //  top: 0;
+    //  position: absolute;
+    //  top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
@@ -361,33 +371,33 @@ header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg{
 
 }
 @media screen and (max-width: 1000px) {//570px
-  header .header-content {
-      max-width: 100% !important;
-  }
-  .col-md-8.justify-content-end{
-    width: 55%;
-    flex: inherit;
-  }
-  header .col-md-2.justify-content-end{
-    width: 45%;
-    flex: inherit;
-  }
-  .img-w-100 img {
-    width: auto;
-      height: 50px !important;
-      float: right;
-  }
-  #block-headerlogo-2{
-    margin-top: -13px;
-  }
-  header .img-w-100.img-h-100{
-    width: 100% !important;
-    height: 100% !important;
-  }
-  header .header-content {
-      padding-top: 0;
-      padding-bottom: 5px;
-  }
+                                       header .header-content {
+                                         max-width: 100% !important;
+                                       }
+                                       .col-md-8.justify-content-end{
+                                         width: 55%;
+                                         flex: inherit;
+                                       }
+                                       header .col-md-2.justify-content-end{
+                                         width: 45%;
+                                         flex: inherit;
+                                       }
+                                       .img-w-100 img {
+                                         width: auto;
+                                         height: 50px !important;
+                                         float: right;
+                                       }
+                                       #block-headerlogo-2{
+                                         margin-top: -13px;
+                                       }
+                                       header .img-w-100.img-h-100{
+                                         width: 100% !important;
+                                         height: 100% !important;
+                                       }
+                                       header .header-content {
+                                         padding-top: 0;
+                                         padding-bottom: 5px;
+                                       }
 }
 
 .civic-mega-menu-mobile{
@@ -395,12 +405,12 @@ header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg{
 }
 
 .cmm-mobile-li--level-1 {
-    border-bottom: 1px solid #0A599A;
-    padding: 15px 0;
-    a{
-      color: #fff !important;
-      font-size: 20px;
-    }
+  border-bottom: 1px solid #0A599A;
+  padding: 15px 0;
+  a{
+    color: #fff !important;
+    font-size: 20px;
+  }
 }
 #dynamic_select{
   height: 45px;
@@ -422,11 +432,11 @@ header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg{
     }
 
     :-ms-input-placeholder { /* Internet Explorer 10-11 */
-     color: #CFDFEC;
+      color: #CFDFEC;
     }
 
     ::-ms-input-placeholder { /* Microsoft Edge */
-     color: #CFDFEC;
+      color: #CFDFEC;
     }
     input{
       background: #3C82BC 0% 0% no-repeat padding-box;
@@ -489,7 +499,7 @@ li{
       background-size: 7px 5px !important;
       border-bottom: 2px solid #00B3E3;
       padding-bottom: 8px;
-        }
+    }
   }
 
 }

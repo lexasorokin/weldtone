@@ -406,6 +406,9 @@ select,
 
 label {
   margin-bottom: 0; }
+  label.form-required:after {
+    content: "*";
+    color: red; }
 
 input[type="text"],
 input[type="email"],
@@ -414,6 +417,7 @@ input[type="password"],
 input[type="search"],
 input[type="submit"],
 input[type="date"],
+input[type="tel"],
 textarea,
 select {
   border-radius: 0.25rem;
@@ -436,6 +440,8 @@ select {
   input[type="submit"]:focus,
   input[type="date"]:active,
   input[type="date"]:focus,
+  input[type="tel"]:active,
+  input[type="tel"]:focus,
   textarea:active,
   textarea:focus,
   select:active,
@@ -502,6 +508,9 @@ span.select2-container .select2-selection--single {
   width: 60%;
   margin: 40px auto; }
 
+.form-text {
+  margin-top: initial; }
+
 header.header-fixed.is-fixed {
   top: 0;
   animation-delay: 2s; }
@@ -548,6 +557,8 @@ header.header-fixed.is-fixed {
       padding: 8px 20px; }
   .top-bar ul#superfish-top-menu li:first-child, .top-bar #block-topmenu-3 ul li:first-child {
     float: left; }
+  .top-bar ul#superfish-top-menu > li:hover ul, .top-bar #block-topmenu-3 ul > li:hover ul {
+    display: block; }
   .top-bar ul#superfish-top-menu li, .top-bar #block-topmenu-3 ul li {
     float: right;
     position: relative; }
