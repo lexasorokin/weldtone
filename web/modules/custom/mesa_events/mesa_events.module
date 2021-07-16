@@ -32,8 +32,26 @@ function mesa_events_entity_presave(Drupal\Core\Entity\EntityInterface $entity) 
             if ($date_val) {
               $date_val = strtotime($date_val[0]['value']);
 
+              $other_terms = [];
+
+              if ($entity->hasField('field_event_category')) {
+                $cat_vals = $entity->get('field_event_category')->getValue();
+
+                foreach ($cat_vals as $cat_val) {
+                  $cat_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($cat_val['target_id']);
+
+                  if ($cat_term) {
+                    $cat_title = me_reset_m($cat_term->get('name')->getValue());
+
+                    $other_terms[] = $cat_title;
+                  }
+                }
+              }
+
+
+
               $generated_title = mesa_events_generate_title($term_name,
-                  $date_val);
+                  $date_val, $other_terms);
 
               if ($generated_title) {
                 $entity->set('title', $generated_title);
@@ -63,17 +81,24 @@ function mesa_events_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
   }
 }
 
-function mesa_events_generate_title($template, $date) {
-  $date_component = preg_match('~(\[.*?\])~', $template, $matches);
-  if (!empty($matches[0])) {
+function mesa_events_generate_title($title_term_name, $date, $other_terms = []) {
+  /* $date_component = preg_match('~(\[.*?\])~', $template, $matches);
+    if (!empty($matches[0])) {
     $date_component = $matches[0];
 
     $date_formatted = date(str_replace(['[', ']'], '', $date_component), $date);
 
     $template = str_replace($date_component, $date_formatted, $template);
+    }
+   */
+
+  $title_term_name = date('m/d/Y', $date) . ' ' . $title_term_name;
+
+  if ($other_terms) {
+    $title_term_name .= ', ' . implode(', ', $other_terms);
   }
 
-  return $template;
+  return $title_term_name;
 }
 
 /**
@@ -81,8 +106,15 @@ function mesa_events_generate_title($template, $date) {
  */
 function mesa_events_form_alter(&$form, &$form_state, $form_id) {
 
+
+
+
+  if ($form_id == 'node_event_form') {
+    $form['title']['widget'][0]['value']['#default_value'] = '_';
+  }
+
   if ($form_id == 'node_event_edit_form') {
-    //ksm($form);
+
     //ksm(func_get_args());
 
     $nid = explode('/', $_SERVER['REQUEST_URI'])[2];
@@ -94,7 +126,7 @@ function mesa_events_form_alter(&$form, &$form_state, $form_id) {
         'class' => ['notifications-wrapper'],
       ],
       '#weight'     => 110,
-      '#open' => TRUE,
+      '#open'       => TRUE,
     ];
 
     $form['notifications']['left'] = [
@@ -280,6 +312,14 @@ function mesa_events_send_notification($to, $subject, $message, $event_id) {
       }
     }
   }
+
+  $event_node = \Drupal::entityTypeManager()->getStorage('node')->load($event_id);
+
+  $event_title = me_reset_m($event_node->get('title')->getValue());
+
+  $message = str_replace('{{ title }}', $event_title, $message);
+  $message = str_replace('{{ nid }}', $event_id, $message);
+
   $params['message'] = $message;
   $params['subject'] = $subject;
 

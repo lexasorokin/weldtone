@@ -1268,6 +1268,12 @@ form[data-drupal-selector*="views-exposed-form-news-block-page-embed"] {
 
 .page-node-type-event .event-location div.field, .page-node-type-event .event-category div.field {
   display: inline-block; }
+  .page-node-type-event .event-location div.field > div, .page-node-type-event .event-category div.field > div {
+    display: inline-block; }
+    .page-node-type-event .event-location div.field > div:after, .page-node-type-event .event-category div.field > div:after {
+      content: ", "; }
+    .page-node-type-event .event-location div.field > div:last-child:after, .page-node-type-event .event-category div.field > div:last-child:after {
+      content: ""; }
 
 .page-node-type-event .event-location a, .page-node-type-event .event-category a {
   color: #195386; }
@@ -2473,6 +2479,28 @@ h2.section-title {
   text-align: center; }
   .view-id-events.view-display-id-block_2 .card-bottom p {
     text-align: left; }
+
+.view-id-events .owl-wrapper {
+  /*
+    display: flex;
+
+    .owl-item {
+      &>.col-12 {
+        height: 100%;
+
+        &>.views-field-nothing {
+          height: 100%;
+
+          &>.field-content {
+            height: 100%;
+
+            &>.card {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }*/ }
 
 @font-face {
   font-family: 'Glyphicons Halflings';

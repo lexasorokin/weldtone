@@ -140,12 +140,13 @@
         Category: {{ content.field_event_category }}
       </div>
 
-      <div class="event-documents">
-        <h3>Documents</h3>
+      {% if has_docs %}
+        <div class="event-documents">
+          <h3>Documents</h3>
 
-        {{ content.field_event_files }}
-      </div>
-
+          {{ content.field_event_files }}
+        </div>
+      {% endif %}
       {{ content|without('field_event_image', 'field_event_date', 'field_date_specific_content', 'field_event_location', 'field_event_files', 'field_event_category') }}
 
       {% if date_query.date_specific_content is not empty %}

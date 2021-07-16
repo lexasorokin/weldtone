@@ -29,6 +29,48 @@ function civic_preprocess_html(&$vars) {
 /**
  * Implements THEME_preprocess_HOOK()
  */
+function civic_preprocess_views_view_field(&$vars) {
+
+
+  if (in_array($vars['theme_hook_original'],
+          ['views_view_field__events__events_search', 'views_view_field__events__block_2'])) {
+
+    if (is_object($vars['output'])) {
+
+
+      $output_string = $vars['output']->__toString();
+
+      if (is_numeric(strpos($output_string, 'data-color-placeholder'))) {
+        $entity = $vars['row']->_entity;
+
+        $cat_color = 'default';
+
+        if ($entity->hasField('field_event_category')) {
+          $cat_vals = $entity->get('field_event_category')->getValue();
+
+          foreach ($cat_vals as $cat_val) {
+            $cat_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($cat_val['target_id']);
+
+            if ($cat_term) {
+              $cat_color = me_reset_m($cat_term->get('field_ec_color')->getValue());
+            }
+          }
+        }
+
+
+        $vars['output'] = str_replace('data-color-placeholder=""',
+            'style="background-color:' . $cat_color . '";', $output_string);
+      }
+    }
+  }
+  if (!isset($GLOBALS['gggg'])) {
+    
+  }
+}
+
+/**
+ * Implements THEME_preprocess_HOOK()
+ */
 function civic_preprocess_views_view_grouping(&$vars) {
   if (is_string($vars['title'])) {
     $title = trim(strip_tags($vars['title']));
@@ -189,21 +231,31 @@ function civic_preprocess_node(&$vars) {
   Events::parseDateQueryToVars($vars);
   ThemeSettings::setDefaultImageVars($vars);
 
-  $vars['location_link'] = '';
-  if ($vars['node']->bundle() == 'event' && !empty($vars['content']['field_event_location'][0])) {
+  if ($vars['node']->bundle() == 'event') {
+    $vars['has_docs'] = FALSE;
 
-    $location_val = $vars['node']->get('field_event_location')->getValue();
+    $docs_val = $vars['node']->get('field_event_files')->getValue();
+    if ($docs_val) {
+      $vars['has_docs'] = TRUE;
+    }
 
-    if ($location_val) {
-      $location_val = $location_val[0]['target_id'];
 
-      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($location_val);
+    $vars['location_link'] = '';
+    if (!empty($vars['content']['field_event_location'][0])) {
 
-      if ($term) {
-        $lat = civic_reset_m($term->get('field_eloc_lattitude')->getValue());
-        $lon = civic_reset_m($term->get('field_eloc_longitude')->getValue());
+      $location_val = $vars['node']->get('field_event_location')->getValue();
 
-        $vars['location_link'] = 'https://www.google.com/maps/place/' . urlencode($vars['content']['field_event_location'][0]['#plain_text']) . '/@' . $lat . ',' . $lon;
+      if ($location_val) {
+        $location_val = $location_val[0]['target_id'];
+
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($location_val);
+
+        if ($term) {
+          $lat = civic_reset_m($term->get('field_eloc_lattitude')->getValue());
+          $lon = civic_reset_m($term->get('field_eloc_longitude')->getValue());
+
+          $vars['location_link'] = 'https://www.google.com/maps/place/' . urlencode($vars['content']['field_event_location'][0]['#plain_text']) . '/@' . $lat . ',' . $lon;
+        }
       }
     }
   }
