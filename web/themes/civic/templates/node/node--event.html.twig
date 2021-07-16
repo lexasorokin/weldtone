@@ -147,6 +147,9 @@
           {{ content.field_event_files }}
         </div>
       {% endif %}
+      
+      {{ reg_form }}
+      
       {{ content|without('field_event_image', 'field_event_date', 'field_date_specific_content', 'field_event_location', 'field_event_files', 'field_event_category') }}
 
       {% if date_query.date_specific_content is not empty %}
