@@ -84,6 +84,7 @@ header.header-fixed.is-fixed{
         li{
           float: inherit !important;
           text-align: center;
+          white-space: nowrap;
           a{
             padding: 5px 12px;
           }
