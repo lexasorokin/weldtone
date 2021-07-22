@@ -102,7 +102,14 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
+
+    {#
     <div class="node-hero-image event-hero-image" style="background-image: url({{ content.field_event_image['0']['#markup'] }})"></div>
+#}
+
+    <section class="main-image" style="background-image: url({{ content.field_event_image['0']['#markup'] }});">
+      <div class="paragraph modular-section paragraph--type--image-with-icon-and-link paragraph--view-mode--default wave-inner UTF-8 no-links">
+      </div></section>
 
     <div class="container mt-4">
       {{ breadcrumbs }}
@@ -147,9 +154,9 @@
           {{ content.field_event_files }}
         </div>
       {% endif %}
-      
+
       {{ reg_form }}
-      
+
       {{ content|without('field_event_image', 'field_event_date', 'field_date_specific_content', 'field_event_location', 'field_event_files', 'field_event_category') }}
 
       {% if date_query.date_specific_content is not empty %}

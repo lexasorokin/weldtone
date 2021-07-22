@@ -26,12 +26,42 @@ function civic_preprocess_html(&$vars) {
   Map::initalizeMap($vars);
 }
 
+function civic_preprocess_file_link(&$vars) {
+
+  $attributes_array = $vars['attributes']->toArray();
+
+  if (!empty($attributes_array['data-targetblank'])) {
+    $vars['link']['#attributes']['target'] = '_blank';
+  }
+}
+
+function civic_preprocess_field(&$vars) {
+  if ($vars['field_name'] == 'field_event_files') {
+    if ($vars['items']) {
+      foreach ($vars['items'] as $key => $item) {
+        $vars['items'][$key]['content']['#attributes']['data-targetblank'] = '1';
+      }
+    }
+  }
+}
+
 /**
  * Implements THEME_preprocess_HOOK()
  */
 function civic_preprocess_views_view_field(&$vars) {
 
+//ksm($vars['theme_hook_original']);
+if (in_array($vars['theme_hook_original'],
+          ['views_view_field__events__block_accordion__field_event_files'])) {
+  //ksm($vars);
+   if (is_object($vars['output'])) {
 
+      $output_string = $vars['output']->__toString();
+      $output_string = str_replace('<a ', '<a target="_blank" ', $output_string);
+      
+      $vars['output'] = $vars['output']->create($output_string);
+   }
+}
   if (in_array($vars['theme_hook_original'],
           ['views_view_field__events__events_search', 'views_view_field__events__block_2'])) {
 
