@@ -34,7 +34,7 @@ function mesa_events_entity_presave(Drupal\Core\Entity\EntityInterface $entity) 
 
               $other_terms = [];
 
-              if ($entity->hasField('field_event_category')) {
+              if ($entity->hasField('field_event_category1')) {
                 $cat_vals = $entity->get('field_event_category')->getValue();
 
                 foreach ($cat_vals as $cat_val) {
