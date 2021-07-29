@@ -212,7 +212,7 @@ function mesa_events_form_alter(&$form, &$form_state, $form_id) {
       '#type'   => 'submit',
       '#value'  => t('Send'),
       '#submit' => [
-        'ggg',
+       // 'ggg',
       ],
       '#ajax'   => [
         'callback' => 'mesa_events_notification_send_ajax',
@@ -330,6 +330,13 @@ function mesa_events_send_notification($to, $subject, $message, $event_id) {
   $send = true;
 
   foreach ($to_array as $to) {
+    
+    $message_local = str_replace('{{ unsubscribe }}',
+        mesa_events_generate_unsubscribe_link(1, $to), $message);
+    
+    
+    $params['message'] = $message_local;
+    
     $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
         $send);
 
@@ -337,7 +344,8 @@ function mesa_events_send_notification($to, $subject, $message, $event_id) {
       'type' => 'notification',
     ]);
 
-    $notification->set('field_notification_body', $message);
+    
+    $notification->set('field_notification_body', $message_local);
     $notification->set('field_notification_subject', $subject);
     $notification->set('field_notification_receiver', $to);
 
@@ -349,6 +357,13 @@ function mesa_events_send_notification($to, $subject, $message, $event_id) {
 
     $notification->save();
   }
+}
+
+function mesa_events_generate_unsubscribe_link($list_id, $email) {
+  $link = 'mesawater_list_unsubscribe?email=' . $email . '&token=' . hash('sha256',
+          $list_id . $email);
+
+  return $link;
 }
 
 /**
@@ -364,5 +379,68 @@ function mesa_events_mail($key, &$message, $params) {
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
       break;
+  }
+}
+
+function mesa_events_list_subscribe($list_id, $email) {
+
+  if (is_numeric($list_id)) {
+
+    $list = \Drupal::entityTypeManager()->getStorage('mails_list')->load($list_id);
+
+    if ($list) {
+
+      $emails_list = me_reset_m($list->get('field_mails_list_addresses')->getValue());
+
+      $emails_array = explode("\n", $emails_list);
+
+      $emails_indexed = [];
+      foreach ($emails_array as $email_item) {
+
+        $email_item = trim($email_item);
+
+        $emails_indexed[$email_item] = $email_item;
+      }
+
+      $emails_indexed[$email] = $email;
+
+      $emails_list_reformed = implode("\n", $emails_indexed);
+
+      $list->set('field_mails_list_addresses', $emails_list_reformed);
+
+      $list->save();
+    }
+  }
+}
+
+function mesa_events_list_unsubscribe($list_id, $email) {
+  if (is_numeric($list_id)) {
+
+    $list = \Drupal::entityTypeManager()->getStorage('mails_list')->load($list_id);
+
+    if ($list) {
+
+      $emails_list = me_reset_m($list->get('field_mails_list_addresses')->getValue());
+
+      $emails_array = explode("\n", $emails_list);
+
+      $emails_indexed = [];
+      foreach ($emails_array as $email_item) {
+
+        $email_item = trim($email_item);
+
+        $emails_indexed[$email_item] = $email_item;
+      }
+
+      if (isset($emails_indexed[$email])) {
+        unset($emails_indexed[$email]);
+      }
+
+      $emails_list_reformed = implode("\n", $emails_indexed);
+
+      $list->set('field_mails_list_addresses', $emails_list_reformed);
+
+      $list->save();
+    }
   }
 }

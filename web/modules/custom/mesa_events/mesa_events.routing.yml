@@ -1,0 +1,7 @@
+mesa_events.unsubscribe:
+  path: '/mesawater_list_unsubscribe'
+  defaults:
+    _controller: '\Drupal\mesa_events\Controller\ListUnsubscribe::output'
+    _title: 'Unsubscribe from mailing list'
+  requirements:
+    _permission: 'access content'
