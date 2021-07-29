@@ -9,7 +9,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 function geolocation_filter_form_alter(&$form, $form_state, $form_id) {
   // Check if it is a Web Form
   if (isset($form['#webform_id'])) {
-    $form['actions']['submit']['#validate'][] = 'geolocation_filter_ip_form_validate';
+  //  $form['actions']['submit']['#validate'][] = 'geolocation_filter_ip_form_validate';
   }
 }
 
