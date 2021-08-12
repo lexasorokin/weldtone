@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.field.moderational_reminder.moderational_reminder.field_mr_eed
+    - field.field.moderational_reminder.moderational_reminder.field_mr_expiration_date
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_number
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_unit
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_user
+    - field.field.moderational_reminder.moderational_reminder.field_mr_fed
+    - field.field.moderational_reminder.moderational_reminder.field_mr_period_number
+    - field.field.moderational_reminder.moderational_reminder.field_mr_period_unit
+    - field.field.moderational_reminder.moderational_reminder.field_mr_unpublish
+    - field.field.moderational_reminder.moderational_reminder.field_mr_user
+  module:
+    - datetime
+id: moderational_reminder.moderational_reminder.default
+targetEntityType: moderational_reminder
+bundle: moderational_reminder
+mode: default
+content:
+  field_mr_expiration_date:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_mr_failsafe_number:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_mr_failsafe_unit:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_mr_failsafe_user:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_mr_period_number:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_mr_period_unit:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_mr_unpublish:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_mr_user:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_mr_eed: true
+  field_mr_fed: true
+  uid: true

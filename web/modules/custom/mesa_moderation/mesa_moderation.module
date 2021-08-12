@@ -1,5 +1,7 @@
 <?php
 
+define('MESA_MODERATION_MAX_DATE', 1999999999);
+
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\mesa_moderation\Event\NodeNotificationIsBeingEvaluated;
 
@@ -85,6 +87,32 @@ function mesa_moderation_form_alter(&$form, &$form_state, $form_id) {
 
     if (strpos($form['#id'], 'views-exposed-form-moderation-notifications') === 0) {
       $form['#attached']['library'][] = 'mesa_moderation/mesa_moderation_events_form';
+    }
+  }
+
+  if (preg_match('~^node_.+?_edit_form$~', $form_id)) {
+
+    if (!empty($form['field_moderational_reminders'])) {
+      $node = $form_state->getformObject()->getEntity();
+
+      $reminders_v = $node->get('field_moderational_reminders')->getValue();
+
+      if ($reminders_v) {
+
+        $reminders_dates = [];
+
+        foreach ($reminders_v as $reminder_v) {
+          $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($reminder_v['target_id']);
+
+          if ($reminder) {
+            $reminders_dates[] = reset(reset($reminder->get('changed')->getValue()));
+          }
+        }
+
+        $form['field_moderational_reminders']['#suffix'] = t('This content has reminders modified between %min and %max. Are you sure that you do not want modify them before save?',
+            ['%min' => date('m/d/Y H:i:s', min($reminders_dates)), '%max' => date('m/d/Y H:i:s',
+                  max($reminders_dates))]);
+      }
     }
   }
 }
@@ -180,6 +208,49 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
       $entity->set('field_pending_exp_notify', []);
     }
   }
+
+  if ($type == 'moderational_reminder') {
+    //ksm($entity);
+    $expiration_date = $entity->get('field_mr_expiration_date')->getValue();
+
+    $failsafe_unit = 'days';
+    $failsafe_period = 1;
+
+    $failsafe_unit_v = $entity->get('field_mr_failsafe_unit')->getValue();
+    if ($failsafe_unit_v) {
+      $failsafe_unit = $failsafe_unit_v[0]['value'];
+    }
+    $failsafe_period_v = $entity->get('field_mr_failsafe_number')->getValue();
+    if ($failsafe_period_v) {
+      $failsafe_period = $failsafe_period_v[0]['value'];
+    }
+
+    $units = [
+      'days'   => 86400,
+      'weeks'  => 86400 * 7,
+      'months' => 86400 * 30,
+      'years'  => 86400 * 365,
+    ];
+
+    $failsafe_value = $periods[$failsafe_unit] * $failsafe_period;
+
+    if ($expiration_date) {
+      $current_timestamp = time();
+      $timestamp = $expiration_date[0]['value'];
+
+      $day_before_timestamp = max($current_timestamp, $timestamp - 86400);
+
+      $failsafe_notification_timestamp = max($current_timestamp,
+          $timestamp - $failsafe_value);
+
+      $next_notification_timestamp = min($day_before_timestamp,
+          $current_timestamp + 7 * 86400);
+
+      mesa_moderation_set_ed($entity->id(), $next_notification_timestamp, 'e');
+      mesa_moderation_set_ed($entity->id(), $failsafe_notification_timestamp,
+          'f');
+    }
+  }
 }
 
 function mesa_moderation_select_pending_notifications() {
@@ -196,6 +267,139 @@ function mesa_moderation_select_pending_notifications() {
   foreach ($result as $item) {
     mesa_moderation_evaluate_notification($item->entity_id,
         $item->field_pending_exp_notify_value);
+  }
+}
+
+function mesa_moderation_select_pending_reminders() {
+
+  $current_timestamp = time();
+
+  $limit_timestamp = $current_timestamp + 3600 * 24;
+
+  $query = \Drupal::database()->select('moderational_reminder__field_mr_eed',
+      'f');
+  $query->condition('field_mr_eed_value', $limit_timestamp, '<');
+  $query->fields('f', ['entity_id']);
+  $result = $query->execute();
+  $result = $result->fetchAll();
+
+  foreach ($result as $item) {
+    mesa_moderation_evaluate_reminder($item->entity_id, 'e');
+  }
+
+  $query = \Drupal::database()->select('moderational_reminder__field_mr_fed',
+      'f');
+  $query->condition('field_mr_fed_value', $limit_timestamp, '<');
+  $query->fields('f', ['entity_id']);
+  $result = $query->execute();
+  $result = $result->fetchAll();
+
+  foreach ($result as $item) {
+    mesa_moderation_evaluate_reminder($item->entity_id, 'f');
+  }
+}
+
+function mesa_moderation_evaluate_reminder($reminder, $type = 'e') {
+  if (is_numeric($reminder)) {
+    $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($reminder);
+  }
+
+  if ($reminder) {
+    $current_timestamp = time();
+    $nids = \Drupal::entityQuery('node')
+        ->condition('field_moderational_reminders', $reminder->id())
+        ->execute();
+
+    if ($nids) {
+      $nid = reset($nids);
+
+      if ($nid) {
+
+        $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+        if ($node) {
+
+          $expiration_date = $reminder->get('field_mr_expiration_date')->getValue();
+
+          $users_v = $reminder->get('field_mr_user')->getValue();
+
+          $users_fail_v = $reminder->get('field_mr_failsafe_user')->getValue();
+
+          $users = [];
+
+          if ($users_v) {
+            foreach ($users_v as $user_v) {
+              $user = \Drupal::entityTypeManager()->getStorage('user')->load($user_v['target_id']);
+
+              if ($user) {
+                $users[] = $user;
+              }
+            }
+          }
+
+          if ($users_fail_v) {
+            foreach ($users_fail_v as $user_v) {
+              $user = \Drupal::entityTypeManager()->getStorage('user')->load($user_v['target_id']);
+
+              if ($user) {
+                $users_fail[] = $user;
+              }
+            }
+          }
+
+          if ($expiration_date) {
+
+            $timestamp = $expiration_date[0]['value'];
+
+            $date_string = date('m/d/Y', $timestamp);
+
+            $modify_link = 'node/' . $node->id();
+
+            if ($type == 'e') {
+
+              if (($current_timestamp - $timestamp) < 86400) {
+                foreach ($users as $user) {
+                  $event = new ModerationalReminderFinalIsBeingEvaluatedEvent($node,
+                      $timestamp, $days_diff, $days_word, $user);
+                  $event_dispatcher->dispatch(ModerationalReminderFinalIsBeingEvaluatedEvent::EVENT_NAME,
+                      $event);
+                }
+
+                mesa_moderation_set_ed($entity->id(), MESA_MODERATION_MAX_DATE,
+                    'e');
+              }
+              else {
+                foreach ($users as $user) {
+                  $event = new ModerationalReminderIsBeingEvaluatedEvent($node,
+                      $timestamp, $days_diff, $days_word, $user);
+                  $event_dispatcher->dispatch(ModerationalReminderIsBeingEvaluatedEvent::EVENT_NAME,
+                      $event);
+                }
+
+                $failsafe_notification_timestamp = max($current_timestamp,
+                    $timestamp - 86400);
+
+                $next_notification_timestamp = min($failsafe_notification_timestamp,
+                    $current_timestamp + 7 * 86400);
+
+                mesa_moderation_set_ed($entity->id(),
+                    $next_notification_timestamp, 'e');
+              }
+            }
+            else if (type == 'f') {
+              foreach ($users_fail as $user) {
+                $event = new ModerationalReminderFailsafeIsBeingEvaluatedEvent($node,
+                    $timestamp, $days_diff, $days_word, $user);
+                $event_dispatcher->dispatch(ModerationalReminderFailsafeIsBeingEvaluatedEvent::EVENT_NAME,
+                    $event);
+              }
+
+              mesa_moderation_set_ed($entity->id(), MESA_MODERATION_MAX_DATE,
+                  'f');
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -244,9 +448,52 @@ function mesa_moderation_evaluate_notification($node, $timestamp) {
   }
 }
 
+function mesa_moderation_set_ed($reminder_id, $eed, $type = 'e') {
+
+  if (in_array($type, ['e', 'f'])) {
+
+    $table_name = 'moderational_reminder__field_mr_' . $type . 'ed';
+    $field_name = 'field_mr_' . $type . 'ed_value';
+
+    $res = \Drupal::database()->select($table_name, 'mr')
+        ->fields('mr', ['entity_id'])
+        ->condition('entity_id', $reminder_id)
+        ->execute();
+
+    if ($res->fetchAssoc()) {
+      \Drupal::database()->update($table_name)
+          ->fields(
+              [
+                $field_name => $eed,
+              ]
+          )
+          ->condition('entity_id', $reminder_id)
+          ->execute();
+      ;
+    }
+    else {
+
+      \Drupal::database()->insert($table_name)
+          ->fields(['bundle', 'deleted', 'entity_id', 'revision_id', 'langcode',
+            'delta', $field_name])
+          ->values(
+              ['bundle'      => 'moderational_reminder',
+                'deleted'     => 0,
+                'entity_id'   => $reminder_id,
+                'revision_id' => $reminder_id,
+                'langcode'    => 'en',
+                'delta'       => 0,
+                $field_name   => $eed,
+          ])
+          ->execute();
+    }
+  }
+}
+
 /**
  * Implements hook_cron().
  */
 function mesa_moderation_cron() {
   mesa_moderation_select_pending_notifications();
+  mesa_moderation_select_pending_reminders();
 }

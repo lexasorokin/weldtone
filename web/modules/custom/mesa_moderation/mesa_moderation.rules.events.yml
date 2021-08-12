@@ -18,3 +18,76 @@ node_notification_is_being_evaluated_event:
       type: 'string'
       label: 'Days word'
       description: 'Plural word "day/days"'
+moderational_reminder_is_being_evaluated_event:
+  label: 'After moderational reminder is triggered'
+  category: 'Scheduler'
+  context_definitions:
+    node:
+      type: 'entity:node'
+      label: 'Node'
+      description: 'The node object'
+    timestamp:
+      type: 'string'
+      label: 'Timestamp'
+      description: 'Timestamp of the event'
+    date_string:
+      type: 'string'
+      label: 'Date'
+      description: 'Expiration date'
+    modify_link:
+      type: 'string'
+      label: 'Link to modify/update content'
+      description: 'Link to modify/update content'
+    user:
+      type: 'entity:user'
+      label: 'User to be notified'
+      description: 'User to be notified'
+moderational_reminder_final_is_being_evaluated_event:
+  label: 'After moderational reminder is triggered (Final)'
+  category: 'Scheduler'
+  context_definitions:
+    node:
+      type: 'entity:node'
+      label: 'Node'
+      description: 'The node object'
+    timestamp:
+      type: 'string'
+      label: 'Timestamp'
+      description: 'Timestamp of the event'
+    date_string:
+      type: 'string'
+      label: 'Date'
+      description: 'Expiration date'
+    modify_link:
+      type: 'string'
+      label: 'Link to modify/update content'
+      description: 'Link to modify/update content'
+    user:
+      type: 'entity:user'
+      label: 'User to be notified'
+      description: 'User to be notified'
+moderational_reminder_failsafe_is_being_evaluated_event:
+  label: 'After moderational reminder is triggered (Failsafe)'
+  category: 'Scheduler'
+  context_definitions:
+    node:
+      type: 'entity:node'
+      label: 'Node'
+      description: 'The node object'
+    timestamp:
+      type: 'string'
+      label: 'Timestamp'
+      description: 'Timestamp of the event'
+    date_string:
+      type: 'string'
+      label: 'Date'
+      description: 'Expiration date'
+    modify_link:
+      type: 'string'
+      label: 'Link to modify/update content'
+      description: 'Link to modify/update content'
+    user:
+      type: 'entity:user'
+      label: 'User to be notified'
+      description: 'User to be notified'
+      
