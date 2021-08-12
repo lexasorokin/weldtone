@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_failsafe_user
+id: moderational_reminder.moderational_reminder.field_mr_failsafe_user
+field_name: field_mr_failsafe_user
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Failsafe user'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

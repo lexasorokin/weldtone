@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_unpublish
+id: moderational_reminder.moderational_reminder.field_mr_unpublish
+field_name: field_mr_unpublish
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: Unpublish
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_expiration_date
+  module:
+    - datetime
+id: moderational_reminder.moderational_reminder.field_mr_expiration_date
+field_name: field_mr_expiration_date
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Expiration date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

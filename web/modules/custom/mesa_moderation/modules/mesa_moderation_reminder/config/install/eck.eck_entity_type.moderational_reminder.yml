@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: moderational_reminder
+label: 'Moderational reminder'
+created: true
+changed: true
+uid: true
+title: true
