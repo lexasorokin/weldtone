@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.board_meeting_category.field_bmc_color
+    - taxonomy.vocabulary.board_meeting_category
+  module:
+    - color_field
+    - text
+id: taxonomy_term.board_meeting_category.default
+targetEntityType: taxonomy_term
+bundle: board_meeting_category
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_bmc_color:
+    weight: 1
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+hidden:
+  langcode: true

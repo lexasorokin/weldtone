@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: notification_template
+label: 'Notification template'
+created: false
+changed: false
+uid: false
+title: true

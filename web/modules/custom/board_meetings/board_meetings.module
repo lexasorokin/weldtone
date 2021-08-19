@@ -1,0 +1,591 @@
+<?php
+
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
+use Drupal\Core\Ajax\OpenOffCanvasDialogCommand;
+use Drupal\Core\Ajax\DataCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\InvokeCommand;
+use \Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+use \DateTimeZone;
+
+function board_meetings_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getEntityTypeId();
+
+  if ($type == 'node' && $entity->hasField('field_bm_title_template')) {
+
+    $template_val = $entity->get('field_bm_title_template')->getValue();
+
+    if (!empty($template_val[0]['target_id'])) {
+      $tid = $template_val[0]['target_id'];
+
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+
+      if ($term) {
+        $term_name = $term->get('name')->getValue();
+
+        if ($term_name) {
+          $term_name = $term_name[0]['value'];
+
+          if ($entity->hasField('field_bm_date_for_title')) {
+
+            $date_val = $entity->get('field_bm_date_for_title')->getValue();
+
+            if ($date_val) {
+              $date_val = strtotime($date_val[0]['value']);
+
+              $other_terms = [];
+
+              if ($entity->hasField('field_bm_category1')) {
+                $cat_vals = $entity->get('field_bm_category')->getValue();
+
+                foreach ($cat_vals as $cat_val) {
+                  $cat_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($cat_val['target_id']);
+
+                  if ($cat_term) {
+                    $cat_title = bm_reset_m($cat_term->get('name')->getValue());
+
+                    $other_terms[] = $cat_title;
+                  }
+                }
+              }
+
+
+
+              $generated_title = board_meetings_generate_title($term_name,
+                  $date_val, $other_terms);
+
+              if ($generated_title) {
+                $entity->set('title', $generated_title);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+function board_meetings_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getEntityTypeId();
+  if ($type == 'taxonomy_term' && $entity->bundle() == 'board_meeting_title_templates') {
+
+    $nids = \Drupal::entityQuery('node')
+        ->condition('field_bm_title_template', $entity->id())
+        ->execute();
+
+    if ($nids) {
+      foreach ($nids as $nid) {
+        $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+        $node->save();
+      }
+    }
+  }
+}
+
+function board_meetings_generate_title($title_term_name, $date,
+    $other_terms = []) {
+  /* $date_component = preg_match('~(\[.*?\])~', $template, $matches);
+    if (!empty($matches[0])) {
+    $date_component = $matches[0];
+
+    $date_formatted = date(str_replace(['[', ']'], '', $date_component), $date);
+
+    $template = str_replace($date_component, $date_formatted, $template);
+    }
+   */
+
+  $title_term_name = date('m/d/Y', $date) . ' ' . $title_term_name;
+
+  if ($other_terms) {
+    $title_term_name .= ', ' . implode(', ', $other_terms);
+  }
+
+  return $title_term_name;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function board_meetings_form_alter(&$form, &$form_state, $form_id) {
+
+
+  if ($form_id == 'node_board_meeting_form') {
+    $form['title']['widget'][0]['value']['#default_value'] = '_';
+  }
+
+  if ($form_id == 'node_board_meeting_edit_form') {
+
+    //ksm(func_get_args());
+
+    $nid = explode('/', $_SERVER['REQUEST_URI'])[2];
+
+    $form['notifications'] = [
+      '#type'       => 'details',
+      '#title'      => t('Notifications'),
+      '#attributes' => [
+        'class' => ['notifications-wrapper'],
+      ],
+      '#weight'     => 1100,
+      '#open'       => TRUE,
+    ];
+
+    $form['notifications']['left'] = [
+      '#type'       => 'container',
+      '#attributes' => [
+        'class' => 'notifications-left',
+      ],
+    ];
+
+    $list_ids = \Drupal::entityQuery('mails_list')
+        //->condition('field_bm_title_template', $entity->id())
+        ->execute();
+
+    $lists = \Drupal::entityTypeManager()->getStorage('mails_list')->loadMultiple($list_ids);
+
+    $lists_options = [];
+
+    foreach ($lists as $list) {
+
+      $list_title = $list->get('title')->getValue();
+
+      $lists_options[$list->id()] = $list_title[0]['value'];
+    }
+
+
+    $form['notifications']['left']['notifications_list'] = [
+      '#type'    => 'select',
+      '#title'   => t('List'),
+      '#options' => $lists_options,
+    ];
+
+    $templates_ids = \Drupal::entityQuery('notification_template')
+        //->condition('field_bm_title_template', $entity->id())
+        ->execute();
+
+    $templates = \Drupal::entityTypeManager()->getStorage('notification_template')->loadMultiple($templates_ids);
+
+    $templates_options = [];
+
+    $templates_data = [];
+
+    foreach ($templates as $template) {
+
+      $template_title = $template->get('title')->getValue();
+
+      $template_body = bm_reset_m($template->get('field_nt_body')->getValue());
+
+      $template_subject = bm_reset_m($template->get('field_nt_subject')->getValue());
+
+      $templates_options[$template->id()] = $template_title[0]['value'];
+
+      $templates_data[$template->id()] = [
+        'body'    => $template_body,
+        'subject' => $template_subject,
+      ];
+    }
+
+    $form['#attached']['drupalSettings']['notifications_templates'] = $templates_data;
+    $form['#attached']['library'][] = 'board_meetings/board_meetings_notification_form';
+
+    $form['notifications']['left']['notifications_template'] = [
+      '#type'    => 'select',
+      '#title'   => t('Template'),
+      '#options' => $templates_options,
+    ];
+
+    $form['notifications']['left']['notifications_subject'] = [
+      '#type'  => 'textfield',
+      '#title' => t('Subject'),
+    ];
+
+    $form['notifications']['left']['notifications_body'] = [
+      '#type'  => 'textarea',
+      '#title' => t('Email content'),
+    ];
+
+    $form['notifications']['left']['notifications_test_mail'] = [
+      '#type'  => 'email',
+      '#title' => t('Send Test To'),
+    ];
+
+    $form['notifications']['left']['notification_send'] = [
+      '#type'   => 'submit',
+      '#value'  => t('Send'),
+      '#submit' => [
+      // 'ggg',
+      ],
+      '#ajax'   => [
+        'callback' => 'board_meetings_notification_send_ajax',
+        'effect'   => 'fade',
+      ],
+    ];
+
+    $form['notifications']['left']['nid'] = [
+      '#type'  => 'hidden',
+      '#value' => $nid,
+    ];
+
+    $form['notifications']['right'] = [
+      '#type'       => 'container',
+      '#attributes' => [
+        'class' => 'notifications-right',
+      ],
+    ];
+
+    //ksm($form);
+    //ksm($form_state);
+
+    $form['notifications']['right']['view'] = [
+      views_embed_view('notifications', 'default', $nid),
+    ];
+  }
+}
+
+function board_meetings_notification_send_ajax(array &$form, $form_state) {
+  $response = new AjaxResponse();
+
+  $values = $form_state->getValues();
+
+  $to = $values['notifications_list'];
+
+  if (!empty($values['notifications_test_mail'])) {
+    $to = $values['notifications_test_mail'];
+  }
+
+  board_meetings_send_notification($to, $values['notifications_subject'],
+      $values['notifications_body'], $values['nid']);
+
+  // Update options for entity type bundles.
+  $response->addCommand(new ReplaceCommand(
+          '#edit-right .views-element-container',
+          views_embed_view('notifications', 'default', $values['nid'])
+  ));
+
+  return $response;
+}
+
+/**
+ * Helper function that resets arrays of any deepness and accepts 
+ * not only variables as an argument.
+ */
+function bm_reset_m($var, $num = 99) {
+  for ($i = 0; $i < $num; $i++) {
+
+    if (is_array($var)) {
+      $var = reset($var);
+    }
+    else {
+      return $var;
+    }
+  }
+  return $var;
+}
+
+function board_meetings_send_notification($to, $subject, $message, $event_id) {
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'board_meetings';
+  $key = 'board_meeting_notification';
+
+  $list_id = NULL;
+
+  if (!is_numeric($to)) {
+    $to_array = [$to];
+  }
+  else {
+    $to_array = [];
+
+    $list = \Drupal::entityTypeManager()->getStorage('mails_list')->load($to);
+
+    if ($list) {
+
+      $list_id = $to;
+
+      $emails_list = bm_reset_m($list->get('field_mails_list_addresses')->getValue());
+
+      if ($emails_list) {
+        $emails_list = explode("\n", $emails_list);
+
+        if ($emails_list) {
+          $to_array = $emails_list;
+        }
+      }
+    }
+  }
+
+  $event_node = \Drupal::entityTypeManager()->getStorage('node')->load($event_id);
+
+  $event_title = bm_reset_m($event_node->get('title')->getValue());
+
+  $message = str_replace('{{ title }}', $event_title, $message);
+  $message = str_replace('{{ nid }}', $event_id, $message);
+
+  $params['message'] = $message;
+  $params['subject'] = $subject;
+
+  //$langcode = $tuser->getPreferredLangcode();
+
+  $langcode = 'en';
+
+  $send = true;
+
+  foreach ($to_array as $to) {
+
+    $message_local = str_replace('{{ unsubscribe }}',
+        board_meetings_generate_unsubscribe_link(1, $to), $message);
+
+    $params['message'] = $message_local;
+
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
+        $send);
+
+    $notification = \Drupal::entityTypeManager()->getStorage('notification')->create([
+      'type' => 'notification',
+    ]);
+
+    $notification->set('field_notification_body', $message_local);
+    $notification->set('field_notification_subject', $subject);
+    $notification->set('field_notification_receiver', $to);
+
+    $notification->set('field_notification_event', $event_id);
+
+    if ($list_id) {
+      $notification->set('field_notification_list', $list_id);
+    }
+
+    $notification->save();
+  }
+}
+
+function board_meetings_generate_unsubscribe_link($list_id, $email) {
+  $link = 'mesawater_list_unsubscribe?email=' . $email . '&token=' . hash('sha256',
+          $list_id . $email);
+
+  return $link;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function board_meetings_mail($key, &$message, $params) {
+  /* $options = array(
+    'langcode' => $message['langcode'],
+    ); */
+  switch ($key) {
+    case 'board_meeting_notification':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+function board_meetings_list_subscribe($list_id, $email) {
+
+  if (is_numeric($list_id)) {
+
+    $list = \Drupal::entityTypeManager()->getStorage('mails_list')->load($list_id);
+
+    if ($list) {
+
+      $emails_list = bm_reset_m($list->get('field_mails_list_addresses')->getValue());
+
+      $emails_array = explode("\n", $emails_list);
+
+      $emails_indexed = [];
+      foreach ($emails_array as $email_item) {
+
+        $email_item = trim($email_item);
+
+        $emails_indexed[$email_item] = $email_item;
+      }
+
+      $emails_indexed[$email] = $email;
+
+      $emails_list_reformed = implode("\n", $emails_indexed);
+
+      $list->set('field_mails_list_addresses', $emails_list_reformed);
+
+      $list->save();
+    }
+  }
+}
+
+function board_meetings_list_unsubscribe($list_id, $email) {
+  if (is_numeric($list_id)) {
+
+    $list = \Drupal::entityTypeManager()->getStorage('mails_list')->load($list_id);
+
+    if ($list) {
+
+      $emails_list = bm_reset_m($list->get('field_mails_list_addresses')->getValue());
+
+      $emails_array = explode("\n", $emails_list);
+
+      $emails_indexed = [];
+      foreach ($emails_array as $email_item) {
+
+        $email_item = trim($email_item);
+
+        $emails_indexed[$email_item] = $email_item;
+      }
+
+      if (isset($emails_indexed[$email])) {
+        unset($emails_indexed[$email]);
+      }
+
+      $emails_list_reformed = implode("\n", $emails_indexed);
+
+      $list->set('field_mails_list_addresses', $emails_list_reformed);
+
+      $list->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function board_meetings_theme() {
+  return [
+    'views_view__board_meetings__page_accordion'          => [
+      'template'  => 'views_view__board_meetings__page_accordion',
+      //'template' => 'views-view--board-meetings--page-accordion',
+      'base hook' => 'views_view',
+    ],
+    'views_view_grouping__board_meetings__page_accordion' => [
+      'template'  => 'views_view_grouping__board_meetings__page_accordion',
+      //'template' => 'views-view--board-meetings--page-accordion',
+      'base hook' => 'views_view_grouping',
+    ],
+    'node__board_meeting'                                 => [
+      'template'  => 'node--board-meeting',
+      //'template' => 'views-view--board-meetings--page-accordion',
+      'base hook' => 'node',
+    ],
+  ];
+}
+
+function board_meetings_preprocess_views_view(&$vars) {
+  if ($vars['theme_hook_original'] == 'views_view__board_meetings__page_accordion') {
+
+    $config = \Drupal::configFactory()->getEditable('board_meetings.settings');
+    $color = $config->get('accordion_color');
+    if ($color) {
+      $vars['accstyle'] = ".ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {background: $color !important;}.ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::before {background: $color !important;}";
+    }
+  }
+}
+
+function board_meetings_parse_date_query_to_vars(&$vars) {
+  if (!empty($vars['node']) && $vars['node']->bundle() == 'board_meeting') {
+    $vars['#cache']['max-age'] = 0;
+    $date_field = $vars['node']->get('field_bm_date');
+
+    if (!$date_field->isEmpty()) {
+      $vars['date_query'] = array();
+      $first_occurence = $date_field->first()->getValue();
+
+      // Check if a start date is supplied in the query
+      // If not, set the first occurence's start date
+      if (isset($_GET['start'])) {
+        $start_date = new DrupalDateTime($_GET['start']);
+
+        if (count($start_date->getErrors()) > 0) {
+          $start_date = new DrupalDateTime($first_occurence['value'],
+              new DateTimeZone('UTC'));
+          $start_date->setTimezone(new DateTimeZone($first_occurence['timezone']));
+        }
+      }
+      else {
+        $start_date = new DrupalDateTime($first_occurence['value'],
+            new DateTimeZone('UTC'));
+        $start_date->setTimezone(new DateTimeZone($first_occurence['timezone']));
+      }
+
+      // Check if an end query is supplied in the query
+      // If not, set the first occurence's end date
+      if (isset($_GET['end'])) {
+        $end_date = new DrupalDateTime($_GET['end']);
+
+        if (count($end_date->getErrors()) > 0) {
+          $end_date = new DrupalDateTime($first_occurence['end_value'],
+              new DateTimeZone('UTC'));
+          $end_date->setTimezone(new DateTimeZone($first_occurence['timezone']));
+        }
+      }
+      else {
+        $end_date = new DrupalDateTime($first_occurence['end_value'],
+            new DateTimeZone('UTC'));
+        $end_date->setTimezone(new DateTimeZone($first_occurence['timezone']));
+      }
+
+      $vars['date_query']['start'] = $start_date;
+      $vars['date_query']['end'] = $end_date;
+    }
+  }
+}
+
+function board_meetings_preprocess_node(&$vars) {
+  //Blocks::loadBreadcrumbBlock($vars); 
+  board_meetings_parse_date_query_to_vars($vars);
+
+  if ($vars['node']->bundle() == 'board_meeting') {
+    $vars['has_docs'] = FALSE;
+
+    $docs_val = $vars['node']->get('field_bm_files')->getValue();
+    if ($docs_val) {
+      $vars['has_docs'] = TRUE;
+    }
+
+    $vars['reg_form'] = '';
+    if ($vars['node']->hasField('field_bm_registration_enable')) {
+
+      $reg_enable = me_reset_m($vars['node']->get('field_bm_registration_enable')->getValue());
+
+      if ($reg_enable) {
+        $config = \Drupal::configFactory()->getEditable('board_meetings.settings');
+        $registration_webform_id = $config->get('registration_webform_id');
+
+        if ($registration_webform_id) {
+          $reg_form = \Drupal::entityTypeManager()->getStorage('webform')->load($registration_webform_id);
+
+          $values = [
+            'data' =>
+            [
+              'event_nid'   => $vars['node']->id(),
+              'event_title' => bm_reset_m($vars['node']->get('title')->getValue()),
+            ]
+          ];
+
+          $reg_form = $reg_form->getSubmissionForm($values);
+
+          $vars['reg_form'] = $reg_form;
+        }
+      }
+    }
+
+
+    $vars['location_link'] = '';
+    if (!empty($vars['content']['field_bm_location'][0])) {
+
+      $location_val = $vars['node']->get('field_bm_location')->getValue();
+
+      if ($location_val) {
+        $location_val = $location_val[0]['target_id'];
+
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($location_val);
+
+        if ($term) {
+          $lat = bm_reset_m($term->get('field_bmloc_lattitude')->getValue());
+          $lon = bm_reset_m($term->get('field_bmloc_longitude')->getValue());
+
+          $vars['location_link'] = 'https://www.google.com/maps/place/' . urlencode($vars['content']['field_bm_location'][0]['#plain_text']) . '/@' . $lat . ',' . $lon;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+administer board meetings:
+  title: Administer board meetings
+  description: Administer board meetings
+  restrict access: TRUE

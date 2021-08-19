@@ -1,0 +1,5 @@
+board_meetings.settings:
+  title: Board meetings Settings
+  description: Board meetings Settings.
+  parent: system.admin_config_ui
+  route_name: board_meetings.settings

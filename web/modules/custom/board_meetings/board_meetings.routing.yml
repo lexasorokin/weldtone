@@ -1,0 +1,14 @@
+board_meetings.unsubscribe:
+  path: '/mesawater_list_unsubscribe'
+  defaults:
+    _controller: '\Drupal\board_meetings\Controller\ListUnsubscribe::output'
+    _title: 'Unsubscribe from mailing list'
+  requirements:
+    _permission: 'access content'
+board_meetings.settings:
+  path: '/admin/config/user-interface/board_meetings'
+  defaults:
+    _title: 'Board meetings Settings'
+    _form: '\Drupal\board_meetings\Form\BoardMeetingsSettingsForm'
+  requirements:
+    _permission: 'administer board meetings'

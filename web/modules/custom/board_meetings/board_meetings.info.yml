@@ -1,0 +1,9 @@
+name: Board meetings
+description: Provides encapsulated board meetings functionality
+package: 360biz
+type: module
+core_version_requirement: ^8.8 || ^9
+version: '8.x-1.0'
+dependencies:
+  - drupal:ckeditor_accordion
+  - drupal:webform
