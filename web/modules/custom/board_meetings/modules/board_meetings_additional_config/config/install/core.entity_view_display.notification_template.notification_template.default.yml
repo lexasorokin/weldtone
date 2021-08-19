@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification_template.notification_template
+    - field.field.notification_template.notification_template.field_nt_body
+    - field.field.notification_template.notification_template.field_nt_subject
+id: notification_template.notification_template.default
+targetEntityType: notification_template
+bundle: notification_template
+mode: default
+content:
+  field_nt_body:
+    weight: -3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_nt_subject:
+    weight: -4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

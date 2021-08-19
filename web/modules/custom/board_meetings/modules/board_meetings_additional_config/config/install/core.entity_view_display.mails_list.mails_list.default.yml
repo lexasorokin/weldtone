@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.mails_list.mails_list
+    - field.field.mails_list.mails_list.field_mails_list_addresses
+id: mails_list.mails_list.default
+targetEntityType: mails_list
+bundle: mails_list
+mode: default
+content:
+  field_mails_list_addresses:
+    weight: -4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

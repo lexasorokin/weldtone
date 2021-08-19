@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bm_registration_enable
+    - node.type.board_meeting
+id: node.board_meeting.field_bm_registration_enable
+field_name: field_bm_registration_enable
+entity_type: node
+bundle: board_meeting
+label: 'Enable registration'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

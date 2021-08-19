@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.board_meeting
+id: node.board_meeting
+target_entity_type_id: node
+target_bundle: board_meeting
+default_langcode: site_default
+language_alterable: false

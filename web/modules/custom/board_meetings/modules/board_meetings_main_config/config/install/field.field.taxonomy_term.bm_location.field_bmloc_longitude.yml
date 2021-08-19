@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_bmloc_longitude
+    - taxonomy.vocabulary.bm_location
+id: taxonomy_term.bm_location.field_bmloc_longitude
+field_name: field_bmloc_longitude
+entity_type: taxonomy_term
+bundle: bm_location
+label: Longitude
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

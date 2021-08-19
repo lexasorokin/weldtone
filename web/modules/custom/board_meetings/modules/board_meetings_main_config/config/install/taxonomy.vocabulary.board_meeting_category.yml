@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Board meeting category'
+vid: board_meeting_category
+description: ''
+weight: 0

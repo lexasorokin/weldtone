@@ -1,0 +1,13 @@
+.notifications-wrapper .details-wrapper {
+  display: flex;
+}
+
+.notifications-left {
+  width: 30%;
+  padding-right: 20px;
+}
+
+.notifications-right {
+  width: 70%;
+  padding-left: 20px;
+}
