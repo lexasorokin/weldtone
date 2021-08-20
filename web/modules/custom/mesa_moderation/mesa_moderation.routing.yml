@@ -1,0 +1,7 @@
+mesa_moderation.testform:
+  path: '/admin/config/development/mesa_moderation_test_form'
+  defaults:
+    _title: 'MesaWater reminders test form'
+    _form: '\Drupal\mesa_moderation\Form\MesaModerationTestForm'
+  requirements:
+    _permission: 'administer blocks'
