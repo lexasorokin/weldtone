@@ -286,9 +286,11 @@ function mesa_moderation_select_pending_notifications() {
   }
 }
 
-function mesa_moderation_select_pending_reminders() {
+function mesa_moderation_select_pending_reminders($current_timestamp = NULL) {
 
-  $current_timestamp = time();
+  if (!$current_timestamp) {
+    $current_timestamp = time();
+  }
 
   $limit_timestamp = $current_timestamp + 3600 * 24;
 
@@ -300,7 +302,7 @@ function mesa_moderation_select_pending_reminders() {
   $result = $result->fetchAll();
 
   foreach ($result as $item) {
-    mesa_moderation_evaluate_reminder($item->entity_id, 'e');
+    mesa_moderation_evaluate_reminder($item->entity_id, 'e', $current_timestamp);
   }
 
   $query = \Drupal::database()->select('moderational_reminder__field_mr_fed',
@@ -311,7 +313,7 @@ function mesa_moderation_select_pending_reminders() {
   $result = $result->fetchAll();
 
   foreach ($result as $item) {
-    mesa_moderation_evaluate_reminder($item->entity_id, 'f');
+    mesa_moderation_evaluate_reminder($item->entity_id, 'f', $current_timestamp);
   }
 
   $curtime_formatted = date('Y-m-d', $current_timestamp);
@@ -351,13 +353,16 @@ function mesa_moderation_evaluate_unpublish($reminder_id) {
   }
 }
 
-function mesa_moderation_evaluate_reminder($reminder, $type = 'e') {
+function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
+    $current_timestamp = NULL) {
   if (is_numeric($reminder)) {
     $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($reminder);
   }
 
   if ($reminder) {
-    $current_timestamp = time();
+    if (!$current_timestamp) {
+      $current_timestamp = time();
+    }
     $nids = \Drupal::entityQuery('node')
         ->condition('field_moderational_reminders', $reminder->id())
         ->execute();
