@@ -347,7 +347,7 @@ function civic_theme_suggestions_pager_alter(array &$suggestions,
 //ksm($suggestions);
 //ksm($variables);
 //ksm($hook);
-  if (!empty($variables['pager']['#theme'])) {
+  if (!empty($variables['pager']['#theme']) && is_array($variables['pager']['#theme'])) {
     $suggestions = [];
 
     foreach ($variables['pager']['#theme'] as $suggestion) {

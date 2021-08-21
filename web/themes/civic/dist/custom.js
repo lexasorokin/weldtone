@@ -43,4 +43,35 @@
     }
   };
 
+
+  $(document).ready(function () {
+    $('.paragraph--type--image-with-icon-and-link div .elements-wrapper .link').on('click', function () {
+      window.location.href = $(this).find('a').attr('href');
+    });
+
+
+    $('#civic-mega-menu .cmm-li--level-2').on('mouseover', function () {
+      var thisul = $(this).find('.cmm-ul--level-3');
+
+      var l2ul = $(this).closest('.cmm-ul--level-2');
+      var base_padding = 25;
+
+      if (thisul && thisul.position()) {
+        var thisbottom = l2ul.offset().top + l2ul.outerHeight(true);
+        var bottom = thisul.offset().top + thisul.outerHeight(true);
+        //console.log(thisul.offset().top);
+        //console.log(thisul.position().top);
+        var bottom_diff = bottom - thisbottom;
+
+
+        if (bottom_diff > 0) {
+          l2ul.css('padding-bottom', (base_padding + bottom_diff) + 'px')
+        }
+      }
+
+
+    });
+  });
+
+
 })(jQuery, Drupal);
