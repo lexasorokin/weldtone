@@ -212,6 +212,50 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
     }
   }
 
+  if ($type == 'node' && $entity->hasField('field_moderational_reminders')) {
+
+    $units = [
+      'days'   => 86400,
+      'weeks'  => 86400 * 7,
+      'months' => 86400 * 30,
+      'years'  => 86400 * 365,
+    ];
+
+    $reminders_v = $entity->get('field_moderational_reminders')->getValue();
+
+    if ($reminders_v) {
+      foreach ($reminders_v as $item) {
+        $rid = $item['target_id'];
+
+        if ($rid) {
+          $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($rid);
+
+          if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
+              $reminder->hasField('field_mr_expiration_period_unit')) {
+
+            $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
+            if ($unit) {
+              $unit = $unit[0]['value'];
+            }
+
+            $number = $reminder->get('field_mr_expiration_period_numb')->getValue();
+            if ($number) {
+              $number = $number[0]['value'];
+            }
+
+            if ($number && $unit) {
+              $addition = $units[$unit] * $number;
+
+              $reminder->set('field_mr_expiration_date', date('Y-m-d', time() + $addition));
+
+              $reminder->save();
+            }
+          }
+        }
+      }
+    }
+  }
+
   if ($type == 'moderational_reminder') {
     //ksm($entity);
     $expiration_date = $entity->get('field_mr_expiration_date')->getValue();

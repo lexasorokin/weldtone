@@ -3,14 +3,14 @@ status: true
 dependencies:
   config:
     - eck.eck_type.moderational_reminder.moderational_reminder
-    - field.storage.moderational_reminder.field_mr_period_number
-id: moderational_reminder.moderational_reminder.field_mr_period_number
-field_name: field_mr_period_number
+    - field.storage.moderational_reminder.field_mr_expiration_period_numb
+id: moderational_reminder.moderational_reminder.field_mr_expiration_period_numb
+field_name: field_mr_expiration_period_numb
 entity_type: moderational_reminder
 bundle: moderational_reminder
-label: 'Lead period number'
+label: 'Expiration period number'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
