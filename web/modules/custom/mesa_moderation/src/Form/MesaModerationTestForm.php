@@ -51,6 +51,8 @@ class MesaModerationTestForm extends ConfigFormBase {
 
     if (!empty($values['date'])) {
       $timestamp = strtotime($values['date']);
+      
+      mesa_moderation_select_pending_reminders($timestamp);
 
     }
     parent::submitForm($form, $form_state);
