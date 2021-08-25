@@ -338,6 +338,10 @@ header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg{
   overflow-x: hidden;
   display: block;
   height: 553px;
+
+  @media screen and (max-width: 1000px) {
+    top: 120px;
+  }
   a{
     font-size: 17px !important;
   }
