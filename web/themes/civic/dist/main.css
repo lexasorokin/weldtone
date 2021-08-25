@@ -750,6 +750,9 @@ header.header-fixed.is-fixed.scrolled-bg #mobile-menu-close svg {
   overflow-x: hidden;
   display: block;
   height: 553px; }
+  @media screen and (max-width: 1000px) {
+    .cmm-mobile-ul--level-1 {
+      top: 120px; } }
   .cmm-mobile-ul--level-1 a {
     font-size: 17px !important; }
 
@@ -1118,6 +1121,17 @@ body.page-node-type-emergency-alert header {
 
 .page-node-type-news-article h1 span {
   color: #195386; }
+
+nav.pager .pager__items {
+  display: flex;
+  justify-content: center; }
+  nav.pager .pager__items li {
+    list-style-type: none;
+    padding-left: 5px;
+    padding-right: 5px; }
+    nav.pager .pager__items li a {
+      color: #004179;
+      font-weight: bold; }
 
 .view-id-events .pager__items {
   display: flex;
