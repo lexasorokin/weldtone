@@ -153,6 +153,15 @@ function mesa_moderation_views_data_alter(array &$data) {
     ),
   );
 
+  $data['node']['node_expiration_dates'] = array(
+    'title' => t('Expiration dates from reminders'),
+    'field' => array(
+      'title' => t('Expiration dates from reminders'),
+      'help'  => t('Expiration dates from reminders.'),
+      'id'    => 'node_expiration_dates',
+    ),
+  );
+
   $data['node']['news_category_from_current_node'] = array(
     'title' => t('News category from current node'),
     'field' => array(
@@ -246,7 +255,8 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
             if ($number && $unit) {
               $addition = $units[$unit] * $number;
 
-              $reminder->set('field_mr_expiration_date', date('Y-m-d', time() + $addition));
+              $reminder->set('field_mr_expiration_date',
+                  date('Y-m-d', time() + $addition));
 
               $reminder->save();
             }
