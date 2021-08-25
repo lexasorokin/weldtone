@@ -125,14 +125,14 @@ body {
     &:last-child {
 
       &>section {
-     /*   padding-bottom: 75px;
-        @media (max-width: 1024px) {
-          padding-bottom: 100px;
-        }
-
-        @media (max-width: 768px) {
-          padding-bottom: 145px;
-        }*/
+        /*   padding-bottom: 75px;
+           @media (max-width: 1024px) {
+             padding-bottom: 100px;
+           }
+   
+           @media (max-width: 768px) {
+             padding-bottom: 145px;
+           }*/
       }
 
     }
@@ -167,14 +167,20 @@ div.align-right.align-img-wrapper {
 
 .user-account-wrapper {
   display: flex;
-  
+
   .user-account-column {
-   width: 50%; 
+    width: 50%; 
   }
 }
 
 .search-results-ol {
-  padding-bottom: 6rem;
+  //padding-bottom: 6rem;
+}
+
+.path-search {
+  .region--content {
+    padding-bottom: 6rem;
+  }
 }
 
 .view-leadership-board h1 {

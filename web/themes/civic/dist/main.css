@@ -959,13 +959,13 @@ body {
 
 .field-name--field-sections > div:last-child > section {
   /*   padding-bottom: 75px;
-        @media (max-width: 1024px) {
-          padding-bottom: 100px;
-        }
-
-        @media (max-width: 768px) {
-          padding-bottom: 145px;
-        }*/ }
+           @media (max-width: 1024px) {
+             padding-bottom: 100px;
+           }
+   
+           @media (max-width: 768px) {
+             padding-bottom: 145px;
+           }*/ }
 
 .align-center video {
   margin-left: auto;
@@ -989,7 +989,7 @@ div.align-right.align-img-wrapper {
   .user-account-wrapper .user-account-column {
     width: 50%; }
 
-.search-results-ol {
+.path-search .region--content {
   padding-bottom: 6rem; }
 
 .view-leadership-board h1 {
