@@ -232,6 +232,7 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
     $reminders_v = $entity->get('field_moderational_reminders')->getValue();
 
+    $dates = [];
     if ($reminders_v) {
       foreach ($reminders_v as $item) {
         $rid = $item['target_id'];
@@ -260,9 +261,18 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
               $reminder->save();
             }
+
+            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+            if ($date_v) {
+              $dates[] = $date_v[0]['value'];
+            }
           }
         }
       }
+    }
+
+    if ($entity->hasField('field_expiration_dates')) {
+      $entity->set('field_expiration_dates', implode(', ', $dates));
     }
   }
 
@@ -500,7 +510,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
             else if ($type == 'f' && $users_fail) {
               foreach ($users_fail as $user) {
                 $event = new ModerationalReminderFailsafeIsBeingEvaluatedEvent($node,
-                      $timestamp, $date_string, $modify_link, $user);
+                    $timestamp, $date_string, $modify_link, $user);
                 $event_dispatcher->dispatch(ModerationalReminderFailsafeIsBeingEvaluatedEvent::EVENT_NAME,
                     $event);
               }
