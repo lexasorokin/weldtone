@@ -471,7 +471,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               if (($current_timestamp - $timestamp) < 86400) {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderFinalIsBeingEvaluatedEvent($node,
-                      $timestamp, $days_diff, $days_word, $user);
+                      $timestamp, $date_string, $modify_link, $user);
                   $event_dispatcher->dispatch(ModerationalReminderFinalIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -482,7 +482,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               else {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderIsBeingEvaluatedEvent($node,
-                      $timestamp, $days_diff, $days_word, $user);
+                      $timestamp, $date_string, $modify_link, $user);
                   $event_dispatcher->dispatch(ModerationalReminderIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -500,7 +500,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
             else if ($type == 'f' && $users_fail) {
               foreach ($users_fail as $user) {
                 $event = new ModerationalReminderFailsafeIsBeingEvaluatedEvent($node,
-                    $timestamp, $days_diff, $days_word, $user);
+                      $timestamp, $date_string, $modify_link, $user);
                 $event_dispatcher->dispatch(ModerationalReminderFailsafeIsBeingEvaluatedEvent::EVENT_NAME,
                     $event);
               }
