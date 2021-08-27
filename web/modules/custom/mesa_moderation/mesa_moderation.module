@@ -242,6 +242,13 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
           if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
               $reminder->hasField('field_mr_expiration_period_unit')) {
+            
+            $current_exp_date = time();
+                
+            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+            if ($date_v) {
+              $current_exp_date = strtotime($date_v[0]['value']);
+            }
 
             $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
             if ($unit) {
@@ -257,7 +264,7 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
               $addition = $units[$unit] * $number;
 
               $reminder->set('field_mr_expiration_date',
-                  date('Y-m-d', time() + $addition));
+                  date('Y-m-d', $current_exp_date + $addition));
 
               $reminder->save();
             }
@@ -427,6 +434,8 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
     if (!$current_timestamp) {
       $current_timestamp = time();
     }
+    
+    $reminder_title = mm_reset_m($reminder->get('title')->getValue());
     $nids = \Drupal::entityQuery('node')
         ->condition('field_moderational_reminders', $reminder->id())
         ->execute();
@@ -472,7 +481,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
 
             $timestamp = $expiration_date[0]['value'];
 
-            $date_string = date('m/d/Y', $timestamp);
+            $date_string = date('m/d/Y', strtotime($timestamp));
 
             $modify_link = 'node/' . $node->id();
 
@@ -481,7 +490,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               if (($current_timestamp - $timestamp) < 86400) {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderFinalIsBeingEvaluatedEvent($node,
-                      $timestamp, $date_string, $modify_link, $user);
+                      $timestamp, $date_string, $modify_link, $user, $reminder_title);
                   $event_dispatcher->dispatch(ModerationalReminderFinalIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -492,7 +501,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               else {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderIsBeingEvaluatedEvent($node,
-                      $timestamp, $date_string, $modify_link, $user);
+                      $timestamp, $date_string, $modify_link, $user, $reminder_title);
                   $event_dispatcher->dispatch(ModerationalReminderIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -510,7 +519,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
             else if ($type == 'f' && $users_fail) {
               foreach ($users_fail as $user) {
                 $event = new ModerationalReminderFailsafeIsBeingEvaluatedEvent($node,
-                    $timestamp, $date_string, $modify_link, $user);
+                    $timestamp, $date_string, $modify_link, $user, $reminder_title);
                 $event_dispatcher->dispatch(ModerationalReminderFailsafeIsBeingEvaluatedEvent::EVENT_NAME,
                     $event);
               }
@@ -618,4 +627,21 @@ function mesa_moderation_set_ed($reminder_id, $eed, $type = 'e') {
 function mesa_moderation_cron() {
   mesa_moderation_select_pending_notifications();
   mesa_moderation_select_pending_reminders();
+}
+
+/**
+ * Helper function that resets arrays of any deepness and accepts 
+ * not only variables as an argument.
+ */
+function mm_reset_m($var, $num = 99) {
+  for ($i = 0; $i < $num; $i++) {
+
+    if (is_array($var)) {
+      $var = reset($var);
+    }
+    else {
+      return $var;
+    }
+  }
+  return $var;
 }

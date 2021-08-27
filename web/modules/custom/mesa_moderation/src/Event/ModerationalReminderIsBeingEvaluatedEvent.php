@@ -25,6 +25,7 @@ class ModerationalReminderIsBeingEvaluatedEvent extends Event {
   public $date_string;
   public $modify_link;
   public $user;
+  public $reminder_title;
 
   /**
    * Constructs the object.
@@ -32,12 +33,13 @@ class ModerationalReminderIsBeingEvaluatedEvent extends Event {
    * @param \Drupal\node\NodeInterface $node
    *   The node which is being scheduled and saved.
    */
-  public function __construct(NodeInterface $node, $timestamp, $date_string, $modify_link, $user) {
+  public function __construct(NodeInterface $node, $timestamp, $date_string, $modify_link, $user, $reminder_title) {
     $this->node = $node;
     $this->timestamp = $timestamp;
     $this->date_string = $date_string;
     $this->modify_link = $modify_link;
     $this->user = $user;
+    $this->reminder_title = $reminder_title;
   }
 
 }
