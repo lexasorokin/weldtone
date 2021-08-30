@@ -42,6 +42,10 @@ moderational_reminder_is_being_evaluated_event:
       type: 'entity:user'
       label: 'User to be notified'
       description: 'User to be notified'
+    reminder_title:
+      type: 'string'
+      label: 'Reminder title'
+      description: 'Reminder title'
 moderational_reminder_final_is_being_evaluated_event:
   label: 'After moderational reminder is triggered (Final)'
   category: 'Scheduler'
@@ -66,6 +70,10 @@ moderational_reminder_final_is_being_evaluated_event:
       type: 'entity:user'
       label: 'User to be notified'
       description: 'User to be notified'
+    reminder_title:
+      type: 'string'
+      label: 'Reminder title'
+      description: 'Reminder title'
 moderational_reminder_failsafe_is_being_evaluated_event:
   label: 'After moderational reminder is triggered (Failsafe)'
   category: 'Scheduler'
@@ -90,4 +98,8 @@ moderational_reminder_failsafe_is_being_evaluated_event:
       type: 'entity:user'
       label: 'User to be notified'
       description: 'User to be notified'
+    reminder_title:
+      type: 'string'
+      label: 'Reminder title'
+      description: 'Reminder title'
       
