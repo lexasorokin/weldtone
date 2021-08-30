@@ -224,7 +224,7 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
   if ($type == 'node' && $entity->hasField('field_moderational_reminders') && $entity->hasField('field_ignore_reminders_when_save')) {
 
     $ignore_v = $entity->get('field_ignore_reminders_when_save')->getValue();
-    if (empty($ignore_v[0]['value'])) {
+    if (!empty($ignore_v[0]['value'])) {
       $units = [
         'days'   => 86400,
         'weeks'  => 86400 * 7,
