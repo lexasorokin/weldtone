@@ -221,66 +221,71 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
     }
   }
 
-  if ($type == 'node' && $entity->hasField('field_moderational_reminders')) {
+  if ($type == 'node' && $entity->hasField('field_moderational_reminders') && $entity->hasField('field_ignore_reminders_when_save')) {
 
-    $units = [
-      'days'   => 86400,
-      'weeks'  => 86400 * 7,
-      'months' => 86400 * 30,
-      'years'  => 86400 * 365,
-    ];
+    $ignore_v = $entity->get('field_ignore_reminders_when_save')->getValue();
+    if (empty($ignore_v[0]['value'])) {
+      $units = [
+        'days'   => 86400,
+        'weeks'  => 86400 * 7,
+        'months' => 86400 * 30,
+        'years'  => 86400 * 365,
+      ];
 
-    $reminders_v = $entity->get('field_moderational_reminders')->getValue();
+      $reminders_v = $entity->get('field_moderational_reminders')->getValue();
 
-    $dates = [];
-    if ($reminders_v) {
-      foreach ($reminders_v as $item) {
-        $rid = $item['target_id'];
+      $dates = [];
+      if ($reminders_v) {
+        foreach ($reminders_v as $item) {
+          $rid = $item['target_id'];
 
-        if ($rid) {
-          $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($rid);
+          if ($rid) {
+            $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($rid);
 
-          if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
-              $reminder->hasField('field_mr_expiration_period_unit')) {
-            
-            $current_exp_date = time();
-                
-            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
-            if ($date_v) {
-              $current_exp_date = strtotime($date_v[0]['value']);
-            }
+            if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
+                $reminder->hasField('field_mr_expiration_period_unit')) {
 
-            $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
-            if ($unit) {
-              $unit = $unit[0]['value'];
-            }
+              $current_exp_date = time();
 
-            $number = $reminder->get('field_mr_expiration_period_numb')->getValue();
-            if ($number) {
-              $number = $number[0]['value'];
-            }
+              $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+              if ($date_v) {
+                $current_exp_date = strtotime($date_v[0]['value']);
+              }
 
-            if ($number && $unit) {
-              $addition = $units[$unit] * $number;
+              $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
+              if ($unit) {
+                $unit = $unit[0]['value'];
+              }
 
-              $reminder->set('field_mr_expiration_date',
-                  date('Y-m-d', $current_exp_date + $addition));
+              $number = $reminder->get('field_mr_expiration_period_numb')->getValue();
+              if ($number) {
+                $number = $number[0]['value'];
+              }
 
-              $reminder->save();
-            }
+              if ($number && $unit) {
+                $addition = $units[$unit] * $number;
 
-            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
-            if ($date_v) {
-              $dates[] = $date_v[0]['value'];
+                $reminder->set('field_mr_expiration_date',
+                    date('Y-m-d', $current_exp_date + $addition));
+
+                $reminder->save();
+              }
+
+              $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+              if ($date_v) {
+                $dates[] = $date_v[0]['value'];
+              }
             }
           }
         }
       }
+
+      if ($entity->hasField('field_expiration_dates')) {
+        $entity->set('field_expiration_dates', implode(', ', $dates));
+      }
     }
 
-    if ($entity->hasField('field_expiration_dates')) {
-      $entity->set('field_expiration_dates', implode(', ', $dates));
-    }
+    $entity->set('field_ignore_reminders_when_save', 1);
   }
 
   if ($type == 'moderational_reminder') {
@@ -434,7 +439,7 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
     if (!$current_timestamp) {
       $current_timestamp = time();
     }
-    
+
     $reminder_title = mm_reset_m($reminder->get('title')->getValue());
     $nids = \Drupal::entityQuery('node')
         ->condition('field_moderational_reminders', $reminder->id())
@@ -490,7 +495,8 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               if (($current_timestamp - $timestamp) < 86400) {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderFinalIsBeingEvaluatedEvent($node,
-                      $timestamp, $date_string, $modify_link, $user, $reminder_title);
+                      $timestamp, $date_string, $modify_link, $user,
+                      $reminder_title);
                   $event_dispatcher->dispatch(ModerationalReminderFinalIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -501,7 +507,8 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
               else {
                 foreach ($users as $user) {
                   $event = new ModerationalReminderIsBeingEvaluatedEvent($node,
-                      $timestamp, $date_string, $modify_link, $user, $reminder_title);
+                      $timestamp, $date_string, $modify_link, $user,
+                      $reminder_title);
                   $event_dispatcher->dispatch(ModerationalReminderIsBeingEvaluatedEvent::EVENT_NAME,
                       $event);
                 }
@@ -519,7 +526,8 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
             else if ($type == 'f' && $users_fail) {
               foreach ($users_fail as $user) {
                 $event = new ModerationalReminderFailsafeIsBeingEvaluatedEvent($node,
-                    $timestamp, $date_string, $modify_link, $user, $reminder_title);
+                    $timestamp, $date_string, $modify_link, $user,
+                    $reminder_title);
                 $event_dispatcher->dispatch(ModerationalReminderFailsafeIsBeingEvaluatedEvent::EVENT_NAME,
                     $event);
               }
