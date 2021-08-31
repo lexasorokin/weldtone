@@ -108,13 +108,29 @@ function mesa_moderation_form_alter(&$form, &$form_state, $form_id) {
           $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($reminder_v['target_id']);
 
           if ($reminder) {
-            $reminders_dates[] = reset(reset($reminder->get('changed')->getValue()));
+            $reminder_date = strtotime(reset(reset($reminder->get('field_mr_expiration_date')->getValue())));
+            if ($reminder_date) {
+              $reminders_dates[] = $reminder_date;
+            }
           }
         }
 
-        $form['field_moderational_reminders']['#suffix'] = t('This content has reminders modified between %min and %max. Are you sure that you do not want modify them before save?',
-            ['%min' => date('m/d/Y H:i:s', min($reminders_dates)), '%max' => date('m/d/Y H:i:s',
-                  max($reminders_dates))]);
+        sort($reminders_dates);
+
+        $reminders_dates_f = [];
+
+        foreach ($reminders_dates as $reminder_date) {
+          $reminders_dates_f[] = date('m/d/Y', $reminder_date);
+        }
+
+        if ($reminders_dates) {
+          $form['field_moderational_reminders']['#suffix'] = t('<b>This content has the following expiration dates set: %dates. Are you sure that you do not want to modify them before saving?</b>',
+              ['%dates' => implode(', ', $reminders_dates_f)]);
+        }
+        else {
+          $form['field_moderational_reminders']['#suffix'] = t('<b>This content has no expiration dates set. Are you sure that you do not want to modify them before saving?</b>',
+              ['%dates' => implode(', ', $reminders_dates_f)]);
+        }
       }
     }
   }
@@ -224,66 +240,66 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
   if ($type == 'node' && $entity->hasField('field_moderational_reminders') && $entity->hasField('field_ignore_reminders_when_save')) {
 
     $ignore_v = $entity->get('field_ignore_reminders_when_save')->getValue();
-    if (!empty($ignore_v[0]['value'])) {
-      $units = [
-        'days'   => 86400,
-        'weeks'  => 86400 * 7,
-        'months' => 86400 * 30,
-        'years'  => 86400 * 365,
-      ];
 
-      $reminders_v = $entity->get('field_moderational_reminders')->getValue();
+    $units = [
+      'days'   => 86400,
+      'weeks'  => 86400 * 7,
+      'months' => 86400 * 30,
+      'years'  => 86400 * 365,
+    ];
 
-      $dates = [];
-      if ($reminders_v) {
-        foreach ($reminders_v as $item) {
-          $rid = $item['target_id'];
+    $reminders_v = $entity->get('field_moderational_reminders')->getValue();
 
-          if ($rid) {
-            $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($rid);
+    $dates = [];
+    if ($reminders_v) {
+      foreach ($reminders_v as $item) {
+        $rid = $item['target_id'];
 
-            if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
-                $reminder->hasField('field_mr_expiration_period_unit')) {
+        if ($rid) {
+          $reminder = \Drupal::entityTypeManager()->getStorage('moderational_reminder')->load($rid);
 
-              $current_exp_date = time();
+          if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
+              $reminder->hasField('field_mr_expiration_period_unit')) {
 
-              $date_v = $reminder->get('field_mr_expiration_date')->getValue();
-              if ($date_v) {
-                $current_exp_date = strtotime($date_v[0]['value']);
-              }
+            $current_exp_date = time();
 
-              $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
-              if ($unit) {
-                $unit = $unit[0]['value'];
-              }
+            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+            if ($date_v) {
+              $current_exp_date = strtotime($date_v[0]['value']);
+            }
 
-              $number = $reminder->get('field_mr_expiration_period_numb')->getValue();
-              if ($number) {
-                $number = $number[0]['value'];
-              }
+            $unit = $reminder->get('field_mr_expiration_period_unit')->getValue();
+            if ($unit) {
+              $unit = $unit[0]['value'];
+            }
 
-              if ($number && $unit) {
-                $addition = $units[$unit] * $number;
+            $number = $reminder->get('field_mr_expiration_period_numb')->getValue();
+            if ($number) {
+              $number = $number[0]['value'];
+            }
 
-                $reminder->set('field_mr_expiration_date',
-                    date('Y-m-d', $current_exp_date + $addition));
+            if ($number && $unit && !empty($ignore_v[0]['value'])) {
+              $addition = $units[$unit] * $number;
 
-                $reminder->save();
-              }
+              $reminder->set('field_mr_expiration_date',
+                  date('Y-m-d', $current_exp_date + $addition));
 
-              $date_v = $reminder->get('field_mr_expiration_date')->getValue();
-              if ($date_v) {
-                $dates[] = $date_v[0]['value'];
-              }
+              $reminder->save();
+            }
+
+            $date_v = $reminder->get('field_mr_expiration_date')->getValue();
+            if ($date_v) {
+              $dates[] = $date_v[0]['value'];
             }
           }
         }
       }
-
-      if ($entity->hasField('field_expiration_dates')) {
-        $entity->set('field_expiration_dates', implode(', ', $dates));
-      }
     }
+
+    if ($entity->hasField('field_expiration_dates')) {
+      $entity->set('field_expiration_dates', implode(', ', $dates));
+    }
+
 
     $entity->set('field_ignore_reminders_when_save', 1);
   }
