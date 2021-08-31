@@ -278,7 +278,13 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
               $number = $number[0]['value'];
             }
 
-            if ($number && $unit && !empty($ignore_v[0]['value'])) {
+            $ignore_reminder_level = FALSE;
+
+            if ($reminder->hasField('field_mr_ignore')) {
+              $ignore_reminder_level = boolval(mm_reset_m($reminder->get('field_mr_ignore')->getValue()));
+            }
+
+            if ($number && $unit && !empty($ignore_v[0]['value']) && !$ignore_reminder_level) {
               $addition = $units[$unit] * $number;
 
               $reminder->set('field_mr_expiration_date',
