@@ -506,9 +506,9 @@ function mesa_moderation_evaluate_reminder($reminder, $type = 'e',
 
           if ($expiration_date) {
 
-            $timestamp = $expiration_date[0]['value'];
+            $timestamp = strtotime($expiration_date[0]['value']);
 
-            $date_string = date('m/d/Y', strtotime($timestamp));
+            $date_string = date('m/d/Y', $timestamp);
 
             $modify_link = 'node/' . $node->id();
 
