@@ -351,7 +351,7 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
     if ($expiration_date) {
       $current_timestamp = time();
-      $timestamp = $expiration_date[0]['value'];
+      $timestamp = strtotime($expiration_date[0]['value']);
 
       $day_before_timestamp = max($current_timestamp, $timestamp - 86400);
 
