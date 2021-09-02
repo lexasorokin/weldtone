@@ -251,6 +251,7 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
     $reminders_v = $entity->get('field_moderational_reminders')->getValue();
 
     $dates = [];
+    $titles = [];
     if ($reminders_v) {
       foreach ($reminders_v as $item) {
         $rid = $item['target_id'];
@@ -260,6 +261,10 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
           if ($reminder && $reminder->hasField('field_mr_expiration_period_numb') &&
               $reminder->hasField('field_mr_expiration_period_unit')) {
+
+            $title = mm_reset_m($reminder->get('title')->getValue());
+
+            $titles[] = $title;
 
             $current_exp_date = time();
 
@@ -304,6 +309,10 @@ function mesa_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $enti
 
     if ($entity->hasField('field_expiration_dates')) {
       $entity->set('field_expiration_dates', implode(', ', $dates));
+    }
+
+    if ($entity->hasField('field_reminders_titles')) {
+      $entity->set('field_reminders_titles', implode(', ', $titles));
     }
 
 
