@@ -137,7 +137,7 @@
        </p>#}
 
       <div class="event-date">
-        Date: {{ date_query.start|date('F d, Y') }} Time: {{ date_query.start|date('g:ia') }}
+        Date: {{ date_query.start|date('l, F d, Y') }} Time: {{ date_query.start|date('g:ia') }}
       </div>
       <div class="event-location">
         Location: <a href="{{ location_link }}" target="_blank">{{ content.field_event_location }}</a>
