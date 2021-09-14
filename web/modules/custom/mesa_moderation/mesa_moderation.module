@@ -425,6 +425,15 @@ function mesa_moderation_select_pending_reminders($current_timestamp = NULL) {
 
   $curtime_formatted = date('Y-m-d', $current_timestamp);
 
+  $reminder_ids_exp = \Drupal::entityQuery('moderational_reminder')
+      ->condition('field_mr_expiration_date', $curtime_formatted, '<=')
+      ->condition('field_mr_unpublish', 0)
+      ->execute();
+
+  foreach ($reminder_ids_exp as $reminder_id) {
+    mesa_moderation_evaluate_expire($reminder_id);
+  }
+
   $reminder_ids = \Drupal::entityQuery('moderational_reminder')
       ->condition('field_mr_expiration_date', $curtime_formatted, '<=')
       ->condition('field_mr_unpublish', 1)
@@ -435,17 +444,22 @@ function mesa_moderation_select_pending_reminders($current_timestamp = NULL) {
   }
 }
 
+function mesa_moderation_evaluate_expire($reminder_id) {
+
+  $query_text = "SELECT node__field_moderational_reminders.entity_id FROM node__field_moderational_reminders INNER JOIN content_moderation_state_field_data ON content_moderation_state_field_data.content_entity_id=node__field_moderational_reminders.entity_id WHERE node__field_moderational_reminders.field_moderational_reminders_target_id = $reminder_id AND content_moderation_state_field_data.moderation_state = 'published'";
+
+  $result = \Drupal::database()->query($query_text)->fetchAll();
+
+  if (!empty($result[0]->entity_id)) {
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($result[0]->entity_id);
+
+    if ($node) {
+      $node->set('moderation_state', 'expired')->save();
+    }
+  }
+}
+
 function mesa_moderation_evaluate_unpublish($reminder_id) {
-  //ksm($reminder_id);
-  /*
-    $nids = \Drupal::entityQuery('node')
-    ->condition('field_moderational_reminders', $reminder_id)
-    ->condition('moderation_state', 'published')
-    ->execute(); */
-
-
-
-  //ksm($nids);
 
   $query_text = "SELECT node__field_moderational_reminders.entity_id FROM node__field_moderational_reminders INNER JOIN content_moderation_state_field_data ON content_moderation_state_field_data.content_entity_id=node__field_moderational_reminders.entity_id WHERE node__field_moderational_reminders.field_moderational_reminders_target_id = $reminder_id AND content_moderation_state_field_data.moderation_state = 'published'";
 
