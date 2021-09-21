@@ -45,3 +45,5 @@
 
 *.sql
 *.backup
+*backup*
+*.bak

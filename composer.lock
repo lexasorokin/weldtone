@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "558ce98ede3c786b6ed74a77e66aef3a",
+    "content-hash": "86d9428a667c071306971ba4d2a70c49",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1173,6 +1173,54 @@
             }
         },
         {
+            "name": "drupal/config_update",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_update.git",
+                "reference": "8.x-1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_update-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "8f079abf7c2ea826a27fa5224b0770a26404c968"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.7",
+                    "datestamp": "1586355587",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jhodgdon",
+                    "homepage": "https://www.drupal.org/user/155601"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                }
+            ],
+            "description": "Provides basic revert and update functionality for other modules",
+            "homepage": "https://www.drupal.org/project/config_update",
+            "support": {
+                "source": "https://git.drupalcode.org/project/config_update"
+            }
+        },
+        {
             "name": "drupal/core",
             "version": "8.9.13",
             "source": {
@@ -1560,6 +1608,56 @@
             "time": "2021-01-19T23:11:00+00:00"
         },
         {
+            "name": "drupal/csv_serialization",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/csv_serialization.git",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/csv_serialization-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "3531383a6926a4ed761be56553997c2a937449ac"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "league/csv": "^9.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "drupal/coder": "^8.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1612801962",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Grasmick",
+                    "homepage": "https://www.drupal.org/user/455714"
+                }
+            ],
+            "description": "Provides CSV as a serialization format.",
+            "homepage": "https://www.drupal.org/project/csv_serialization",
+            "support": {
+                "source": "http://cgit.drupalcode.org/csv_serialization",
+                "issues": "https://www.drupal.org/project/issues/csv_serialization"
+            }
+        },
+        {
             "name": "drupal/ctools",
             "version": "3.4.0",
             "source": {
@@ -1850,6 +1948,91 @@
             }
         },
         {
+            "name": "drupal/eck",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/eck.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "6c671eef0fc89cc48cee70666548871e6321ec6e"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1591283484",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/1155832/committers"
+                },
+                {
+                    "name": "acrazyanimal",
+                    "homepage": "https://www.drupal.org/user/696648"
+                },
+                {
+                    "name": "akalata",
+                    "homepage": "https://www.drupal.org/user/498926"
+                },
+                {
+                    "name": "dpopdan",
+                    "homepage": "https://www.drupal.org/user/2759811"
+                },
+                {
+                    "name": "eric.napier",
+                    "homepage": "https://www.drupal.org/user/501688"
+                },
+                {
+                    "name": "fmizzell",
+                    "homepage": "https://www.drupal.org/user/1312210"
+                },
+                {
+                    "name": "legolasbo",
+                    "homepage": "https://www.drupal.org/user/2480548"
+                },
+                {
+                    "name": "mducharme",
+                    "homepage": "https://www.drupal.org/user/616996"
+                },
+                {
+                    "name": "mihai_brb",
+                    "homepage": "https://www.drupal.org/user/2065978"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                },
+                {
+                    "name": "wjaspers",
+                    "homepage": "https://www.drupal.org/user/813890"
+                }
+            ],
+            "description": "ECK (Entity Construction Kit) allows users to create and administer entity types, bundles and entities from the UI.",
+            "homepage": "https://www.drupal.org/project/eck",
+            "support": {
+                "source": "http://git.drupal.org/project/eck.git",
+                "issues": "https://www.drupal.org/project/issues/eck"
+            }
+        },
+        {
             "name": "drupal/entity_class_formatter",
             "version": "1.3.0",
             "source": {
@@ -1965,6 +2148,156 @@
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "https://git.drupalcode.org/project/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/features",
+            "version": "3.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/features.git",
+                "reference": "8.x-3.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.12.zip",
+                "reference": "8.x-3.12",
+                "shasum": "f28d6e7d3340e32666a3e8ae515ed746dbe86b98"
+            },
+            "require": {
+                "drupal/config_update": "^1.4",
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.12",
+                    "datestamp": "1612830531",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "donquixote",
+                    "homepage": "https://www.drupal.org/user/459338"
+                },
+                {
+                    "name": "e2thex",
+                    "homepage": "https://www.drupal.org/user/189123"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "flocondetoile",
+                    "homepage": "https://www.drupal.org/user/2006064"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "mpotter",
+                    "homepage": "https://www.drupal.org/user/616192"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                },
+                {
+                    "name": "tim.plunkett",
+                    "homepage": "https://www.drupal.org/user/241634"
+                }
+            ],
+            "description": "Enables administrators to package configuration into modules",
+            "homepage": "https://www.drupal.org/project/features",
+            "support": {
+                "source": "https://git.drupalcode.org/project/features"
+            }
+        },
+        {
+            "name": "drupal/field_group",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_group.git",
+                "reference": "8.x-3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_group-8.x-3.2.zip",
+                "reference": "8.x-3.2",
+                "shasum": "2020bbfe40f6ba43bc733ae7c8761632572433a0"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "require-dev": {
+                "drupal/jquery_ui_accordion": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.2",
+                    "datestamp": "1628513585",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Hydra",
+                    "homepage": "https://www.drupal.org/user/647364"
+                },
+                {
+                    "name": "Stalski",
+                    "homepage": "https://www.drupal.org/user/322618"
+                },
+                {
+                    "name": "jyve",
+                    "homepage": "https://www.drupal.org/user/591438"
+                },
+                {
+                    "name": "nils.destoop",
+                    "homepage": "https://www.drupal.org/user/361625"
+                },
+                {
+                    "name": "swentel",
+                    "homepage": "https://www.drupal.org/user/107403"
+                }
+            ],
+            "description": "Provides the field_group module.",
+            "homepage": "https://www.drupal.org/project/field_group",
+            "support": {
+                "source": "https://git.drupalcode.org/project/field_group",
+                "issues": "https://www.drupal.org/project/issues/field_group"
             }
         },
         {
@@ -2242,6 +2575,139 @@
             }
         },
         {
+            "name": "drupal/inline_entity_form",
+            "version": "1.0.0-rc9",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/inline_entity_form.git",
+                "reference": "8.x-1.0-rc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc9.zip",
+                "reference": "8.x-1.0-rc9",
+                "shasum": "78953103a9c6e4e44bc877820a35f39913ea4559"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "drupal/entity_reference_revisions": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc9",
+                    "datestamp": "1618174486",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "kaythay",
+                    "homepage": "https://www.drupal.org/user/2182186"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities.",
+            "homepage": "https://www.drupal.org/project/inline_entity_form",
+            "support": {
+                "source": "https://git.drupalcode.org/project/inline_entity_form"
+            }
+        },
+        {
+            "name": "drupal/insert_view_adv",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/insert_view_adv.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/insert_view_adv-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "71a8df0e0b6194799de61f51abee9096f6c57224"
+            },
+            "require": {
+                "drupal/core": "^8.0||^9.0"
+            },
+            "require-dev": {
+                "drupal/bueditor": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1612772393",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Dmitriiev (a.dmitriiev)",
+                    "homepage": "https://www.drupal.org/u/a.dmitriiev",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Allows to include the views displays into WYSIWYG editors.",
+            "homepage": "https://www.drupal.org/project/insert_view_adv",
+            "support": {
+                "source": "https://git.drupalcode.org/project/insert_view_adv",
+                "issues": "https://drupal.org/project/issues/insert_view_adv"
+            }
+        },
+        {
             "name": "drupal/libraries",
             "version": "3.0.0-beta1",
             "source": {
@@ -2305,6 +2771,195 @@
                 "source": "http://cgit.drupalcode.org/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/mail_safety",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mail_safety.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mail_safety-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "0b1aade706fb28707c02c59a31761b1c9319f878"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1606290882",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Krilo_89",
+                    "homepage": "https://www.drupal.org/user/3005277"
+                },
+                {
+                    "name": "Nitebreed",
+                    "homepage": "https://www.drupal.org/user/419423"
+                },
+                {
+                    "name": "Steven Buteneers",
+                    "homepage": "https://www.drupal.org/user/3301055"
+                },
+                {
+                    "name": "barthje",
+                    "homepage": "https://www.drupal.org/user/1942906"
+                },
+                {
+                    "name": "jefuri",
+                    "homepage": "https://www.drupal.org/user/2733365"
+                },
+                {
+                    "name": "rogierbom",
+                    "homepage": "https://www.drupal.org/user/1352176"
+                },
+                {
+                    "name": "sjerdo",
+                    "homepage": "https://www.drupal.org/user/3495403"
+                }
+            ],
+            "description": "A simple and safe way to test and debug outgoing emails without having to worry that all your users will get unwanted emails.",
+            "homepage": "https://www.drupal.org/project/mail_safety",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mail_safety"
+            }
+        },
+        {
+            "name": "drupal/mailsystem",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mailsystem.git",
+                "reference": "8.x-4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mailsystem-8.x-4.3.zip",
+                "reference": "8.x-4.3",
+                "shasum": "1a74016e268ff207535be5d5e42ac8f72ac89050"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-4.3",
+                    "datestamp": "1586203024",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "Les Lim",
+                    "homepage": "https://www.drupal.org/user/84263"
+                },
+                {
+                    "name": "Manuel Garcia",
+                    "homepage": "https://www.drupal.org/user/213194"
+                },
+                {
+                    "name": "Nafes",
+                    "homepage": "https://www.drupal.org/user/2489926"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                },
+                {
+                    "name": "pillarsdotnet",
+                    "homepage": "https://www.drupal.org/user/36148"
+                }
+            ],
+            "description": "Mail System",
+            "homepage": "https://www.drupal.org/project/mailsystem",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mailsystem"
+            }
+        },
+        {
+            "name": "drupal/mimemail",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mimemail.git",
+                "reference": "8.x-1.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mimemail-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "5e02422aa7ea56411c10086c56a5033558eccfa4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/mailsystem": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1591399267",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Allie Micka",
+                    "homepage": "https://www.drupal.org/user/15091"
+                },
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                },
+                {
+                    "name": "jerdavis",
+                    "homepage": "https://www.drupal.org/user/228997"
+                },
+                {
+                    "name": "sgabe",
+                    "homepage": "https://www.drupal.org/user/232117"
+                }
+            ],
+            "description": "Sends MIME-encoded emails with embedded images and attachments.",
+            "homepage": "https://www.drupal.org/project/mimemail",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mimemail"
             }
         },
         {
@@ -3214,6 +3869,64 @@
             }
         },
         {
+            "name": "drupal/views_autosubmit",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_autosubmit.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_autosubmit-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "baae0d4a8df0edf3cc9787d8342e31fd22aa6ac4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1612186250",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Trokhanenko (i-trokhanenko)",
+                    "homepage": "https://www.drupal.org/u/i-trokhanenko",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "aritra.ghosh",
+                    "homepage": "https://www.drupal.org/user/1830998"
+                },
+                {
+                    "name": "i-trokhanenko",
+                    "homepage": "https://www.drupal.org/user/3546872"
+                },
+                {
+                    "name": "sandeep_jangra",
+                    "homepage": "https://www.drupal.org/user/3468193"
+                }
+            ],
+            "description": "Views exposed filter autosubmit for Drupal 8",
+            "homepage": "https://www.drupal.org/project/views_autosubmit",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_autosubmit",
+                "issues": "https://www.drupal.org/project/issues/views_autosubmit"
+            }
+        },
+        {
             "name": "drupal/views_bulk_operations",
             "version": "3.12.0",
             "source": {
@@ -3348,6 +4061,75 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/views_conditional",
                 "issues": "https://www.drupal.org/project/issues/views_conditional"
+            }
+        },
+        {
+            "name": "drupal/views_data_export",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_data_export.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_data_export-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "f1d16fd06ee7574f680e30f6bf5d6a152e3e9f42"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "drupal/csv_serialization": "~1.4 || ~2.0"
+            },
+            "require-dev": {
+                "drupal/search_api": "~1.12",
+                "drupal/xls_serialization": "~1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1592589996",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Jones",
+                    "homepage": "https://www.drupal.org/user/99644"
+                },
+                {
+                    "name": "amoebanath",
+                    "homepage": "https://www.drupal.org/user/2810799"
+                },
+                {
+                    "name": "james.williams",
+                    "homepage": "https://www.drupal.org/user/592268"
+                },
+                {
+                    "name": "jamsilver",
+                    "homepage": "https://www.drupal.org/user/476732"
+                },
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                }
+            ],
+            "description": "Plugin to export views data into various file formats.",
+            "homepage": "https://www.drupal.org/project/views_data_export",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_data_export"
             }
         },
         {
@@ -4762,6 +5544,78 @@
                 "zf"
             ],
             "time": "2020-05-20T16:45:56+00:00"
+        },
+        {
+            "name": "league/csv",
+            "version": "9.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/f28da6e483bf979bac10e2add384c90ae9983e4e",
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpstan/phpstan": "^0.12.0",
+                "phpstan/phpstan-phpunit": "^0.12.0",
+                "phpstan/phpstan-strict-rules": "^0.12.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "suggest": {
+                "ext-dom": "Required to use the XMLConverter and or the HTMLConverter classes",
+                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSV data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
+            "keywords": [
+                "convert",
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "transform",
+                "write"
+            ],
+            "time": "2020-12-10T19:40:30+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -9041,7 +9895,11 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/date_recur_modular": 5,
+        "drupal/eck": 10,
+        "drupal/inline_entity_form": 5,
+        "drupal/insert_view_adv": 10,
         "drupal/libraries": 10,
+        "drupal/mimemail": 15,
         "drupal/owlcarousel": 15,
         "drupal/rules": 15,
         "drupal/ultimate_cron": 15
