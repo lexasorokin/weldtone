@@ -57,6 +57,7 @@
         "drupal/rename_admin_paths": "^2.0",
         "drupal/rules": "^3.0@alpha",
         "drupal/scheduler": "^1.1",
+        "drupal/sitemap": "^2.0@beta",
         "drupal/smtp": "^1.0",
         "drupal/svg_image": "^1.13",
         "drupal/ultimate_cron": "^2.0@alpha",
