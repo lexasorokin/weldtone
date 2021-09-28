@@ -49,6 +49,7 @@
         "drupal/mimemail": "^1.0@alpha",
         "drupal/owlcarousel": "^1.0@alpha",
         "drupal/paragraphs": "^1.11",
+        "drupal/path_redirect_import": "^1.0@beta",
         "drupal/pathauto": "^1.8",
         "drupal/pdf_preview_image": "^1.0",
         "drupal/recaptcha": "^3.0",
