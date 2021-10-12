@@ -995,8 +995,25 @@ div.align-right.align-img-wrapper {
 .view-leadership-board h1 {
   font-size: 30px; }
 
-.sitemap.container {
-  padding-bottom: 6rem; }
+#block-civic-content > .sitemap {
+  padding-bottom: 6rem;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+  @media (min-width: 576px) {
+    #block-civic-content > .sitemap {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    #block-civic-content > .sitemap {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    #block-civic-content > .sitemap {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    #block-civic-content > .sitemap {
+      max-width: 1140px; } }
 
 #civic-mega-menu .cmm-ul--level-2 .cmm-column--level-2 .cmm-li--level-2 {
   position: relative;
