@@ -18,7 +18,7 @@ assets:
 mesa_interactive_map:
   version: 1.x
   js:
-    https://maps.googleapis.com/maps/api/js?key=AIzaSyCvq4IDAcEzM543tCa1VuHLxmBgNKzLJbI&libraries=places: {}
+    https://maps.googleapis.com/maps/api/js??v=quarterly&key=AIzaSyCvq4IDAcEzM543tCa1VuHLxmBgNKzLJbI&libraries=places: {}
     dist/map_files/common.js: {}
     dist/map_files/util.js: {}
     dist/map_files/map.js: {}
