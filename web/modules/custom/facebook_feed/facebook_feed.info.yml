@@ -1,5 +1,5 @@
 name: Facebook Feed
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 type: module
 description: Creates a variable called 'facebookFeed' which can be used in Twig Templates
 package: 360 Custom

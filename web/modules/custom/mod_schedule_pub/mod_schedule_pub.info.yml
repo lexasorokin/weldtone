@@ -1,5 +1,5 @@
 name: Moderated Scheduled Publish
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 type: module
 description: Publishes nodes that are set to be posted in the future. This is a workaround for the default functionality when using moderation states.
 package: 360 Custom

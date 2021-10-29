@@ -1,5 +1,5 @@
-name: Drag View
-core: 8.x
+name: Drag
+core_version_requirement: ^8.8 || ^9
 type: module
 description: Drag View
 package: 360 Custom

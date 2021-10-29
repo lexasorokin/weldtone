@@ -1,5 +1,5 @@
 name: Private Pages
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 type: module
 description: This module creates a checkbox field that can be added to nodes to make them private.<br>When a node is private, only users with roles whitelisted in the module settings can view the node.<br>All other users who attempt visiting the page will be redirected to the home page.<br>Additionally, this module exposes an 'is_private' variable to the Main Menu twig template which can be used to hide menu items to unauthorized users.
 package: 360 Custom

@@ -1,5 +1,5 @@
 name: Civic Mega Menu
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 type: module
 description: Civic Mega Menu
 package: 360 Custom

@@ -1,6 +1,6 @@
 name: Geolocation Filter
 type: module
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 package: 360 Custom
 description: Block form submissions originating from specific countries or specific IP addresses
 configure: geolocation_filter.settings

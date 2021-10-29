@@ -2,7 +2,7 @@ name: Autocomplete Inputs
 type: module
 description: Add custom auto-complete options to text inputs
 package: 360 Custom
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 configure: autocomplete_inputs.settings
 dependencies:
   - drupal:color_field

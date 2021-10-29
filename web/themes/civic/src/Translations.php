@@ -14,7 +14,7 @@ class Translations {
     $defaultLangCode = \Drupal::languageManager()->getDefaultLanguage()->getId();
 
     // Set Selected LangCode if value is available
-    $tempstore = \Drupal::service('user.private_tempstore')->get('allegheny_translation');
+    $tempstore = \Drupal::service('tempstore.private')->get('allegheny_translation');
     $selectedLangCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     $lns = \Drupal::service('language_negotiator');
@@ -29,7 +29,7 @@ class Translations {
 
 
     $request_uri = $_SERVER['REQUEST_URI'];
-    
+
     $uri_exploded = explode('/', $request_uri);
 
     $url_langcode = 'en';

@@ -58,7 +58,7 @@ if (in_array($vars['theme_hook_original'],
 
       $output_string = $vars['output']->__toString();
       $output_string = str_replace('<a ', '<a target="_blank" ', $output_string);
-      
+
       $vars['output'] = $vars['output']->create($output_string);
    }
 }
@@ -94,7 +94,7 @@ if (in_array($vars['theme_hook_original'],
     }
   }
   if (!isset($GLOBALS['gggg'])) {
-    
+
   }
 }
 
@@ -199,7 +199,7 @@ function civic_preprocess_breadcrumb(&$variables) {
   if ($variables['breadcrumb']) {
     $current_path = \Drupal::service('path.current')->getPath();
 // Get the real path even if it has an alias.
-    $real_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $real_path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
     $key = 'article';
     if (strpos($real_path, $key)) {
 // Remove the last element.
@@ -357,7 +357,7 @@ function civic_theme_suggestions_pager_alter(array &$suggestions,
 }
 
 /**
- * Helper function that resets arrays of any deepness and accepts 
+ * Helper function that resets arrays of any deepness and accepts
  * not only variables as an argument.
  */
 function civic_reset_m($var, $num = 99) {
