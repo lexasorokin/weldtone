@@ -65,9 +65,14 @@ function autocomplete_inputs_cron() {
  * Implements MODULE_page_attachments_alter()
  */
 function autocomplete_inputs_page_attachments_alter(array &$page) {
-  $node = \Drupal::routeMatch()->getParameter('node');
 
-  if (!isset($node) || $node->bundle() !== 'modular_page') {
+ $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!isset($node)) {
+    return;
+  }
+
+  if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() !== 'modular_page') {
     return;
   }
 

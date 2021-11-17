@@ -574,6 +574,9 @@ var CivicThemeIndex = /*#__PURE__*/function () {
       $('.view-id-events .views-exposed-form [data-drupal-selector="edit-field-event-date-value"]').not('.form-date').addClass('form-date').datepicker({
           dateFormat: 'mm/dd/yy',
         });
+        $('.view-id-events .views-exposed-form').not('.autosubmit-processed').addClass('autosubmit-processed').find('input[type="text"], input[type="date"]').on('change', function() {
+          $(this).closest('form').find('input[type="submit"]').trigger('click');
+        });
        
   }
   

@@ -14,7 +14,7 @@ assets:
     - core/drupal
     - core/modernizr
     - core/jquery.once
-    - core/jquery.ui.datepicker
+    - jquery_ui_datepicker/datepicker
 mesa_interactive_map:
   version: 1.x
   js:
