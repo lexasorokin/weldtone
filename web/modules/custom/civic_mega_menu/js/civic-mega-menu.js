@@ -180,15 +180,7 @@
         this.toggleMobileMenuSubmenu.bind(this)
       );
 
-      if (drupalSettings.cmm.expandOnClick) {
-        $('.cmm-li--level-1').on(
-          'mousedown',
-          this.liMouseDownHandler.bind(this)
-        );
-        $(this.wrapper).on('click', this.wrapperClickHandler.bind(this));
-      } else {
-        $(window).on('mousemove', this.handleMouseMove.bind(this));
-      }
+ 
     };
 
     // The menu is keyboard accessible,
@@ -214,6 +206,8 @@
     this.openMobileMenu = function (e) {
       var that = this;
       $('#mobile-menu-mask').addClass('active');
+      $('#civic-mega-menu-mobile').css('display','block');
+      $('#dynamic_select').css('margin-top','20px');
 
       setTimeout(function () {
         $('.cmm-mobile-menu-wrapper').addClass('open-mobile-menu');
@@ -228,10 +222,12 @@
       $('body').css('overflow', '');
       $('.cmm-mobile-menu-wrapper').addClass('close-mobile-menu');
       $('.cmm-mobile-menu-wrapper').removeClass('open-mobile-menu');
+  
 
       setTimeout(function () {
         $('.cmm-mobile-menu-wrapper').removeClass('close-mobile-menu');
         $('#mobile-menu-mask').removeClass('active');
+        $('#civic-mega-menu-mobile').css('display','none');
       }, 350);
     };
 
