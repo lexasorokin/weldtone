@@ -46,6 +46,7 @@
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/insert": "^2.0@beta",
         "drupal/insert_view_adv": "^1.0@beta",
+        "drupal/jquery_ui_datepicker": "^1.1",
         "drupal/libraries": "^3.0@beta",
         "drupal/mail_safety": "^1.2",
         "drupal/mimemail": "^1.0@alpha",
