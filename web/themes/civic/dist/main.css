@@ -211,8 +211,8 @@ footer {
     margin-right: 20px; }
     @media screen and (max-width: 1200px) {
       footer #block-footerblock img {
-        width: 100px;
-        height: 75px; } }
+        width: 90px;
+        height: 88px; } }
     @media screen and (max-width: 450px) {
       footer #block-footerblock img {
         margin-right: 10px; } }
