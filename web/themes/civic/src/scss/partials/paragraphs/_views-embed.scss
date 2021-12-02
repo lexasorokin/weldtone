@@ -110,8 +110,20 @@
   }
 
   .subgroup-rows {
+    @media only screen and (min-width: 200px) and (max-width: 790px)  {
+      .views-row {
+        display: flex;
+         }
+      }
+
+      @media only screen and (min-width: 791px) and (max-width: 4000px)  {
+        .views-row {
+          display: -webkit-box;
+           }
+        }
+
     .views-row {
-      display: flex;
+      // display: flex;
 
       .views-field-title {
         color: #000;
@@ -121,6 +133,7 @@
       .views-field-field-event-files {
         ul {
           display: flex;
+          flex-wrap: wrap;
           li {
             list-style-type: none;
             padding-right: 10px;
