@@ -2411,22 +2411,30 @@ h2.section-title {
 .view-events dd {
   padding-left: 10px  !important; }
 
-.view-events .subgroup-rows .views-row {
-  display: flex; }
-  .view-events .subgroup-rows .views-row .views-field-title {
-    color: #000;
-    font-weight: bold; }
-  .view-events .subgroup-rows .views-row .views-field-field-event-files ul {
-    display: flex; }
-    .view-events .subgroup-rows .views-row .views-field-field-event-files ul li {
-      list-style-type: none;
-      padding-right: 10px; }
-      .view-events .subgroup-rows .views-row .views-field-field-event-files ul li:before {
-        content: "|";
-        display: inline-block;
-        margin-right: 10px; }
-      .view-events .subgroup-rows .views-row .views-field-field-event-files ul li a {
-        color: #0fb2e2; }
+@media only screen and (min-width: 200px) and (max-width: 790px) {
+  .view-events .subgroup-rows .views-row {
+    display: flex; } }
+
+@media only screen and (min-width: 791px) and (max-width: 4000px) {
+  .view-events .subgroup-rows .views-row {
+    display: -webkit-box; } }
+
+.view-events .subgroup-rows .views-row .views-field-title {
+  color: #000;
+  font-weight: bold; }
+
+.view-events .subgroup-rows .views-row .views-field-field-event-files ul {
+  display: flex;
+  flex-wrap: wrap; }
+  .view-events .subgroup-rows .views-row .views-field-field-event-files ul li {
+    list-style-type: none;
+    padding-right: 10px; }
+    .view-events .subgroup-rows .views-row .views-field-field-event-files ul li:before {
+      content: "|";
+      display: inline-block;
+      margin-right: 10px; }
+    .view-events .subgroup-rows .views-row .views-field-field-event-files ul li a {
+      color: #0fb2e2; }
 
 [data-drupal-selector="views-exposed-form-events-events-search"] {
   display: flex;
