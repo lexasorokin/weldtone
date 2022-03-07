@@ -9,6 +9,11 @@
 #
 #################################################################################################
 
+## Project #14305 Create Initial Dev Site for Semi-Kinetics from Civic Start D9 Instance.
+- Created D9 site rom Civic Starter D9
+- Updated CHANGELOG.md and .gitignore files.
+- Created dev-d9 branch of Semi-Kinetics Repo on Git Hub.
+
 ## Project #13988 Civic Start D9 Instance (from MesaWater D9 Site)
 - Created D9 instance of MesaWater (D9) for Civic Starter D9 Upgrade.
 - Created dev-d9 branch of Civic Starter Repo on Git Hub.

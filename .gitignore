@@ -43,7 +43,13 @@
 # Ignore VS Code Config Folder
 .vscode/
 
+# Ignore misc files/backups
+/db/
+/db/*
 *.sql
 *.backup
 *backup*
 *.bak
+*.zip
+*.tar
+*.tar.gz
