@@ -1,0 +1,18 @@
+uuid: 3ea09333-220c-43f7-a5cb-10d8c9f24e14
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+id: moderational_reminder.moderational_reminder.created
+field_name: created
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Authored on'
+description: 'The time that the entity was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

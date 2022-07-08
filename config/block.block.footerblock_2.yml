@@ -1,0 +1,30 @@
+uuid: e890f75e-cd6d-44da-a054-e28fca604752
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:7615f80e-e412-4708-b7f5-3abda96d45c0'
+  module:
+    - block_content
+    - system
+  theme:
+    - civic
+id: footerblock_2
+theme: civic
+region: highlighted
+weight: 0
+provider: null
+plugin: 'block_content:7615f80e-e412-4708-b7f5-3abda96d45c0'
+settings:
+  id: 'block_content:7615f80e-e412-4708-b7f5-3abda96d45c0'
+  label: 'Footer Block'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/871/
+    negate: false

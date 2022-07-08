@@ -1,0 +1,18 @@
+uuid: 533b58fd-00dc-4c3f-b2d5-9224740d1818
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.alert_types
+id: taxonomy_term.alert_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: alert_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

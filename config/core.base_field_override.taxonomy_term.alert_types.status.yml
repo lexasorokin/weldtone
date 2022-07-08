@@ -1,0 +1,22 @@
+uuid: 952f3ca4-d09c-4e97-8502-4180f83f8af8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.alert_types
+id: taxonomy_term.alert_types.status
+field_name: status
+entity_type: taxonomy_term
+bundle: alert_types
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

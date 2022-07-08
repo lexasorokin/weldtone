@@ -1,0 +1,21 @@
+uuid: 379d140a-ea25-41ae-b38f-5453ae08aafe
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: elimina_seccion_de_pagina_interiores
+label: 'elimina seccion de pagina interiores'
+code: |-
+  preffooterblock1 {
+    display:none;
+  }
+conditions_require_all: true
+conditions:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+contexts: {  }
+media: all
+preprocess: true

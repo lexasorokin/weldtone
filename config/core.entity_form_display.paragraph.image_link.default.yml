@@ -1,0 +1,39 @@
+uuid: b034a318-8212-4219-b83a-cbbfaf940d55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_link.field_bg_image
+    - field.field.paragraph.image_link.field_link
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.image_link
+  module:
+    - imce
+    - link
+    - svg_image
+id: paragraph.image_link.default
+targetEntityType: paragraph
+bundle: image_link
+mode: default
+content:
+  field_bg_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

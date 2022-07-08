@@ -1,0 +1,67 @@
+uuid: 58d566d8-008b-4e68-a386-fefe45db8ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.image_link
+    - paragraphs.paragraphs_type.social_media_with_image_link_sec
+  module:
+    - entity_reference_revisions
+id: paragraph.social_media_with_image_link_sec.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: social_media_with_image_link_sec
+label: 'Image + link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_link: image_link
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 14
+        enabled: false
+      bg_image_section:
+        weight: 15
+        enabled: false
+      date_specific_content:
+        weight: 16
+        enabled: false
+      embedded_blocks_section:
+        weight: 17
+        enabled: false
+      featured_section:
+        weight: 18
+        enabled: false
+      featured_section_item:
+        weight: 19
+        enabled: false
+      image_link:
+        enabled: true
+        weight: 20
+      image_with_icon_and_link:
+        weight: 21
+        enabled: false
+      link_with_icon:
+        weight: 22
+        enabled: false
+      map:
+        weight: 23
+        enabled: false
+      map_location:
+        weight: 24
+        enabled: false
+      search_section:
+        weight: 25
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

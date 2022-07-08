@@ -1,0 +1,33 @@
+display:
+  default:
+    display_title: Máster
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+  page_1:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+        title:
+          separator: ', '
+  page_2:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+  page_6:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+        title:
+          separator: ', '

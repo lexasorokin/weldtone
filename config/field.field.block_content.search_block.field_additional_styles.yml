@@ -1,0 +1,29 @@
+uuid: 1bb7f692-9395-4d1e-8959-2a89bf2e90d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.search_block
+    - field.storage.block_content.field_additional_styles
+    - taxonomy.vocabulary.programmed_styles
+id: block_content.search_block.field_additional_styles
+field_name: field_additional_styles
+entity_type: block_content
+bundle: search_block
+label: 'Additional Styles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programmed_styles: programmed_styles
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

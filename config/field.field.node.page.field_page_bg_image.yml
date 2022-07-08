@@ -1,0 +1,45 @@
+uuid: de470ce5-1eec-4622-9e24-266a573f2cba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_bg_image
+    - node.type.page
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      file: file
+      alt: '0'
+      title: '0'
+id: node.page.field_page_bg_image
+field_name: field_page_bg_image
+entity_type: node
+bundle: page
+label: 'Background Image'
+description: 'If no image is selected, the default image declared in the <a href="/admin/appearance/settings/civic">theme settings</a> will be used.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

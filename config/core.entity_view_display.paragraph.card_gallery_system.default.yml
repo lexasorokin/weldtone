@@ -1,0 +1,57 @@
+uuid: c4df8abd-9f0b-4cc9-9f3f-d5c5232b1383
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_gallery_system.field_additional_styles
+    - field.field.paragraph.card_gallery_system.field_card_gallery_item
+    - paragraphs.paragraphs_type.card_gallery_system
+  module:
+    - entity_class_formatter
+    - slick_paragraphs
+id: paragraph.card_gallery_system.default
+targetEntityType: paragraph
+bundle: card_gallery_system
+mode: default
+content:
+  field_additional_styles:
+    weight: 1
+    label: hidden
+    settings:
+      prefix: ''
+      suffix: ''
+      attr: ''
+    third_party_settings: {  }
+    type: entity_class_formatter
+    region: content
+  field_card_gallery_item:
+    type: slick_paragraphs_vanilla
+    weight: 0
+    label: hidden
+    settings:
+      optionset: default
+      skin: fullwidth
+      view_mode: default
+      cache: 0
+      override: true
+      overridables:
+        variableWidth: variableWidth
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+      current_view_mode: default
+      use_theme_field: false
+      skin_arrows: ''
+      skin_dots: ''
+      fx: ''
+      lazy: ''
+      loading: lazy
+      preload: false
+      style: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

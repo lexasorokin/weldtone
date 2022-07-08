@@ -1,0 +1,51 @@
+uuid: e54a4819-d92f-4bd3-b58d-6d9e2eec1295
+langcode: en
+status: true
+dependencies: {  }
+id: moderational_reminder_email_failsafe
+label: 'Moderational reminder Email Failsafe'
+events:
+  -
+    event_name: moderational_reminder_failsafe_is_being_evaluated_event
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 3aa86e83-b20d-40bd-be7d-1aafcb291966
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 9e8b7724-8b8b-40a4-bc14-c3babc9ac75b
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: d4acfd99-7259-4237-97df-fbb109d220eb
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: d6bfc46b-37b2-4c31-92ef-6ba5bd5e4758
+        weight: 0
+        context_values:
+          to:
+            - '{{ user.mail.value }}'
+          subject: 'Expiration notification Failsafe - {{ node.title.value }}'
+          message: "The content {{ node.title.value }} which is a {{ node.type }} is set to expire on {{ date_string }}. {{ reminder_title }}.<br>\r\n<b>Emails sent to the editors have\r\nbeen ignored. You are listed as a failsafe person to notify before the item expires.</b>\r\n<br><br>\r\n\r\n<a href=\"https://mesawater-drupal.360-biz.com/{{ modify_link }}\">Please click here</a> to update, or\r\nmodify this item so that it remains current. "
+          reply: celestec@mesawater.org
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

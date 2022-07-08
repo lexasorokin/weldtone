@@ -1,0 +1,10 @@
+uuid: 4455c542-3943-4951-8b1b-9eee31a182ed
+langcode: en
+status: true
+dependencies: {  }
+id: we_serve_block_images_w_text
+label: 'We Serve Block images w text'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,66 @@
+uuid: 261279d9-b73c-4309-beb2-d8cc769c28b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_expiration_dates
+    - field.field.node.news_article.field_ignore_reminders_when_save
+    - field.field.node.news_article.field_moderational_reminders
+    - field.field.node.news_article.field_news_category
+    - field.field.node.news_article.field_news_image
+    - field.field.node.news_article.field_pending_exp_notify
+    - field.field.node.news_article.field_reminders_titles
+    - field.field.node.news_article.field_user
+    - image.style.medium_16_9
+    - node.type.news_article
+  module:
+    - svg_image
+    - text
+    - user
+id: node.news_article.card
+targetEntityType: node
+bundle: news_article
+mode: card
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 150
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_news_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: medium_16_9
+      image_link: ''
+      svg_render_as_image: true
+      svg_attributes:
+        width: null
+        height: null
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_expiration_dates: true
+  field_ignore_reminders_when_save: true
+  field_moderational_reminders: true
+  field_news_category: true
+  field_pending_exp_notify: true
+  field_reminders_titles: true
+  field_user: true
+  langcode: true

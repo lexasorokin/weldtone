@@ -1,0 +1,23 @@
+uuid: 61326a80-9b2f-40d9-9bba-1f180135dafa
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_expiration_date
+  module:
+    - datetime
+_core:
+  default_config_hash: 3IhWOi5VUdb1jLmaE_1MtJoNs7ieIJqYayQZOc8xH7g
+id: moderational_reminder.moderational_reminder.field_mr_expiration_date
+field_name: field_mr_expiration_date
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Expiration date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

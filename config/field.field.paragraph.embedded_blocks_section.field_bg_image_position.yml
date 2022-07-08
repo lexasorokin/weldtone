@@ -1,0 +1,21 @@
+uuid: 541c2d70-6f99-4c6b-98a9-c05c6b1999a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_image_position
+    - paragraphs.paragraphs_type.embedded_blocks_section
+id: paragraph.embedded_blocks_section.field_bg_image_position
+field_name: field_bg_image_position
+entity_type: paragraph
+bundle: embedded_blocks_section
+label: 'Background Image Position'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: string

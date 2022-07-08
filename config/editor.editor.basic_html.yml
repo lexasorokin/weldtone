@@ -1,0 +1,94 @@
+uuid: c3c418fc-1f48-4ff3-b89a-e4f26821f4be
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor
+_core:
+  default_config_hash: AqlPmO16LvJI4D0Ih6u4GFQIzqr5OnLgAUSjcUGWk2g
+format: basic_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - RemoveFormat
+            - Superscript
+            - Subscript
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - WidgetTemplateMenu
+            - widgetbootstrapRightCol
+            - widgetbootstrapLeftCol
+            - widgetbootstrapTwoCol
+            - widgetbootstrapThreeCol
+            - widgetbootstrapFourCol
+            - bs_grid
+        -
+          name: Linking
+          items:
+            - '-'
+            - DrupalUnlink
+            - DrupalLink
+            - ImceLink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - SpecialChar
+            - Youtube
+            - ImceImage
+            - DrupalMediaLibrary
+            - DrupalFontAwesome
+            - btbutton
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+            - ShowBlocks
+        -
+          name: Tools
+          items:
+            - Source
+            - Table
+            - Accordion
+            - HorizontalRule
+            - Undo
+            - Redo
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    bs_grid:
+      use_cdn: 1
+      cdn_url: 'https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css'
+    templates:
+      template_path: ''
+      replace_content: 0
+    insert_view_adv:
+      enable_live_preview: true
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

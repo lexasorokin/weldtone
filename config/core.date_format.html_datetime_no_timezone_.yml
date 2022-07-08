@@ -1,0 +1,8 @@
+uuid: 4a7394fc-bc94-4c41-b96e-a9d3ebcb655d
+langcode: en
+status: true
+dependencies: {  }
+id: html_datetime_no_timezone_
+label: 'HTML Datetime (No Timezone)'
+locked: false
+pattern: 'Y-m-d\TH:i:s'

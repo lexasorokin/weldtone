@@ -1,0 +1,10 @@
+uuid: 6b359231-2025-439d-9ec8-1db0c2f2eed8
+langcode: en
+status: true
+dependencies: {  }
+id: mails_list
+label: 'Emails list'
+created: false
+changed: false
+uid: false
+title: true

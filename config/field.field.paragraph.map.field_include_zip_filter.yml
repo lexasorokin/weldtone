@@ -1,0 +1,23 @@
+uuid: 9d5ce4bc-bc1b-446d-b41e-5ff87df10c22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_include_zip_filter
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_include_zip_filter
+field_name: field_include_zip_filter
+entity_type: paragraph
+bundle: map
+label: 'Include Zip Filter'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

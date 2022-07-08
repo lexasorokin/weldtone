@@ -1,0 +1,19 @@
+uuid: aa30f499-960b-4f45-829f-7cfe6d58b887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ime_fill_color
+    - paragraphs.paragraphs_type.interactive_map_element
+id: paragraph.interactive_map_element.field_ime_fill_color
+field_name: field_ime_fill_color
+entity_type: paragraph
+bundle: interactive_map_element
+label: 'Fill color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

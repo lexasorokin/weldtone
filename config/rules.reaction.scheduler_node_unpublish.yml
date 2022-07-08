@@ -1,0 +1,39 @@
+uuid: 49fb8d0d-df1b-4a1a-8144-729f6a1e65f6
+langcode: en
+status: true
+dependencies: {  }
+id: scheduler_node_unpublish
+label: 'Scheduler node unpublish (archive)'
+events:
+  -
+    event_name: scheduler_has_unpublished_this_node_event
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 8bc8b4f8-5653-4b44-bc38-baccee14268b
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: c9468257-923b-4d04-ad9f-a4b43d43d2f0
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: c3ffc05b-f0c2-4203-acfd-cc2b0001aabb
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 24ff47d1-2607-44d0-a703-90003ce8e406
+        weight: 0
+        context_values:
+          value: archived
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_data_set

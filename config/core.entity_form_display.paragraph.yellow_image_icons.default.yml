@@ -1,0 +1,29 @@
+uuid: 0edd21b7-effd-4827-96f7-1a5592fb8bf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.yellow_image_icons.field_icon_link_yellow
+    - paragraphs.paragraphs_type.yellow_image_icons
+  module:
+    - paragraphs
+id: paragraph.yellow_image_icons.default
+targetEntityType: paragraph
+bundle: yellow_image_icons
+mode: default
+content:
+  field_icon_link_yellow:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,52 @@
+uuid: 6a77fc35-71ae-4cc8-8b04-d21329646dd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_specific_content
+    - node.type.event
+    - paragraphs.paragraphs_type.date_specific_content
+  module:
+    - entity_reference_revisions
+id: node.event.field_date_specific_content
+field_name: field_date_specific_content
+entity_type: node
+bundle: event
+label: 'Date Specific Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      date_specific_content: date_specific_content
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 9
+        enabled: false
+      bg_image_section:
+        weight: 10
+        enabled: false
+      date_specific_content:
+        enabled: true
+        weight: 11
+      embedded_blocks_section:
+        weight: 12
+        enabled: false
+      embedded_entity_section:
+        weight: 13
+        enabled: false
+      map:
+        weight: 14
+        enabled: false
+      map_location:
+        weight: 15
+        enabled: false
+      search_section:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: b23ab9bb-a30f-4350-b31e-25e11d4fca6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_location_type_icon
+    - taxonomy.vocabulary.location_type
+id: taxonomy_term.location_type.field_location_type_icon
+field_name: field_location_type_icon
+entity_type: taxonomy_term
+bundle: location_type
+label: 'Location Type Icon'
+description: 'Enter classes for a <a href="https://fontawesome.com/icons?d=gallery&m=free">Fontawesome Icon</a>. <em>Example: fas fa-home</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

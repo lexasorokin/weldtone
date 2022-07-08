@@ -1,0 +1,23 @@
+uuid: 52920f21-1dab-49c5-8c09-d8ba77caf26b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_registration_enable
+    - node.type.event
+id: node.event.field_event_registration_enable
+field_name: field_event_registration_enable
+entity_type: node
+bundle: event
+label: 'Event registration enabled'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

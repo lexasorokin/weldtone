@@ -1,0 +1,4 @@
+label: 'Снять с публикации'
+settings:
+  on_label: Вкл
+  off_label: Выкл

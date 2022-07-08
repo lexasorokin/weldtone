@@ -1,0 +1,15 @@
+uuid: e819d823-bd0e-4ede-ae6a-726ce4ab066a
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - layout_bg_paragraph
+  module:
+    - media
+_core:
+  default_config_hash: up3Qyv88JtP4Xca7lGTBkiNmskGXmLK3dFTPra6SHtw
+id: media.layout_bg
+label: 'Layout BG'
+targetEntityType: media
+cache: true

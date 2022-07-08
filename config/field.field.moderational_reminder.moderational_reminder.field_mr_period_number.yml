@@ -1,0 +1,25 @@
+uuid: 2b5b53e7-0db8-4874-9f35-ffc744b0f8cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_period_number
+_core:
+  default_config_hash: 6qAuLWQg7F4UhSdoGH3YmSTX0gbKpStOU4QHCaDJGoA
+id: moderational_reminder.moderational_reminder.field_mr_period_number
+field_name: field_mr_period_number
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Lead period number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

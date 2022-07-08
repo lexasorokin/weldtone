@@ -1,0 +1,24 @@
+uuid: a7bb06e0-e006-40b9-bae2-22521565e918
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_bmc_color
+    - taxonomy.vocabulary.board_meeting_category
+  module:
+    - color_field
+_core:
+  default_config_hash: E0VmqIV8lqZsc4sOxOiHDeVgLaAe-lMj2tZhNnckB9w
+id: taxonomy_term.board_meeting_category.field_bmc_color
+field_name: field_bmc_color
+entity_type: taxonomy_term
+bundle: board_meeting_category
+label: Color
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

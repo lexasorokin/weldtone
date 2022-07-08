@@ -1,0 +1,22 @@
+uuid: 062167cd-9e02-40f7-8bac-2e062d23c96e
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - taxonomy
+_core:
+  default_config_hash: 3T8HBKVLtRu2ABhzaDGQk6RhiSBAMDoeNbLqqixYQ8U
+id: taxonomy_term.field_bmc_color
+field_name: field_bmc_color
+entity_type: taxonomy_term
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

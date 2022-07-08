@@ -1,0 +1,38 @@
+uuid: 64c6ac98-661f-43a3-801a-643cd235d02c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_desktop_left_image
+    - paragraphs.paragraphs_type.quality_and_certification_block
+  module:
+    - image
+id: paragraph.quality_and_certification_block.field_desktop_left_image
+field_name: field_desktop_left_image
+entity_type: paragraph
+bundle: quality_and_certification_block
+label: 'desktop left image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: e4e92491-9a0d-409f-9924-a9849d0fc5f0
+    alt: ''
+    title: ''
+    width: 275
+    height: 397
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

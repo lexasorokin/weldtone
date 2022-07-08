@@ -1,0 +1,25 @@
+uuid: ca2f7fe0-04a8-4d63-bd62-dcab3b84a5ff
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image_block:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+  module:
+    - block_content
+  theme:
+    - civic
+id: headerlogo_2
+theme: civic
+region: header_center
+weight: 0
+provider: null
+plugin: 'block_content:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+settings:
+  id: 'block_content:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+  label: 'Header Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

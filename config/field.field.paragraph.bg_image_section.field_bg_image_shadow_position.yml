@@ -1,0 +1,21 @@
+uuid: 3b25f077-0c02-427b-9d74-f96a209711eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_image_shadow_position
+    - paragraphs.paragraphs_type.bg_image_section
+  module:
+    - options
+id: paragraph.bg_image_section.field_bg_image_shadow_position
+field_name: field_bg_image_shadow_position
+entity_type: paragraph
+bundle: bg_image_section
+label: 'Background shadow postion'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

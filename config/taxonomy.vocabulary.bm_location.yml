@@ -1,0 +1,10 @@
+uuid: 32cb22df-aae3-4be6-bf8e-b8ac70390e03
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ia0Q54cQn_ZTRDOhDtXdoulotURRzYT_yMNk-7_gRFY
+name: 'Board meeting location'
+vid: bm_location
+description: ''
+weight: 0

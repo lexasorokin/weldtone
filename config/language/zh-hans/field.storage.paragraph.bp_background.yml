@@ -1,0 +1,100 @@
+settings:
+  allowed_values:
+    0:
+      label: 微黑
+    1:
+      label: 亮黑
+    2:
+      label: 强黑
+    3:
+      label: 浅蓝色
+    4:
+      label: 亮蓝色
+    5:
+      label: 浓蓝色
+    6:
+      label: 浅蓝灰
+    7:
+      label: 亮蓝灰
+    8:
+      label: 浓蓝灰
+    9:
+      label: 浅棕色
+    10:
+      label: 亮棕色
+    11:
+      label: 浓棕色
+    12:
+      label: 浅青色
+    13:
+      label: 亮青色
+    14:
+      label: 浓青色
+    15:
+      label: 浅绿色
+    16:
+      label: 亮绿色
+    17:
+      label: 浓绿色
+    18:
+      label: 浅灰色
+    19:
+      label: 亮灰色
+    20:
+      label: 浓灰色
+    21:
+      label: 浅靛蓝
+    22:
+      label: 亮靛蓝
+    23:
+      label: 浓靛蓝
+    24:
+      label: 浅绿黄
+    25:
+      label: 亮绿黄
+    26:
+      label: 浓绿黄
+    27:
+      label: 微橙色
+    28:
+      label: 亮橙色
+    29:
+      label: 浓橙色
+    30:
+      label: 淡粉色
+    31:
+      label: 亮粉色
+    32:
+      label: 浓粉色
+    33:
+      label: 淡紫色
+    34:
+      label: 亮紫色
+    35:
+      label: 浓紫色
+    36:
+      label: 淡红色
+    37:
+      label: 亮红色
+    38:
+      label: 浓红色
+    42:
+      label: 浅蓝绿
+    43:
+      label: 亮蓝绿
+    44:
+      label: 浓蓝绿
+    45:
+      label: 浅白色
+    46:
+      label: 亮白色
+    47:
+      label: 浓白色
+    48:
+      label: 浅黄色
+    49:
+      label: 亮黄色
+    50:
+      label: 浓黄色
+    51:
+      label: 透明

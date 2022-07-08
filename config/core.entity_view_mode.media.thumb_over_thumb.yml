@@ -1,0 +1,15 @@
+uuid: 39b8b576-a947-489b-aafb-b0cb983b754c
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - layout_bg_thumb_over_thumb
+  module:
+    - media
+_core:
+  default_config_hash: DvPXjgocbf-p-jP425mnJulhwD6mOoT_oRu4rrsApak
+id: media.thumb_over_thumb
+label: 'Thumb Over Thumb'
+targetEntityType: media
+cache: true

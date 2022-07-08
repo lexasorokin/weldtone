@@ -1,0 +1,32 @@
+uuid: 215c6e2b-b262-469a-ae9c-361c6ce66314
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - paragraphs
+_core:
+  default_config_hash: kWYz60cWBoQ4mIUuJg3NxsUVFK3iJPoFoou2NpmX9EM
+id: paragraph.bp_card_image
+field_name: bp_card_image
+entity_type: paragraph
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

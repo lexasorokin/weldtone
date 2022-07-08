@@ -1,0 +1,25 @@
+uuid: e1577bbb-ac79-4734-9545-b1ac9859ce80
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.board_of_directors_contact
+  module:
+    - webform
+  theme:
+    - civic
+id: webform_7
+theme: civic
+region: no_location
+weight: -25
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Board of Directors Contact'
+  provider: webform
+  label_display: '0'
+  webform_id: board_of_directors_contact
+  default_data: ''
+  redirect: false
+visibility: {  }

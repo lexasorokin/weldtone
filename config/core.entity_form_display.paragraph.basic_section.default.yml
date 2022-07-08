@@ -1,0 +1,36 @@
+uuid: 38bb9554-5d52-4cda-8f09-139cee154226
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_section.field_additional_styles
+    - field.field.paragraph.basic_section.field_content
+    - paragraphs.paragraphs_type.basic_section
+  module:
+    - text
+id: paragraph.basic_section.default
+targetEntityType: paragraph
+bundle: basic_section
+mode: default
+content:
+  field_additional_styles:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_content:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

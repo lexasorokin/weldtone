@@ -1,0 +1,19 @@
+uuid: bcbe29ad-0141-4b59-93d7-743056a7993e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_location_zip
+    - paragraphs.paragraphs_type.map_location
+id: paragraph.map_location.field_location_zip
+field_name: field_location_zip
+entity_type: paragraph
+bundle: map_location
+label: Zipcode
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

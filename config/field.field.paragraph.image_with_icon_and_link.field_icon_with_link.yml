@@ -1,0 +1,55 @@
+uuid: 4ceb4e4f-0cc8-49ee-9895-31cf3607a1d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_with_link
+    - paragraphs.paragraphs_type.image_with_icon_and_link
+    - paragraphs.paragraphs_type.link_with_icon
+  module:
+    - entity_reference_revisions
+id: paragraph.image_with_icon_and_link.field_icon_with_link
+field_name: field_icon_with_link
+entity_type: paragraph
+bundle: image_with_icon_and_link
+label: 'Icon with link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      link_with_icon: link_with_icon
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 10
+        enabled: false
+      bg_image_section:
+        weight: 11
+        enabled: false
+      date_specific_content:
+        weight: 12
+        enabled: false
+      embedded_blocks_section:
+        weight: 13
+        enabled: false
+      image_with_icon_and_link:
+        weight: 14
+        enabled: false
+      link_with_icon:
+        enabled: true
+        weight: 15
+      map:
+        weight: 16
+        enabled: false
+      map_location:
+        weight: 17
+        enabled: false
+      search_section:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

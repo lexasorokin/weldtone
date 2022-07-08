@@ -1,0 +1,23 @@
+uuid: 897466e5-bf13-430a-8a6c-8c8cd9e921f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.history_item
+  module:
+    - text
+id: node.history_item.body
+field_name: body
+entity_type: node
+bundle: history_item
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

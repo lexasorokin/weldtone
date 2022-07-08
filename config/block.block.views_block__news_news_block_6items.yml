@@ -1,0 +1,24 @@
+uuid: 43e47bd9-f54b-4a57-927e-d8fa81409c73
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - civic
+id: views_block__news_news_block_6items
+theme: civic
+region: no_location
+weight: -8
+provider: null
+plugin: 'views_block:news-news_block_6items'
+settings:
+  id: 'views_block:news-news_block_6items'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

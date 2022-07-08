@@ -1,0 +1,51 @@
+uuid: 33200aef-80d0-4bad-ad7c-f32102594909
+langcode: en
+status: true
+dependencies: {  }
+id: moderational_refinder_email
+label: 'Moderational reminder Email'
+events:
+  -
+    event_name: moderational_reminder_is_being_evaluated_event
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 4387b5fc-f7c0-4811-a062-9ddea1ed89b9
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 3b295d6c-4265-4e54-a9f9-cf4a39a109c5
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: c4826750-557f-4f92-9b8a-0df14c080e10
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: ae71aa14-5bee-4e6d-a099-8adc179b6b03
+        weight: 0
+        context_values:
+          to:
+            - '{{ user.mail.value }}'
+          subject: 'Expiration notification - {{ node.title.value }}'
+          message: "The content {{ node.title.value }} which is a {{ node.type }} is set to expire on {{ date_string }}. {{ reminder_title }}.<br>\r\n<a href=\"https://mesawater-drupal.360-biz.com/{{ modify_link }}\">Please click here</a> to update, or\r\nmodify this item so that it remains current. \r\n"
+          reply: celestec@mesawater.org
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

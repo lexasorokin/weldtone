@@ -1,0 +1,10 @@
+uuid: 3df7582b-6d5d-455c-bd11-64c87ce4fe7e
+langcode: en
+status: true
+dependencies: {  }
+id: careers_availble_view
+label: 'Careers available'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,61 @@
+uuid: 3683567c-a0f8-4d2f-add0-009ab7577dcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_expiration_dates
+    - field.field.node.news_article.field_ignore_reminders_when_save
+    - field.field.node.news_article.field_moderational_reminders
+    - field.field.node.news_article.field_news_category
+    - field.field.node.news_article.field_news_image
+    - field.field.node.news_article.field_pending_exp_notify
+    - field.field.node.news_article.field_reminders_titles
+    - field.field.node.news_article.field_user
+    - node.type.news_article
+  module:
+    - svg_image
+    - text
+    - user
+id: node.news_article.teaser
+targetEntityType: node
+bundle: news_article
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 150
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_news_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_expiration_dates: true
+  field_ignore_reminders_when_save: true
+  field_moderational_reminders: true
+  field_news_category: true
+  field_pending_exp_notify: true
+  field_reminders_titles: true
+  field_user: true
+  langcode: true

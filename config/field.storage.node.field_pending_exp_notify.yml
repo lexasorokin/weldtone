@@ -1,0 +1,20 @@
+uuid: b6e0a63e-f151-4524-90d6-fe190263183d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pending_exp_notify
+field_name: field_pending_exp_notify
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

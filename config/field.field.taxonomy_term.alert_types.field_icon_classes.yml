@@ -1,0 +1,19 @@
+uuid: 775e12bc-3153-4214-9667-93ef03637df2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_icon_classes
+    - taxonomy.vocabulary.alert_types
+id: taxonomy_term.alert_types.field_icon_classes
+field_name: field_icon_classes
+entity_type: taxonomy_term
+bundle: alert_types
+label: 'Fontawesome Classes'
+description: 'Add the classes for the <a href="https://fontawesome.com/icons?d=gallery&m=free">Fontawesome Icon</a> to associate with this alert type. <em>Example: fas fa-exclamation-triangle</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

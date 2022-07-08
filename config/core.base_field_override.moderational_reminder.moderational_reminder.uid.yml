@@ -1,0 +1,20 @@
+uuid: 366c4bbe-e113-48d5-af6a-0801e7505cc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+id: moderational_reminder.moderational_reminder.uid
+field_name: uid
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Authored by'
+description: 'The username of the entity author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

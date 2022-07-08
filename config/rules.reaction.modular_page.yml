@@ -1,0 +1,14 @@
+uuid: 2d59a419-b0ce-42bf-a7d6-c6ec9fe89dff
+langcode: en
+status: true
+dependencies: {  }
+id: modular_page
+label: 'Modular page'
+events:
+  -
+    event_name: 'rules_entity_insert:node--modular_page'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

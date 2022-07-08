@@ -1,0 +1,153 @@
+uuid: a7e768eb-229d-479b-8633-c71759182572
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bp_column_content
+    - paragraphs.paragraphs_type.bp_card
+    - paragraphs.paragraphs_type.bp_columns
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: hpixcgtuMcA66LN6-VERfwoZvbQwXGpYhQYt3zLDSzY
+id: paragraph.bp_columns.bp_column_content
+field_name: bp_column_content
+entity_type: paragraph
+bundle: bp_columns
+label: 'Column Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      bp_card: bp_card
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 42
+        enabled: false
+      bg_image_section:
+        weight: 43
+        enabled: false
+      bp_accordion:
+        weight: -28
+        enabled: false
+      bp_accordion_section:
+        weight: -18
+        enabled: false
+      bp_blank:
+        weight: -29
+        enabled: false
+      bp_block:
+        weight: -22
+        enabled: false
+      bp_callout:
+        weight: 48
+        enabled: false
+      bp_card:
+        enabled: true
+        weight: 49
+      bp_carousel:
+        weight: -27
+        enabled: false
+      bp_column_wrapper:
+        weight: -26
+        enabled: false
+      bp_columns:
+        weight: -25
+        enabled: false
+      bp_columns_three_uneven:
+        weight: -24
+        enabled: false
+      bp_columns_two_uneven:
+        weight: -23
+        enabled: false
+      bp_image:
+        weight: -30
+        enabled: false
+      bp_modal:
+        weight: -21
+        enabled: false
+      bp_simple:
+        weight: -31
+        enabled: false
+      bp_tab_section:
+        weight: -17
+        enabled: false
+      bp_tabs:
+        weight: -20
+        enabled: false
+      bp_view:
+        weight: -19
+        enabled: false
+      card_gallery:
+        weight: 61
+        enabled: false
+      card_gallery_system:
+        weight: 62
+        enabled: false
+      date_specific_content:
+        weight: 63
+        enabled: false
+      embedded_blocks_section:
+        weight: 64
+        enabled: false
+      image_link:
+        weight: 65
+        enabled: false
+      image_with_icon_and_link:
+        weight: 66
+        enabled: false
+      interactive_map:
+        weight: 67
+        enabled: false
+      interactive_map_element:
+        weight: 68
+        enabled: false
+      kinetics_banner:
+        weight: 69
+        enabled: false
+      layout_bg_paragraph:
+        weight: 70
+        enabled: false
+      link_with_icon:
+        weight: 71
+        enabled: false
+      map:
+        weight: 72
+        enabled: false
+      map_location:
+        weight: 73
+        enabled: false
+      menu:
+        weight: 74
+        enabled: false
+      menu_item:
+        weight: 75
+        enabled: false
+      quality_and_certification_block:
+        weight: 76
+        enabled: false
+      search_section:
+        weight: 77
+        enabled: false
+      semi_kinetics_banner_slide:
+        weight: 78
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 79
+        enabled: false
+      text_w_menu:
+        weight: 80
+        enabled: false
+      views_embed:
+        weight: 81
+        enabled: false
+      we_serve_block_images_w_text:
+        weight: 82
+        enabled: false
+field_type: entity_reference_revisions

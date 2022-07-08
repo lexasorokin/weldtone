@@ -1,0 +1,25 @@
+uuid: 09280626-13f1-400a-a579-f8377e449604
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:1e0fa34d-a035-4b06-a347-4e29acb18ee9'
+  module:
+    - block_content
+  theme:
+    - civic
+id: logoweldtone
+theme: civic
+region: top_bar
+weight: 0
+provider: null
+plugin: 'block_content:1e0fa34d-a035-4b06-a347-4e29acb18ee9'
+settings:
+  id: 'block_content:1e0fa34d-a035-4b06-a347-4e29acb18ee9'
+  label: 'logo weldtone'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

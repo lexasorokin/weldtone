@@ -1,0 +1,21 @@
+uuid: 63db8093-6099-4727-a079-49e2a25643c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.careers_availble
+  module:
+    - text
+id: paragraph.careers_availble.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: careers_availble
+label: 'Position description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

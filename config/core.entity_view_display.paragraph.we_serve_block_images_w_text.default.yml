@@ -1,0 +1,32 @@
+uuid: c2964b93-4e5b-48a1-b012-3ce11966b7ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.we_serve_block_images_w_text.field_bg_image
+    - field.field.paragraph.we_serve_block_images_w_text.field_content
+    - paragraphs.paragraphs_type.we_serve_block_images_w_text
+  module:
+    - svg_image
+    - text
+id: paragraph.we_serve_block_images_w_text.default
+targetEntityType: paragraph
+bundle: we_serve_block_images_w_text
+mode: default
+content:
+  field_bg_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,90 @@
+uuid: d24b82f5-dd03-4d7e-a676-460cac29356a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_gallery.field_content
+    - field.field.paragraph.card_gallery.field_image_card
+    - field.field.paragraph.card_gallery.field_link
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.card_gallery
+  module:
+    - imce
+    - insert
+    - link_attributes
+    - svg_image
+    - text
+id: paragraph.card_gallery.default
+targetEntityType: paragraph
+bundle: card_gallery
+mode: default
+content:
+  field_content:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_image_card:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+      insert:
+        default: insert__auto
+        auto_image_style: image
+        link_image: ''
+        width: ''
+        styles:
+          insert__auto: 0
+          link: 0
+          icon_link: 0
+          image: 0
+          audio: 0
+          video: 0
+          event_block_315_155: 0
+          featured_content_530_305: 0
+          featured_content_landing_page_400_200: 0
+          flexslider_full: 0
+          flexslider_thumbnail: 0
+          large: 0
+          media_library: 0
+          medium_16_9: 0
+          medium: 0
+          medium_4_3: 0
+          news_block_450_255: 0
+          person_square_300x300: 0
+          report_preview: 0
+          services_capabilities_style: 0
+          slick_media: 0
+          thumbnail: 0
+          xl: 0
+          xxl: 0
+        caption: 0
+        align: 0
+        rotate: 0
+    type: image_image
+    region: content
+  field_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+hidden:
+  created: true
+  status: true

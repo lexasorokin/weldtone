@@ -1,0 +1,9 @@
+toggle_enabled: 1
+toggle_local_tasks: 1
+default_on: 0
+default_position: bottom-right
+enable_clear_cache: 1
+enable_run_cron: 1
+enable_edit: 1
+enable_logs: 1
+enable_for_users: sbaird

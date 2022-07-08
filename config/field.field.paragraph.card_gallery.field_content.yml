@@ -1,0 +1,21 @@
+uuid: 7c099922-0f34-44fd-990a-fb86ba1ceeb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.card_gallery
+  module:
+    - text
+id: paragraph.card_gallery.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: card_gallery
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

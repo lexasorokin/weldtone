@@ -1,0 +1,27 @@
+uuid: 07ae728d-1fad-497d-9458-7bfc174df322
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_failsafe_number
+_core:
+  default_config_hash: be-CNGCzH6p_9SsP1msj2JKUVLbXEl_aIlCcdoMloBU
+id: moderational_reminder.moderational_reminder.field_mr_failsafe_number
+field_name: field_mr_failsafe_number
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Failsafe period'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

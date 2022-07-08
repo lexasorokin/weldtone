@@ -1,0 +1,18 @@
+uuid: 2c67df90-041f-4f99-aac1-06f7d4308f50
+langcode: en
+status: true
+dependencies: {  }
+id: expandir_close
+label: 'expandir close'
+code: |2-
+    function onClickHandler() {
+      document.getElementById('jumbotrondiv').style.display = 'none';
+    }
+conditions_require_all: true
+conditions: {  }
+contexts: {  }
+header: false
+preprocess: true
+jquery: true
+noscript: ''
+noscriptRegion: {  }

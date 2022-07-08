@@ -1,0 +1,9 @@
+uuid: aa8a4de6-0c5a-4865-8305-2971ac5d8bb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.notification_template
+type: notification_template
+name: 'Notification template'
+description: ''

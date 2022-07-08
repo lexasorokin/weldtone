@@ -1,0 +1,18 @@
+uuid: d667b0e0-aad2-43e7-a36e-56307efee33b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+id: node.report.created
+field_name: created
+entity_type: node
+bundle: report
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

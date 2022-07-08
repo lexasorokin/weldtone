@@ -1,0 +1,25 @@
+uuid: d83eb626-9576-4600-b156-ee36b87fa509
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a57cee52-1b96-4d95-85e6-346104d84206'
+  module:
+    - block_content
+  theme:
+    - civic
+id: secondarymobilemenuopenbutton
+theme: civic
+region: header_left
+weight: 0
+provider: null
+plugin: 'block_content:a57cee52-1b96-4d95-85e6-346104d84206'
+settings:
+  id: 'block_content:a57cee52-1b96-4d95-85e6-346104d84206'
+  label: 'Secondary Mobile Menu Open Button'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

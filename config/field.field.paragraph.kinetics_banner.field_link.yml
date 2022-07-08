@@ -1,0 +1,23 @@
+uuid: 7b17ac15-2bee-4b50-97c2-39cd6a07bb5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.kinetics_banner
+  module:
+    - link
+id: paragraph.kinetics_banner.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: kinetics_banner
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

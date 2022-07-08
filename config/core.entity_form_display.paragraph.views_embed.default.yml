@@ -1,0 +1,45 @@
+uuid: 2fb841d7-faeb-4d4e-af0c-026cf88fd819
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.views_embed.field_additional_styles
+    - field.field.paragraph.views_embed.field_ve_display_type
+    - field.field.paragraph.views_embed.field_ve_views
+    - paragraphs.paragraphs_type.views_embed
+  module:
+    - viewsreference
+id: paragraph.views_embed.default
+targetEntityType: paragraph
+bundle: views_embed
+mode: default
+content:
+  field_additional_styles:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ve_display_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ve_views:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: viewsreference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

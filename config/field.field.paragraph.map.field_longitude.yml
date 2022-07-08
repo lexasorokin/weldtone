@@ -1,0 +1,19 @@
+uuid: c9647fef-b27a-4cb7-a22c-fdfd04923213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_longitude
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_longitude
+field_name: field_longitude
+entity_type: paragraph
+bundle: map
+label: 'Starting Longitude'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

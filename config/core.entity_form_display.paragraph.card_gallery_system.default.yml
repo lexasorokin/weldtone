@@ -1,0 +1,40 @@
+uuid: 0046191d-3c80-496d-9c7e-694750352eee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_gallery_system.field_additional_styles
+    - field.field.paragraph.card_gallery_system.field_card_gallery_item
+    - paragraphs.paragraphs_type.card_gallery_system
+  module:
+    - paragraphs
+id: paragraph.card_gallery_system.default
+targetEntityType: paragraph
+bundle: card_gallery_system
+mode: default
+content:
+  field_additional_styles:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_card_gallery_item:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,25 @@
+uuid: ad8eef5f-787a-4ba8-9cb0-2baed1aba9ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_failsafe_unit
+  module:
+    - options
+_core:
+  default_config_hash: lxcIcRJIgPDPn3zIkSmWCPx2qqkFrubDpfrnGL56ZY0
+id: moderational_reminder.moderational_reminder.field_mr_failsafe_unit
+field_name: field_mr_failsafe_unit
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Failsafe unit'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: days
+default_value_callback: ''
+settings: {  }
+field_type: list_string

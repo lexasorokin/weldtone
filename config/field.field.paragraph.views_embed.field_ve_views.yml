@@ -1,0 +1,60 @@
+uuid: 15cb3669-c3e2-4705-8b89-3dbcaacd0646
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ve_views
+    - paragraphs.paragraphs_type.views_embed
+  module:
+    - viewsreference
+id: paragraph.views_embed.field_ve_views
+field_name: field_ve_views
+entity_type: paragraph
+bundle: views_embed
+label: Views
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    default: default
+    block: block
+    embed: embed
+    page: 0
+    entity_reference: 0
+    feed: 0
+  preselect_views:
+    block_content: 0
+    comment: 0
+    comments_recent: 0
+    content: 0
+    content_recent: 0
+    events: 0
+    featured_content: 0
+    files: 0
+    financial_services: 0
+    frontpage: 0
+    geolocation_blocked_submissions: 0
+    media: 0
+    media_library: 0
+    moderated_content: 0
+    moderation_notifications: 0
+    news: 0
+    redirect: 0
+    scheduler_scheduled_content: 0
+    simplenews_newsletters: 0
+    simplenews_subscribers: 0
+    taxonomy_term: 0
+    text_alert_banners: 0
+    user_admin_people: 0
+    watchdog: 0
+    webform_submissions: 0
+    who_s_new: 0
+    who_s_online: 0
+field_type: viewsreference

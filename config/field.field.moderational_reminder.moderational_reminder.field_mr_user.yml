@@ -1,0 +1,30 @@
+uuid: 7354a746-e0d2-4340-b449-becb4eca524d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_user
+_core:
+  default_config_hash: b-fmNY-O6jviK5Q9XKEGBiTNVG8YAJmyfx_C_zCdFbA
+id: moderational_reminder.moderational_reminder.field_mr_user
+field_name: field_mr_user
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Notify users'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

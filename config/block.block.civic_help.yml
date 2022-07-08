@@ -1,0 +1,22 @@
+uuid: 04d76a27-2d2a-4f15-94dc-cba5e0c13212
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - civic
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: civic_help
+theme: civic
+region: admin_content
+weight: -1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

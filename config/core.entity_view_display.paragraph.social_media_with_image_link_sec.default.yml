@@ -1,0 +1,53 @@
+uuid: 8614e801-e323-4942-9823-da8a040a6cac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.social_media_with_image_link_sec.field_additional_styles
+    - field.field.paragraph.social_media_with_image_link_sec.field_content
+    - field.field.paragraph.social_media_with_image_link_sec.field_embed_col_1
+    - field.field.paragraph.social_media_with_image_link_sec.field_image_link
+    - paragraphs.paragraphs_type.social_media_with_image_link_sec
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.social_media_with_image_link_sec.default
+targetEntityType: paragraph
+bundle: social_media_with_image_link_sec
+mode: default
+content:
+  field_additional_styles:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_embed_col_1:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_image_link:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,15 @@
+uuid: 6f378143-7f6f-4ae3-b260-081a76390958
+langcode: en
+status: true
+dependencies: {  }
+name: featured_content_530_305
+label: 'Featured Content 530*305'
+effects:
+  249c7028-da86-45cb-8850-612686f51cfc:
+    uuid: 249c7028-da86-45cb-8850-612686f51cfc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 530
+      height: 305
+      anchor: center-center

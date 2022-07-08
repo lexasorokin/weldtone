@@ -1,0 +1,25 @@
+uuid: e70c0d96-b2e3-4406-9d9b-007ba26f1a5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bp_card_link
+    - paragraphs.paragraphs_type.bp_card
+  module:
+    - link
+_core:
+  default_config_hash: NUeI9YQ7Ace4svOO3ihw3Y3v_7kjGF_TGNNbW_V6WOs
+id: paragraph.bp_card.bp_card_link
+field_name: bp_card_link
+entity_type: paragraph
+bundle: bp_card
+label: 'Card Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

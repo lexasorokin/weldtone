@@ -1,0 +1,39 @@
+uuid: fcad0a09-6be4-4c25-aa35-be278e338ad2
+langcode: en
+status: true
+dependencies: {  }
+id: scheduler_node_publish
+label: 'Scheduler node publish'
+events:
+  -
+    event_name: scheduler_has_published_this_node_event
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 4770de2e-caf1-4e56-bec0-7188ff7edd67
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 897361f0-fd31-4c8b-aec4-2241031a9e9b
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 71c6b5db-9e3d-4027-9df3-b30654d2d311
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 6412da22-31c1-4e98-af8c-c1da8e4192da
+        weight: 0
+        context_values:
+          value: published
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_data_set

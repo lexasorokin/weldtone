@@ -1,0 +1,19 @@
+uuid: a0f4e836-c055-4a78-b4a5-4035b982a2ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ime_marker_id
+    - paragraphs.paragraphs_type.interactive_map_element
+id: paragraph.interactive_map_element.field_ime_marker_id
+field_name: field_ime_marker_id
+entity_type: paragraph
+bundle: interactive_map_element
+label: 'Marker ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

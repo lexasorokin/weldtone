@@ -1,0 +1,13 @@
+third_party_settings:
+  layout_builder:
+    sections:
+      -
+        layout_settings:
+          label: Principal
+        components:
+          b6a51801-145d-41c7-a36b-c5953d0adf80:
+            configuration:
+              label: Miniatura
+          d22543d7-4471-440d-ab25-2b8658b5e451:
+            configuration:
+              label: Miniatura

@@ -1,0 +1,18 @@
+number_of_inputs: 1
+selector_0: '#homepage-search'
+autocomplete_options_0: "Events[/events]\r\nNews[/news]"
+bg_color_odd_0: '#04bfbf'
+is_bg_color_striped_0: 0
+bg_color_even_0: '#04bfbf'
+selector_: null
+autocomplete_options_: null
+bg_color_odd_: null
+is_bg_color_striped_: null
+bg_color_even_: null
+selector: '#homepage-search'
+autocomplete_options: "Events[/events]\r\nNews[/news]"
+bg_color_odd: '#04bfbf'
+is_bg_color_striped: 0
+bg_color_even: '#04bfbf'
+include_all_nodes: 0
+db_options_processed: {  }

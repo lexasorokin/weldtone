@@ -1,0 +1,24 @@
+uuid: 64c45125-28c9-4254-a426-a533ba056e85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.yellow_image_icons.field_icon_link_yellow
+    - paragraphs.paragraphs_type.yellow_image_icons
+  module:
+    - entity_reference_revisions
+id: paragraph.yellow_image_icons.default
+targetEntityType: paragraph
+bundle: yellow_image_icons
+mode: default
+content:
+  field_icon_link_yellow:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

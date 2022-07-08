@@ -1,0 +1,18 @@
+uuid: ff228c3e-7a8e-46f4-aefb-2ba74de92f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: moderational_reminder.moderational_reminder
+target_entity_type_id: moderational_reminder
+target_bundle: moderational_reminder
+default_langcode: site_default
+language_alterable: false

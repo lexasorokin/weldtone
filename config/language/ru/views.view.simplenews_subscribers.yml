@@ -1,0 +1,53 @@
+label: Подписчики
+display:
+  default:
+    display_title: Основной
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Применить
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      pager:
+        options:
+          tags:
+            previous: '‹ предыдущая'
+            next: 'следующая ›'
+            first: '« первая'
+            last: 'последняя »'
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      fields:
+        mail:
+          label: Email
+        user_name:
+          label: 'Имя пользователя'
+        subscriptions_target_id:
+          label: Подписки
+          separator: ', '
+        status:
+          label: Активно
+        created:
+          label: Создано
+        operations:
+          label: Операции
+      filters:
+        mail:
+          expose:
+            label: Email
+        subscriptions_target_id:
+          expose:
+            label: Рассылки
+        status:
+          expose:
+            label: Активно
+        subscriptions_status:
+          expose:
+            label: Статус
+      title: Подписчики
+  page_1:
+    display_title: Страница

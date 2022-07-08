@@ -1,0 +1,23 @@
+uuid: 56f3f999-97e6-4767-af1d-4dd8bdfbd545
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_embed_col_1
+    - paragraphs.paragraphs_type.embedded_blocks_section
+id: paragraph.embedded_blocks_section.field_embed_col_1
+field_name: field_embed_col_1
+entity_type: paragraph
+bundle: embedded_blocks_section
+label: 'Column 1'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

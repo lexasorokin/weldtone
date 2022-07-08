@@ -1,0 +1,36 @@
+uuid: 5dfc0987-ba14-411d-8f73-2a2a327c8978
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_gallery.field_content
+    - field.field.paragraph.card_gallery.field_image_card
+    - field.field.paragraph.card_gallery.field_link
+    - image.style.services_capabilities_style
+    - paragraphs.paragraphs_type.card_gallery
+  module:
+    - image_link_formatter
+    - text
+id: paragraph.card_gallery.default
+targetEntityType: paragraph
+bundle: card_gallery
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_card:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: services_capabilities_style
+      image_link: field_link
+    third_party_settings: {  }
+    type: image_link_formatter
+    region: content
+hidden:
+  field_link: true

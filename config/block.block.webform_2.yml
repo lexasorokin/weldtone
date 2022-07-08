@@ -1,0 +1,25 @@
+uuid: 55d8007c-2d84-4190-aef6-b23b855d7c07
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.media_credential_form
+  module:
+    - webform
+  theme:
+    - civic
+id: webform_2
+theme: civic
+region: no_location
+weight: -15
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Media Credential Form'
+  provider: webform
+  label_display: visible
+  webform_id: media_credential_form
+  default_data: ''
+  redirect: false
+visibility: {  }

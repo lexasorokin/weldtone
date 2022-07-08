@@ -1,0 +1,10 @@
+uuid: ed0fc754-6ee1-4ffb-94d5-2a79bb1ea087
+langcode: en
+status: true
+dependencies: {  }
+id: kinetics_banner
+label: 'kinetics banner field'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

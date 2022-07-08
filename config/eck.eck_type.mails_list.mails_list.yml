@@ -1,0 +1,9 @@
+uuid: b71a6cce-f141-403d-83ab-4b13a39d2353
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.mails_list
+type: mails_list
+name: 'Emails list'
+description: ''

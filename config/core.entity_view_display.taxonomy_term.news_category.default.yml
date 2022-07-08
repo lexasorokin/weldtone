@@ -1,0 +1,31 @@
+uuid: 7770884c-49bf-4bd2-9abb-faa4ff40b486
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.news_category.field_nc_breadcrumb_elem
+    - taxonomy.vocabulary.news_category
+  module:
+    - text
+id: taxonomy_term.news_category.default
+targetEntityType: taxonomy_term
+bundle: news_category
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_nc_breadcrumb_elem:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

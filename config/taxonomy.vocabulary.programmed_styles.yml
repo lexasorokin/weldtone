@@ -1,0 +1,8 @@
+uuid: 4f9c506a-649e-4797-907d-ffd28ae1431f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Programmed Styles'
+vid: programmed_styles
+description: ''
+weight: 0

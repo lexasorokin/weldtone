@@ -1,0 +1,25 @@
+uuid: fce7a397-1c85-4995-858f-28f201723afa
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c1b834d9-9869-4852-bb24-1e7200a3d1df'
+  module:
+    - block_content
+  theme:
+    - civic
+id: search
+theme: civic
+region: header_right
+weight: -26
+provider: null
+plugin: 'block_content:c1b834d9-9869-4852-bb24-1e7200a3d1df'
+settings:
+  id: 'block_content:c1b834d9-9869-4852-bb24-1e7200a3d1df'
+  label: Search
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

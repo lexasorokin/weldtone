@@ -1,0 +1,14 @@
+uuid: 8215b8d0-fd6e-4d80-ae9f-43d7d7fcd5a9
+langcode: en
+status: true
+dependencies: {  }
+id: after_publish_the_content
+label: 'After publish the content'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state--content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

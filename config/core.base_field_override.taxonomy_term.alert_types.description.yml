@@ -1,0 +1,20 @@
+uuid: a7951581-9a31-480a-9354-f432156c461d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.alert_types
+  module:
+    - text
+id: taxonomy_term.alert_types.description
+field_name: description
+entity_type: taxonomy_term
+bundle: alert_types
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

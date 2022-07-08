@@ -1,0 +1,22 @@
+uuid: b6d3bf55-3e34-41df-a966-85e7832720bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - user
+_core:
+  default_config_hash: We_K2a560-V4mp0Y42QSDklCPQwnPz4EFO8ozl2NQig
+id: moderational_reminder.field_mr_user
+field_name: field_mr_user
+entity_type: moderational_reminder
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

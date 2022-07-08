@@ -1,0 +1,24 @@
+uuid: 5737d232-8a55-45f3-a980-7f30c983cbe3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.featured_content
+  module:
+    - views
+  theme:
+    - civic
+id: views_block__featured_content_featured_content_block
+theme: civic
+region: no_location
+weight: -21
+provider: null
+plugin: 'views_block:featured_content-featured_content_block'
+settings:
+  id: 'views_block:featured_content-featured_content_block'
+  label: 'FEATURED CONTENT'
+  provider: views
+  label_display: visible
+  views_label: 'FEATURED CONTENT'
+  items_per_page: none
+visibility: {  }

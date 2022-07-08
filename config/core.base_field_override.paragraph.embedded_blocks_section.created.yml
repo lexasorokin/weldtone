@@ -1,0 +1,18 @@
+uuid: 0f3627de-4028-4b1b-be34-3b8a63ea8b95
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.embedded_blocks_section
+id: paragraph.embedded_blocks_section.created
+field_name: created
+entity_type: paragraph
+bundle: embedded_blocks_section
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

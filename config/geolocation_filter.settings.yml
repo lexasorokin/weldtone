@@ -1,0 +1,7 @@
+blocked_countries: 'CN, KP, MX, RU'
+blocked_ip_addresses: ''
+message_type_on_blocked_submission: status
+error_message: 'There was a problem with your submission. Please try again later.'
+success_message: 'Your message has been sent.'
+should_redirect: 0
+redirect_url: /

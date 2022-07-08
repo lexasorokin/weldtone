@@ -1,0 +1,25 @@
+uuid: 2bb4f30f-c04d-47c1-9a3f-cd83d2115486
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.language
+  module:
+    - system
+  theme:
+    - civic
+id: language_2
+theme: civic
+region: disabled
+weight: -21
+provider: null
+plugin: 'system_menu_block:language'
+settings:
+  id: 'system_menu_block:language'
+  label: Language
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

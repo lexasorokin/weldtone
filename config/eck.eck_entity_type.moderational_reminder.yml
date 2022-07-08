@@ -1,0 +1,12 @@
+uuid: 8fdbc629-1cba-4722-bd75-830c3bec4d07
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SeR6T-OWPPSqSn4ZoEHJy9ocoCnaJp8Juzl6l3GORlo
+id: moderational_reminder
+label: 'Moderational reminder'
+created: true
+changed: true
+uid: true
+title: true

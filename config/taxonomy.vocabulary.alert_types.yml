@@ -1,0 +1,10 @@
+uuid: 470ed7bd-9f97-45ef-a386-a8fbdf25bf48
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HrwtipgIAZ63v53eJ-0xa-1yOQUbQ3pdMIgkfHggWsg
+name: 'Alert Types'
+vid: alert_types
+description: ''
+weight: 0

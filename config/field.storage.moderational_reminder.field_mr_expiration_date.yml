@@ -1,0 +1,22 @@
+uuid: 9a87def6-86cf-49c5-a3ff-38d182ff4ad0
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - eck
+_core:
+  default_config_hash: k4GpT0GIl-QIxz0ZIF-SUrXXvGGLUsdppNnYXmAICfM
+id: moderational_reminder.field_mr_expiration_date
+field_name: field_mr_expiration_date
+entity_type: moderational_reminder
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

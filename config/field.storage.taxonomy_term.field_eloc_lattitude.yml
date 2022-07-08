@@ -1,0 +1,21 @@
+uuid: 4079d8d9-7681-4148-9583-c79a33c0f733
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_eloc_lattitude
+field_name: field_eloc_lattitude
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,18 @@
+uuid: da64dbea-cf0f-4bec-91ca-b48134b6b0cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.emergency_alert
+id: node.emergency_alert.publish_on
+field_name: publish_on
+entity_type: node
+bundle: emergency_alert
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

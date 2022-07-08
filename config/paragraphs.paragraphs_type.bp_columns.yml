@@ -1,0 +1,12 @@
+uuid: b2528ed2-09bd-4765-b9fc-5d5aa34e9352
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZIqYoYeeg89FHoqWHTADdXPP-6bpFlyUg0HPB1iShSA
+id: bp_columns
+label: 'Card Gallery Columns (Equal)'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,68 @@
+uuid: 9403e55a-d441-47d3-9a51-3d8c0a857b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.alert_types.field_bg_color
+    - field.field.taxonomy_term.alert_types.field_icon_classes
+    - taxonomy.vocabulary.alert_types
+  module:
+    - color_field
+    - path
+    - text
+id: taxonomy_term.alert_types.default
+targetEntityType: taxonomy_term
+bundle: alert_types
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_bg_color:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: color_field_widget_html5
+    region: content
+  field_icon_classes:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+hidden: {  }

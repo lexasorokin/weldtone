@@ -1,0 +1,10 @@
+uuid: 1ec6b2ab-22bc-4a7d-900a-f509be151d77
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gdms8kL--AGrv9urRiHLQmQR9kfo4IB3NW21X67YKBU
+name: 'Board meeting title templates'
+vid: board_meeting_title_templates
+description: ''
+weight: 0

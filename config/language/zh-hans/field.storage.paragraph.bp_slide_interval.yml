@@ -1,0 +1,18 @@
+settings:
+  allowed_values:
+    -
+      label: 无
+    -
+      label: 1秒
+    -
+      label: 2秒
+    -
+      label: 3秒
+    -
+      label: 4秒
+    -
+      label: 5秒
+    -
+      label: 6秒
+    -
+      label: 7秒

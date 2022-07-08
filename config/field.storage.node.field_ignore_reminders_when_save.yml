@@ -1,0 +1,18 @@
+uuid: 08d1551f-1280-4e77-9b42-5577849a84fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ignore_reminders_when_save
+field_name: field_ignore_reminders_when_save
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

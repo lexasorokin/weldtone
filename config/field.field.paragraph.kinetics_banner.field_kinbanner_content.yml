@@ -1,0 +1,21 @@
+uuid: 6367afe4-ac39-4563-bff7-02de4bdf4c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_kinbanner_content
+    - paragraphs.paragraphs_type.kinetics_banner
+  module:
+    - text
+id: paragraph.kinetics_banner.field_kinbanner_content
+field_name: field_kinbanner_content
+entity_type: paragraph
+bundle: kinetics_banner
+label: 'Kinetics Banner Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

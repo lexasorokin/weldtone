@@ -1,0 +1,36 @@
+uuid: a2b8a4fa-916e-4deb-8bc7-e838ce4fb5c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.we_serve_block_images_w_text.field_bg_image
+    - field.field.paragraph.we_serve_block_images_w_text.field_content
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.we_serve_block_images_w_text
+  module:
+    - svg_image
+    - text
+id: paragraph.we_serve_block_images_w_text.default
+targetEntityType: paragraph
+bundle: we_serve_block_images_w_text
+mode: default
+content:
+  field_bg_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_content:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

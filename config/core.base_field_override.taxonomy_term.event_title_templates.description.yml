@@ -1,0 +1,20 @@
+uuid: 8cd0dbbe-df16-44e4-8740-f9afe811fc33
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_title_templates
+  module:
+    - text
+id: taxonomy_term.event_title_templates.description
+field_name: description
+entity_type: taxonomy_term
+bundle: event_title_templates
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

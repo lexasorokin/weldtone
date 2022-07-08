@@ -1,0 +1,21 @@
+uuid: 85488743-4ee0-44c9-87de-703805565e9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: notification.field_notification_receiver
+field_name: field_notification_receiver
+entity_type: notification
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

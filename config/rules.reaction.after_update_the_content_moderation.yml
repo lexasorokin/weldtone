@@ -1,0 +1,58 @@
+uuid: d3b179e3-1339-4522-b2ca-0b320f148638
+langcode: en
+status: true
+dependencies: {  }
+id: after_update_the_content_moderation
+label: 'After update the content moderation'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state--content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: e498720a-b722-4041-9cc5-84226cb05c08
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: fd5332c6-a7e9-46d7-bc8b-451642383320
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 0c9c71f8-5ce8-4a4f-ab5a-57b694e137a2
+        weight: 0
+        context_values:
+          operation: '=='
+          value: published
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: 3e5a4f07-4f94-4429-9b21-03001e2fbeaf
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 56ef55db-a541-45d0-9365-7afe0d2712f1
+        weight: 0
+        context_values:
+          type: node
+          entity_id: content_moderation_state.content_entity_id.value
+        context_mapping: {  }
+        context_processors:
+          type:
+            rules_tokens: {  }
+          entity_id:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id

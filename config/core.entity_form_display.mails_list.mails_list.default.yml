@@ -1,0 +1,36 @@
+uuid: acf0c52a-35a6-4deb-a45a-0e3b424c4466
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.mails_list.mails_list
+    - field.field.mails_list.mails_list.field_mails_list_addresses
+id: mails_list.mails_list.default
+targetEntityType: mails_list
+bundle: mails_list
+mode: default
+content:
+  field_mails_list_addresses:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,10 @@
+uuid: 673b56e1-8cbc-42c7-96a8-67b7af79696e
+langcode: en
+status: true
+dependencies: {  }
+id: image_with_icon_and_link
+label: 'Banner with Icon and link'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

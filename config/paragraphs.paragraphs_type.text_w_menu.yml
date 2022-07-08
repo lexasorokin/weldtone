@@ -1,0 +1,10 @@
+uuid: f7e83f31-14d1-49d1-afed-f539502c4017
+langcode: en
+status: true
+dependencies: {  }
+id: text_w_menu
+label: 'Text w/Menu'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

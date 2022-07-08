@@ -1,0 +1,121 @@
+uuid: dae9289c-a805-4f29-aee1-34398d473bef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map.field_filter_1
+    - field.field.paragraph.map.field_filter_1_label
+    - field.field.paragraph.map.field_filter_2
+    - field.field.paragraph.map.field_filter_2_label
+    - field.field.paragraph.map.field_include_city_filter
+    - field.field.paragraph.map.field_include_zip_filter
+    - field.field.paragraph.map.field_latitude
+    - field.field.paragraph.map.field_longitude
+    - field.field.paragraph.map.field_map_locations
+    - field.field.paragraph.map.field_paragraph_title
+    - field.field.paragraph.map.field_zoom
+    - paragraphs.paragraphs_type.map
+  module:
+    - entity_reference_revisions
+id: paragraph.map.default
+targetEntityType: paragraph
+bundle: map
+mode: default
+content:
+  field_filter_1:
+    weight: 5
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_filter_1_label:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_filter_2:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_filter_2_label:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_include_city_filter:
+    weight: 10
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_include_zip_filter:
+    weight: 9
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_latitude:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_longitude:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_map_locations:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_title:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_zoom:
+    weight: 2
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+hidden: {  }

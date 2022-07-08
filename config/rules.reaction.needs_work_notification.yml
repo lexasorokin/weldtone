@@ -1,0 +1,81 @@
+uuid: da596aab-ed14-4534-83e0-2c87612eb840
+langcode: en
+status: true
+dependencies: {  }
+id: needs_work_notification
+label: 'Needs Work Notification'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: edea9775-4400-4fea-b5da-093d03166c86
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 2b5648b9-711b-4e19-959d-297d5dbd9ac8
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 967642dc-8c11-44a9-9ca5-f14631bddb4b
+        weight: 0
+        context_values:
+          operation: '=='
+          value: needs_work
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: f8f5dcbd-3b22-4175-8c79-da075effb6c4
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 411774d2-5a29-467b-9117-96507b4cb112
+        weight: 0
+        context_values:
+          type: node
+        context_mapping:
+          entity_id: content_moderation_state.content_entity_id.value
+        context_processors:
+          type:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id
+      -
+        id: rules_action
+        uuid: 916f6a36-7f46-45d1-bf32-0d5b0a5340fb
+        weight: 0
+        context_values:
+          to:
+            - '{{ entity_fetched.uid.entity.mail.value }}'
+          subject: 'Your MesaWater.org Content, "{{ entity_fetched.title.value }}", Needs Additional Work'
+          message: "Link: https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }}. Notes: {{ entity_fetched.revision_log.value }}\r\nIf you have any questions, please contact the Public Affairs team."
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

@@ -1,0 +1,38 @@
+uuid: 0e2be72f-3eb8-4fdf-be8c-c4fbdf30c855
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_location_type_image
+    - taxonomy.vocabulary.location_type
+  module:
+    - image
+id: taxonomy_term.location_type.field_location_type_image
+field_name: field_location_type_image
+entity_type: taxonomy_term
+bundle: location_type
+label: 'Location Type Image'
+description: 'If an image and an icon are both supplied, only the icon will be used.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg svg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

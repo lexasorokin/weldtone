@@ -1,0 +1,10 @@
+uuid: 972929e0-0d55-42b6-9451-7f332becca31
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3fI6FRtV9Fuey2DFelXHgxKbnsFt4LctsMfq8YKfnIY
+name: 'Board meeting category'
+vid: board_meeting_category
+description: ''
+weight: 0

@@ -1,0 +1,18 @@
+uuid: 752deb1e-7ae4-4ab6-94a7-64bc52edead5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.newsletter
+id: node.newsletter.publish_on
+field_name: publish_on
+entity_type: node
+bundle: newsletter
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

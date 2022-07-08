@@ -1,0 +1,15 @@
+uuid: bd099d71-fa44-446e-a72a-00451de0f7ba
+langcode: en
+status: true
+dependencies: {  }
+name: person_square_300x300
+label: person_square_300x300
+effects:
+  dd75a9bd-b7b6-4249-ae41-004dd596b751:
+    uuid: dd75a9bd-b7b6-4249-ae41-004dd596b751
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 300
+      anchor: center-center

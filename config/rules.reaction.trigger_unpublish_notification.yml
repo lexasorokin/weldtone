@@ -1,0 +1,51 @@
+uuid: 7e8ba8c6-0c43-4574-884b-c5e3ee5ea3a2
+langcode: en
+status: true
+dependencies: {  }
+id: trigger_unpublish_notification
+label: 'Trigger unpublish notification'
+events:
+  -
+    event_name: node_notification_is_being_evaluated_event
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: fa02f5eb-9bd1-492f-b40b-3e660facc067
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 843aa652-db94-4a7e-bff7-5f1d59da43d2
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 87ec3936-42ce-48ce-b9bd-daaed08183f0
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 61faff0d-e259-4440-99f8-82673d01c076
+        weight: 0
+        context_values:
+          to:
+            - '{{ node.uid.entity.mail.value }}'
+          subject: 'MesaWater.org Content Set to Expire'
+          message: "Hi-\r\n\r\nThe website page https://mesawater-drupal.360-biz.com/node/{{ node.nid.value }} is set to expire on {{node.unpublish_on.value|format_date()}}. Please review the content on this page and make any necessary changes as soon as possible.\r\n\r\nExpired pages will be removed from the website. If you have any questions or require additional time, please contact the Public Affairs team.\r\n\r\nThank you,\r\n\r\nPublic Affairs"
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

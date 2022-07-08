@@ -1,0 +1,20 @@
+uuid: b7b132b7-afde-4012-9cf0-5aa051eb324b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - civic
+id: views_block__events_block_3
+theme: civic
+region: no_location
+weight: -24
+provider: null
+plugin: 'views_block:events-block_3'
+settings:
+  id: 'views_block:events-block_3'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

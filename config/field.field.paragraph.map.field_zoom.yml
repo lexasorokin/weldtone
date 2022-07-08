@@ -1,0 +1,23 @@
+uuid: 5b83ce02-e62a-4c71-8b85-c3c50214540c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_zoom
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_zoom
+field_name: field_zoom
+entity_type: paragraph
+bundle: map
+label: 'Starting Zoom'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

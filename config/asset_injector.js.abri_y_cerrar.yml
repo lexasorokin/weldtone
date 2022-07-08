@@ -1,0 +1,23 @@
+uuid: ca95cc33-d56b-419a-a147-2224e648dd01
+langcode: en
+status: true
+dependencies: {  }
+id: abri_y_cerrar
+label: 'abri y cerrar'
+code: |-
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+conditions_require_all: true
+conditions: {  }
+contexts: {  }
+header: false
+preprocess: true
+jquery: true
+noscript: ''
+noscriptRegion: {  }

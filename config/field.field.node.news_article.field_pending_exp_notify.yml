@@ -1,0 +1,23 @@
+uuid: 5e5253b3-85f0-40f3-bce8-4dac268be9f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pending_exp_notify
+    - node.type.news_article
+id: node.news_article.field_pending_exp_notify
+field_name: field_pending_exp_notify
+entity_type: node
+bundle: news_article
+label: 'Pending expiration notifications'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

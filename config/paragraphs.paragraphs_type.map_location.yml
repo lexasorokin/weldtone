@@ -1,0 +1,10 @@
+uuid: 6f5bc1c2-a6cd-4cc0-9e0f-1501083e3563
+langcode: en
+status: true
+dependencies: {  }
+id: map_location
+label: 'Map Location'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

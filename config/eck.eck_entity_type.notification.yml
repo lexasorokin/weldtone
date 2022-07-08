@@ -1,0 +1,10 @@
+uuid: 706646e7-cf95-4205-89a4-7aa545d70d1e
+langcode: en
+status: true
+dependencies: {  }
+id: notification
+label: Notification
+created: true
+changed: false
+uid: false
+title: true

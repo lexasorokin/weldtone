@@ -1,0 +1,169 @@
+uuid: 925819d1-780a-4932-8c22-b4abd8f9dadb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.field.moderational_reminder.moderational_reminder.field_mr_eed
+    - field.field.moderational_reminder.moderational_reminder.field_mr_expiration_date
+    - field.field.moderational_reminder.moderational_reminder.field_mr_expiration_period_numb
+    - field.field.moderational_reminder.moderational_reminder.field_mr_expiration_period_unit
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_number
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_unit
+    - field.field.moderational_reminder.moderational_reminder.field_mr_failsafe_user
+    - field.field.moderational_reminder.moderational_reminder.field_mr_fed
+    - field.field.moderational_reminder.moderational_reminder.field_mr_ignore
+    - field.field.moderational_reminder.moderational_reminder.field_mr_period_number
+    - field.field.moderational_reminder.moderational_reminder.field_mr_period_unit
+    - field.field.moderational_reminder.moderational_reminder.field_mr_unpublish
+    - field.field.moderational_reminder.moderational_reminder.field_mr_user
+  module:
+    - datetime
+    - options
+    - user
+_core:
+  default_config_hash: QuX4KvJMmvWjos0TetTda5gHbwgntPF5PjuPi7cSUy0
+id: moderational_reminder.moderational_reminder.default
+targetEntityType: moderational_reminder
+bundle: moderational_reminder
+mode: default
+content:
+  created:
+    label: hidden
+    type: timestamp
+    weight: 0
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_mr_eed:
+    weight: 9
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_mr_expiration_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_mr_expiration_period_numb:
+    weight: 11
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_mr_expiration_period_unit:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_mr_failsafe_number:
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_mr_failsafe_unit:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_mr_failsafe_user:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_mr_fed:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_mr_ignore:
+    weight: 13
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_mr_period_number:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_mr_period_unit:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_mr_unpublish:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_mr_user:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  uid:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  changed: true
+  langcode: true

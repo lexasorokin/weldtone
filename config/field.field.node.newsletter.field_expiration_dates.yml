@@ -1,0 +1,19 @@
+uuid: 207169c7-0ccf-4596-b22a-b92ee69fe7c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expiration_dates
+    - node.type.newsletter
+id: node.newsletter.field_expiration_dates
+field_name: field_expiration_dates
+entity_type: node
+bundle: newsletter
+label: 'Expiration dates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

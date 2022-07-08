@@ -1,0 +1,25 @@
+uuid: d8691eff-89c2-4cdb-97d1-50ceef1e9aa9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image_block:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+  module:
+    - block_content
+  theme:
+    - civic
+id: headerlogo
+theme: civic
+region: header_left
+weight: -14
+provider: null
+plugin: 'block_content:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+settings:
+  id: 'block_content:65767a3d-72ef-4ef0-b8c2-69248a2f26df'
+  label: 'Header Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

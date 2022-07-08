@@ -1,0 +1,17 @@
+uuid: c7fc3880-11a1-4138-b697-659393401c32
+langcode: en
+status: true
+dependencies:
+  module:
+    - mesa_moderation
+title: 'Default cron handler'
+id: mesa_moderation_cron
+weight: 0
+module: mesa_moderation
+callback: mesa_moderation_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

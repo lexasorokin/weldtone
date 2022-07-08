@@ -1,0 +1,29 @@
+uuid: 51a72a7f-1020-4e59-8220-f32c77f0a5df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.history_item.body
+    - node.type.history_item
+  module:
+    - text
+    - user
+id: node.history_item.default
+targetEntityType: node
+bundle: history_item
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

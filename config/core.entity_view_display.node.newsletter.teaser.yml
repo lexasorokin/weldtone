@@ -1,0 +1,43 @@
+uuid: ecf826ed-d044-4996-825e-f99cd3165507
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.newsletter.body
+    - field.field.node.newsletter.field_expiration_dates
+    - field.field.node.newsletter.field_ignore_reminders_when_save
+    - field.field.node.newsletter.field_moderational_reminders
+    - field.field.node.newsletter.field_newsletter_file
+    - field.field.node.newsletter.field_newsletter_image
+    - field.field.node.newsletter.field_reminders_titles
+    - node.type.newsletter
+  module:
+    - text
+    - user
+id: node.newsletter.teaser
+targetEntityType: node
+bundle: newsletter
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_expiration_dates: true
+  field_ignore_reminders_when_save: true
+  field_moderational_reminders: true
+  field_newsletter_file: true
+  field_newsletter_image: true
+  field_reminders_titles: true
+  langcode: true

@@ -1,0 +1,21 @@
+uuid: 49a2d90c-8c75-451e-af48-64f243dbcdf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.quality_and_certification_block
+  module:
+    - text
+id: paragraph.quality_and_certification_block.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: quality_and_certification_block
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

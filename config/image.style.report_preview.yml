@@ -1,0 +1,15 @@
+uuid: ffdfc7bd-52b5-4919-8b67-89101698127c
+langcode: en
+status: true
+dependencies: {  }
+name: report_preview
+label: 'Report preview'
+effects:
+  c1ce0cff-fead-40f0-a2fe-ac4943ba24b1:
+    uuid: c1ce0cff-fead-40f0-a2fe-ac4943ba24b1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 72
+      height: 93
+      anchor: center-center

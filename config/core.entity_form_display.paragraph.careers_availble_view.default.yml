@@ -1,0 +1,29 @@
+uuid: beae4b29-2cb9-46c5-a68d-148a1b4e25a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.careers_availble_view.field_careers_positions
+    - paragraphs.paragraphs_type.careers_availble_view
+  module:
+    - paragraphs
+id: paragraph.careers_availble_view.default
+targetEntityType: paragraph
+bundle: careers_availble_view
+mode: default
+content:
+  field_careers_positions:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

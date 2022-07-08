@@ -1,0 +1,22 @@
+uuid: 69125288-fa1d-4104-b538-99924d2de07e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - civic
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: civic_breadcrumbs
+theme: civic
+region: no_location
+weight: -3
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

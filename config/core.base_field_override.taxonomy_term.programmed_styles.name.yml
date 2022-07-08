@@ -1,0 +1,18 @@
+uuid: 48915b6d-6735-4989-b949-8857332b8373
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.programmed_styles
+id: taxonomy_term.programmed_styles.name
+field_name: name
+entity_type: taxonomy_term
+bundle: programmed_styles
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

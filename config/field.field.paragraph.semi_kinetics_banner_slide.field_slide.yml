@@ -1,0 +1,85 @@
+uuid: 9cf44848-2aa9-4ba1-97a9-3a3c8de6e753
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide
+    - paragraphs.paragraphs_type.image_with_icon_and_link
+    - paragraphs.paragraphs_type.semi_kinetics_banner_slide
+  module:
+    - entity_reference_revisions
+id: paragraph.semi_kinetics_banner_slide.field_slide
+field_name: field_slide
+entity_type: paragraph
+bundle: semi_kinetics_banner_slide
+label: slide
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_with_icon_and_link: image_with_icon_and_link
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 20
+        enabled: false
+      bg_image_section:
+        weight: 21
+        enabled: false
+      date_specific_content:
+        weight: 22
+        enabled: false
+      embedded_blocks_section:
+        weight: 23
+        enabled: false
+      image_link:
+        weight: 24
+        enabled: false
+      image_with_icon_and_link:
+        enabled: true
+        weight: 25
+      interactive_map:
+        weight: 26
+        enabled: false
+      interactive_map_element:
+        weight: 27
+        enabled: false
+      kinetics_banner:
+        weight: 28
+        enabled: false
+      link_with_icon:
+        weight: 29
+        enabled: false
+      map:
+        weight: 30
+        enabled: false
+      map_location:
+        weight: 31
+        enabled: false
+      menu:
+        weight: 32
+        enabled: false
+      menu_item:
+        weight: 33
+        enabled: false
+      search_section:
+        weight: 34
+        enabled: false
+      semi_kinetics_banner_slide:
+        weight: 35
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 36
+        enabled: false
+      text_w_menu:
+        weight: 37
+        enabled: false
+      views_embed:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

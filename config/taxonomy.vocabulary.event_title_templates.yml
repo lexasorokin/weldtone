@@ -1,0 +1,8 @@
+uuid: 9eb50b8d-4e93-437e-b869-92532c20e5d0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event title templates'
+vid: event_title_templates
+description: ''
+weight: 0

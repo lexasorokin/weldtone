@@ -1,0 +1,25 @@
+uuid: d93f4817-543b-40cc-909e-b99643776798
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.agenda_notification_signup
+  module:
+    - webform
+  theme:
+    - civic
+id: webform_4
+theme: civic
+region: no_location
+weight: -5
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: '0'
+  webform_id: agenda_notification_signup
+  default_data: ''
+  redirect: false
+visibility: {  }

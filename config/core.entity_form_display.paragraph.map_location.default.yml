@@ -1,0 +1,88 @@
+uuid: a8f80e52-82e8-4ccc-bade-93007143b4bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_location.field_latitude
+    - field.field.paragraph.map_location.field_location_address
+    - field.field.paragraph.map_location.field_location_city
+    - field.field.paragraph.map_location.field_location_name
+    - field.field.paragraph.map_location.field_location_state
+    - field.field.paragraph.map_location.field_location_zip
+    - field.field.paragraph.map_location.field_longitude
+    - field.field.paragraph.map_location.field_tags
+    - paragraphs.paragraphs_type.map_location
+id: paragraph.map_location.default
+targetEntityType: paragraph
+bundle: map_location
+mode: default
+content:
+  field_latitude:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_address:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_city:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_state:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_zip:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_longitude:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_tags:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,20 @@
+uuid: c1f9e1b2-3cd2-4b80-8dc8-0f664715794e
+langcode: en
+status: true
+dependencies:
+  module:
+    - gtranslate
+  theme:
+    - civic
+id: gtranslate
+theme: civic
+region: no_location
+weight: -26
+provider: null
+plugin: gtranslate_block
+settings:
+  id: gtranslate_block
+  label: GTranslate
+  provider: gtranslate
+  label_display: '0'
+visibility: {  }

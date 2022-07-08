@@ -1,0 +1,10 @@
+uuid: 3872d6ce-bfd5-44fd-a1ad-7c301e7ca931
+langcode: en
+status: true
+dependencies: {  }
+id: interactive_map_element
+label: 'Interactive map element'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

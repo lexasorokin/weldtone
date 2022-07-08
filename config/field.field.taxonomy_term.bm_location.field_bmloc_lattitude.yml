@@ -1,0 +1,21 @@
+uuid: 80b803cc-054e-4186-aaf9-0f34168494fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_bmloc_lattitude
+    - taxonomy.vocabulary.bm_location
+_core:
+  default_config_hash: 9fBMr9jJlhVUzZb9BQQLUDrCEJNkPzkUr5c-r_nN6SY
+id: taxonomy_term.bm_location.field_bmloc_lattitude
+field_name: field_bmloc_lattitude
+entity_type: taxonomy_term
+bundle: bm_location
+label: Lattitude
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

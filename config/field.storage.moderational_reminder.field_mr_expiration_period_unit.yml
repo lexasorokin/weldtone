@@ -1,0 +1,33 @@
+uuid: 5227af82-1541-4f4d-9da0-3074c3860aca
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: moderational_reminder.field_mr_expiration_period_unit
+field_name: field_mr_expiration_period_unit
+entity_type: moderational_reminder
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: days
+      label: days
+    -
+      value: weeks
+      label: weeks
+    -
+      value: months
+      label: months
+    -
+      value: years
+      label: years
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

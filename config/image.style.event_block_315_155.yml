@@ -1,0 +1,15 @@
+uuid: 4c6af693-4a6e-4d45-acba-e00207bcdb2a
+langcode: en
+status: true
+dependencies: {  }
+name: event_block_315_155
+label: 'Event Block 215*155'
+effects:
+  6169badd-72c1-43f7-8372-d77ce59150a8:
+    uuid: 6169badd-72c1-43f7-8372-d77ce59150a8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 215
+      height: 100
+      anchor: center-center

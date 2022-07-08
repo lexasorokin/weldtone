@@ -1,0 +1,19 @@
+uuid: 8ff0316b-2dad-4970-88d4-a34c1aee3ef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ime_marker_lat
+    - paragraphs.paragraphs_type.interactive_map_element
+id: paragraph.interactive_map_element.field_ime_marker_lat
+field_name: field_ime_marker_lat
+entity_type: paragraph
+bundle: interactive_map_element
+label: 'Marker lat'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,14 @@
+language_select: ru
+menu_items_es: 'Events ^ Hamburgers'
+menu_items_ar: 'Events ^ Pita Hot'
+menu_items_zh-hans: 'Events ^ Hot Dogs'
+menu_items_ru: 'Events ^ Vodka'
+menu_translations:
+  es:
+    Events: Hamburgers
+  ar:
+    Events: 'Pita Hot'
+  zh-hans:
+    Events: 'Hot Dogs'
+  ru:
+    Events: Vodka

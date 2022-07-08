@@ -1,0 +1,9 @@
+uuid: 704dfe43-288b-4c24-bd1f-e4e9c8c78d3d
+langcode: en
+status: true
+dependencies: {  }
+id: published_content
+label: 'published content'
+weight: 3
+is_admin: null
+permissions: {  }

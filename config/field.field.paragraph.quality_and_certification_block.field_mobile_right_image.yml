@@ -1,0 +1,38 @@
+uuid: a5623a5e-ceaa-457e-aec0-a8e16a5ba83e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mobile_right_image
+    - paragraphs.paragraphs_type.quality_and_certification_block
+  module:
+    - image
+id: paragraph.quality_and_certification_block.field_mobile_right_image
+field_name: field_mobile_right_image
+entity_type: paragraph
+bundle: quality_and_certification_block
+label: 'mobile right image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: e97d4243-d4cf-4bc5-ab72-38c09413791f
+    alt: ''
+    title: ''
+    width: 180
+    height: 469
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

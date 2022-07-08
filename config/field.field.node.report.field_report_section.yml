@@ -1,0 +1,29 @@
+uuid: c9c50f28-26f7-4023-a73c-04dbeab5bb0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_section
+    - node.type.report
+    - taxonomy.vocabulary.report_section
+id: node.report.field_report_section
+field_name: field_report_section
+entity_type: node
+bundle: report
+label: Section
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      report_section: report_section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: baa5a650-3409-4561-9970-84375f93c6f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.board_meeting_title_templates
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+_core:
+  default_config_hash: Odiw23NGb_jq1jW2JZYer29gGrLch1Zw1jWcYneFkT4
+id: taxonomy_term.board_meeting_title_templates
+target_entity_type_id: taxonomy_term
+target_bundle: board_meeting_title_templates
+default_langcode: site_default
+language_alterable: true

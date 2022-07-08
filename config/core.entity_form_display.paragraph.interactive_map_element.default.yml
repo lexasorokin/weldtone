@@ -1,0 +1,144 @@
+uuid: 5a23b116-3572-4a20-b4fd-74d09d707f3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.interactive_map_element.field_ime_contact_image
+    - field.field.paragraph.interactive_map_element.field_ime_contact_name
+    - field.field.paragraph.interactive_map_element.field_ime_division_name
+    - field.field.paragraph.interactive_map_element.field_ime_fill_color
+    - field.field.paragraph.interactive_map_element.field_ime_label_direction
+    - field.field.paragraph.interactive_map_element.field_ime_marker_id
+    - field.field.paragraph.interactive_map_element.field_ime_marker_lat
+    - field.field.paragraph.interactive_map_element.field_ime_marker_lon
+    - field.field.paragraph.interactive_map_element.field_ime_polygon_points
+    - field.field.paragraph.interactive_map_element.field_ime_stroke_color
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.interactive_map_element
+  module:
+    - field_group
+    - svg_image
+third_party_settings:
+  field_group:
+    group_element_data:
+      children:
+        - field_ime_marker_id
+        - field_ime_contact_name
+        - field_ime_contact_image
+        - field_ime_label_direction
+        - field_ime_fill_color
+        - field_ime_stroke_color
+        - field_ime_marker_lat
+        - field_ime_marker_lon
+        - group_polygon_points
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Element data'
+    group_polygon_points:
+      children:
+        - field_ime_polygon_points
+      parent_name: group_element_data
+      weight: 16
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Polygon points'
+id: paragraph.interactive_map_element.default
+targetEntityType: paragraph
+bundle: interactive_map_element
+mode: default
+content:
+  field_ime_contact_image:
+    weight: 10
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ime_contact_name:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_division_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_fill_color:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_label_direction:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ime_marker_id:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_marker_lat:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_marker_lon:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ime_polygon_points:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_ime_stroke_color:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

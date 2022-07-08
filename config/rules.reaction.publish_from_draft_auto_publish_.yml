@@ -1,0 +1,98 @@
+uuid: f1b0ab8a-ccce-4df1-87c0-087cafbdcdbf
+langcode: en
+status: false
+dependencies: {  }
+id: publish_from_draft_auto_publish_
+label: 'Publish from Draft (auto publish)'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 86052272-f890-44fe-a054-bd0710771ddb
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 1ac2868a-c04a-4112-b502-48650c1f9cf5
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: ad399680-efae-4e73-9265-d36799b944e3
+        weight: 0
+        context_values:
+          operation: '=='
+          value: draft
+        context_mapping:
+          data: content_moderation_state_unchanged.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+      -
+        id: rules_condition
+        uuid: 7530bd99-6ca7-4107-b018-33269c0c9cb7
+        weight: 0
+        context_values:
+          operation: '=='
+          value: published
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: d2a78591-e049-40fa-b43c-aa8e5b2aee2f
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 13a1ac82-58e6-45bf-afeb-f6ee32b8fcd2
+        weight: 0
+        context_values:
+          type: node
+        context_mapping:
+          entity_id: content_moderation_state.content_entity_id.value
+        context_processors:
+          type:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id
+      -
+        id: rules_action
+        uuid: f31d66f7-9607-42e5-aa33-f0d233028d0c
+        weight: 0
+        context_values:
+          to:
+            - ebeck@360-biz.com
+          subject: 'Your Content, "{{ entity_fetched.title.value }}", Will Expire in 1 Week'
+          message: 'Link to Expiring Content: https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }}.'
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

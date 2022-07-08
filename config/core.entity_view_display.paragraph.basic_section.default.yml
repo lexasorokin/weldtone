@@ -1,0 +1,32 @@
+uuid: a277abfc-8841-4f0a-a9e5-2f28e93811b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_section.field_additional_styles
+    - field.field.paragraph.basic_section.field_content
+    - paragraphs.paragraphs_type.basic_section
+  module:
+    - text
+id: paragraph.basic_section.default
+targetEntityType: paragraph
+bundle: basic_section
+mode: default
+content:
+  field_additional_styles:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

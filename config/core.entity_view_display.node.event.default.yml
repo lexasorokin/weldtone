@@ -1,0 +1,120 @@
+uuid: 923f45d5-a17d-419f-a9bb-f37ec7c48d59
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.medium
+    - field.field.node.event.body
+    - field.field.node.event.field_date_specific_content
+    - field.field.node.event.field_event_category
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_date_for_title
+    - field.field.node.event.field_event_files
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_location
+    - field.field.node.event.field_event_registration_enable
+    - field.field.node.event.field_event_title_template
+    - field.field.node.event.field_expiration_dates
+    - field.field.node.event.field_ignore_reminders_when_save
+    - field.field.node.event.field_moderational_reminders
+    - field.field.node.event.field_pending_exp_notify
+    - field.field.node.event.field_reminders_titles
+    - field.field.node.event.field_user
+    - image.style.xxl
+    - node.type.event
+  module:
+    - date_recur
+    - entity_reference_revisions
+    - file
+    - svg_image
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_specific_content:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_event_category:
+    weight: 5
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_event_date:
+    weight: 3
+    label: hidden
+    settings:
+      show_next: 5
+      count_per_item: true
+      occurrence_format_type: medium
+      same_end_date_format_type: medium
+      interpreter: null
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: date_recur_basic_formatter
+    region: content
+  field_event_files:
+    weight: 7
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_event_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: xxl
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_event_location:
+    weight: 6
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_event_date_for_title: true
+  field_event_registration_enable: true
+  field_event_title_template: true
+  field_expiration_dates: true
+  field_ignore_reminders_when_save: true
+  field_moderational_reminders: true
+  field_pending_exp_notify: true
+  field_reminders_titles: true
+  field_user: true
+  langcode: true

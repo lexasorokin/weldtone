@@ -1,0 +1,21 @@
+uuid: 7001fb35-9447-425e-bdb5-8107549c7fd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_image_position
+    - paragraphs.paragraphs_type.bg_image_section
+id: paragraph.bg_image_section.field_bg_image_position
+field_name: field_bg_image_position
+entity_type: paragraph
+bundle: bg_image_section
+label: 'Background Image Position'
+description: 'Values can be percentages or one of the following key words: Top, Left, Bottom, Right, Center. The first value is applied to the x-axis. The second value is applied to the y-axis. If only one value is applied it will be used for both the x-axis and y-axis. <em>Example: "top center", "25% 50%"</em>'
+required: false
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: b2016d32-988a-4e3e-ba84-69828046d92a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_special_types_sort
+    - node.type.page
+id: node.page.field_special_types_sort
+field_name: field_special_types_sort
+entity_type: node
+bundle: page
+label: 'Special types sort'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

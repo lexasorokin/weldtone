@@ -1,0 +1,17 @@
+uuid: 0db1c656-9ce6-43f0-94bb-912265c48b72
+langcode: en
+status: true
+dependencies:
+  module:
+    - text_alert
+title: 'Default cron handler'
+id: text_alert_cron
+weight: 0
+module: text_alert
+callback: text_alert_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

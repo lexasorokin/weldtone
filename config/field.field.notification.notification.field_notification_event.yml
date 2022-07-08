@@ -1,0 +1,28 @@
+uuid: 8b9cd512-b200-4454-8b5f-5de533e78578
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification.notification
+    - field.storage.notification.field_notification_event
+    - node.type.event
+id: notification.notification.field_notification_event
+field_name: field_notification_event
+entity_type: notification
+bundle: notification
+label: Event
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

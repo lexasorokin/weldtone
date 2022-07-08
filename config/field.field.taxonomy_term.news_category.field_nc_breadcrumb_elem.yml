@@ -1,0 +1,19 @@
+uuid: ce92fff1-b29d-415b-80e6-e1e3a6f2dabc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_nc_breadcrumb_elem
+    - taxonomy.vocabulary.news_category
+id: taxonomy_term.news_category.field_nc_breadcrumb_elem
+field_name: field_nc_breadcrumb_elem
+entity_type: taxonomy_term
+bundle: news_category
+label: 'Breadcrumb path element'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,27 @@
+uuid: d88e5786-1f8d-4d70-9a8a-603503cd52fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_file
+    - node.type.report
+  module:
+    - file
+id: node.report.field_report_file
+field_name: field_report_file
+entity_type: node
+bundle: report
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

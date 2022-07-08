@@ -1,0 +1,49 @@
+uuid: 07af3532-1a59-45f8-bcf0-be7cb9c5905c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.interactive_map.field_im_elements
+    - field.field.paragraph.interactive_map.field_im_fail_message
+    - field.field.paragraph.interactive_map.field_im_file
+    - field.field.paragraph.interactive_map.field_im_success_message
+    - paragraphs.paragraphs_type.interactive_map
+  module:
+    - entity_reference_revisions
+    - file
+id: paragraph.interactive_map.default
+targetEntityType: paragraph
+bundle: interactive_map
+mode: default
+content:
+  field_im_elements:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_im_fail_message:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_im_file:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+    region: content
+  field_im_success_message:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

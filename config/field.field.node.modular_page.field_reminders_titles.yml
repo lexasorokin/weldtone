@@ -1,0 +1,19 @@
+uuid: d2fc772d-1f17-469a-8236-0e235f84cdf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reminders_titles
+    - node.type.modular_page
+id: node.modular_page.field_reminders_titles
+field_name: field_reminders_titles
+entity_type: node
+bundle: modular_page
+label: 'Reminders titles'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,45 @@
+uuid: 4e5fcc0b-7b20-4286-989a-37e0b6e12ce6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.semi_kinetics_banner_slide.field_slide
+    - paragraphs.paragraphs_type.semi_kinetics_banner_slide
+  module:
+    - slick_paragraphs
+id: paragraph.semi_kinetics_banner_slide.default
+targetEntityType: paragraph
+bundle: semi_kinetics_banner_slide
+mode: default
+content:
+  field_slide:
+    type: slick_paragraphs_vanilla
+    weight: 0
+    label: hidden
+    settings:
+      optionset: default
+      skin: fullwidth
+      view_mode: default
+      cache: 0
+      override: true
+      overridables:
+        arrows: arrows
+        autoplay: autoplay
+        dots: dots
+        draggable: draggable
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      current_view_mode: default
+      use_theme_field: false
+      skin_arrows: ''
+      skin_dots: ''
+      fx: ''
+      lazy: ''
+      loading: lazy
+      preload: false
+      style: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+text_formats:
+  - basic_html
+absolute: true
+file_field_images_enabled: true
+widgets:
+  file:
+    - file_generic
+  image:
+    - image_image
+css_classes:
+  file: {  }
+  image: {  }
+file_extensions:
+  audio:
+    - mp3
+  video:
+    - mp4
+_core:
+  default_config_hash: n5mlpvT_JvAQDFdotgikrUvdzuhlUIjltA4S04wVZAY

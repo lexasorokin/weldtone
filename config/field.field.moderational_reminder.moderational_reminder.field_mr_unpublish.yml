@@ -1,0 +1,25 @@
+uuid: 67facc5f-ce4d-4584-b910-eed84c09cb8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_unpublish
+_core:
+  default_config_hash: roPY9FTkM9AmQz3xSUeK6dB7Yfxw25AltmlIqusX7eA
+id: moderational_reminder.moderational_reminder.field_mr_unpublish
+field_name: field_mr_unpublish
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: Unpublish
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

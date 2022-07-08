@@ -1,0 +1,21 @@
+uuid: 4ce7d7d5-d48d-4f43-9d76-6e847123904a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_date_for_title
+    - node.type.event
+  module:
+    - datetime
+id: node.event.field_event_date_for_title
+field_name: field_event_date_for_title
+entity_type: node
+bundle: event
+label: 'Date for title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

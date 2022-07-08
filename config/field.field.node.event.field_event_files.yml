@@ -1,0 +1,32 @@
+uuid: 280ca2d7-54a2-4491-93ed-46a0cb00daac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_files
+    - node.type.event
+  module:
+    - file
+    - pdf_to_image_preview
+third_party_settings:
+  pdf_to_image_preview:
+    enable: 0
+    target_field: field_event_image
+id: node.event.field_event_files
+field_name: field_event_files
+entity_type: node
+bundle: event
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

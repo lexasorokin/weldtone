@@ -1,0 +1,19 @@
+uuid: a7e3d1e7-46c8-4c25-a8c0-539a0bc8f655
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_classes
+    - taxonomy.vocabulary.programmed_styles
+id: taxonomy_term.programmed_styles.field_classes
+field_name: field_classes
+entity_type: taxonomy_term
+bundle: programmed_styles
+label: Classes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

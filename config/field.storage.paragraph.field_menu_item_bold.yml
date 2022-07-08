@@ -1,0 +1,18 @@
+uuid: c1c9e63c-1c7d-4bf6-9de7-911a1a13e44b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_menu_item_bold
+field_name: field_menu_item_bold
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

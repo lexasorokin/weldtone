@@ -1,0 +1,11 @@
+uuid: a7bb6b75-4097-44dd-b486-4e909ee6e6c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.history_item
+id: node.history_item
+target_entity_type_id: node
+target_bundle: history_item
+default_langcode: site_default
+language_alterable: false

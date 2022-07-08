@@ -1,0 +1,45 @@
+uuid: 154664f1-fe53-4256-ad81-674cca183d52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_image
+    - paragraphs.paragraphs_type.image_with_icon_and_link
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      file: file
+      alt: '0'
+      title: '0'
+id: paragraph.image_with_icon_and_link.field_bg_image
+field_name: field_bg_image
+entity_type: paragraph
+bundle: image_with_icon_and_link
+label: 'Background Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

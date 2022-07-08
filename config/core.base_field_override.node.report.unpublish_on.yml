@@ -1,0 +1,18 @@
+uuid: b09c4f2b-e98d-4bcf-b931-8c2754aa0ed7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+id: node.report.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: report
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

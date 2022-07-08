@@ -1,0 +1,18 @@
+uuid: 9ee8d9fc-296b-4dbe-b02f-bbea2776e144
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.interactive_map_element
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.interactive_map_element
+target_entity_type_id: paragraph
+target_bundle: interactive_map_element
+default_langcode: site_default
+language_alterable: false

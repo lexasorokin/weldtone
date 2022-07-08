@@ -1,0 +1,35 @@
+uuid: 6645a0ce-2250-4581-8f6b-b27ee52434af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.logos.field_logo_image
+    - field.field.paragraph.logos.field_paragraph_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.logos
+  module:
+    - svg_image
+id: paragraph.logos.default
+targetEntityType: paragraph
+bundle: logos
+mode: default
+content:
+  field_logo_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_paragraph_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,11 @@
+uuid: c4148816-f140-4e81-bf43-a71ec5ce0a59
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.moderational_reminder
+_core:
+  default_config_hash: zBMPwsUDq4NX_0kP-26Tx3ys5sn5H0tQLJHlTa_-y3c
+type: moderational_reminder
+name: 'Moderational reminder'
+description: ''

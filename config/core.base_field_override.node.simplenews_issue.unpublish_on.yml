@@ -1,0 +1,18 @@
+uuid: f9577b9d-29b2-423c-b324-2e1ffd03f4c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.simplenews_issue
+id: node.simplenews_issue.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: simplenews_issue
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

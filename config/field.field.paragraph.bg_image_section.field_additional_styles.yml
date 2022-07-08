@@ -1,0 +1,33 @@
+uuid: 19765105-bf99-4ee9-9028-fb51a68820b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_additional_styles
+    - paragraphs.paragraphs_type.bg_image_section
+    - taxonomy.vocabulary.programmed_styles
+  content:
+    - 'taxonomy_term:programmed_styles:842586dd-ba09-43ec-a599-c448ddfd535b'
+id: paragraph.bg_image_section.field_additional_styles
+field_name: field_additional_styles
+entity_type: paragraph
+bundle: bg_image_section
+label: 'Additional Styles'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 842586dd-ba09-43ec-a599-c448ddfd535b
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programmed_styles: programmed_styles
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

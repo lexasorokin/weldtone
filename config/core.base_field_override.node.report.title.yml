@@ -1,0 +1,18 @@
+uuid: a56fde1e-2dfd-407e-ac1a-2c3d535a8dc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+id: node.report.title
+field_name: title
+entity_type: node
+bundle: report
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

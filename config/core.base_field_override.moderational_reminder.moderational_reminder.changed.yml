@@ -1,0 +1,18 @@
+uuid: ad9aea4f-c79f-43fc-843b-73b6335dbd7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+id: moderational_reminder.moderational_reminder.changed
+field_name: changed
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: Changed
+description: 'The time that the entity was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

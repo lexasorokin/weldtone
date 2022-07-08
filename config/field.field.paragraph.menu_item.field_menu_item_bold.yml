@@ -1,0 +1,23 @@
+uuid: f194dd66-7685-4684-b968-fd5caf4e6693
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_item_bold
+    - paragraphs.paragraphs_type.menu_item
+id: paragraph.menu_item.field_menu_item_bold
+field_name: field_menu_item_bold
+entity_type: paragraph
+bundle: menu_item
+label: 'Make the menu item bold'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

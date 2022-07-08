@@ -1,0 +1,18 @@
+uuid: dbba5a1c-f73c-4368-9222-135519aa8032
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification_template.notification_template
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: notification_template.notification_template
+target_entity_type_id: notification_template
+target_bundle: notification_template
+default_langcode: site_default
+language_alterable: false

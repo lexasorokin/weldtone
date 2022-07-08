@@ -1,0 +1,23 @@
+uuid: 36bdc432-073f-457f-948e-33abdc0bb0f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ime_label_direction
+    - paragraphs.paragraphs_type.interactive_map_element
+  module:
+    - options
+id: paragraph.interactive_map_element.field_ime_label_direction
+field_name: field_ime_label_direction
+entity_type: paragraph
+bundle: interactive_map_element
+label: 'Label direction'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,28 @@
+uuid: a256d0a6-3105-4ab8-87d0-ddefa4c8042c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user
+    - node.type.emergency_alert
+id: node.emergency_alert.field_user
+field_name: field_user
+entity_type: node
+bundle: emergency_alert
+label: User
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

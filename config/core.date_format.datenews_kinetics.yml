@@ -1,0 +1,8 @@
+uuid: d3006bb6-6303-4a1a-a255-b414395b2829
+langcode: en
+status: true
+dependencies: {  }
+id: datenews_kinetics
+label: datenews-kinetics
+locked: false
+pattern: 'l - F j, Y'

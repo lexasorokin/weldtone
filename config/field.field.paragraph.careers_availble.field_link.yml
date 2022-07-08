@@ -1,0 +1,28 @@
+uuid: 9944af42-f855-4551-95ff-11eb5ac5f38b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.careers_availble
+  module:
+    - link
+id: paragraph.careers_availble.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: careers_availble
+label: Link
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'internal:/employment-application'
+    title: Apply
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

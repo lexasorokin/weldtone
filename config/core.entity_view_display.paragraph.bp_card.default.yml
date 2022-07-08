@@ -1,0 +1,60 @@
+uuid: 90c3561a-a92e-432c-8716-104dee88577b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bp_card.bp_card_image
+    - field.field.paragraph.bp_card.bp_card_link
+    - field.field.paragraph.bp_card.bp_card_style
+    - field.field.paragraph.bp_card.bp_card_text
+    - field.field.paragraph.bp_card.bp_card_title
+    - image.style.service_card
+    - paragraphs.paragraphs_type.bp_card
+  module:
+    - image_link_formatter
+    - link
+    - options
+_core:
+  default_config_hash: tOS-CgV_YKhB03pVnWZgZQToIu-jJ3oFR-7QB4bWls0
+id: paragraph.bp_card.default
+targetEntityType: paragraph
+bundle: bp_card
+mode: default
+content:
+  bp_card_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: service_card
+      image_link: bp_card_link
+    third_party_settings: {  }
+    type: image_link_formatter
+    region: content
+  bp_card_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  bp_card_style:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  bp_card_text:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  bp_card_title: true

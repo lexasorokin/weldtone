@@ -1,0 +1,85 @@
+uuid: 45570f43-28c0-40db-921a-f86b92b70faf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_location.field_latitude
+    - field.field.paragraph.map_location.field_location_address
+    - field.field.paragraph.map_location.field_location_city
+    - field.field.paragraph.map_location.field_location_name
+    - field.field.paragraph.map_location.field_location_state
+    - field.field.paragraph.map_location.field_location_zip
+    - field.field.paragraph.map_location.field_longitude
+    - field.field.paragraph.map_location.field_tags
+    - paragraphs.paragraphs_type.map_location
+id: paragraph.map_location.default
+targetEntityType: paragraph
+bundle: map_location
+mode: default
+content:
+  field_latitude:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_address:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_city:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_name:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_state:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_zip:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_longitude:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tags:
+    weight: 6
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

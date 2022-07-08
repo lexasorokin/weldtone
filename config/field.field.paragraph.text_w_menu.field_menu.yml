@@ -1,0 +1,73 @@
+uuid: d6933273-97fe-43b2-b1dd-58ef71f955ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu
+    - paragraphs.paragraphs_type.menu
+    - paragraphs.paragraphs_type.text_w_menu
+  module:
+    - entity_reference_revisions
+id: paragraph.text_w_menu.field_menu
+field_name: field_menu
+entity_type: paragraph
+bundle: text_w_menu
+label: Menu
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      menu: menu
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 16
+        enabled: false
+      bg_image_section:
+        weight: 17
+        enabled: false
+      date_specific_content:
+        weight: 18
+        enabled: false
+      embedded_blocks_section:
+        weight: 19
+        enabled: false
+      featured_section:
+        weight: 20
+        enabled: false
+      featured_section_item:
+        weight: 21
+        enabled: false
+      image_link:
+        weight: 22
+        enabled: false
+      image_with_icon_and_link:
+        weight: 23
+        enabled: false
+      link_with_icon:
+        weight: 24
+        enabled: false
+      map:
+        weight: 25
+        enabled: false
+      map_location:
+        weight: 26
+        enabled: false
+      menu:
+        enabled: true
+        weight: 27
+      search_section:
+        weight: 28
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 29
+        enabled: false
+      text_w_menu:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

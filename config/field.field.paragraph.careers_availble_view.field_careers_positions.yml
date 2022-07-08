@@ -1,0 +1,157 @@
+uuid: 8b29b9b0-2eee-4347-b342-6b59d5ea9aac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_careers_positions
+    - paragraphs.paragraphs_type.careers_availble
+    - paragraphs.paragraphs_type.careers_availble_view
+  module:
+    - entity_reference_revisions
+id: paragraph.careers_availble_view.field_careers_positions
+field_name: field_careers_positions
+entity_type: paragraph
+bundle: careers_availble_view
+label: 'Careers positions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      careers_availble: careers_availble
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 44
+        enabled: false
+      bg_image_section:
+        weight: 45
+        enabled: false
+      bp_accordion:
+        weight: 46
+        enabled: false
+      bp_accordion_section:
+        weight: 47
+        enabled: false
+      bp_blank:
+        weight: 48
+        enabled: false
+      bp_block:
+        weight: 49
+        enabled: false
+      bp_callout:
+        weight: 50
+        enabled: false
+      bp_card:
+        weight: 51
+        enabled: false
+      bp_carousel:
+        weight: 52
+        enabled: false
+      bp_column_wrapper:
+        weight: 56
+        enabled: false
+      bp_columns:
+        weight: 53
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 54
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 55
+        enabled: false
+      bp_image:
+        weight: 57
+        enabled: false
+      bp_modal:
+        weight: 58
+        enabled: false
+      bp_simple:
+        weight: 59
+        enabled: false
+      bp_tab_section:
+        weight: 61
+        enabled: false
+      bp_tabs:
+        weight: 60
+        enabled: false
+      bp_view:
+        weight: 62
+        enabled: false
+      card_gallery:
+        weight: 63
+        enabled: false
+      card_gallery_system:
+        weight: 64
+        enabled: false
+      careers_availble:
+        enabled: true
+        weight: 65
+      careers_availble_view:
+        weight: 66
+        enabled: false
+      date_specific_content:
+        weight: 67
+        enabled: false
+      embedded_blocks_section:
+        weight: 68
+        enabled: false
+      image_link:
+        weight: 69
+        enabled: false
+      image_with_icon_and_link:
+        weight: 70
+        enabled: false
+      interactive_map:
+        weight: 71
+        enabled: false
+      interactive_map_element:
+        weight: 72
+        enabled: false
+      kinetics_banner:
+        weight: 73
+        enabled: false
+      layout_bg_paragraph:
+        weight: 74
+        enabled: false
+      link_with_icon:
+        weight: 75
+        enabled: false
+      map:
+        weight: 76
+        enabled: false
+      map_location:
+        weight: 77
+        enabled: false
+      menu:
+        weight: 78
+        enabled: false
+      menu_item:
+        weight: 79
+        enabled: false
+      quality_and_certification_block:
+        weight: 80
+        enabled: false
+      search_section:
+        weight: 81
+        enabled: false
+      semi_kinetics_banner_slide:
+        weight: 82
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 83
+        enabled: false
+      text_w_menu:
+        weight: 84
+        enabled: false
+      views_embed:
+        weight: 85
+        enabled: false
+      we_serve_block_images_w_text:
+        weight: 86
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,39 @@
+definitions:
+  standard__front_page:
+    menu_name: main
+    parent: ''
+    weight: -50
+    expanded: false
+    enabled: true
+  'language_switcher_menu__language_switcher_link:ar':
+    weight: -48
+    parent: 'menu_link_content:58e653aa-d035-4e80-9d39-46dcf6dc84a3'
+    menu_name: language
+    enabled: true
+    expanded: false
+  'language_switcher_menu__language_switcher_link:zh-hans':
+    weight: -47
+    parent: 'menu_link_content:58e653aa-d035-4e80-9d39-46dcf6dc84a3'
+    menu_name: language
+    expanded: false
+    enabled: true
+  'language_switcher_menu__language_switcher_link:en':
+    weight: -49
+    parent: 'menu_link_content:58e653aa-d035-4e80-9d39-46dcf6dc84a3'
+    menu_name: language
+    expanded: false
+    enabled: true
+  'language_switcher_menu__language_switcher_link:es':
+    weight: -50
+    parent: 'menu_link_content:58e653aa-d035-4e80-9d39-46dcf6dc84a3'
+    menu_name: language
+    expanded: false
+    enabled: true
+  'language_switcher_menu__language_switcher_link:ru':
+    weight: -46
+    parent: 'menu_link_content:58e653aa-d035-4e80-9d39-46dcf6dc84a3'
+    menu_name: language
+    expanded: false
+    enabled: true
+_core:
+  default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ

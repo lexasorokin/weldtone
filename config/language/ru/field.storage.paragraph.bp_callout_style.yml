@@ -1,0 +1,18 @@
+settings:
+  allowed_values:
+    0:
+      label: Первичный
+    1:
+      label: Вторичный
+    2:
+      label: Успешно
+    4:
+      label: Предупреждение
+    5:
+      label: Инфо
+    6:
+      label: Темный
+    7:
+      label: Светлая
+    8:
+      label: Белый

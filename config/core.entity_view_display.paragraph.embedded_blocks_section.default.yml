@@ -1,0 +1,52 @@
+uuid: 1005ddba-9f57-4ee9-893c-86e348fde808
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embedded_blocks_section.field_additional_styles
+    - field.field.paragraph.embedded_blocks_section.field_bg_image
+    - field.field.paragraph.embedded_blocks_section.field_bg_image_position
+    - field.field.paragraph.embedded_blocks_section.field_embed_col_1
+    - paragraphs.paragraphs_type.embedded_blocks_section
+  module:
+    - image
+id: paragraph.embedded_blocks_section.default
+targetEntityType: paragraph
+bundle: embedded_blocks_section
+mode: default
+content:
+  field_additional_styles:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_bg_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_bg_image_position:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_embed_col_1:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

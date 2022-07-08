@@ -1,0 +1,33 @@
+display:
+  default:
+    display_title: الرئيسي
+    display_options:
+      exposed_form:
+        options:
+          submit_button: تطبيق
+          reset_button_label: 'إعادة الضبط'
+          exposed_sorts_label: 'الترتيب حسب'
+          sort_asc_label: تصاعدي
+          sort_desc_label: تنازلي
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+  page_1:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+        title:
+          separator: ', '
+  page_2:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+  page_6:
+    display_options:
+      fields:
+        field_flexslider_example_image:
+          separator: ', '
+        title:
+          separator: ', '

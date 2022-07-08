@@ -1,0 +1,23 @@
+uuid: cb3424cf-2e5b-4d9b-856c-54a98499e382
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_filter_2
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_filter_2
+field_name: field_filter_2
+entity_type: paragraph
+bundle: map
+label: 'Filter #2'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_vocabulary'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

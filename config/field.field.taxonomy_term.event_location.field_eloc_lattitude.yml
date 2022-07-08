@@ -1,0 +1,19 @@
+uuid: 40911a18-019e-4825-b0af-1b6624a896cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_eloc_lattitude
+    - taxonomy.vocabulary.event_location
+id: taxonomy_term.event_location.field_eloc_lattitude
+field_name: field_eloc_lattitude
+entity_type: taxonomy_term
+bundle: event_location
+label: Lattitude
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+uuid: b6767e7a-44eb-4ef0-a9e7-6c66924a14a7
+langcode: en
+status: true
+dependencies: {  }
+id: yellow_image_icons
+label: 'yellow image icons'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

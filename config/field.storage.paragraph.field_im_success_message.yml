@@ -1,0 +1,19 @@
+uuid: d2f47913-e4e8-43fa-92a5-558029974d0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_im_success_message
+field_name: field_im_success_message
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

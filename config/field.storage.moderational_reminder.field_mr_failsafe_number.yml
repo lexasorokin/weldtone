@@ -1,0 +1,22 @@
+uuid: 2fc544f5-9160-4ceb-9524-b90f9c6798e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+_core:
+  default_config_hash: DCvz9H8PfMJ4DFbZ0cczkzA5INtXpxaMqs3XO5lkwzo
+id: moderational_reminder.field_mr_failsafe_number
+field_name: field_mr_failsafe_number
+entity_type: moderational_reminder
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

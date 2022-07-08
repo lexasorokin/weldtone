@@ -1,0 +1,30 @@
+uuid: c68a9598-1127-484e-bd43-8bd7de5f74a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - system
+    - views
+  theme:
+    - civic
+id: views_block__related_events_block
+theme: civic
+region: related_content
+weight: -26
+provider: null
+plugin: 'views_block:events-block_2'
+settings:
+  id: 'views_block:events-block_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/events/*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,20 @@
+uuid: 1f5853f8-523e-458b-b508-07d01c874ad4
+langcode: en
+status: true
+dependencies:
+  module:
+    - block
+    - paragraphs
+id: paragraph.field_embed_col_1
+field_name: field_embed_col_1
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,25 @@
+uuid: 94d61e69-9fdf-4eff-a346-a524d9a8adf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.report_water_waste
+  module:
+    - webform
+  theme:
+    - civic
+id: webform_5
+theme: civic
+region: no_location
+weight: -7
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Report Water Waste Form'
+  provider: webform
+  label_display: '0'
+  webform_id: report_water_waste
+  default_data: ''
+  redirect: false
+visibility: {  }

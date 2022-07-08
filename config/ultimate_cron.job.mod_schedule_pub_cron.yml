@@ -1,0 +1,29 @@
+uuid: 9bebd599-35cf-4481-a325-f1fcb611cd72
+langcode: en
+status: true
+dependencies:
+  module:
+    - mod_schedule_pub
+title: 'Default cron handler'
+id: mod_schedule_pub_cron
+weight: 0
+module: mod_schedule_pub
+callback: mod_schedule_pub_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '*/15+@ * * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

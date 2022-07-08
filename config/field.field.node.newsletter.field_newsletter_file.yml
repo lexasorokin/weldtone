@@ -1,0 +1,27 @@
+uuid: 2695f91b-d674-4981-9623-9b865e3fe8e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsletter_file
+    - node.type.newsletter
+  module:
+    - file
+id: node.newsletter.field_newsletter_file
+field_name: field_newsletter_file
+entity_type: node
+bundle: newsletter
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

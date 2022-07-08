@@ -1,0 +1,17 @@
+uuid: 22b11e2d-c854-4079-9b23-5beca012c6ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - autocomplete_inputs
+title: 'Default cron handler'
+id: autocomplete_inputs_cron
+weight: 0
+module: autocomplete_inputs
+callback: autocomplete_inputs_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

@@ -1,0 +1,18 @@
+uuid: b3c36a1d-a920-4c2a-a022-d2806b71db33
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.emergency_alert
+id: node.emergency_alert.title
+field_name: title
+entity_type: node
+bundle: emergency_alert
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

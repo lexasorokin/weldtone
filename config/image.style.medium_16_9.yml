@@ -1,0 +1,15 @@
+uuid: 9393fb25-9881-4bdf-a23c-8c85cecb7a3f
+langcode: en
+status: true
+dependencies: {  }
+name: medium_16_9
+label: 'Medium (16:9)'
+effects:
+  18d4598a-d3f7-4a78-a9d5-77e81bec6f66:
+    uuid: 18d4598a-d3f7-4a78-a9d5-77e81bec6f66
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 560
+      height: 315
+      anchor: center-center

@@ -1,0 +1,23 @@
+uuid: b4d90a3e-3923-431a-b248-27078894a9e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_open_link_in_new_tab
+    - paragraphs.paragraphs_type.link_with_icon
+id: paragraph.link_with_icon.field_open_link_in_new_tab
+field_name: field_open_link_in_new_tab
+entity_type: paragraph
+bundle: link_with_icon
+label: 'Open Link in New Tab'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

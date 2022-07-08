@@ -1,0 +1,91 @@
+uuid: ecedbdf4-d3d4-487d-83eb-2f1fc52f2796
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_gallery_item
+    - paragraphs.paragraphs_type.card_gallery
+    - paragraphs.paragraphs_type.card_gallery_system
+  module:
+    - entity_reference_revisions
+id: paragraph.card_gallery_system.field_card_gallery_item
+field_name: field_card_gallery_item
+entity_type: paragraph
+bundle: card_gallery_system
+label: 'Card gallery item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      card_gallery: card_gallery
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 22
+        enabled: false
+      bg_image_section:
+        weight: 23
+        enabled: false
+      card_gallery:
+        enabled: true
+        weight: 24
+      card_gallery_system:
+        weight: 25
+        enabled: false
+      date_specific_content:
+        weight: 26
+        enabled: false
+      embedded_blocks_section:
+        weight: 27
+        enabled: false
+      image_link:
+        weight: 28
+        enabled: false
+      image_with_icon_and_link:
+        weight: 29
+        enabled: false
+      interactive_map:
+        weight: 30
+        enabled: false
+      interactive_map_element:
+        weight: 31
+        enabled: false
+      kinetics_banner:
+        weight: 32
+        enabled: false
+      link_with_icon:
+        weight: 33
+        enabled: false
+      map:
+        weight: 34
+        enabled: false
+      map_location:
+        weight: 35
+        enabled: false
+      menu:
+        weight: 36
+        enabled: false
+      menu_item:
+        weight: 37
+        enabled: false
+      search_section:
+        weight: 38
+        enabled: false
+      semi_kinetics_banner_slide:
+        weight: 39
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 40
+        enabled: false
+      text_w_menu:
+        weight: 41
+        enabled: false
+      views_embed:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions

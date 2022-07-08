@@ -1,0 +1,33 @@
+uuid: 851a0e88-3236-405f-be77-9eccea2263d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date_specific_content.field_dsc_content
+    - field.field.paragraph.date_specific_content.field_dsc_date
+    - paragraphs.paragraphs_type.date_specific_content
+  module:
+    - datetime
+    - text
+id: paragraph.date_specific_content.default
+targetEntityType: paragraph
+bundle: date_specific_content
+mode: default
+content:
+  field_dsc_content:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_dsc_date:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  created: true
+  status: true

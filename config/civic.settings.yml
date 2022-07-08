@@ -1,0 +1,21 @@
+features:
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 0
+  path: 'public://logo-1.png'
+favicon:
+  use_default: 0
+  path: 'public://semi-kinetics-icon.png'
+  mimetype: image/png
+header_width_class: container
+footer_width_class: container
+header_position_class: header-fixed
+header_scrolled_bg: 1
+default_basic_page_image: /sites/default/files/default-images/mountain-umbrella.jpg
+default_event_image: ''
+default_news_image: ''
+content_width_class: ' '
+related_content_width_class: container

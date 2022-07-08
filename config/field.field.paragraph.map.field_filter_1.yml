@@ -1,0 +1,23 @@
+uuid: ead11e9a-c163-4c14-bb26-654eebd8f153
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_filter_1
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_filter_1
+field_name: field_filter_1
+entity_type: paragraph
+bundle: map
+label: 'Filter #1'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_vocabulary'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

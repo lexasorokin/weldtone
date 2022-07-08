@@ -1,0 +1,30 @@
+uuid: f5addf56-749e-43e6-8569-70b28a4d63cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_failsafe_user
+_core:
+  default_config_hash: Q0FLftyatIVKQ2vP7YoLiP00KGKFel4DmpiNs7TQS-I
+id: moderational_reminder.moderational_reminder.field_mr_failsafe_user
+field_name: field_mr_failsafe_user
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Failsafe user'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

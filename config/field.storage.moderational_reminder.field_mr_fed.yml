@@ -1,0 +1,22 @@
+uuid: 18089ba7-c237-493b-b069-4d992d1b9f06
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+_core:
+  default_config_hash: S2SnLMR3IZTnZoHd5hFfznhKuE2aAvcwG9uscoE9aVU
+id: moderational_reminder.field_mr_fed
+field_name: field_mr_fed
+entity_type: moderational_reminder
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

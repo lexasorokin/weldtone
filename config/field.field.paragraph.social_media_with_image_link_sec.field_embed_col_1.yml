@@ -1,0 +1,23 @@
+uuid: 108f0c3e-32d0-4d99-9224-3278cf18013d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_embed_col_1
+    - paragraphs.paragraphs_type.social_media_with_image_link_sec
+id: paragraph.social_media_with_image_link_sec.field_embed_col_1
+field_name: field_embed_col_1
+entity_type: paragraph
+bundle: social_media_with_image_link_sec
+label: 'Block attached'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

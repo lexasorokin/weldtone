@@ -1,0 +1,20 @@
+uuid: f2a0288c-3895-4890-8322-c0be9383620a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.board_meeting_category
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+_core:
+  default_config_hash: 4Gu0M0DaEwBmbS87bxggDx2RGKDpH0Bx6yBk2t-k6Is
+id: taxonomy_term.board_meeting_category
+target_entity_type_id: taxonomy_term
+target_bundle: board_meeting_category
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,22 @@
+uuid: 1de7fd69-e329-4728-8632-30389e096f1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.interactive_map_element
+id: paragraph.interactive_map_element.status
+field_name: status
+entity_type: paragraph
+bundle: interactive_map_element
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

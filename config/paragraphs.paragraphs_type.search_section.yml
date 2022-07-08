@@ -1,0 +1,10 @@
+uuid: d569d639-702a-4371-9f4b-bc5a3c731324
+langcode: en
+status: true
+dependencies: {  }
+id: search_section
+label: 'Search Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,15 @@
+uuid: fddfba1a-b111-4b5f-93a3-5d871c99651d
+langcode: en
+status: true
+dependencies: {  }
+name: services_capabilities_style
+label: 'Services & Capabilities style'
+effects:
+  d8d76061-514c-4f3f-be28-c0e686a95185:
+    uuid: d8d76061-514c-4f3f-be28-c0e686a95185
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 235
+      height: 564
+      anchor: center-center

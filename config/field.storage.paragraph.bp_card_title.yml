@@ -1,0 +1,23 @@
+uuid: 2399fb2b-de48-47c0-8ded-7b77825ebbce
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: HThiDE3BtkRxheQhprM-Ew1b_DqfCT6q3BQUcXp0P2A
+id: paragraph.bp_card_title
+field_name: bp_card_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,42 @@
+uuid: 009d3216-522c-4934-9bab-df6f4baf6c3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.alert_types.field_bg_color
+    - field.field.taxonomy_term.alert_types.field_icon_classes
+    - taxonomy.vocabulary.alert_types
+  module:
+    - color_field
+    - text
+id: taxonomy_term.alert_types.default
+targetEntityType: taxonomy_term
+bundle: alert_types
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_bg_color:
+    weight: 2
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_icon_classes:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

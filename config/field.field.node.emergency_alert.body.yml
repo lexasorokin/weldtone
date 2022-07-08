@@ -1,0 +1,25 @@
+uuid: 4ba97e9a-cc12-47d2-9ca0-c5114ffe0b24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.emergency_alert
+  module:
+    - text
+_core:
+  default_config_hash: F6sWNjRLrMcu0tUrtZ4WER5kEBZPU1VDCq4ci8u6VzA
+id: node.emergency_alert.body
+field_name: body
+entity_type: node
+bundle: emergency_alert
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,81 @@
+uuid: dcbb864f-37bc-457b-8cdc-6eb94f549652
+langcode: en
+status: true
+dependencies: {  }
+id: request_review
+label: 'Request Review'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 972f1dc1-f110-49de-9779-7b1f7b09c5eb
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 1cd5be98-9d47-4688-8f5f-a076de07b036
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 01e759d1-2e23-4464-9010-8a26f308b634
+        weight: 0
+        context_values:
+          operation: '=='
+          value: request_review
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: 2865edb3-c1fa-4055-91a8-73eff5ce0a5b
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 1a20f587-a032-4643-a77a-61c11cdb7a88
+        weight: 0
+        context_values:
+          type: node
+        context_mapping:
+          entity_id: content_moderation_state.content_entity_id.value
+        context_processors:
+          type:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id
+      -
+        id: rules_action
+        uuid: 9191ba76-ba1f-48f0-9545-adbe7a71514b
+        weight: 0
+        context_values:
+          to:
+            - emileembeck@gmail.com
+          subject: 'MesaWater.org Content Ready For Review'
+          message: "Please review {{ entity_fetched.title.value }} at https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }}.\r\nIf you have any questions, please contact the Public Affairs team."
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

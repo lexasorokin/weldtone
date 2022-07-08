@@ -1,0 +1,23 @@
+uuid: 13fa8482-2c4b-490d-9707-2b6a142c8d02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ignore_reminders_when_save
+    - node.type.page
+id: node.page.field_ignore_reminders_when_save
+field_name: field_ignore_reminders_when_save
+entity_type: node
+bundle: page
+label: 'Update reminders when save'
+description: 'This checkbox should be checked by default. <b>Uncheck it only if you edit/add/delete reminders.</b>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

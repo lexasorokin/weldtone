@@ -1,0 +1,23 @@
+uuid: e36e3755-6e4b-4e10-81d3-95f09edbd18a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ignore_reminders_when_save
+    - node.type.modular_page
+id: node.modular_page.field_ignore_reminders_when_save
+field_name: field_ignore_reminders_when_save
+entity_type: node
+bundle: modular_page
+label: 'Update reminders when save'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

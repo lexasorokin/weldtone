@@ -1,0 +1,163 @@
+uuid: fb91f640-7c90-46cd-aaf8-ed9fff060156
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_link_yellow
+    - paragraphs.paragraphs_type.image_link
+    - paragraphs.paragraphs_type.yellow_image_icons
+  module:
+    - entity_reference_revisions
+id: paragraph.yellow_image_icons.field_icon_link_yellow
+field_name: field_icon_link_yellow
+entity_type: paragraph
+bundle: yellow_image_icons
+label: 'icon link yellow'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_link: image_link
+    target_bundles_drag_drop:
+      basic_section:
+        weight: 46
+        enabled: false
+      bg_image_section:
+        weight: 47
+        enabled: false
+      bp_accordion:
+        weight: 48
+        enabled: false
+      bp_accordion_section:
+        weight: 49
+        enabled: false
+      bp_blank:
+        weight: 50
+        enabled: false
+      bp_block:
+        weight: 51
+        enabled: false
+      bp_callout:
+        weight: 52
+        enabled: false
+      bp_card:
+        weight: 53
+        enabled: false
+      bp_carousel:
+        weight: 54
+        enabled: false
+      bp_column_wrapper:
+        weight: 58
+        enabled: false
+      bp_columns:
+        weight: 55
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 56
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 57
+        enabled: false
+      bp_image:
+        weight: 59
+        enabled: false
+      bp_modal:
+        weight: 60
+        enabled: false
+      bp_simple:
+        weight: 61
+        enabled: false
+      bp_tab_section:
+        weight: 63
+        enabled: false
+      bp_tabs:
+        weight: 62
+        enabled: false
+      bp_view:
+        weight: 64
+        enabled: false
+      card_gallery:
+        weight: 65
+        enabled: false
+      card_gallery_system:
+        weight: 66
+        enabled: false
+      careers_availble:
+        weight: 67
+        enabled: false
+      careers_availble_view:
+        weight: 68
+        enabled: false
+      date_specific_content:
+        weight: 69
+        enabled: false
+      embedded_blocks_section:
+        weight: 70
+        enabled: false
+      image_link:
+        enabled: true
+        weight: 71
+      image_with_icon_and_link:
+        weight: 72
+        enabled: false
+      interactive_map:
+        weight: 73
+        enabled: false
+      interactive_map_element:
+        weight: 74
+        enabled: false
+      kinetics_banner:
+        weight: 75
+        enabled: false
+      layout_bg_paragraph:
+        weight: 76
+        enabled: false
+      link_with_icon:
+        weight: 77
+        enabled: false
+      logos:
+        weight: 78
+        enabled: false
+      map:
+        weight: 79
+        enabled: false
+      map_location:
+        weight: 80
+        enabled: false
+      menu:
+        weight: 81
+        enabled: false
+      menu_item:
+        weight: 82
+        enabled: false
+      quality_and_certification_block:
+        weight: 83
+        enabled: false
+      search_section:
+        weight: 84
+        enabled: false
+      semi_kinetics_banner_slide:
+        weight: 85
+        enabled: false
+      social_media_with_image_link_sec:
+        weight: 86
+        enabled: false
+      text_w_menu:
+        weight: 87
+        enabled: false
+      views_embed:
+        weight: 88
+        enabled: false
+      we_serve_block_images_w_text:
+        weight: 89
+        enabled: false
+      yellow_image_icons:
+        weight: 90
+        enabled: false
+field_type: entity_reference_revisions

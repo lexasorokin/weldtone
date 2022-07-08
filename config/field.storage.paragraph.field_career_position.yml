@@ -1,0 +1,21 @@
+uuid: b9025f08-aa6b-4df0-9ff1-928846bf7b44
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_career_position
+field_name: field_career_position
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: e5a43f15-5e7b-48c7-ada2-e037f52ce8e8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Special types'
+vid: special_types
+description: ''
+weight: 0

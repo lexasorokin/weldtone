@@ -1,0 +1,199 @@
+uuid: 56049e8a-5390-4638-9173-f599aed9f709
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.modular_page.body
+    - field.field.node.modular_page.field_department
+    - field.field.node.modular_page.field_expiration_dates
+    - field.field.node.modular_page.field_ignore_reminders_when_save
+    - field.field.node.modular_page.field_moderational_reminders
+    - field.field.node.modular_page.field_page_bg_image
+    - field.field.node.modular_page.field_pending_exp_notify
+    - field.field.node.modular_page.field_reminders_titles
+    - field.field.node.modular_page.field_sections
+    - field.field.node.modular_page.field_user
+    - image.style.thumbnail
+    - node.type.modular_page
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - imce
+    - inline_entity_form
+    - paragraphs
+    - path
+    - scheduler
+    - svg_image
+    - text
+id: node.modular_page.default
+targetEntityType: node
+bundle: modular_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_department:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ignore_reminders_when_save:
+    weight: 20
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_moderational_reminders:
+    weight: 19
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      collapsible: true
+      collapsed: true
+      allow_new: true
+      match_operator: CONTAINS
+      revision: false
+      override_labels: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_page_bg_image:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_sections:
+    type: entity_reference_paragraphs
+    weight: 11
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_user:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 14
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp_no_default
+    region: content
+  scheduler_settings:
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 10
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  unpublish_on:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp_no_default
+    region: content
+  url_redirects:
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_expiration_dates: true
+  field_pending_exp_notify: true
+  field_reminders_titles: true

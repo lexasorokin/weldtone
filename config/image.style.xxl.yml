@@ -1,0 +1,15 @@
+uuid: ac07574f-4c20-4d4e-9820-e20f721e08e6
+langcode: en
+status: true
+dependencies: {  }
+name: xxl
+label: 'XXL (1920)'
+effects:
+  8adea299-121d-433f-9cb0-ce816a890f20:
+    uuid: 8adea299-121d-433f-9cb0-ce816a890f20
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: false

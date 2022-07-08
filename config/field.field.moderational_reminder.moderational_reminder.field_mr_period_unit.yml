@@ -1,0 +1,23 @@
+uuid: 5acc51fb-064a-4742-9c37-8a171808e1e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_period_unit
+  module:
+    - options
+_core:
+  default_config_hash: 1-nnQzZLloIDlQ7X22BhT8DbFPk1RkEMH_TQNesJAG4
+id: moderational_reminder.moderational_reminder.field_mr_period_unit
+field_name: field_mr_period_unit
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Lead period unit'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

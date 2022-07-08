@@ -1,0 +1,20 @@
+uuid: 58ed5774-9b78-45e3-9427-4f0f40c1fe0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - civic
+id: languageswitcherinterfacetext
+theme: civic
+region: header_right
+weight: -28
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher (Interface text)'
+  provider: language
+  label_display: '0'
+visibility: {  }

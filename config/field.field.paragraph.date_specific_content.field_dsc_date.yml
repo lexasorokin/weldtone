@@ -1,0 +1,21 @@
+uuid: 261f1481-de38-4bcd-aff7-046b76577044
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dsc_date
+    - paragraphs.paragraphs_type.date_specific_content
+  module:
+    - datetime
+id: paragraph.date_specific_content.field_dsc_date
+field_name: field_dsc_date
+entity_type: paragraph
+bundle: date_specific_content
+label: Date
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

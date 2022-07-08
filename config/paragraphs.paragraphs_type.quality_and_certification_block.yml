@@ -1,0 +1,10 @@
+uuid: 00ad4e01-2008-49b4-b1ec-b462c6980184
+langcode: en
+status: true
+dependencies: {  }
+id: quality_and_certification_block
+label: 'Quality and Certification Block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

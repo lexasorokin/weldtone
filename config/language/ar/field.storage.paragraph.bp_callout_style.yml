@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    4:
+      label: تحذير
+    5:
+      label: معلومات
+    8:
+      label: أبيض

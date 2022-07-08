@@ -1,0 +1,10 @@
+uuid: 6d213a0d-1953-4ea2-8e63-bcd3953e9e17
+langcode: en
+status: true
+dependencies: {  }
+id: bg_image_section
+label: 'Text w/Image Fade'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

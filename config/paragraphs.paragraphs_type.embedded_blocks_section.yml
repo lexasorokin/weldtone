@@ -1,0 +1,10 @@
+uuid: 2c483c62-a758-41b2-bed4-4f2d5acb1209
+langcode: en
+status: true
+dependencies: {  }
+id: embedded_blocks_section
+label: 'Embed Blocks Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

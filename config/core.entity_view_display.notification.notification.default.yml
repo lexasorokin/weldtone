@@ -1,0 +1,48 @@
+uuid: e37c6795-24f2-4b91-811c-88c8c37c6bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification.notification
+    - field.field.notification.notification.field_notification_body
+    - field.field.notification.notification.field_notification_event
+    - field.field.notification.notification.field_notification_list
+    - field.field.notification.notification.field_notification_receiver
+    - field.field.notification.notification.field_notification_subject
+id: notification.notification.default
+targetEntityType: notification
+bundle: notification
+mode: default
+content:
+  created:
+    label: hidden
+    type: timestamp
+    weight: 0
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_notification_event:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_notification_body: true
+  field_notification_list: true
+  field_notification_receiver: true
+  field_notification_subject: true
+  langcode: true

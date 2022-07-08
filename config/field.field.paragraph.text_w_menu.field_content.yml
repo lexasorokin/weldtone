@@ -1,0 +1,21 @@
+uuid: b2820dfa-b75c-4818-bc8c-f0f826e202ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.text_w_menu
+  module:
+    - text
+id: paragraph.text_w_menu.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: text_w_menu
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

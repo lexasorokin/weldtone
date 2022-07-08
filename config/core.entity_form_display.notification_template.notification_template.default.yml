@@ -1,0 +1,45 @@
+uuid: 649428ff-5eb1-4af6-ba1d-aa0ec0067ac2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification_template.notification_template
+    - field.field.notification_template.notification_template.field_nt_body
+    - field.field.notification_template.notification_template.field_nt_subject
+id: notification_template.notification_template.default
+targetEntityType: notification_template
+bundle: notification_template
+mode: default
+content:
+  field_nt_body:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_nt_subject:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

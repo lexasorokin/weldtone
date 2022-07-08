@@ -1,0 +1,10 @@
+uuid: 0ed801a8-7f54-4e44-82e5-cfeed8d69f93
+langcode: en
+status: true
+dependencies: {  }
+id: notification_template
+label: 'Notification template'
+created: false
+changed: false
+uid: false
+title: true

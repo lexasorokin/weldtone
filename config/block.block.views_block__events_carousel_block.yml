@@ -1,0 +1,24 @@
+uuid: 2b1af887-d814-4223-9866-f300f83d687d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - views
+  theme:
+    - civic
+id: views_block__events_carousel_block
+theme: civic
+region: no_location
+weight: -12
+provider: null
+plugin: 'views_block:events-carousel_block'
+settings:
+  id: 'views_block:events-carousel_block'
+  label: 'Mesa Water Events'
+  provider: views
+  label_display: '0'
+  views_label: 'Mesa Water Events'
+  items_per_page: none
+visibility: {  }

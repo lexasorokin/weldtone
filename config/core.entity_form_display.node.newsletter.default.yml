@@ -1,0 +1,222 @@
+uuid: 012750ba-00e8-44df-aa67-50d97c4b7342
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.newsletter.body
+    - field.field.node.newsletter.field_expiration_dates
+    - field.field.node.newsletter.field_ignore_reminders_when_save
+    - field.field.node.newsletter.field_moderational_reminders
+    - field.field.node.newsletter.field_newsletter_file
+    - field.field.node.newsletter.field_newsletter_image
+    - field.field.node.newsletter.field_reminders_titles
+    - image.style.thumbnail
+    - node.type.newsletter
+  module:
+    - content_moderation
+    - file
+    - imce
+    - inline_entity_form
+    - insert
+    - path
+    - scheduler
+    - svg_image
+    - text
+id: node.newsletter.default
+targetEntityType: node
+bundle: newsletter
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 12
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ignore_reminders_when_save:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_moderational_reminders:
+    weight: 15
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      collapsible: true
+      collapsed: true
+      allow_new: true
+      match_operator: CONTAINS
+      revision: false
+      override_labels: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_newsletter_file:
+    weight: 13
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+      insert:
+        default: insert__auto
+        auto_image_style: image
+        link_image: ''
+        width: ''
+        styles:
+          insert__auto: 0
+          link: 0
+          icon_link: 0
+          image: 0
+          audio: 0
+          video: 0
+          event_block_315_155: 0
+          featured_content_530_305: 0
+          featured_content_landing_page_400_200: 0
+          large: 0
+          media_library: 0
+          medium_16_9: 0
+          medium: 0
+          medium_4_3: 0
+          news_block_450_255: 0
+          report_preview: 0
+          thumbnail: 0
+          xl: 0
+          xxl: 0
+        caption: 0
+        align: 0
+        rotate: 0
+    type: file_generic
+    region: content
+  field_newsletter_image:
+    weight: 14
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+      insert:
+        default: insert__auto
+        auto_image_style: image
+        link_image: ''
+        width: ''
+        styles:
+          insert__auto: 0
+          link: 0
+          icon_link: 0
+          image: 0
+          audio: 0
+          video: 0
+          event_block_315_155: 0
+          featured_content_530_305: 0
+          featured_content_landing_page_400_200: 0
+          large: 0
+          media_library: 0
+          medium_16_9: 0
+          medium: 0
+          medium_4_3: 0
+          news_block_450_255: 0
+          report_preview: 0
+          thumbnail: 0
+          xl: 0
+          xxl: 0
+        caption: 0
+        align: 0
+        rotate: 0
+    type: image_image
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 10
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_expiration_dates: true
+  field_reminders_titles: true

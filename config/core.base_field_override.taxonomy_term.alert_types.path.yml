@@ -1,0 +1,20 @@
+uuid: a1c93c9f-f919-4a95-973e-e9bb8711e66b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.alert_types
+  module:
+    - path
+id: taxonomy_term.alert_types.path
+field_name: path
+entity_type: taxonomy_term
+bundle: alert_types
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

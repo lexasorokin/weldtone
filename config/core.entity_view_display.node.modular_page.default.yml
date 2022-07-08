@@ -1,0 +1,59 @@
+uuid: b792ce07-77dd-4a22-8f5c-08d5a726867c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.modular_page.body
+    - field.field.node.modular_page.field_department
+    - field.field.node.modular_page.field_expiration_dates
+    - field.field.node.modular_page.field_ignore_reminders_when_save
+    - field.field.node.modular_page.field_moderational_reminders
+    - field.field.node.modular_page.field_page_bg_image
+    - field.field.node.modular_page.field_pending_exp_notify
+    - field.field.node.modular_page.field_reminders_titles
+    - field.field.node.modular_page.field_sections
+    - field.field.node.modular_page.field_user
+    - node.type.modular_page
+  module:
+    - entity_reference_revisions
+    - layout_builder
+    - layout_discovery
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.modular_page.default
+targetEntityType: node
+bundle: modular_page
+mode: default
+content:
+  field_sections:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_user:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  field_department: true
+  field_expiration_dates: true
+  field_ignore_reminders_when_save: true
+  field_moderational_reminders: true
+  field_page_bg_image: true
+  field_pending_exp_notify: true
+  field_reminders_titles: true
+  langcode: true
+  links: true

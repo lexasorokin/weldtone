@@ -1,0 +1,8 @@
+uuid: 875d83e0-06e2-4753-9d4b-923d672dcd97
+langcode: en
+status: true
+dependencies: {  }
+name: 'Report section'
+vid: report_section
+description: ''
+weight: 0

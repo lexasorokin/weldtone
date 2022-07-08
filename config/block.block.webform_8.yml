@@ -1,0 +1,25 @@
+uuid: 5bd12f0b-5a6a-4b94-9efd-58417179c04d
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.contact_semi_kinetics
+  module:
+    - webform
+  theme:
+    - civic
+id: webform_8
+theme: civic
+region: no_location
+weight: -28
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Contact SK Webform'
+  provider: webform
+  label_display: '0'
+  webform_id: contact_semi_kinetics
+  default_data: ''
+  redirect: false
+visibility: {  }

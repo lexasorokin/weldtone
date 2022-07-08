@@ -1,0 +1,18 @@
+uuid: f65a94fb-36b0-4856-8477-eb8114b5c390
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.report_section
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.report_section
+target_entity_type_id: taxonomy_term
+target_bundle: report_section
+default_langcode: site_default
+language_alterable: true

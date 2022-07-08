@@ -1,0 +1,19 @@
+uuid: 931ecfef-3483-4459-b68f-7d57675aba16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_career_position
+    - paragraphs.paragraphs_type.careers_availble
+id: paragraph.careers_availble.field_career_position
+field_name: field_career_position
+entity_type: paragraph
+bundle: careers_availble
+label: 'career position'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

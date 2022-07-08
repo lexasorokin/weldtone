@@ -1,0 +1,20 @@
+uuid: 877cbdf8-11ac-4718-b789-a6b9a6121e2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+  module:
+    - path
+id: node.report.path
+field_name: path
+entity_type: node
+bundle: report
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    2:
+      label: متوسط
+    3:
+      label: واسع

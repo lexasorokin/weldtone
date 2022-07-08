@@ -1,0 +1,275 @@
+page_title: 'Mesa Water Sitemap'
+message:
+  value: ''
+  format: full_html
+plugins:
+  book:
+    enabled: false
+    weight: -50
+  'vocabulary:board_meeting_title_templates':
+    enabled: false
+    weight: -49
+    settings:
+      title: 'Board meeting title templates'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:special_types':
+    enabled: false
+    weight: -48
+    settings:
+      title: 'Special types'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  frontpage:
+    enabled: true
+    weight: -47
+    settings:
+      title: Home
+      rss: /rss.xml
+  'menu:top-menu':
+    enabled: true
+    weight: -46
+    settings:
+      title: 'Top menu'
+      show_disabled: false
+  'menu:main':
+    enabled: true
+    weight: -45
+    settings:
+      title: 'Main navigation'
+      show_disabled: false
+  'menu:social':
+    enabled: false
+    weight: -44
+    settings:
+      title: Social
+      show_disabled: false
+  'menu:footer':
+    enabled: true
+    weight: -43
+    settings:
+      title: Footer
+      show_disabled: false
+  'vocabulary:news_category':
+    enabled: false
+    weight: -42
+    settings:
+      title: 'News category'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_category':
+    enabled: false
+    weight: -41
+    settings:
+      title: 'Event category'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:select_department':
+    enabled: false
+    weight: -40
+    settings:
+      title: Department
+      show_description: false
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:report_section':
+    enabled: false
+    weight: -39
+    settings:
+      title: 'Report section'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:programmed_styles':
+    enabled: false
+    weight: -38
+    settings:
+      title: 'Programmed Styles'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:location_type':
+    enabled: false
+    weight: -37
+    settings:
+      title: 'Location Type'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_title_templates':
+    enabled: false
+    weight: -36
+    settings:
+      title: 'Event title templates'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_location':
+    enabled: false
+    weight: -35
+    settings:
+      title: 'Event location'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:board_meeting_category':
+    enabled: false
+    weight: -34
+    settings:
+      title: 'Board meeting category'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:bm_location':
+    enabled: false
+    weight: -33
+    settings:
+      title: 'Board meeting location'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:alert_types':
+    enabled: false
+    weight: -32
+    settings:
+      title: 'Alert Types'
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'menu:tools':
+    enabled: false
+    weight: -31
+    settings:
+      title: Tools
+      show_disabled: false
+  'menu:devel':
+    enabled: false
+    weight: -30
+    settings:
+      title: Development
+      show_disabled: false
+  'menu:admin':
+    enabled: false
+    weight: -29
+    settings:
+      title: Administration
+      show_disabled: false
+  'menu:account':
+    enabled: false
+    weight: -28
+    settings:
+      title: 'User account menu'
+      show_disabled: false
+  'vocabulary:tags':
+    enabled: false
+    weight: -27
+    settings:
+      title: Tags
+      show_description: false
+      show_count: false
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: false
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+include_css: false
+_core:
+  default_config_hash: xu0yG13sSQJcXrOJJqsn44W_hUWAIFHVlphrzxT2ycU

@@ -1,0 +1,29 @@
+uuid: 5f096575-de66-4202-b585-530f279604e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.semi_kinetics_banner_slide.field_slide
+    - paragraphs.paragraphs_type.semi_kinetics_banner_slide
+  module:
+    - paragraphs
+id: paragraph.semi_kinetics_banner_slide.default
+targetEntityType: paragraph
+bundle: semi_kinetics_banner_slide
+mode: default
+content:
+  field_slide:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,70 @@
+uuid: babf99db-af2a-43d2-af91-49fccfaa26c1
+langcode: en
+status: true
+dependencies: {  }
+id: edit_reaction_rule_need_review_notification_from_review_
+label: 'Edit reaction rule "Need Review Notification (From Review)"'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: cdff2ade-f0c9-43aa-a6dd-8378ae3e8c3d
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: e6f6adde-09a1-4d66-808c-0912b2309e2b
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 566c2bab-0f05-4897-a25a-5f5854821e0f
+        weight: 0
+        context_values:
+          data: content_moderation_state_unchanged.moderation_state.value
+          operation: '=='
+          value: approved
+        context_mapping: {  }
+        context_processors:
+          data:
+            rules_tokens: {  }
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: 82442104-31cb-47d3-8d18-a278f4d37c89
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 8d0407a3-50a3-4ad8-aa63-0a5db8122235
+        weight: 0
+        context_values:
+          to:
+            - '{{ entity_fetched.uid.entity.mail.value }}'
+          subject: 'Your Content, "{{ entity_fetched.title.value }}", Needs Additional Work'
+          message: 'Link: https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }}. Notes: {{ entity_fetched.revision_log.value }}'
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

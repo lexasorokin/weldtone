@@ -1,0 +1,46 @@
+uuid: 630d16a2-055a-4552-bedf-439daf00d164
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.menu_item.field_link
+    - field.field.paragraph.menu_item.field_menu_item_bold
+    - field.field.paragraph.menu_item.field_open_link_in_new_tab
+    - paragraphs.paragraphs_type.menu_item
+  module:
+    - link
+id: paragraph.menu_item.default
+targetEntityType: paragraph
+bundle: menu_item
+mode: default
+content:
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_menu_item_bold:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_open_link_in_new_tab:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

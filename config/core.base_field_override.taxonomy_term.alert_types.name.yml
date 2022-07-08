@@ -1,0 +1,18 @@
+uuid: a8009805-ecfe-45f7-9d8f-90268097f72d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.alert_types
+id: taxonomy_term.alert_types.name
+field_name: name
+entity_type: taxonomy_term
+bundle: alert_types
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

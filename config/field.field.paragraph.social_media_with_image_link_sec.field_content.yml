@@ -1,0 +1,21 @@
+uuid: c61e2a2b-de42-44d7-bf12-d65e75e2b6b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.social_media_with_image_link_sec
+  module:
+    - text
+id: paragraph.social_media_with_image_link_sec.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: social_media_with_image_link_sec
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

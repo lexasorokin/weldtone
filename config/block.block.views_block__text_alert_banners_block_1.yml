@@ -1,0 +1,24 @@
+uuid: 8f7d0784-bcf8-4fa8-8cda-b40fefc67c80
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.text_alert_banners
+  module:
+    - views
+  theme:
+    - civic
+id: views_block__text_alert_banners_block_1
+theme: civic
+region: banner
+weight: -29
+provider: null
+plugin: 'views_block:text_alert_banners-block_1'
+settings:
+  id: 'views_block:text_alert_banners-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

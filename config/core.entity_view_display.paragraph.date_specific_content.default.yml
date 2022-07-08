@@ -1,0 +1,33 @@
+uuid: bcd29137-2554-440c-9040-688aa00e42ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date_specific_content.field_dsc_content
+    - field.field.paragraph.date_specific_content.field_dsc_date
+    - paragraphs.paragraphs_type.date_specific_content
+  module:
+    - datetime
+    - text
+id: paragraph.date_specific_content.default
+targetEntityType: paragraph
+bundle: date_specific_content
+mode: default
+content:
+  field_dsc_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_dsc_date:
+    weight: 1
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

@@ -1,0 +1,15 @@
+uuid: c0bcb20f-7725-47e0-828e-183088ada779
+langcode: en
+status: true
+dependencies: {  }
+name: featured_content_landing_page_400_200
+label: 'Featured Content Landing page 400*200'
+effects:
+  0aff6cbf-3f2b-4a4d-9983-01b9b43f6f3b:
+    uuid: 0aff6cbf-3f2b-4a4d-9983-01b9b43f6f3b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 200
+      anchor: center-center

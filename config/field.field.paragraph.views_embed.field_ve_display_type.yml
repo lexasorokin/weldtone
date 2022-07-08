@@ -1,0 +1,23 @@
+uuid: dc99756a-4c98-4bca-a41a-b585c200a715
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ve_display_type
+    - paragraphs.paragraphs_type.views_embed
+  module:
+    - options
+id: paragraph.views_embed.field_ve_display_type
+field_name: field_ve_display_type
+entity_type: paragraph
+bundle: views_embed
+label: 'Display type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'one-column container'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

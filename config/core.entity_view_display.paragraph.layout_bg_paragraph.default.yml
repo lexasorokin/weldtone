@@ -1,0 +1,44 @@
+uuid: 4702a3c1-e3e1-4d3a-bd83-058b53df02b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.layout_bg_paragraph.field_layout_bg_content
+    - field.field.paragraph.layout_bg_paragraph.field_layout_bg_media
+    - paragraphs.paragraphs_type.layout_bg_paragraph
+  enforced:
+    module:
+      - layout_bg_paragraph
+  module:
+    - entity_reference_revisions
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: FlwHXTUoxF_tiKoyPvCCnSDdvPMGoWvBYoXePGQOlfg
+id: paragraph.layout_bg_paragraph.default
+targetEntityType: paragraph
+bundle: layout_bg_paragraph
+mode: default
+content:
+  field_layout_bg_content:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_layout_bg_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: layout_bg
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,18 @@
+uuid: 6365b244-e986-4334-bafa-9c9df532ad8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.select_department
+id: taxonomy_term.select_department.name
+field_name: name
+entity_type: taxonomy_term
+bundle: select_department
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

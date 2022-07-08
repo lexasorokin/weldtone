@@ -1,0 +1,14 @@
+uuid: a19ae09b-6e30-4d7a-b3fe-0c1867b59165
+name: WeldTone
+mail: no-reply-web@weldtone.org
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/903
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE

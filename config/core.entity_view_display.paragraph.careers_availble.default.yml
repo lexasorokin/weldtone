@@ -1,0 +1,54 @@
+uuid: 16aebc6b-c9b9-4991-94f0-3330c0fc9ce5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.careers_availble.field_career_position
+    - field.field.paragraph.careers_availble.field_content
+    - field.field.paragraph.careers_availble.field_link
+    - field.field.paragraph.careers_availble.field_location
+    - paragraphs.paragraphs_type.careers_availble
+  module:
+    - link
+    - text
+id: paragraph.careers_availble.default
+targetEntityType: paragraph
+bundle: careers_availble
+mode: default
+content:
+  field_career_position:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_content:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_location:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

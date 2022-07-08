@@ -1,0 +1,19 @@
+uuid: 182caf39-90f8-4bad-a32e-3dc4f9e0c708
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.notification_template.notification_template
+    - field.storage.notification_template.field_nt_subject
+id: notification_template.notification_template.field_nt_subject
+field_name: field_nt_subject
+entity_type: notification_template
+bundle: notification_template
+label: Subject
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

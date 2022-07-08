@@ -1,0 +1,23 @@
+uuid: c7ee3441-e003-4bbe-aa8d-046e39ac7bb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - civic
+_core:
+  default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
+id: civic_search
+theme: civic
+region: top_bar
+weight: -29
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: '0'
+  page_id: node_search
+visibility: {  }

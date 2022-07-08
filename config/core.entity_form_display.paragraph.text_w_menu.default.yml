@@ -1,0 +1,50 @@
+uuid: 897f0c26-732b-4316-b709-79e221b362a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_w_menu.field_additional_styles
+    - field.field.paragraph.text_w_menu.field_content
+    - field.field.paragraph.text_w_menu.field_menu
+    - paragraphs.paragraphs_type.text_w_menu
+  module:
+    - paragraphs
+    - text
+id: paragraph.text_w_menu.default
+targetEntityType: paragraph
+bundle: text_w_menu
+mode: default
+content:
+  field_additional_styles:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_content:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_menu:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: menu
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

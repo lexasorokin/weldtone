@@ -1,0 +1,68 @@
+uuid: 603bb804-b122-47aa-a382-848de2234ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.board_meeting_category.field_bmc_color
+    - taxonomy.vocabulary.board_meeting_category
+  module:
+    - color_field
+    - path
+    - text
+_core:
+  default_config_hash: 0SX5SWiyFAXUqdMSNelhO_4QO5IprttsI_8LV5Q7gO8
+id: taxonomy_term.board_meeting_category.default
+targetEntityType: taxonomy_term
+bundle: board_meeting_category
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_bmc_color:
+    weight: 101
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

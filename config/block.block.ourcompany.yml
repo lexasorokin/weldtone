@@ -1,0 +1,25 @@
+uuid: 0277d8a2-b15a-4fbd-b251-be8699542a55
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:0f388c88-2644-4441-a9db-f5b567924787'
+  module:
+    - block_content
+  theme:
+    - civic
+id: ourcompany
+theme: civic
+region: top_bar
+weight: 0
+provider: null
+plugin: 'block_content:0f388c88-2644-4441-a9db-f5b567924787'
+settings:
+  id: 'block_content:0f388c88-2644-4441-a9db-f5b567924787'
+  label: 'OUR COMPANY'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

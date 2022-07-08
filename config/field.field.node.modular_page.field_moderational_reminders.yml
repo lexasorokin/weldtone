@@ -1,0 +1,28 @@
+uuid: e44f7315-357d-4219-a1db-72bf50e660e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.node.field_moderational_reminders
+    - node.type.modular_page
+id: node.modular_page.field_moderational_reminders
+field_name: field_moderational_reminders
+entity_type: node
+bundle: modular_page
+label: 'Moderational reminders'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:moderational_reminder'
+  handler_settings:
+    target_bundles:
+      moderational_reminder: moderational_reminder
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: 59296709-14a0-43fc-8fed-086d705da552
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.published_content
+  module:
+    - user
+id: user_add_role_action.published_content
+label: 'Add the published content role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: published_content

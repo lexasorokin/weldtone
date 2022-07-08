@@ -1,0 +1,47 @@
+uuid: d13a31b4-d32f-4195-9496-da179add9d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.views_embed.field_additional_styles
+    - field.field.paragraph.views_embed.field_ve_display_type
+    - field.field.paragraph.views_embed.field_ve_views
+    - paragraphs.paragraphs_type.views_embed
+  module:
+    - entity_class_formatter
+    - viewsreference
+id: paragraph.views_embed.default
+targetEntityType: paragraph
+bundle: views_embed
+mode: default
+content:
+  field_additional_styles:
+    weight: 2
+    label: hidden
+    settings:
+      prefix: ''
+      suffix: ''
+      attr: ''
+    third_party_settings: {  }
+    type: entity_class_formatter
+    region: content
+  field_ve_display_type:
+    weight: 1
+    label: hidden
+    settings:
+      prefix: ''
+      suffix: ''
+      attr: ''
+    third_party_settings: {  }
+    type: entity_class_formatter
+    region: content
+  field_ve_views:
+    weight: 0
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+hidden: {  }

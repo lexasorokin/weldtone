@@ -1,0 +1,15 @@
+uuid: 56249737-2e74-4468-b617-6076920e08fa
+langcode: en
+status: true
+dependencies: {  }
+name: news_block_450_255
+label: 'News Block 450*255'
+effects:
+  84d58821-d064-45eb-8262-faf666e481d1:
+    uuid: 84d58821-d064-45eb-8262-faf666e481d1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 450
+      height: 255
+      anchor: center-center

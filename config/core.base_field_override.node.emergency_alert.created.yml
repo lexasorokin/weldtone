@@ -1,0 +1,18 @@
+uuid: eb1f3df8-036e-479f-b817-ae93bb1464ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.emergency_alert
+id: node.emergency_alert.created
+field_name: created
+entity_type: node
+bundle: emergency_alert
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

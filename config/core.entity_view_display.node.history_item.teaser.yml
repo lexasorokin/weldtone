@@ -1,0 +1,31 @@
+uuid: 4e3a8c53-6214-43f3-ac3d-82e8c6e01198
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.history_item.body
+    - node.type.history_item
+  module:
+    - text
+    - user
+id: node.history_item.teaser
+targetEntityType: node
+bundle: history_item
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

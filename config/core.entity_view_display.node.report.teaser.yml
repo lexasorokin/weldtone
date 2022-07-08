@@ -1,0 +1,41 @@
+uuid: a2ecb7d5-8f66-4e8c-86a1-2a679db6e1a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.report.body
+    - field.field.node.report.field_pending_exp_notify
+    - field.field.node.report.field_report_file
+    - field.field.node.report.field_report_preview_image
+    - field.field.node.report.field_report_section
+    - field.field.node.report.field_user
+    - node.type.report
+  module:
+    - text
+    - user
+id: node.report.teaser
+targetEntityType: node
+bundle: report
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_pending_exp_notify: true
+  field_report_file: true
+  field_report_preview_image: true
+  field_report_section: true
+  field_user: true
+  langcode: true

@@ -1,0 +1,60 @@
+uuid: 5de668f4-7cf0-4e8d-bf9a-a9f48266e5b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embedded_blocks_section.field_additional_styles
+    - field.field.paragraph.embedded_blocks_section.field_bg_image
+    - field.field.paragraph.embedded_blocks_section.field_bg_image_position
+    - field.field.paragraph.embedded_blocks_section.field_embed_col_1
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.embedded_blocks_section
+  module:
+    - imce
+    - svg_image
+id: paragraph.embedded_blocks_section.default
+targetEntityType: paragraph
+bundle: embedded_blocks_section
+mode: default
+content:
+  field_additional_styles:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_bg_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_bg_image_position:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_embed_col_1:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

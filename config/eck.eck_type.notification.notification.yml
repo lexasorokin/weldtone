@@ -1,0 +1,9 @@
+uuid: 38038f6b-674f-4c53-84d0-7f526b56edd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.notification
+type: notification
+name: Notification
+description: ''

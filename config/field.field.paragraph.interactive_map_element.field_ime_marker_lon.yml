@@ -1,0 +1,19 @@
+uuid: f71517f0-b692-4a13-99e9-f3601138dca0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ime_marker_lon
+    - paragraphs.paragraphs_type.interactive_map_element
+id: paragraph.interactive_map_element.field_ime_marker_lon
+field_name: field_ime_marker_lon
+entity_type: paragraph
+bundle: interactive_map_element
+label: 'Marker lon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

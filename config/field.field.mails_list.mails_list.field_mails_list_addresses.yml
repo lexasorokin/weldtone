@@ -1,0 +1,19 @@
+uuid: 56bf04fa-63ce-425b-a5bb-5e1143d8f6e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.mails_list.mails_list
+    - field.storage.mails_list.field_mails_list_addresses
+id: mails_list.mails_list.field_mails_list_addresses
+field_name: field_mails_list_addresses
+entity_type: mails_list
+bundle: mails_list
+label: 'Email addresses'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

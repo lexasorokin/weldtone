@@ -1,0 +1,18 @@
+settings:
+  allowed_values:
+    0:
+      label: Primario
+    1:
+      label: Secundario
+    2:
+      label: Éxito
+    4:
+      label: Advertencia
+    5:
+      label: Info
+    6:
+      label: Oscuro
+    7:
+      label: Fina
+    8:
+      label: Blanco

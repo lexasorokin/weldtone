@@ -1,0 +1,15 @@
+uuid: d848095d-1886-48b3-8d28-5611aff1e446
+langcode: en
+status: true
+dependencies: {  }
+name: service_card
+label: 'service card'
+effects:
+  9ca3ea4b-59b8-423a-9f89-5aa928755e1d:
+    uuid: 9ca3ea4b-59b8-423a-9f89-5aa928755e1d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 500
+      height: 1200
+      anchor: center-center

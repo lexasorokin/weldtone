@@ -1,0 +1,4 @@
+label: 'لا تنشر'
+settings:
+  on_label: في
+  off_label: إيقاف

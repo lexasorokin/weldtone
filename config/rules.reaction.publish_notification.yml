@@ -1,0 +1,98 @@
+uuid: d14c373d-963f-4f8c-8ec8-7bb5bdf76d0a
+langcode: en
+status: true
+dependencies: {  }
+id: publish_notification
+label: 'Publish Notification (From Review)'
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 61e7c270-46a6-434e-a3f5-182caa57d450
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: c3b2b27a-5877-4134-8a79-c1cc382ca694
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: bcd4d28e-a774-49d9-9575-26c5acc1f467
+        weight: 0
+        context_values:
+          operation: '=='
+          value: request_review
+        context_mapping:
+          data: content_moderation_state_unchanged.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+      -
+        id: rules_condition
+        uuid: 01240400-4b5d-48ab-b4bf-ba2b450d5acf
+        weight: 0
+        context_values:
+          operation: '=='
+          value: published
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: f7dc4d78-7c5a-407a-949b-464d8d3f427d
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 04a1548b-dbbf-4984-a7ac-59cea6bda2f9
+        weight: 0
+        context_values:
+          type: node
+        context_mapping:
+          entity_id: content_moderation_state.content_entity_id.value
+        context_processors:
+          type:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id
+      -
+        id: rules_action
+        uuid: 70eddecd-ca15-4684-bd8a-e5b6fff8875c
+        weight: 0
+        context_values:
+          to:
+            - '{{ entity_fetched.uid.entity.mail.value }}'
+          subject: 'Your MesaWater.org Content, "{{ entity_fetched.title.value }}", Has Been Published'
+          message: "Link to Content: https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }}.\r\nIf you have any questions, please contact the Public Affairs team."
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

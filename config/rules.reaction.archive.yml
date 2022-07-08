@@ -1,0 +1,81 @@
+uuid: ac46c77f-350f-433f-94cd-14022e73478b
+langcode: en
+status: true
+dependencies: {  }
+id: archive
+label: Archive
+events:
+  -
+    event_name: 'rules_entity_update:content_moderation_state'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 6aa6e940-b43a-473d-aa0b-654043e1e0ce
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 7fec2342-749a-4b42-b07e-a4ed3fcb0d55
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 2e5e1564-0f70-4332-97af-88b04de86327
+        weight: 0
+        context_values:
+          operation: '=='
+          value: archived
+        context_mapping:
+          data: content_moderation_state.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: 47ffbaf6-c287-4f47-9989-636332702045
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 77d95383-a853-4be9-837b-40516e591f89
+        weight: 0
+        context_values:
+          type: node
+        context_mapping:
+          entity_id: content_moderation_state.content_entity_id.value
+        context_processors:
+          type:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_entity_fetch_by_id
+      -
+        id: rules_action
+        uuid: 193362e3-29ab-4dd9-8642-37ce7fad96bb
+        weight: 0
+        context_values:
+          to:
+            - ebeck@360-biz.com
+          subject: 'Content has been Archived'
+          message: 'Page {{ entity_fetched.title.value }} at https://mesawater-drupal.360-biz.com/node/{{ entity_fetched.nid.value }} is archived.'
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

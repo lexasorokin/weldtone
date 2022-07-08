@@ -1,0 +1,21 @@
+uuid: 16c85cc7-6a91-48e5-96d6-047964f1f18c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.moderational_reminder.moderational_reminder
+    - field.storage.moderational_reminder.field_mr_expiration_period_unit
+  module:
+    - options
+id: moderational_reminder.moderational_reminder.field_mr_expiration_period_unit
+field_name: field_mr_expiration_period_unit
+entity_type: moderational_reminder
+bundle: moderational_reminder
+label: 'Expiration period unit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,12 @@
+uuid: d06f7187-03b4-451e-b1f7-7196cb579881
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RiEOheXKpoIPqWNhqGNFUYYORC8OlywOCbPv7hAaEgE
+id: bp_callout
+label: Callout
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
