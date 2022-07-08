@@ -59,56 +59,52 @@
         {{ page.breadcrumb }}
       {% endif %}
 
-        {% if page.sidebar_first %}
-          <aside class="layout-sidebar-first col-md-3" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endif %}
+      {% if page.sidebar_first %}
+        <aside class="layout-sidebar-first col-md-3" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
 
-        {% if page.sidebar_second %}
-          <aside class="layout-sidebar-second col-md-3" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
+      {% if page.sidebar_second %}
+        <aside class="layout-sidebar-second col-md-3" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
 
-        {{ page.content }}
-
-
-
+      {{ page.content }}
     </div>{# /.layout-content #}
 
   </main>
 
 
-        {% if page.hero %}
-          <preffooterblock1>
-            <div class="{{ related_content_width_class }}">
-                  {{ page.hero }}
-            </div>
-          </preffooterblock1>
-        {% endif %}
+  {% if page.hero %}
+    <preffooterblock1>
+      <div class="{{ related_content_width_class }}">
+        {{ page.hero }}
+      </div>
+    </preffooterblock1>
+  {% endif %}
 
 
-
-       {% if page.highlighted %}
-         <subcribe>
-            <div class="{{ related_content_width_class }}">
-            {{ page.highlighted }}
-            </div>
-          </subcribe>
-      {% endif %}
-
- 
-      {% if page.related_content %}
-      <preffooter>
-        <div class="{{ related_content_width_class }}">
-          {{ page.related_content }}
-        </div>
-        </preffooter>
-      {% endif %}
+  {% if page.highlighted %}
+    <subcribe>
+      <div class="{{ related_content_width_class }}">
+        {{ page.highlighted }}
+      </div>
+    </subcribe>
+  {% endif %}
 
 
-{% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+  {% if page.related_content %}
+    <preffooter>
+      <div class="{{ related_content_width_class }}">
+        {{ page.related_content }}
+      </div>
+    </preffooter>
+  {% endif %}
+
+
+  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
     {# #footer #}
     <footer21 id="footer21" class="clearfix footer21">
       <div class="container">
@@ -146,8 +142,6 @@
     </footer21>
     {# EOF #footer #}
   {% endif %}
-
-
 
 
   {% include '@civic/layout/footer.html.twig' %}
