@@ -1,0 +1,53 @@
+{# {% if page.footer %}
+  <footer>
+    <div class="footer-content {{ footer_width_class }}">
+      {{ page.footer }}
+    </div>
+  </footer>
+{% endif %} #}
+
+{% if page.footer_left or page.footer_center or page.footer_right %}
+
+  {% if page.footer_left and page.footer_center and page.footer_right %}
+    {% set column_classes = 'col-lg-4' %}
+  {% elseif page.footer_center and not page.footer_left and not page.footer_right  %}
+    {% set column_classes = 'col-12' %}
+  {% elseif page.footer_right and not page.footer_left and not page.footer_center %}
+    {% set column_classes = 'col-md-6 offset-md-6' %}
+  {% else %}
+    {% set column_classes = 'col-md-6' %}
+  {% endif %}
+
+  <footer>
+    <div class="footer-content {{ footer_width_class }}">
+      <div class="row">
+        {% if page.footer_left %}
+          <div class="col-md-6 footer-left">
+            {{ page.footer_left }}
+          </div>
+        {% endif %}
+
+        {% if page.footer_center %}
+          <div class="{{ column_classes }} d-flex justify-content-center">
+            {{ page.footer_center }}
+          </div>
+        {% endif %}
+
+        {% if page.footer_right %}
+          <div class="{{ column_classes }} d-flex justify-content-end">
+            {{ page.footer_right }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if page.footer_bottom %}
+    <div class="container">
+      <div class="col-md-10 justify-content-center">
+        <p class='copyright'>© {{  "now"|date('Y') }} Mesa Water District. All Rights Reserved.</p>
+         {{ page.footer_bottom }}
+      </div>
+    </div>
+    {% endif %}
+
+  </footer>
+{% endif %}

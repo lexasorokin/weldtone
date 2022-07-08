@@ -21,6 +21,12 @@ regions:
   footer_center: 'Footer (Center)'
   footer_bottom: 'Footer (Bottom)'
   footer_right: 'Footer (Right)'
+  
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  
   no_location: 'No Location'
   hidden: 'Hidden'
   disabled: 'Disabled'

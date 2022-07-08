@@ -54,12 +54,9 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    {{ page.hero }}
-
     <div class="layout-content">
-      {% if page.breadcrumb or page.highlighted %}
+      {% if page.breadcrumb %}
         {{ page.breadcrumb }}
-        {{ page.highlighted }}
       {% endif %}
 
         {% if page.sidebar_first %}
@@ -68,23 +65,90 @@
           </aside>
         {% endif %}
 
-        {{ page.content }}
-
         {% if page.sidebar_second %}
           <aside class="layout-sidebar-second col-md-3" role="complementary">
             {{ page.sidebar_second }}
           </aside>
         {% endif %}
-      </div>
+
+        {{ page.content }}
+
+
+
     </div>{# /.layout-content #}
 
   </main>
 
-  {% if page.related_content %}
-    <div class="{{ related_content_width_class }}">
-      {{ page.related_content }}
-    </div>
+
+        {% if page.hero %}
+          <preffooterblock1>
+            <div class="{{ related_content_width_class }}">
+                  {{ page.hero }}
+            </div>
+          </preffooterblock1>
+        {% endif %}
+
+
+
+       {% if page.highlighted %}
+         <subcribe>
+            <div class="{{ related_content_width_class }}">
+            {{ page.highlighted }}
+            </div>
+          </subcribe>
+      {% endif %}
+
+ 
+      {% if page.related_content %}
+      <preffooter>
+        <div class="{{ related_content_width_class }}">
+          {{ page.related_content }}
+        </div>
+        </preffooter>
+      {% endif %}
+
+
+{% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+    {# #footer #}
+    <footer21 id="footer21" class="clearfix footer21">
+      <div class="container">
+        <div class="row">
+          {% if page.footer_first %}
+            <div class="col-md-2">
+              <div class="footer-area1">
+                {{ page.footer_first }}
+              </div>
+            </div>
+          {% endif %}
+          {% if page.footer_second %}
+            <div class="col-md-3">
+              <div class="footer-area2">
+                {{ page.footer_second }}
+              </div>
+            </div>
+          {% endif %}
+          {% if page.footer_third %}
+            <div class="col-md-3">
+              <div class="footer-area3">
+                {{ page.footer_third }}
+              </div>
+            </div>
+          {% endif %}
+          {% if page.footer_fourth %}
+            <div class="col-md-4">
+              <div class="footer-area4">
+                {{ page.footer_fourth }}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </footer21>
+    {# EOF #footer #}
   {% endif %}
+
+
+
 
   {% include '@civic/layout/footer.html.twig' %}
 

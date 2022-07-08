@@ -8,7 +8,6 @@
   {% set column_classes = 'col-md-6' %}
 {% endif %}
 
-
 <div class="top-bar">
   <div class="header-top-bar container-fluid">
     <div class="row">
@@ -24,22 +23,25 @@
   <div class="header-content container-fluid">
     <div class="row">
       {% if page.header_left %}
-        <div class="col-md-2 region-left">
+        <div class="col-md-3 region-left">
           {{ page.header_left }}
         </div>
       {% endif %}
 
-      {% if page.header_center %}
-        <div class="col-md-8 col-sm-7 d-flex justify-content-end">
-          {{ page.header_center }}
-        </div>
-      {% endif %}
-
       {% if page.header_right %}
-        <div class="col-md-2 col-sm-5 d-flex justify-content-end">
+        <div class="col-md-1 col-sm-5 d-flex justify-content-end">
           {{ page.header_right }}
         </div>
       {% endif %}
     </div>
+        <div class="rowbasemenu">
+      {% if page.header_center %}
+        <div class="col-md-12 d-flex justify-content-center">
+          {{ page.header_center }}
+        </div>
+      {% endif %}
+    </div>
   </div>
+  
+
 </header>

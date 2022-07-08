@@ -22,19 +22,26 @@
     <div class="footer-content {{ footer_width_class }}">
       <div class="row">
         {% if page.footer_left %}
-          <div class="col-md-6 footer-left">
+          <div class="col-md-3">
             {{ page.footer_left }}
           </div>
         {% endif %}
 
         {% if page.footer_center %}
-          <div class="{{ column_classes }} d-flex justify-content-center">
+          <div class="col-md-3">
             {{ page.footer_center }}
           </div>
         {% endif %}
 
+
+        {% if page.footer_news %}
+          <div id="footer-news" class="{{ column_classes }} d-flex justify-content-end">
+            {{ page.footer_news }}
+          </div>
+        {% endif %}
+
         {% if page.footer_right %}
-          <div class="{{ column_classes }} d-flex justify-content-end">
+          <div class="col-md-6">
             {{ page.footer_right }}
           </div>
         {% endif %}
@@ -42,8 +49,8 @@
     </div>
     {% if page.footer_bottom %}
     <div class="container">
-      <div class="col-md-10 justify-content-center">
-        <p class='copyright'>© {{  "now"|date('Y') }} Mesa Water District. All Rights Reserved.</p>
+      <div class="col-md-12">
+        
          {{ page.footer_bottom }}
       </div>
     </div>

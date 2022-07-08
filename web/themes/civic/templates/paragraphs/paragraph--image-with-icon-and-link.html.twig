@@ -49,22 +49,24 @@
 %}
 
 {% set bg_image = content.field_bg_image['0']['#markup'] %}
+{% set bg_videoo = content.field_videobanner['0']['#markup'] %}
 
 
 {% import '/themes/civic/templates/macros/additional_styles.twig' as styles %}
 
 {% block paragraph %}
 
+{% if content.field_bg_image %}
   <section class="main-image"
-
       style="background-image: url({{ bg_image }});"
   >
+{% endif %}
+
+
 <div {{ attributes.addClass(classes, styles.get_styles(content.field_additional_styles)) }}>
     <div class="container">
       {% block content %}
-      <div class="breadcrumbs">
-      {{ breadcrumbsTheme }}
-      </div>
+
         <div class="content-top">{{ content.field_content }}<div>
         {% if content.field_icon_with_link is not null or content.field_icon_with_link is not empty %}
             <div class="elements-wrapper">{{ content.field_icon_with_link }}<div>
@@ -76,4 +78,18 @@
   </section>
   <div class="wav-top">
   </div>
+
+
+      {% block content2 %}
+      <div class="container">
+        <div class="row">
+              <div class="col-md-12">
+                    <div class="breadcrumbs">
+                    {{ breadcrumbsTheme }}
+                    </div>
+        </div>  
+        </div>  
+      {% endblock %}
+
+
 {% endblock paragraph %}
