@@ -1,40 +1,38 @@
-@import 'modules/variables';
-@import 'modules/mixins';
+@import "modules/variables";
+@import "modules/mixins";
 
-@import 'partials/blocks/image-block';
+@import "partials/blocks/image-block";
 
-@import 'partials/global/accordion';
-@import 'partials/global/admin-content';
-@import 'partials/global/button';
-@import 'partials/global/ckeditor';
-@import 'partials/global/footer';
-@import 'partials/global/form';
-@import 'partials/global/header';
-@import 'partials/global/layout';
-@import 'partials/global/menus';
-@import 'partials/global/reset';
-@import 'partials/global/typography';
+@import "partials/global/accordion";
+@import "partials/global/admin-content";
+@import "partials/global/button";
+@import "partials/global/ckeditor";
+@import "partials/global/form";
+@import "partials/global/header";
+@import "partials/global/layout";
+@import "partials/global/menus";
+@import "partials/global/reset";
+@import "partials/global/typography";
+@import "partials/global/footer";
 
-@import 'partials/node/basic-page';
-@import 'partials/node/emergency-alert';
-@import 'partials/node/event-page';
-@import 'partials/node/node';
-@import 'partials/views/financial-services';
+@import "partials/node/basic-page";
+@import "partials/node/emergency-alert";
+@import "partials/node/event-page";
+@import "partials/node/node";
+@import "partials/views/financial-services";
 
-@import 'partials/paragraphs/all-modular-sections';
-@import 'partials/paragraphs/image-with-icon-and-link';
-@import 'partials/paragraphs/bg-image-section';
-@import 'partials/paragraphs/embedded-blocks-section';
-@import 'partials/paragraphs/featured-section';
-@import 'partials/paragraphs/social-media-with-image-link';
-@import 'partials/paragraphs/text-w-menu';
-@import 'partials/paragraphs/views-embed';
-@import 'partials/paragraphs/interactive-map';
+@import "partials/paragraphs/all-modular-sections";
+@import "partials/paragraphs/image-with-icon-and-link";
+@import "partials/paragraphs/bg-image-section";
+@import "partials/paragraphs/embedded-blocks-section";
+@import "partials/paragraphs/featured-section";
+@import "partials/paragraphs/social-media-with-image-link";
+@import "partials/paragraphs/text-w-menu";
+@import "partials/paragraphs/views-embed";
+@import "partials/paragraphs/interactive-map";
 
+@import "partials/paragraphs/map";
+@import "partials/paragraphs/basic-section";
+@import "partials/paragraphs/search-section";
 
-
-@import 'partials/paragraphs/map';
-@import 'partials/paragraphs/basic-section';
-@import 'partials/paragraphs/search-section';
-
-@import 'partials/taxonomy/programmed-styles';
+@import "partials/taxonomy/programmed-styles";
