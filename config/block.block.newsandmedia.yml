@@ -1,0 +1,25 @@
+uuid: 2b2ee549-548e-4d17-a8d4-ccf9ef8c95f7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3e29ae9f-0ea2-450a-802b-17caab527a91'
+  module:
+    - block_content
+  theme:
+    - civic
+id: newsandmedia
+theme: civic
+region: footer_second
+weight: 0
+provider: null
+plugin: 'block_content:3e29ae9f-0ea2-450a-802b-17caab527a91'
+settings:
+  id: 'block_content:3e29ae9f-0ea2-450a-802b-17caab527a91'
+  label: 'NEWS AND MEDIA'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

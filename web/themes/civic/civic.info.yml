@@ -17,16 +17,12 @@ regions:
   related_content: 'Related Content'
   left_sidebar: 'Left Sidebar'
   right_sidebar: 'Right Sidebar'
-  footer_left: 'Footer (Left)'
-  footer_center: 'Footer (Center)'
-  footer_bottom: 'Footer (Bottom)'
-  footer_right: 'Footer (Right)'
-  
   footer_first: 'Footer First'
   footer_second: 'Footer Second'
   footer_third: 'Footer Third'
   footer_fourth: 'Footer Fourth'
-  
+  footer_fifth: 'Footer Fifth'
+  footer_six: 'Footer Six'
   no_location: 'No Location'
   hidden: 'Hidden'
   disabled: 'Disabled'

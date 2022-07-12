@@ -1,0 +1,25 @@
+uuid: 1724528c-0234-4298-9e36-5ad3f1f10ea6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:57f89966-407f-4b89-8bb0-4255d52ac001'
+  module:
+    - block_content
+  theme:
+    - civic
+id: contactus_2
+theme: civic
+region: footer_fifth
+weight: 0
+provider: null
+plugin: 'block_content:57f89966-407f-4b89-8bb0-4255d52ac001'
+settings:
+  id: 'block_content:57f89966-407f-4b89-8bb0-4255d52ac001'
+  label: 'CONTACT US'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

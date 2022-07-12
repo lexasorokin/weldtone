@@ -104,7 +104,7 @@
   {% endif %}
 
 
-  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth or page.footer_fifth or page.footer_six %}
     {# #footer #}
     <footer21 id="footer21" class="clearfix footer21">
       <div class="container">
@@ -137,6 +137,20 @@
               </div>
             </div>
           {% endif %}
+          {% if page.footer_fifth %}
+            <div class="col-md-4">
+              <div class="footer-area5">
+                {{ page.footer_fifth }}
+              </div>
+            </div>
+          {% endif %}
+          {% if page.footer_six %}
+            <div class="col-md-4">
+              <div class="footer-area6">
+                {{ page.footer_six }}
+              </div>
+            </div>
+          {% endif %}
         </div>
       </div>
     </footer21>
@@ -144,6 +158,6 @@
   {% endif %}
 
 
-  {% include '@civic/layout/footer.html.twig' %}
+  {#{% include '@civic/layout/footer.html.twig' %}#}
 
 </div>{# /.layout-container #}

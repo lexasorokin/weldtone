@@ -1,0 +1,25 @@
+uuid: b4797eb6-371e-470b-8483-40cebd29e995
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5cf82471-3024-4d60-b057-149b5d06f18b'
+  module:
+    - block_content
+  theme:
+    - civic
+id: investorrelationship
+theme: civic
+region: footer_third
+weight: 0
+provider: null
+plugin: 'block_content:5cf82471-3024-4d60-b057-149b5d06f18b'
+settings:
+  id: 'block_content:5cf82471-3024-4d60-b057-149b5d06f18b'
+  label: 'INVESTOR RELATIONSHIP'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

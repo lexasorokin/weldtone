@@ -9,7 +9,7 @@ dependencies:
 id: breadcrumbs
 theme: civic
 region: no_location
-weight: -26
+weight: -23
 provider: null
 plugin: system_breadcrumb_block
 settings:

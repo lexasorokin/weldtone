@@ -11,7 +11,7 @@ dependencies:
 id: views_block__featured_content_block_2
 theme: civic
 region: no_location
-weight: -18
+weight: -16
 provider: null
 plugin: 'views_block:featured_content-block_2'
 settings:

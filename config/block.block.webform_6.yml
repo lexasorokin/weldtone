@@ -11,7 +11,7 @@ dependencies:
 id: webform_6
 theme: civic
 region: no_location
-weight: -23
+weight: -19
 provider: null
 plugin: webform_block
 settings:
