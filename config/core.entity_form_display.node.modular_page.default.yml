@@ -20,7 +20,6 @@ dependencies:
     - content_moderation
     - imce
     - inline_entity_form
-    - paragraphs
     - path
     - scheduler
     - svg_image
@@ -87,15 +86,20 @@ content:
     type: image_image
     region: content
   field_sections:
-    type: entity_reference_paragraphs
+    type: inline_entity_form_complex
     weight: 11
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
     third_party_settings: {  }
     region: content
   field_user:
