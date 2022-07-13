@@ -104,48 +104,48 @@
   {% endif %}
 
 
-  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth or page.footer_fifth or page.footer_six %}
+  {#{% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth or page.footer_fifth or page.footer_six %}#}
     {# #footer #}
-    <footer21 id="footer21" class="clearfix footer21">
+    {#<footer21 id="footer21" class="clearfix footer21">
       <div class="container">
         <div class="row">
           {% if page.footer_first %}
-            <div class="col-6 col-lg-2">
+            <div class="col-6 col-lg">
               <div class="footer-area1">
                 {{ page.footer_first }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_second %}
-            <div class="col-6 col-lg-2">
+            <div class="col-6 col-lg">
               <div class="footer-area2">
                 {{ page.footer_second }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_third %}
-            <div class="col-12 col-lg-2">
+            <div class="col-12 col-lg">
               <div class="footer-area3">
                 {{ page.footer_third }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_fourth %}
-            <div class="col-6 col-lg-2">
+            <div class="col-6 col-lg">
               <div class="footer-area4">
                 {{ page.footer_fourth }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_fifth %}
-            <div class="col-6 col-lg-2">
+            <div class="col-6 col-lg">
               <div class="footer-area5">
                 {{ page.footer_fifth }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_six %}
-            <div class="col-12 col-lg-2">
+            <div class="col-12 col-lg-3">
               <div class="footer-area6">
                 {{ page.footer_six }}
               </div>
@@ -153,11 +153,11 @@
           {% endif %}
         </div>
       </div>
-    </footer21>
+    </footer21>#}
     {# EOF #footer #}
-  {% endif %}
+  {#{% endif %}#}
 
 
-  {#{% include '@civic/layout/footer.html.twig' %}#}
+  {% include '@civic/layout/footer.html.twig' %}
 
 </div>{# /.layout-container #}

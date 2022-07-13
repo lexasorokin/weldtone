@@ -6,55 +6,58 @@
   </footer>
 {% endif %} #}
 
-{% if page.footer_left or page.footer_center or page.footer_right %}
 
-  {% if page.footer_left and page.footer_center and page.footer_right %}
-    {% set column_classes = 'col-lg-4' %}
-  {% elseif page.footer_center and not page.footer_left and not page.footer_right  %}
-    {% set column_classes = 'col-12' %}
-  {% elseif page.footer_right and not page.footer_left and not page.footer_center %}
-    {% set column_classes = 'col-md-6 offset-md-6' %}
-  {% else %}
-    {% set column_classes = 'col-md-6' %}
-  {% endif %}
+{% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth or page.footer_fifth or page.footer_six %}
 
-  <footer>
-    <div class="footer-content {{ footer_width_class }}">
-      <div class="row">
-        {% if page.footer_left %}
-          <div class="col-md-3">
-            {{ page.footer_left }}
+{# footer #}
+<footer id="footer22" class="clearfix new-footer">
+  <div class="container">
+    <div class="row">
+      {% if page.footer_first %}
+        <div class="col-6 col-lg">
+          <div class="footer-area1">
+            {{ page.footer_first }}
           </div>
-        {% endif %}
-
-        {% if page.footer_center %}
-          <div class="col-md-3">
-            {{ page.footer_center }}
+        </div>
+      {% endif %}
+      {% if page.footer_second %}
+        <div class="col-6 col-lg">
+          <div class="footer-area2">
+            {{ page.footer_second }}
           </div>
-        {% endif %}
-
-
-        {% if page.footer_news %}
-          <div id="footer-news" class="{{ column_classes }} d-flex justify-content-end">
-            {{ page.footer_news }}
+        </div>
+      {% endif %}
+      {% if page.footer_third %}
+        <div class="col-12 col-lg">
+          <div class="footer-area3">
+            {{ page.footer_third }}
           </div>
-        {% endif %}
-
-        {% if page.footer_right %}
-          <div class="col-md-6">
-            {{ page.footer_right }}
+        </div>
+      {% endif %}
+      {% if page.footer_fourth %}
+        <div class="col-6 col-lg">
+          <div class="footer-area4">
+            {{ page.footer_fourth }}
           </div>
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
+      {% if page.footer_fifth %}
+        <div class="col-6 col-lg">
+          <div class="footer-area5">
+            {{ page.footer_fifth }}
+          </div>
+        </div>
+      {% endif %}
+      {% if page.footer_six %}
+        <div class="col-12 col-lg-3">
+          <div class="footer-area6">
+            {{ page.footer_six }}
+          </div>
+        </div>
+      {% endif %}
     </div>
-    {% if page.footer_bottom %}
-    <div class="container">
-      <div class="col-md-12">
-        
-         {{ page.footer_bottom }}
-      </div>
-    </div>
-    {% endif %}
+  </div>
+</footer>
 
-  </footer>
+{# EOF #footer #}
 {% endif %}
