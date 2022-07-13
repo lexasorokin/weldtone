@@ -874,9 +874,9 @@ footer.new-footer {
     align-items: center;
     justify-content: center;
     height: 100%; }
-  footer.new-footer #block-contactus-2 p {
+  footer.new-footer #block-contactus p {
     margin-bottom: 10px; }
-  footer.new-footer #block-contactus-2 a {
+  footer.new-footer #block-contactus a {
     color: #565659; }
   footer.new-footer nav ul {
     display: flex; }
