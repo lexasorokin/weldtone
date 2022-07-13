@@ -25,7 +25,7 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.addClass('block--image-block') }}>
+<div{{ attributes.addClass('block', 'block--image-block') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
@@ -37,7 +37,7 @@
     {% set imgHeight = content.field_image_height['0'] %}
 
     {% if content.field_image_link['0'] %}
-      <a href="{{ content.field_image_link['0']['#url_title'] }}">
+      <a href="{{ content.field_image_link['0']['#url_title'] }}" target="_blank">
     {% endif %}
       {% if imgWidth and imgHeight %}
         <div  class="img-w-100 img-h-100" style="width: {{ imgWidth['#context'].value }}; height: {{ imgHeight['#context'].value }}">
