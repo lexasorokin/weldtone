@@ -72,10 +72,10 @@ settings:
             - Undo
             - Redo
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
     bs_grid:
       use_cdn: 1
       cdn_url: 'https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css'
