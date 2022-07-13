@@ -1,9 +1,9 @@
-uuid: 2b2ee549-548e-4d17-a8d4-ccf9ef8c95f7
+uuid: a2f70146-20da-4332-b26e-bbe07f1b2c85
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:3e29ae9f-0ea2-450a-802b-17caab527a91'
+    - 'block_content:basic:7be4eb6a-65c9-437b-b7f2-84e4a56fe5ae'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: newsandmedia
 theme: civic
 region: footer_second
-weight: 0
+weight: -26
 provider: null
-plugin: 'block_content:3e29ae9f-0ea2-450a-802b-17caab527a91'
+plugin: 'block_content:7be4eb6a-65c9-437b-b7f2-84e4a56fe5ae'
 settings:
-  id: 'block_content:3e29ae9f-0ea2-450a-802b-17caab527a91'
+  id: 'block_content:7be4eb6a-65c9-437b-b7f2-84e4a56fe5ae'
   label: 'NEWS AND MEDIA'
   provider: block_content
   label_display: visible

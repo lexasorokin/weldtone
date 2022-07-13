@@ -1,6 +1,6 @@
 uuid: 7f3b8658-8f29-4de9-902d-83a36f01cce4
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:57f89966-407f-4b89-8bb0-4255d52ac001'
@@ -10,8 +10,8 @@ dependencies:
     - civic
 id: contactus
 theme: civic
-region: top_bar
-weight: 0
+region: footer_fifth
+weight: -26
 provider: null
 plugin: 'block_content:57f89966-407f-4b89-8bb0-4255d52ac001'
 settings:

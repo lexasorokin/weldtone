@@ -1,6 +1,6 @@
 uuid: b159b487-388e-471f-8a44-da7393044448
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:9e41463d-3454-4d38-821a-28c624cb8e3d'
@@ -10,8 +10,8 @@ dependencies:
     - civic
 id: locations
 theme: civic
-region: top_bar
-weight: 0
+region: footer_fourth
+weight: -26
 provider: null
 plugin: 'block_content:9e41463d-3454-4d38-821a-28c624cb8e3d'
 settings:

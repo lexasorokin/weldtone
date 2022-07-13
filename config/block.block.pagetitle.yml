@@ -7,7 +7,7 @@ dependencies:
 id: pagetitle
 theme: civic
 region: no_location
-weight: -5
+weight: -4
 provider: null
 plugin: page_title_block
 settings:

@@ -9,7 +9,7 @@ dependencies:
 id: gtranslate
 theme: civic
 region: no_location
-weight: -22
+weight: -26
 provider: null
 plugin: gtranslate_block
 settings:

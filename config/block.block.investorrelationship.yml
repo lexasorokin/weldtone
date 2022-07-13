@@ -1,9 +1,9 @@
-uuid: b4797eb6-371e-470b-8483-40cebd29e995
+uuid: 3a75c8ed-da32-469f-b440-e02f15cd4420
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:5cf82471-3024-4d60-b057-149b5d06f18b'
+    - 'block_content:basic:355a3079-63f9-4d08-a10a-e8632eaaeb12'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: investorrelationship
 theme: civic
 region: footer_third
-weight: 0
+weight: -27
 provider: null
-plugin: 'block_content:5cf82471-3024-4d60-b057-149b5d06f18b'
+plugin: 'block_content:355a3079-63f9-4d08-a10a-e8632eaaeb12'
 settings:
-  id: 'block_content:5cf82471-3024-4d60-b057-149b5d06f18b'
+  id: 'block_content:355a3079-63f9-4d08-a10a-e8632eaaeb12'
   label: 'INVESTOR RELATIONSHIP'
   provider: block_content
   label_display: visible

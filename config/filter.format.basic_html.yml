@@ -109,9 +109,3 @@ filters:
         mouseWheel: '0'
         randomize: '0'
         variableWidth: '0'
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
