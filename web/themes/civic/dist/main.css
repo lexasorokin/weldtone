@@ -842,6 +842,11 @@ blockquote {
 footer.new-footer {
   background-color: #fff;
   padding: 80px 0; }
+  @media screen and (max-width: 1199px) {
+    footer.new-footer div[class*="col"] {
+      margin-bottom: 60px; }
+      footer.new-footer div[class*="col"]:last-child {
+        margin-bottom: 0; } }
   footer.new-footer .block h2 {
     color: #505050;
     white-space: nowrap;
@@ -853,10 +858,14 @@ footer.new-footer {
         font-size: 16px; } }
   footer.new-footer .block p {
     color: #505050;
-    font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.5px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 14px; }
+    @media screen and (max-width: 768px) {
+      footer.new-footer .block p {
+        font-size: 12px;
+        max-width: 280px; } }
   footer.new-footer .footer-area6,
   footer.new-footer .region--footer-six {
     height: 100%; }
@@ -865,12 +874,14 @@ footer.new-footer {
     align-items: center;
     justify-content: center;
     height: 100%; }
+  footer.new-footer #block-contactus-2 p {
+    margin-bottom: 10px; }
+  footer.new-footer #block-contactus-2 a {
+    color: #565659; }
   footer.new-footer nav ul {
     display: flex; }
   footer.new-footer nav li {
     padding: 0 7.5px; }
-  footer.new-footer a {
-    color: #565659; }
 
 .node--type-page .basic-page-header {
   height: 30rem;
