@@ -142,6 +142,7 @@ module:
   toolbar: 0
   tour: 0
   twig_field_value: 0
+  twig_tweak: 0
   typed_data: 0
   ultimate_cron: 0
   update: 0

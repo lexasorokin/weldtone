@@ -67,6 +67,7 @@
         "drupal/smtp": "^1.0",
         "drupal/superfish": "^1.4",
         "drupal/svg_image": "^1.13",
+        "drupal/twig_tweak": "^3.1",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^3.11",
         "drupal/views_autosubmit": "^1.4",
