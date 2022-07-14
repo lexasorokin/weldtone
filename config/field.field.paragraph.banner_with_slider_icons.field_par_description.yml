@@ -1,0 +1,21 @@
+uuid: 3e540577-3c39-4581-a7cc-ebf3b6000c63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_description
+    - paragraphs.paragraphs_type.banner_with_slider_icons
+  module:
+    - text
+id: paragraph.banner_with_slider_icons.field_par_description
+field_name: field_par_description
+entity_type: paragraph
+bundle: banner_with_slider_icons
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

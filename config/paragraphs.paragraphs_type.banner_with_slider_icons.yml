@@ -1,0 +1,15 @@
+uuid: 650e8940-3f1e-4b32-b579-8fe582104a61
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
+id: banner_with_slider_icons
+label: 'Banner with slider icons'
+icon_uuid: null
+icon_default: null
+description: 'Custom Paragraph for New Design'
+behavior_plugins: {  }

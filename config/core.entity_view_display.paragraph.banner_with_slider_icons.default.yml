@@ -1,0 +1,41 @@
+uuid: e5904bfa-d5a5-4a0d-94da-6d9b8e944182
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_with_slider_icons.field_layout_bg_media
+    - field.field.paragraph.banner_with_slider_icons.field_par_description
+    - field.field.paragraph.banner_with_slider_icons.field_paragraph_title
+    - paragraphs.paragraphs_type.banner_with_slider_icons
+  module:
+    - text
+id: paragraph.banner_with_slider_icons.default
+targetEntityType: paragraph
+bundle: banner_with_slider_icons
+mode: default
+content:
+  field_layout_bg_media:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: layout_bg
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_paragraph_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
